@@ -9,10 +9,10 @@ function injectFooter() {
 <footer>
     <img src="images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="footer-logo-img" />
     <div class="footer-links">
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
-      <a href="#">Kontakt</a>
-      <a href="#">RSS</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="rss.xml">RSS</a>
     </div>
     <p class="footer-sub">Crafted by Hand</p>
     <p class="footer-copy">© 2026 Knut's Wooden Dreams — Alle Rechte vorbehalten</p>
