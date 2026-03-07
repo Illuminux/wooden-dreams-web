@@ -738,30 +738,56 @@ details summary:hover { color: var(--honey); }
 /* ── DRAWINGS GRID ── */
 .drawings-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.8rem;
   margin: 1.2rem 0 2rem;
 }
 
-.drawing-card {
+/* Drawing cards */
+.drawing-card,
+.drawing-thumb {
+  position: relative;
   cursor: pointer;
   border: 1px solid var(--rule);
   background: var(--linen);
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
+  aspect-ratio: 1.41;
 }
 
-.drawing-card:hover {
+.drawing-card:hover,
+.drawing-thumb:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px var(--shadow);
   border-color: var(--honey);
 }
 
-.drawing-card img {
+.drawing-card img,
+.drawing-thumb img {
   width: 100%;
-  aspect-ratio: 1.41;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.2s;
+}
+
+.drawing-thumb .pdf-download {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(200, 145, 58, 0.9);
+  color: var(--bark);
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.4rem;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.drawing-thumb:hover .pdf-download {
+  opacity: 1;
 }
 
 .drawing-card-label {
@@ -844,8 +870,8 @@ details summary:hover { color: var(--honey); }
 .lb-next { right: 1rem; }
 .lb-prev:hover, .lb-next:hover { background: rgba(200,145,58,0.12); }
 
-@media (max-width: 700px) {
-  .drawings-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 480px) {
+  .drawings-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
 }
 
 /* ── TOOL CARDS ── */
