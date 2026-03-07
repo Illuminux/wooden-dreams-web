@@ -100,9 +100,14 @@ header::after {
   margin: 0 auto 1rem;
   opacity: 0.75;
 }
-.footer-logo-img svg {
+.footer-logo-img svg,
+.footer-logo-img img {
   width: 100%;
   height: auto;
+}
+
+/* inline SVGs still receive a fill color */
+.footer-logo-img svg {
   fill: #f4ece0;
 }
 
