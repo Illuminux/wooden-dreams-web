@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Knut's Wooden Dreams</title>
+    <link>https://example.com/</link> <!-- set your actual domain -->
+    <description>Blog über Holzprojekte, DIY und Werkstattideen</description>
+    <language>de-de</language>
+    <lastBuildDate>Sat, 07 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <!-- Feed items; aktualisiere hier, wenn neue Projekte online gehen -->
+
+    <item>
+      <title>Halbe Baumbank</title>
+      <link>https://example.com/baumbank.html</link>
+      <description>Sommerabende im Garten, ein schattiger Platz und ein DIY-Projekt aus Douglasie – komplette Anleitung und technische Zeichnungen.</description>
+      <pubDate>Fri, 06 Mar 2026 12:00:00 +0000</pubDate>
+      <guid>https://example.com/baumbank.html</guid>
+    </item>
+
+    <!-- weitere items hier einfügen -->
+  </channel>
+</rss>
