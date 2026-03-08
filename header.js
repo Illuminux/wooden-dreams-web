@@ -26,7 +26,7 @@ function injectHeader() {
     <a href="#">Techniken</a>
     <a href="werkzeuge.html">Werkzeuge</a>
     <a href="#">Holzarten</a>
-    <a href="#">Über mich</a>
+    <a href="about.html">Über mich</a>
   </nav>
 </div>
 </header>
