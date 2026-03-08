@@ -1057,3 +1057,11 @@ details summary:hover { color: var(--honey); }
   .tools-grid { grid-template-columns: 1fr; }
   .category-header h2 { font-size: 1.1rem; }
 }
+
+.rating-reason {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+}
