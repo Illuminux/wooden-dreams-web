@@ -1,3 +1,19 @@
+/* ==========================================================================
+   WOODWORK PORTFOLIO - FULL STYLESHEET
+   Struktur: 
+   1. Design System & Reset
+   2. Globales Layout (Header, Nav, Footer, Newsletter)
+   3. Komponenten (Karten, Badges, Tabellen, Buttons)
+   4. Blog & Artikel (Featured, Grids, Typography)
+   5. Projekt-Details & Sidebar
+   6. Interaktive Elemente (3D Viewer, Lightbox, Collapsibles)
+   7. Media Queries (Responsive)
+
+   (c) 2024 Knut Wenzel - All rights reserved
+   Warning: Do not copy or reuse code without permission.
+   ========================================================================== */
+
+/* ── 1. DESIGN SYSTEM & RESET ────────────────────────────────────────────── */
 :root {
   --bark:      #2b1e14;
   --walnut:    #4a3323;
@@ -11,9 +27,13 @@
   --shadow:    rgba(43,30,20,0.18);
 }
 
+/* Global Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Smooth scrolling for anchor links */
 html { scroll-behavior: smooth; }
 
+/* ── 2. GLOBAL LAYOUT & TYPOGRAPHY ─────────────────────────────────────── */
 body {
   background: var(--warm-white);
   color: var(--bark);
@@ -21,7 +41,7 @@ body {
   line-height: 1.75;
 }
 
-/* ── WOOD GRAIN TEXTURE ── */
+/* Subtle diagonal texture overlay */
 body::before {
   content: '';
   position: fixed;
@@ -33,13 +53,20 @@ body::before {
   z-index: 9999;
 }
 
-/* ── HEADER ── */
+/* ── HEADER & NAV ── */
+/* 
+ The header features a rich bark background with a subtle gradient accent at 
+ the bottom, and a faint overlay of tree rings for texture. The inner content 
+ is centered and animated for a smooth entrance. Navigation links are styled 
+ with a monospace font and interactive hover effects to enhance usability. 
+ */
 header {
   background: var(--bark);
   position: relative;
   overflow: hidden;
 }
 
+/* Gradient accent at the bottom of the header */
 header::after {
   content: '';
   position: absolute;
@@ -48,6 +75,7 @@ header::after {
   background: linear-gradient(90deg, var(--honey), var(--oak), var(--honey));
 }
 
+/* Faint tree rings overlay */
 .header-rings {
   position: absolute;
   right: -80px;
@@ -58,8 +86,16 @@ header::after {
   height: 380px;
 }
 
+/* 
+ The rings are simple circles with no fill and a light stroke to create a 
+ subtle texture effect without overpowering the header content. 
+*/
 .header-rings circle { fill: none; stroke: var(--sand); stroke-width: 1.5; }
 
+/* 
+ Inner content of the header is centered and has a fade-down animation 
+ for a smooth entrance effect. 
+*/
 .header-inner {
   position: relative;
   z-index: 1;
@@ -72,6 +108,12 @@ header::after {
   text-align: center;
 }
 
+/* 
+ The eyebrow is styled with a monospace font, uppercase letters, and 
+ increased letter spacing to create a distinctive label above the main 
+ title. It also has a fade-down animation with a slight delay for a 
+ staggered entrance effect. 
+*/
 .header-eyebrow {
   font-family: 'Inconsolata', monospace;
   font-size: 0.7rem;
@@ -82,35 +124,68 @@ header::after {
   animation: fadeDown 0.7s ease both;
 }
 
+/* 
+ The site logo is displayed as a block element with a fixed width and a fade-down 
+ animation. The SVG inside the logo is styled to fill with a light color that 
+ contrasts well against the dark bark background. 
+*/
 .site-logo {
   display: block;
   width: 220px;
   margin-bottom: 1.8rem;
   animation: fadeDown 0.7s 0.1s ease both;
 }
+
+/* 
+ The SVG inside the site logo is set to fill with a light color that contrasts 
+ well against the dark bark background, ensuring good visibility and brand 
+ recognition. 
+*/
 .site-logo svg {
   width: 100%;
   height: auto;
   fill: #f4ece0;
 }
 
+/* 
+ The site title is styled with a serif font, a large responsive font size, and 
+ a subtle color that complements the overall palette. It also has a fade-down 
+ animation with a slight delay for a staggered entrance effect. 
+*/
 .footer-logo-img {
   display: block;
   width: 110px;
   margin: 0 auto 1rem;
   opacity: 0.75;
 }
+
+/* 
+ The SVG or image inside the footer logo is set to fill the container width while 
+ maintaining its aspect ratio, ensuring it looks crisp and well-proportioned in 
+ the footer section. 
+*/
 .footer-logo-img svg,
 .footer-logo-img img {
   width: 100%;
   height: auto;
 }
 
-/* inline SVGs still receive a fill color */
+/* 
+ The SVG inside the footer logo is styled to fill with a light color that contrasts 
+ well against the dark bark background of the footer, ensuring good visibility and 
+ brand recognition even in the smaller size used in the footer. 
+*/
 .footer-logo-img svg {
   fill: #f4ece0;
 }
 
+/* 
+ The site title is styled with a serif font, a large responsive font size, and 
+ a subtle color that complements the overall palette. It also has a fade-down 
+ animation with a slight delay for a staggered entrance effect. The span inside 
+ the title is colored differently to create visual interest and highlight part of 
+ the brand name. 
+*/
 .site-title {
   font-family: 'Marcellus', serif;
   font-size: clamp(2.4rem, 7vw, 5.5rem);
@@ -120,8 +195,20 @@ header::after {
   animation: fadeDown 0.7s 0.1s ease both;
 }
 
+/* 
+ The span inside the site title is colored with the honey accent color to create 
+ visual interest and highlight part of the brand name, adding a touch of warmth 
+ and contrast to the overall design. 
+*/
 .site-title span { color: var(--honey); }
 
+/* 
+ The site tagline is styled with a serif font, italicized for emphasis, and a 
+ smaller font size. The color is set to a semi-transparent version of the sand 
+ color to create a subtle, complementary look that doesn't compete with the main 
+ title. It also has a fade-down animation with a slight delay for a staggered 
+ entrance effect. 
+*/
 .site-tagline {
   font-family: 'Lora', serif;
   font-style: italic;
@@ -132,16 +219,38 @@ header::after {
   animation: fadeDown 0.7s 0.2s ease both;
 }
 
+/* 
+ The navigation bar is styled as a flex container with a gap between links, a 
+ border that matches the overall color scheme, and a fade-down animation for a 
+ smooth entrance. The links themselves are styled with a monospace font, uppercase 
+ letters, and increased letter spacing for a distinctive look. They also have 
+ interactive hover effects that change the color and background to enhance usability. 
+*/
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* 
+ The fade-up animation is used for elements that should appear with a slight upward 
+ motion, such as featured sections and cards. It starts with the element being 
+ slightly below its final position and fully transparent, then transitions to its 
+ final position while fading in. This creates a dynamic and engaging entrance effect 
+ for content as the user scrolls down the page. 
+*/
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* 
+ The navigation bar is styled as a flex container with a gap between links, a border 
+ that matches the overall color scheme, and a fade-down animation for a smooth entrance. 
+ The links themselves are styled with a monospace font, uppercase letters, and increased 
+ letter spacing for a distinctive look. They also have interactive hover effects that change 
+ the color and background to enhance usability. The navigation is also responsive, allowing 
+ links to wrap to the next line on smaller screens without breaking the layout. 
+*/
 nav {
   display: flex;
   gap: 0;
@@ -150,6 +259,13 @@ nav {
   flex-wrap: wrap;
 }
 
+/* 
+ Each navigation link is styled with a monospace font, uppercase letters, and increased 
+ letter spacing for a distinctive look. They also have interactive hover effects that change 
+ the color and background to enhance usability. The padding and border create a clear 
+ separation between links while maintaining a cohesive design. The last link has no right 
+ border to avoid an extra line at the end of the navigation bar. 
+*/
 nav a {
   font-family: 'Inconsolata', monospace;
   font-size: 0.72rem;
@@ -162,10 +278,19 @@ nav a {
   transition: color 0.2s, background 0.2s;
 }
 
+/* Remove right border from the last navigation link to prevent an extra line at the end */
 nav a:last-child { border-right: none; }
+
+/* 
+ The hover effect for navigation links changes the color to the honey accent color and adds a 
+ subtle background highlight using a semi-transparent version of the honey color. This provides 
+ visual feedback to users when they interact with the navigation links, enhancing usability and 
+ making it clear which link is being hovered over. The transition property ensures that the color 
+ and background changes happen smoothly. 
+*/
 nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 
-/* ── CONTAINER ── */
+/* ── MAIN CONTAINER ── */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
 /* ── SECTION LABELS ── */
@@ -176,6 +301,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin: 3.5rem 0 2rem;
 }
 
+/* 
+ Section labels are styled with a monospace font, uppercase letters, and increased letter 
+ spacing to create a distinctive label for different sections of the page. The color is set 
+ to a muted tone to complement the overall palette without overpowering the content. The section 
+ label also includes horizontal lines on either side to visually separate it from the surrounding 
+ content and create a clear division between sections. The white-space property ensures that the 
+ label text does not wrap to multiple lines, maintaining a clean and organized appearance. 
+*/
 .section-label h2 {
   font-family: 'Inconsolata', monospace;
   font-size: 0.72rem;
@@ -185,6 +318,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   white-space: nowrap;
 }
 
+/* 
+ The horizontal lines on either side of the section label are created using pseudo-elements. They 
+ are set to flex: 1 to take up the remaining space on either side of the label text, and have a 
+ height of 1px with a background color that matches the overall color scheme. This creates a clean 
+ and balanced look for the section labels, visually separating them from the surrounding content. 
+*/
 .section-label::before,
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
@@ -198,11 +337,24 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   overflow: hidden;
 }
 
+/* 
+ The featured 3D section is styled as a grid with two columns, where the first column is slightly 
+ larger than the second to create a dynamic layout. The background is set to the bark color, and a 
+ box shadow is added to create depth. The section also has a fade-up animation for a smooth 
+ entrance effect. The overflow is hidden to ensure that any content that exceeds the boundaries 
+ of the section does not disrupt the layout. 
+*/
 .viewer-wrap {
   position: relative;
   background: #1a1008;
 }
 
+/* 
+ The iframe inside the viewer wrap is styled to take up the full width and height of the container, 
+ with a minimum height to ensure it remains visible on smaller screens. The display is set to block 
+ to remove any default inline spacing, and the border is removed for a clean look. This allows the 
+ 3D viewer to be prominently displayed within the featured section without any distractions. 
+*/
 .viewer-wrap iframe {
   width: 100%;
   height: 100%;
@@ -211,6 +363,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   border: none;
 }
 
+/* 
+ The viewer badge is positioned absolutely within the viewer wrap, placed at the bottom left corner. 
+ It is styled with a monospace font, uppercase letters, and increased letter spacing for a distinctive 
+ look. The background is a semi-transparent version of the honey color to create contrast against the 
+ dark background of the viewer, while the text color is set to the bark color for readability. The 
+ padding provides some space around the text, and pointer-events: none ensures that the badge does not 
+ interfere with interactions with the 3D viewer itself. 
+*/
 .viewer-badge {
   position: absolute;
   bottom: 1rem;
@@ -224,13 +384,23 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   pointer-events: none;
 }
 
+/* 
+ The viewer hint is styled with a monospace font, uppercase letters, and increased letter spacing for a distinctive 
+ look. The color is set to a muted tone to complement the overall palette without overpowering the content. The 
+ text is centered to align with the viewer and provide a clear instruction or hint to users about interacting with 
+ the 3D viewer. The margin-top creates some space between the viewer and the hint text for better readability. 
+*/
 @media (max-width: 900px) {
   .featured-3d { grid-template-columns: 1fr; }
   .viewer-wrap iframe { min-height: 300px; }
 }
 
-/* ── FEATURED (old, kept for reference) ── */
-/* ── FEATURED ── */
+/* 
+ On smaller screens, the featured 3D section switches to a single-column layout to ensure that the content remains 
+ readable and visually appealing. The minimum height of the iframe is also reduced to better fit smaller screen sizes 
+ while still maintaining visibility of the 3D viewer. This responsive design ensures that the featured section looks great 
+ and functions well across a variety of devices. 
+ */
 .featured {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -240,6 +410,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   overflow: hidden;
 }
 
+/* 
+ The featured section is styled as a grid with two columns, where the first column is slightly larger than the 
+ second to create a dynamic layout. 
+ The background is set to the bark color, and a box shadow is added to create depth. The section also has a 
+ fade-up animation for a smooth entrance effect. 
+ The overflow is hidden to ensure that any content that exceeds the boundaries of the section does not disrupt 
+ the layout. 
+ */
 .featured-visual {
   position: relative;
   min-height: 420px;
@@ -250,8 +428,20 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   justify-content: center;
 }
 
+/* 
+ The featured visual is styled with a rich gradient background that evokes the colors of wood and honey. 
+ It has a minimum height to ensure it remains visually impactful, and overflow is hidden to maintain a 
+ clean layout. The content inside the visual is centered both vertically and horizontally using flexbox, 
+ making it an ideal space for showcasing an image or 3D model related to the featured content. 
+ */
 .wood-art { width: 240px; height: 240px; opacity: 0.5; }
 
+/* 
+ The after pseudo-element of the featured visual creates a gradient overlay that adds depth and visual interest to the 
+ background. It transitions from transparent to the bark color, creating a subtle vignette effect that draws attention 
+ to the center of the visual. This overlay enhances the overall aesthetic of the featured section without overpowering 
+ the content placed within it. 
+*/
 .featured-visual::after {
   content: '';
   position: absolute;
@@ -259,6 +449,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   background: linear-gradient(90deg, transparent 60%, var(--bark) 100%);
 }
 
+/* 
+ The featured content is styled with padding to create space around the text, and uses flexbox to arrange its children in a 
+ column and center them vertically. This allows for a clean and organized presentation of the featured title, excerpt, meta 
+ information, and call-to-action button. The layout ensures that the content is easy to read and visually balanced within the 
+ featured section. 
+*/
 .featured-content {
   padding: 3rem 2.5rem;
   display: flex;
@@ -266,6 +462,11 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   justify-content: center;
 }
 
+/* 
+ The post tag is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the 
+ featured content. The color is set to the honey accent color to create contrast against the dark background of the featured section. 
+ The margin-bottom creates space between the tag and the title for better readability. 
+*/  
 .post-tag {
   font-family: 'Inconsolata', monospace;
   font-size: 0.62rem;
@@ -275,6 +476,10 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 1rem;
 }
 
+/* 
+ The featured title is styled with a serif font, a large responsive font size, and a subtle color that complements the overall palette. 
+ The line height is set to create a balanced vertical rhythm, and the margin-bottom creates space between the title and the excerpt for better readability. 
+*/
 .featured-title {
   font-family: 'Marcellus', serif;
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -283,6 +488,10 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 1rem;
 }
 
+/* 
+ The featured excerpt is styled with a slightly smaller font size than the title, and a semi-transparent color to create a subtle contrast against the background. 
+ The line height is set to improve readability, and the margin-bottom creates space between the excerpt and the meta information for better visual separation. 
+*/
 .featured-excerpt {
   font-size: 0.93rem;
   color: rgba(232,216,192,0.62);
@@ -290,6 +499,11 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 1.8rem;
 }
 
+/* 
+ The featured meta information is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the metadata. 
+ The color is set to a semi-transparent version of the honey color to create contrast against the dark background while maintaining a subtle appearance. 
+ The margin-bottom creates space between the meta information and the call-to-action button for better visual separation. 
+*/
 .featured-meta {
   font-family: 'Inconsolata', monospace;
   font-size: 0.65rem;
@@ -298,6 +512,11 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 1.5rem;
 }
 
+/* 
+ The call-to-action button in the featured section is styled as an inline-block element with a monospace font, uppercase letters, and increased letter spacing for a distinctive look. 
+ The color is set to the bark color for the text, and the background is set to the honey accent color to create contrast against the dark background of the featured section. 
+ The padding provides space around the text, and a transition is added for smooth hover effects. The align-self: flex-start ensures that the button aligns to the start of the content column, creating a visually appealing layout. 
+*/
 .btn-read {
   display: inline-block;
   font-family: 'Inconsolata', monospace;
@@ -312,9 +531,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   align-self: flex-start;
 }
 
+/* 
+ The hover effect for the call-to-action button changes the background color to a slightly darker shade of the honey accent color and applies a subtle upward translation to create a sense of interactivity. This provides visual feedback to users when they interact with the button, enhancing usability and making it clear that the button is clickable. The transition property ensures that the background color change and the transform happen smoothly. 
+*/
 .btn-read:hover { background: #d9a24a; transform: translateY(-2px); }
 
-/* ── POST GRID ── */
+/* ── POSTS GRID ── */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -322,6 +544,9 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 4rem;
 }
 
+/* 
+ The posts grid is styled as a responsive grid layout with three equal columns and a gap between them. This allows for a clean and organized presentation of multiple post cards on the page. The margin-bottom creates space between the grid and the following content for better visual separation. On smaller screens, the grid adjusts to fewer columns to maintain readability and visual appeal. 
+*/
 .post-card {
   background: var(--linen);
   border: 1px solid var(--rule);
@@ -330,19 +555,31 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   animation: fadeUp 0.7s ease both;
 }
 
+/* 
+ Each post card is styled with a light background color and a subtle border to create a clean and modern look. The overflow is hidden to ensure that any content that exceeds the boundaries of the card does not disrupt the layout. The transition property allows for smooth hover effects when the user interacts with the card, enhancing usability and visual appeal. The fade-up animation gives each card a dynamic entrance as it appears on the page. 
+*/
 .post-card:nth-child(2) { animation-delay: 0.1s; }
 .post-card:nth-child(3) { animation-delay: 0.2s; }
 .post-card:nth-child(4) { animation-delay: 0.3s; }
 .post-card:nth-child(5) { animation-delay: 0.4s; }
 .post-card:nth-child(6) { animation-delay: 0.5s; }
 
+/* 
+ The hover effect for each post card applies a subtle upward translation and a more pronounced box shadow to create a sense of depth and interactivity. This provides visual feedback to users when they hover over a card, making it clear that the card is clickable and encouraging engagement. The transition property ensures that the transform and box-shadow changes happen smoothly, enhancing the overall user experience. 
+*/
 .post-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px var(--shadow); }
 
+/* 
+ The card thumbnail is styled with a fixed height and overflow hidden to create a consistent visual appearance for the images within the post cards. This ensures that all thumbnails have the same height, creating a uniform look across the grid. The overflow hidden property prevents any part of the image that exceeds the boundaries of the thumbnail from being visible, maintaining a clean and organized layout. 
+*/
 .card-thumb {
   height: 180px;
   overflow: hidden;
 }
 
+/* 
+ The inner container of the card thumbnail is styled to take up the full width and height of the thumbnail, with a transition applied to the transform property for smooth hover effects. The display is set to flex, and the content is centered both vertically and horizontally, making it an ideal space for showcasing an image or icon related to the post. When the user hovers over the post card, the inner container scales up slightly to create a dynamic and engaging visual effect. 
+*/
 .card-thumb-inner {
   width: 100%;
   height: 100%;
@@ -352,8 +589,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   justify-content: center;
 }
 
+/* 
+ The hover effect for the card thumbnail scales up the inner container slightly to create a dynamic and engaging visual effect when the user hovers over the post card. This provides visual feedback to users, making it clear that the card is interactive and encouraging them to click through to read more. The transition property ensures that the scaling happens smoothly, enhancing the overall user experience. 
+*/
 .post-card:hover .card-thumb-inner { transform: scale(1.06); }
 
+/* 
+ The different thumbnail themes (t1, t2, t3, etc.) are styled with linear gradient backgrounds that evoke the colors and textures of wood. Each theme uses a combination of warm browns and subtle variations to create a rich and visually appealing backdrop for the card thumbnails. These gradients add depth and interest to the thumbnails, making them stand out within the post cards while maintaining a cohesive aesthetic with the overall design of the site. 
+*/
 .t1 { background: linear-gradient(135deg, #3a2515 0%, #7a4f2a 100%); }
 .t2 { background: linear-gradient(135deg, #2a3515 0%, #5a7030 100%); }
 .t3 { background: linear-gradient(135deg, #352515 0%, #7a5a30 100%); }
@@ -361,10 +604,19 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 .t5 { background: linear-gradient(135deg, #351520 0%, #703045 100%); }
 .t6 { background: linear-gradient(135deg, #251535 0%, #503070 100%); }
 
+/* 
+ The thumbnail icons are styled with a fixed width and height, and a reduced opacity to create a subtle, ghosted effect against the gradient backgrounds. This allows the icons to add visual interest and reinforce the theme of woodworking without overpowering the overall design of the card thumbnails. The consistent size of the icons helps maintain a cohesive look across different thumbnail themes. 
+*/
 .thumb-icon { width: 70px; height: 70px; opacity: 0.25; }
 
+/* 
+ The card body is styled with padding to create space around the text content within the post cards. This ensures that the title, excerpt, and other information have enough breathing room, making it easier to read and visually appealing. The padding values are chosen to create a balanced layout within the card, contributing to a clean and organized presentation of the post information. 
+*/
 .card-body { padding: 1.4rem 1.5rem 1.6rem; }
 
+/* 
+ The card tag is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the post category or tag. The color is set to the oak accent color to create contrast against the light background of the card, while still complementing the overall color palette. The margin-bottom creates space between the tag and the title for better readability. 
+*/
 .card-tag {
   font-family: 'Inconsolata', monospace;
   font-size: 0.6rem;
@@ -374,6 +626,9 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 0.5rem;
 }
 
+/* 
+ The card title is styled with a serif font, a slightly larger font size than the excerpt, and a color that complements the overall palette. The line height is set to create a balanced vertical rhythm, and the margin-bottom creates space between the title and the excerpt for better readability. This styling helps the card title stand out as the main headline for the post, drawing attention and encouraging users to read more. 
+*/
 .card-title {
   font-family: 'Marcellus', serif;
   font-size: 1.08rem;
@@ -382,6 +637,9 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   color: var(--bark);
 }
 
+/* 
+ The card excerpt is styled with a slightly smaller font size than the title, and a muted color to create a subtle contrast against the light background of the card. The line height is set to improve readability, and the margin-bottom creates space between the excerpt and the card footer for better visual separation. This styling helps the card excerpt provide a brief summary of the post content while maintaining a clean and organized appearance within the card. 
+*/
 .card-excerpt {
   font-size: 0.83rem;
   color: var(--muted);
@@ -389,6 +647,9 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   margin-bottom: 1rem;
 }
 
+/* 
+ The card footer is styled as a flex container to arrange the read more link and meta information horizontally. The justify-content: space-between property ensures that the read more link is aligned to the left and the meta information is aligned to the right, creating a balanced layout within the footer. The border-top provides a clear separation between the main content of the card and the footer, while the padding creates space around the elements for better readability. The font styling is consistent with other elements in the design, maintaining a cohesive look across the site. 
+*/
 .card-footer {
   display: flex;
   justify-content: space-between;
@@ -402,6 +663,9 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   text-transform: uppercase;
 }
 
+/* 
+ The read more link in the card footer is styled as an inline element with a color that matches the honey accent color to create contrast against the light background of the card. The text-decoration: none removes the default underline from the link, and the transition property allows for smooth color changes on hover. The hover effect changes the color to the oak accent color, providing visual feedback to users when they interact with the link and encouraging them to click through to read more. 
+*/
 .read-more { color: var(--honey); text-decoration: none; transition: color 0.2s; }
 .read-more:hover { color: var(--oak); }
 
@@ -418,6 +682,7 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   align-items: center;
   max-width: 1100px;
 }
+
 
 .about-avatar {
   width: 120px;
@@ -810,7 +1075,7 @@ details summary:hover { color: var(--honey); }
   text-overflow: ellipsis;
 }
 
-/* ── LIGHTBOX ── */
+/* ── LIGHTBOX 
 .lightbox {
   display: none;
   position: fixed;
@@ -822,7 +1087,7 @@ details summary:hover { color: var(--honey); }
 }
 
 .lightbox.active { display: flex; }
-
+*/
 .lb-inner {
   max-width: 90vw;
   max-height: 90vh;
@@ -1064,4 +1329,73 @@ details summary:hover { color: var(--honey); }
   color: var(--muted);
   line-height: 1.7;
   margin-bottom: 1.6rem;
+}
+
+/* Grundzustand der Lightbox: Versteckt */
+.lightbox {
+  display: none; /* WICHTIG: Standardmäßig ausblenden */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Schwarzer Hintergrund mit Transparenz */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Wenn die Klasse .open per JS hinzugefügt wird */
+.lightbox.open {
+  display: flex; /* Erscheint als Flex-Container */
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 2px solid #fff;
+}
+
+#lbCaption {
+  color: #fff;
+  margin-top: 15px;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+/* Schließen-Button & Pfeile */
+.close-lightbox, .lb-prev, .lb-next {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  user-select: none;
+}
+
+.close-lightbox { top: -50px; right: 0; }
+.lb-prev { left: -60px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: -60px; top: 50%; transform: translateY(-50%); }
+
+.close-lightbox:hover, .lb-prev:hover, .lb-next:hover {
+  color: #ccc;
+}
+
+.hero-image img {
+  width: 50%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 6px;
 }

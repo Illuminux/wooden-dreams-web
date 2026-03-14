@@ -183,10 +183,10 @@
             const drawings = [];
             const grid = document.getElementById('drawingsGrid');
 
-            // 46 Seiten: Baumbank_Seite_01.png / .pdf bis Baumbank_Seite_46.png / .pdf
+            // 46 Seiten: 01_Baumbank.png / .pdf bis 46_Baumbank.png / .pdf
             for (let i = 1; i <= 46; i++) {
               const num = String(i).padStart(2, '0');
-              const base = `./baumbank/Baumbank_Seite_${num}`;
+              const base = `./baumbank/${num}_Baumbank`;
 
               const imgPath = `${base}.png`;
               const pdfPath = `${base}.pdf`;

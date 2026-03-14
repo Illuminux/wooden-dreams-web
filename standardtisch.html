@@ -6,16 +6,181 @@
   <title>Standardtisch — Knut's Wooden Dreams</title>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Zentrale Status-Verwaltung für die Lightbox
+    const lightboxState = {
+      images: [],
+      index: 0,
+      title: ""
+    };
+
+    /**
+     * Erstellt Thumbnails und PDF-Links in einem Grid
+     */
+    function renderDrawingGrid(containerId, pages, sectionTitle) {
+
+      // Container-Element für die Zeichnungen holen
+      const grid = document.getElementById(containerId);
+
+      // Sicherheitshalber prüfen, ob das Element existiert
+      if (!grid) return;
+
+      // Basis-Pfad zu den Bildern und PDFs
+      const basePath = './standardtisch/';
+
+      // Gemeinsamer Dateiname ohne Seitennummer und Erweiterung
+      const fileName = "standardtisch";
+
+      // Alle Bildpfade für die angegebenen Seiten generieren
+      const imagePaths = pages.map(p => `${basePath}${String(p).padStart(2, '0')}_${fileName}.png`);
+
+      // Für jede Seite ein Thumbnail und einen PDF-Link erstellen
+      pages.forEach((page, idx) => {
+
+        // PDF-Pfad generieren (gleiche Nummer wie das Bild, aber mit .pdf)
+        const num = String(page).padStart(2, '0');
+        const pdfPath = `${basePath}${num}_${fileName}.pdf`;
+
+        // Wrapper für Thumbnail und PDF-Link
+        const wrapper = document.createElement('div');
+        wrapper.className = 'drawing-thumb';
+        
+        // Thumbnail Image
+        const img = document.createElement('img');
+        img.src = imagePaths[idx];
+        img.alt = `${sectionTitle} Seite ${page}`;
+        img.loading = 'lazy';
+        img.onclick = () => openLightbox(imagePaths, idx, sectionTitle);
+
+        // PDF-Link
+        const pdf = document.createElement('a');
+        pdf.href = pdfPath;
+        pdf.className = 'pdf-download';
+        pdf.textContent = 'PDF';
+        pdf.target = '_blank';
+        pdf.rel = 'noopener';
+
+        // Thumbnail zuerst, damit die Seite schneller lädt
+        wrapper.appendChild(img);
+        // PDF-Link danach, damit er neben dem Thumbnail erscheint
+        wrapper.appendChild(pdf);
+        // Wrapper zum Grid hinzufügen
+        grid.appendChild(wrapper);
+      });
+    }
+
+    /**
+     * Öffnet die Lightbox mit einem Array von Bildern, dem Startindex und einem Titel
+     * 
+     * @param {string[]} imageArray - Array der Bildpfade für die Lightbox
+     * @param {number} index - Startindex des angeklickten Bildes
+     * @param {string} title - Titel für die Bildunterschrift (z.B. "Standardtisch", "Seitenteile" etc.)
+     */
+    function openLightbox(imageArray, index, title) {
+
+      lightboxState.images = imageArray;  // Alle Bilder der aktuellen Sektion speichern
+      lightboxState.index = index;        // Startindex setzen
+      lightboxState.title = title;        // Titel für die Bildunterschrift setzen
+
+      // Lightbox mit dem aktuellen Bild und Titel aktualisieren
+      updateLightbox();
+      // Lightbox anzeigen
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    /**
+     * Schließt die Lightbox und setzt den Status zurück
+     */
+    function closeLightbox() {
+
+      // Status zurücksetzen
+      lightboxState.images = [];
+      lightboxState.index = 0;
+      lightboxState.title = "";
+
+      // Lightbox ausblenden
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    /**
+     * Schließt die Lightbox, wenn außerhalb des Bildes geklickt wird
+     * 
+     * @param {MouseEvent} event - Das Klick-Event
+     */
+    window.onclick = function(event) {
+
+      // Lightbox-Element holen
+      const lb = document.getElementById('lightbox');
+
+      // Wenn das Ziel des Klicks die Lightbox selbst ist (also der Hintergrund), schließen
+      if (event.target == lb) {
+        closeLightbox();
+      }
+    }
+
+    /**
+     * Bewegt das aktuelle Bild in der Lightbox
+     * 
+     * @param {number} step - Die Anzahl der Schritte, um die sich das Bild verschieben soll
+     */
+    function moveDrawing(step) {
+
+      // Anzahl der Bilder in der aktuellen Sektion holen
+      const len = lightboxState.images.length;
+      
+      // Wenn es keine Bilder gibt, nicht verschieben
+      if (len === 0) return;
+
+      // Index um den Schritt verschieben, mit Wrap-Around
+      lightboxState.index = (lightboxState.index + step + len) % len;
+
+      // Lightbox mit dem neuen Bild aktualisieren
+      updateLightbox();
+    }
+
+    /**
+     * Aktualisiert das Bild und die Bildunterschrift in der Lightbox basierend auf dem aktuellen Status
+     */
+    function updateLightbox() {
+
+      // Bild- und Caption-Elemente in der Lightbox holen
+      const img = document.getElementById('lbImg');
+      const cap = document.getElementById('lbCaption');
+
+      // Wenn beide Elemente existieren, aktualisieren
+      if (img && cap) {
+        img.src = lightboxState.images[lightboxState.index];
+        cap.textContent = `${lightboxState.title} – Seite ${lightboxState.index + 1} von ${lightboxState.images.length}`;
+      }
+    }
+
+    /**
+     * Tastatur-Event-Listener für die Lightbox-Steuerung
+     * - Escape zum Schließen
+     * - Pfeil links/rechts zum Navigieren (optional, hier nur Escape implementiert)
+     */
+    document.addEventListener('keydown', (e) => {
+
+      if (e.key === "Escape") closeLightbox();    // Escape zum Schließen der Lightbox
+      if (e.key === "ArrowLeft") moveDrawing(-1); // Pfeil links zum vorherigen Bild
+      if (e.key === "ArrowRight") moveDrawing(1); // Pfeil rechts zum nächsten Bild
+
+    });
+  </script>
+
 </head>
 <body>
 
+  <!-- HEADER -->
   <div id="header-placeholder"></div>
-
   <script src="header.js"></script>
 
+  <!-- MAIN CONTENT -->
   <main>
+    <!-- Container für den gesamten Seiteninhalt -->
     <div class="container">
 
+      <!-- Breadcrumb-Navigation -->
       <div class="breadcrumb">
         <a href="knuts-wooden-dreams.html">Startseite</a>
         <span>›</span>
@@ -24,6 +189,7 @@
         Standardtisch
       </div>
 
+      <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
       <div class="project-hero">
         <p class="project-category">✦ &nbsp; Werkstattausstattung</p>
         <h1 class="project-title">Der Standardtisch</h1>
@@ -49,98 +215,559 @@
         <p class="viewer-hint">🖱 Drehen · Scrollen zum Zoomen · Rechtsklick zum Verschieben</p>
       </div>
 
+      <!-- Inhaltsgrid -->
       <div class="content-grid">
         <article class="project-article">
 
-          <h2>Die Idee</h2>
-          {{IDEEN_TEXT}}
+          <!-- Einleitung und Idee -->
+          <section id="idee" class="section-idee">
+            <h2>Die Idee</h2>
+            <h3>Die Basis für eine ganze Werkstattfamilie</h3>
+            <p>
+              Der Standardtisch war von Anfang an mehr als nur ein Rollcontainer.
+              Er sollte das <strong>Grundmodul</strong> werden, auf dem weitere Werkstattmöbel
+              aufbauen können – ein Format, das sich für unterschiedliche Maschinen
+              und Anforderungen anpassen lässt.
+            </p>
+            <p>
+              Massive Fichte für Stabilität.<br>
+              Fünf leichtgängige Schubladen für Ordnung.<br>
+              Rollen für volle Flexibilität.
+            </p>
+            <p>
+              Der Tisch ist kompakt, mobil und handwerklich sauber gebaut.
+              Die sichtbare Fichtenmaserung verleiht ihm Wärme, während die robuste
+              Konstruktion für Stabilität im Werkstattalltag sorgt. Genau diese Mischung
+              aus Funktionalität und Charakter macht ihn zum idealen Ausgangspunkt für
+              eine ganze Serie von Maschinentischen – vom Standbohrmaschinentisch bis
+              zur Bandsäge.
+            </p>
+            <p>
+              Damit das System langfristig funktioniert, basiert es auf einem klaren Raster:
+              Die fünf Schubladen des Standardtisches entsprechen <strong>einer Höheneinheit (HE)</strong>.
+              Zusätzlich gibt es <strong>1,5&nbsp;HE</strong> und <strong>2&nbsp;HE</strong> Schubladen,
+              die exakt in das gleiche Grundmaß passen. So entsteht ein flexibles
+              Baukastensystem, das in allen zukünftigen Werkstattmodulen wiederverwendet wird.
+            </p>
+            <p>
+              Der Standardtisch ist damit der erste Baustein eines Systems, das nach einem
+              einfachen Prinzip funktioniert: <strong>Ein Raster. Viele Möglichkeiten.</strong>
+            </p>
+          </section>
 
-          <h2>Warum {{HOLZART}} die perfekte Wahl ist</h2>
-          {{HOLZART_VORTEILE}}
+          <!-- Baugruppen -->
+          <section id="baugruppen" class="section-baugruppen">
+            <h2>Baugruppen</h2>
 
-          <div class="pull-quote">
-            {{HOLZART_PULL_QUOTE}}
-          </div>
+            <h3>🧩 Hauptbaugruppe – Standardtisch</h3>
+            <div class="hero-image">
+              <img src="./standardtisch/Standardtisch.png" alt="Standardtisch – 3D Ansicht">
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+                Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+                Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+              </small></p>
+              <div class="drawings-grid" id="drawingsGrid"></div>
+              <details class="parts-list">
+                <summary>Stückliste</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Baugruppe</th>
+                      <th>Anzahl</th>
+                      <th>Beschreibung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Standardtisch Beine links</td>
+                      <td>1</td>
+                      <td>
+                        2× Bein (812×54×54),<br>
+                        1× Seitenplatte links,<br>
+                        5× TSS4613SC‑400 Auszüge,<br>
+                        15× Schrauben (Stahlia B0C7ZJ6NY1)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Standardtisch Beine rechts</td>
+                      <td>1</td>
+                      <td>
+                        2× Bein (812×54×54),<br>
+                        1× Seitenplatte rechts,<br>
+                        5× TSS4613SC‑400 Auszüge,<br>
+                        15× Schrauben (Stahlia B0C7ZJ6NY1)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Standardtisch Rahmen unten</td>
+                      <td>1</td>
+                      <td>
+                        2× Rahmen vorn unten,<br>
+                        2× Rahmen seite unten,<br>
+                        1× Bodenplatte,<br>
+                        4× Ecke unten,<br>
+                        4× Schwerlastrolle 100,<br>
+                        16× Verbundmuffe M8×15,<br>
+                        16× DIN 125 8.4,<br>
+                        16× DIN 633 M8×20,<br>
+                        Spax 5×60
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Standardtisch Rahmen oben</td>
+                      <td>1</td>
+                      <td>
+                        2× Rahmen vorn oben (600×54×54),<br>
+                        2× Rahmen seite oben (564×54×54),<br>
+                        12× Spax 6×70
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+          </section>
 
-          <h2>Warum dieses Projekt so viel Spaß macht</h2>
-          {{SPASS_TEXT}}
+          <section id="baugruppen-seitenteile" class="section-baugruppen-seitenteile">
+            <h3>🦵 Seitenteile – Standardtisch</h3>
+            <div class="hero-image">
+              <table>
+                <tr>
+                  <td><img src="./standardtisch/Standardtisch_Beine_links.png" alt="Seitenteile links – 3D Ansicht"></td>
+                  <td><img src="./standardtisch/Standardtisch_Beine_rechts.png" alt="Seitenteile rechts – 3D Ansicht"></td>
+                </tr>
+              </table>
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+                Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+                Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+              </small></p>
+              <div class="drawings-grid" id="drawingsGridSeitenteile"></div>
+              <details class="parts-list">
+                <summary>Stückliste – Seitenteile (links &amp; rechts)</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Beschreibung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-          <!-- STÜCKLISTE -->
-          <div class="info-box stueckliste-inline">
-            <h4>Stückliste</h4>
+                    <!-- Beine -->
+                    <tr>
+                      <td>Bein</td>
+                      <td>4</td>
+                      <td>
+                        812×54×54; 14612119; Kiefer<br>
+                        <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 14612119
+                        </a>
+                      </td>
+                    </tr>
 
-            {{STUECKLISTE_INHALT}}
+                    <!-- Seitenplatten -->
+                    <tr>
+                      <td>Seitenplatte links</td>
+                      <td>1</td>
+                      <td>
+                        Kiefer, 800×400×18 mm; 23141021<br>
+                        <a href="https://www.bauhaus.info/leimholzplatten/leimholzplatte-naturwuchs/p/23141021" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 23141021
+                        </a>
+                      </td>
+                    </tr>
 
-          </div>
+                    <tr>
+                      <td>Seitenplatte rechts</td>
+                      <td>1</td>
+                      <td>
+                        Kiefer, 800×400×18 mm; 23141021<br>
+                        <a href="https://www.bauhaus.info/leimholzplatten/leimholzplatte-naturwuchs/p/23141021" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 23141021
+                        </a>
+                      </td>
+                    </tr>
 
-          <h2>Technische Zeichnungen</h2>
-          <p>Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.</p>
+                    <!-- Schubladenauszüge -->
+                    <tr>
+                      <td>Schubladenauszug TSS4613SC‑400</td>
+                      <td>10</td>
+                      <td>
+                        <a href="https://www.amazon.de/dp/B09J18JV1P?tag=welzels-21" target="_blank" rel="noopener">
+                          B09J18JV1P – Amazon PartnerNet
+                        </a>
+                      </td>
+                    </tr>
 
-          <div class="drawings-grid" id="drawingsGrid"></div>
+                    <!-- Schrauben -->
+                    <tr>
+                      <td>Schrauben Stahlia B0C7ZJ6NY1</td>
+                      <td>30</td>
+                      <td>
+                        <a href="https://www.amazon.de/dp/B0C7ZJ6NY1?tag=welzels-21" target="_blank" rel="noopener">
+                          B0C7ZJ6NY1 – Amazon PartnerNet
+                        </a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </details>
+            </div>
+          </section>
+
+          <section id="baugruppen-rahmen-oben" class="section-baugruppen-rahmen-oben">
+            <h3>🧱 Rahmen oben – Standardtisch</h3>           
+            <div class="hero-image">
+              <img src="./standardtisch/Standardtisch_Rahmen_oben.png" alt="Rahmen oben – 3D Ansicht">
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+                Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+                Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+              </small></p>
+              <div class="drawings-grid" id="drawingsGridRahmenOben"></div>
+
+              <details class="parts-list">
+                <summary>Stückliste – Rahmen oben</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Beschreibung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <!-- Rahmen vorn oben -->
+                    <tr>
+                      <td>Rahmen vorn oben</td>
+                      <td>2</td>
+                      <td>
+                        600×54×54; 14612119; Kiefer<br>
+                        <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 14612119
+                        </a>
+                      </td>
+                    </tr>
+
+                    <!-- Rahmen seite oben -->
+                    <tr>
+                      <td>Rahmen seite oben</td>
+                      <td>2</td>
+                      <td>
+                        564×54×54; 14612119; Kiefer<br>
+                        <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 14612119
+                        </a>
+                      </td>
+                    </tr>
+
+                    <!-- Spax 6×70 -->
+                    <tr>
+                      <td>Spax 6×70</td>
+                      <td>12</td>
+                      <td>
+                        0191010600703; Stahl<br>
+                        <a href="https://www.amazon.de/dp/B00MPIBYAU?tag=welzels-21" target="_blank" rel="noopener">
+                          B00MPIBYAU – Amazon PartnerNet
+                        </a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </details>
+            </div>
+          </section>
+
+          <section id="baugruppen-rahmen-unten" class="section-baugruppen-rahmen-unten">
+            <h3>🧱 Rahmen unten – Standardtisch</h3>
+            <div class="hero-image">
+              <img src="./standardtisch/Standardtisch_Rahmen_unten.png" alt="Rahmen unten – 3D Ansicht">
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+              Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+              Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+            </small></p>
+            <div class="drawings-grid" id="drawingsGridRahmenUnten"></div>
+            <details class="parts-list">
+              <summary>Stückliste – Rahmen unten</summary>
+              <table class="parts-table">
+                <thead>
+                  <tr>
+                    <th>Bauteil</th>
+                    <th>Anzahl</th>
+                    <th>Beschreibung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rahmen vorn unten -->
+                  <tr>
+                    <td>Rahmen vorn unten</td>
+                    <td>2</td>
+                    <td>
+                      600×54×54; 14612119; Kiefer<br>
+                      <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                        BAUHAUS – Artikel 14612119
+                      </a>
+                    </td>
+                  </tr>
+                  <!-- Rahmen seite unten -->
+                  <tr>
+                    <td>Rahmen seite unten</td>
+                    <td>2</td>
+                    <td>
+                      500×54×54; 14612119; Kiefer<br>
+                      <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                        BAUHAUS – Artikel 14612119
+                      </a>
+                    </td>
+                  </tr>
+                  <!-- Bodenplatte -->
+                  <tr>
+                    <td>Bodenplatte</td>
+                    <td>1</td>
+                    <td>
+                      492×392×18; 23141067; Kiefer<br>
+                      <a href="https://www.bauhaus.info/leimholzplatten/leimholzplatte-naturwuchs/p/23141067" target="_blank" rel="noopener">
+                        BAUHAUS – Artikel 23141067
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- Ecke unten -->
+                  <tr>
+                    <td>Ecke unten</td>
+                    <td>4</td>
+                    <td>
+                      Reststück aus 54×54; 14612119; Kiefer<br>
+                      <a href="https://www.bauhaus.info/p/14612119" target="_blank" rel="noopener">
+                        BAUHAUS – Artikel 14612119
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- Schwerlastrollen -->
+                  <tr>
+                    <td>Schwerlastrolle 100</td>
+                    <td>4</td>
+                    <td>
+                      ASIN B0BVBXW8K6; Stahl<br>
+                      <a href="https://www.amazon.de/dp/B0BVBXW8K6?tag=welzels-21" target="_blank" rel="noopener">
+                        B0BVBXW8K6 – Amazon PartnerNet
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- Verbundmuffen -->
+                  <tr>
+                    <td>Verbundmuffe M8×15</td>
+                    <td>16</td>
+                    <td>
+                      ASIN B0FCMZSSWY; Edelstahl AISI 202<br>
+                      <a href="https://www.amazon.de/dp/B0FCMZSSWY?tag=welzels-21" target="_blank" rel="noopener">
+                        B0FCMZSSWY – Amazon PartnerNet
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- DIN 125 -->
+                  <tr>
+                    <td>DIN 125 8.4</td>
+                    <td>16</td>
+                    <td>
+                      ASIN B07SH8K2M4; Edelstahl AISI 202<br>
+                      <a href="https://www.amazon.de/dp/B07SH8K2M4?tag=welzels-21" target="_blank" rel="noopener">
+                        B07SH8K2M4 – Amazon PartnerNet
+                      </a>
+                    </td>
+                  </tr>
+
+                  <!-- DIN 633 (im Lieferumfang der Rollen) -->
+                  <tr>
+                    <td>DIN 633 M8×20</td>
+                    <td>16</td>
+                    <td>
+                      Im Lieferumfang der Schwerlastrolle 100 enthalten; Edelstahl AISI 202
+                    </td>
+                  </tr>
+
+                  <!-- Spax 5×60 -->
+                  <tr>
+                    <td>Spax 5×60</td>
+                    <td>8</td>
+                    <td>
+                      ASIN B00HYXX6IY; Stahl<br>
+                      <a href="https://www.amazon.de/dp/B00HYXX6IY?tag=welzels-21" target="_blank" rel="noopener">
+                        B00HYXX6IY – Amazon PartnerNet
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </details>
+
+          </section>
+
+          <section id="baugruppen-tischplatte-rueckwand" class="section-baugruppen-tischplatte-rueckwand">
+            <h3>🪵 Tischplatte & Rückwand – Standardtisch</h3>
+            <div class="hero-image">
+              <table>
+                <tr>
+                  <td><img src="./standardtisch/Tischplatte.png" alt="Tischplatte – 3D Ansicht"></td>
+                  <td><img src="./standardtisch/Rueckplatteplatte.png" alt="Rückwand – 3D Ansicht"></td>
+                </tr>
+              </table>
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+                Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+                Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+              </small></p>
+              <div class="drawings-grid" id="drawingsGridTischplatteRueckwand"></div>
+
+              <details class="parts-list">
+                <summary>Stückliste – Tischplatte & Rückwand</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Beschreibung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <!-- Tischplatte -->
+                    <tr>
+                      <td>Tischplatte</td>
+                      <td>1</td>
+                      <td>
+                        600×538×22; MDF im Sägezuschnitt<br>
+                        <a href="https://www.hornbach.de/conf/mdf-platte-e1-2440x1220x22-mm-zuschnitt-online-reservierbar/3858019/" target="_blank" rel="noopener">Hornbach – Artikel 3858019</a>
+                      </td>
+                    </tr>
+
+                    <!-- Rückwand -->
+                    <tr>
+                      <td>Rückwand</td>
+                      <td>1</td>
+                      <td>
+                        500×320×18 mm; Kiefer<br>
+                        Reststück aus 23141067; 1200×400×18 mm<br>
+                        <a href="https://www.bauhaus.info/leimholzplatten/leimholzplatte-naturwuchs/p/23141067" target="_blank" rel="noopener">
+                          BAUHAUS – Artikel 23141067
+                        </a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </details>
+            </div>
+          </section>
+          
+          <section id="baugruppen-schubladen" class="section-baugruppen-schubladen">
+            <h3>🗄️ Schubladen – Standardtisch</h3>
+            <div class="hero-image">
+              <img src="./standardtisch/Schublade.png" alt="Schublade – 3D Ansicht">
+            </div>
+            <div class="info-box stueckliste-inline">
+              <p><small>
+                Klick auf eine Zeichnung öffnet die Vollansicht — mit Blättern zwischen den Seiten.<br>
+                Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF-Datei.
+              </small></p>
+
+              <div class="drawings-grid" id="drawingsGridSchubladen"></div>
+
+              <details class="parts-list">
+                <summary>Stückliste – Schubladen (Front, Rückteil, Seiten, Boden)</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Beschreibung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <!-- Front -->
+                    <tr>
+                      <td>Schubladen‑Front</td>
+                      <td>5</td>
+                      <td>
+                        436×137×18 mm; Kiefer<br>
+                        5× Ø7 mm Bohrungen<br>
+                        Flachdübel 0
+                      </td>
+                    </tr>
+
+                    <!-- Rückteil -->
+                    <tr>
+                      <td>Schubladen‑Rückteil</td>
+                      <td>5</td>
+                      <td>
+                        436×104×10 mm; Kiefer<br>
+                        4× Ø10 mm Bohrungen
+                      </td>
+                    </tr>
+
+                    <!-- Seiten -->
+                    <tr>
+                      <td>Schubladen‑Seiten</td>
+                      <td>10</td>
+                      <td>
+                        392×137×10 mm; Kiefer<br>
+                        4× Ø10 mm Bohrungen (2× Front, 2× Rückteil)
+                      </td>
+                    </tr>
+
+                    <!-- Boden -->
+                    <tr>
+                      <td>Schubladen‑Boden</td>
+                      <td>5</td>
+                      <td>
+                        490×435×4 mm; MDF
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+          </section>
 
           <script>
-            // Alle Zeichnungen (PNG) werden hier registriert
-            const drawings = [];
-            const grid = document.getElementById('drawingsGrid');
+            // Sobald das HTML geladen ist, befüllen wir die Grids
+            document.addEventListener('DOMContentLoaded', () => {
+              
+              // 1. Haupt-Grid (Seiten 1-5)
+              renderDrawingGrid('drawingsGrid', [1, 2, 3, 4, 5], 'Standardtisch');
 
-            // {{ANZAHL_SEITEN}} Seiten: {{ZEICHNUNGEN_PREFIX}}_Seite_01.png / .pdf bis {{ZEICHNUNGEN_PREFIX}}_Seite_{{ANZAHL_SEITEN}}.png / .pdf
-            for (let i = 1; i <= {{ANZAHL_SEITEN}}; i++) {
-              const num = String(i).padStart(2, '0');
-              const base = `./{{ZEICHNUNGEN_ORDNER}}/{{ZEICHNUNGEN_PREFIX}}_Seite_${num}`;
+              // 2. Seitenteile-Grid
+              renderDrawingGrid('drawingsGridSeitenteile', [3, 4, 10, 17, 18], 'Seitenteile');
+                        
+              // 3. Zeichnungen für Rahmen oben (Sheet 6 + relevante Einzelteile)
+              renderDrawingGrid('drawingsGridRahmenOben', [6, 13, 15], 'RahmenOben');
 
-              const imgPath = `${base}.png`;
-              const pdfPath = `${base}.pdf`;
+              // 4. Zeichnungen für Rahmen unten (Hauptzeichnung + Einzelteile)
+              renderDrawingGrid('drawingsGridRahmenUnten', [2, 14, 16, 11], 'RahmenUnten');
 
-              drawings.push(imgPath);
+              // 5. Tischplatte = Sheet 19, Rückwand = Sheet 12
+              renderDrawingGrid('drawingsGridTischplatteRueckwand', [19, 12], 'TischplatteRueckwand');
 
-              const wrapper = document.createElement('div');
-              wrapper.className = 'drawing-thumb';
-
-              const img = document.createElement('img');
-              img.src = imgPath;
-              img.alt = `{{PROJEKT_NAME}} Zeichnung Seite ${i}`;
-              img.loading = 'lazy';
-              img.onclick = () => openLightbox(i - 1);
-
-              const pdf = document.createElement('a');
-              pdf.href = pdfPath;
-              pdf.className = 'pdf-download';
-              pdf.textContent = 'PDF';
-              pdf.target = '_blank';
-              pdf.rel = 'noopener';
-
-              wrapper.appendChild(img);
-              wrapper.appendChild(pdf);
-              grid.appendChild(wrapper);
-            }
-
-            // Lightbox-Logik (falls noch nicht definiert)
-            let currentDrawing = 0;
-
-            function openLightbox(index) {
-              currentDrawing = index;
-              const lb = document.getElementById('lightbox');
-              const img = document.getElementById('lbImg');
-              const cap = document.getElementById('lbCaption');
-
-              img.src = drawings[currentDrawing];
-              cap.textContent = `Technische Zeichnung {{PROJEKT_NAME}} – Seite ${currentDrawing + 1} von ${drawings.length}`;
-              lb.classList.add('open');
-            }
-
-            function closeLightbox() {
-              const lb = document.getElementById('lightbox');
-              lb.classList.remove('open');
-            }
-
-            function moveDrawing(step) {
-              currentDrawing = (currentDrawing + step + drawings.length) % drawings.length;
-              const img = document.getElementById('lbImg');
-              const cap = document.getElementById('lbCaption');
-
-              img.src = drawings[currentDrawing];
-              cap.textContent = `Technische Zeichnung {{PROJEKT_NAME}} – Seite ${currentDrawing + 1} von ${drawings.length}`;
-            }
+              // 6. Zeichnungen: Front (30), Rückteil (21), Bodenplatte (1/1)
+              renderDrawingGrid('drawingsGridSchubladen', [30, 21, 1], 'Schubladen');
+            });
           </script>
 
           <h2>Montage — Schritt für Schritt</h2>
@@ -170,12 +797,21 @@
     </div>
   </main>
 
-
   <div id="footer-placeholder"></div>
-<script src="footer.js"></script>
+  <script src="footer.js"></script>
 
-
-
-  <!-- Lightbox HTML structure should be added here if not present -->
+    <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    
+    <div class="lightbox-content">
+      <img id="lbImg" src="" alt="Vollansicht">
+      
+      <div id="lbCaption"></div>
+      
+      <a class="lb-prev" onclick="moveDrawing(-1)">&#10094;</a>
+      <a class="lb-next" onclick="moveDrawing(1)">&#10095;</a>
+    </div>
+  </div>
 </body>
 </html>
