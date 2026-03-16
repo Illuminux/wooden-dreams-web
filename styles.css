@@ -1,19 +1,24 @@
 /* ==========================================================================
-   WOODWORK PORTFOLIO - FULL STYLESHEET
+   HOLZARBEITEN PORTFOLIO - VOLLSTÄNDIGES STYLESHEET
+   
    Struktur: 
-   1. Design System & Reset
-   2. Globales Layout (Header, Nav, Footer, Newsletter)
-   3. Komponenten (Karten, Badges, Tabellen, Buttons)
-   4. Blog & Artikel (Featured, Grids, Typography)
+   1. Design-System & Reset
+   2. Globales Layout (Header, Navigation, Footer, Newsletter)
+   3. Komponenten (Karten, Badges, Buttons)
+   4. Blog & Artikel (Featured, Grids, Typografie)
    5. Projekt-Details & Sidebar
-   6. Interaktive Elemente (3D Viewer, Lightbox, Collapsibles)
-   7. Media Queries (Responsive)
+   6. Interaktive Elemente (3D Viewer, Lightbox, Details)
+   7. Werkzeug-Seite
+   8. Media Queries (Responsive)
 
-   (c) 2024 Knut Wenzel - All rights reserved
-   Warning: Do not copy or reuse code without permission.
+   (c) 2026 Knut Wenzel - Alle Rechte vorbehalten
+   Warnung: Code darf nicht ohne Erlaubnis kopiert oder
+   wiederverwendet werden.
    ========================================================================== */
 
-/* ── 1. DESIGN SYSTEM & RESET ────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. DESIGN-SYSTEM & RESET
+   ═══════════════════════════════════════════════════════════════════════════ */
 :root {
   --bark:      #2b1e14;
   --walnut:    #4a3323;
@@ -27,21 +32,61 @@
   --shadow:    rgba(43,30,20,0.18);
 }
 
-/* Global Reset */
+/* 
+ Ein universeller Reset, der Box-Sizing auf border-box setzt und alle
+ Elemente auf 0 Margin und Padding zurücksetzt. Dies schafft eine
+ konsistente Ausgangsbasis für das Layout und die Gestaltung der Seite,
+ indem es unerwartete Abstände und Größenprobleme verhindert, die durch
+ die Standard-Browser-Styles verursacht werden können. Das Box-Sizing:
+ border-box stellt sicher, dass Padding und Border in den Gesamtbreiten-
+ und Höhenberechnungen von Elementen enthalten sind, was die Handhabung
+ von Layouts vereinfacht.
+*/
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Smooth scrolling for anchor links */
+/* Sanftes Scrollen für Anker-Links */
 html { scroll-behavior: smooth; }
 
-/* ── 2. GLOBAL LAYOUT & TYPOGRAPHY ─────────────────────────────────────── */
-body {
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. GLOBALES LAYOUT & TYPOGRAFIE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 
+Der Body hat einen warmen, sandfarbenen Hintergrund, der einen einladenden
+und organischen Rahmen für die Inhalte der Seite schafft. Die Textfarbe
+ist auf die Rinden-Farbe eingestellt, um einen starken Kontrast zu bieten,
+der die Lesbarkeit verbessert. Die Schriftfamilie ist auf 'Lora' gesetzt,
+eine Serifenschrift, die Eleganz und Lesbarkeit bietet, was gut zum
+handwerklichen Thema der Website passt. Die Zeilenhöhe ist auf 1.75
+eingestellt, um ausreichend vertikalen Raum zwischen den Zeilen zu
+schaffen, was die Lesbarkeit weiter verbessert und ein angenehmes
+Leseerlebnis bietet.
+*/
+  
+   body {
   background: var(--warm-white);
   color: var(--bark);
   font-family: 'Lora', Georgia, serif;
   line-height: 1.75;
 }
 
-/* Subtle diagonal texture overlay */
+/*
+  Das Body-Element hat ein After-Pseudo-Element, das als subtiler
+  Textur-Overlay dient, um die visuelle Tiefe und das Interesse der Seite
+  zu erhöhen. Es verwendet zwei sich überlagernde, sich wiederholende
+  lineare Verläufe, die diagonale Linien in verschiedenen Winkeln
+  erzeugen, um die Textur von Holzmaserungen oder Baumringen zu
+  simulieren. Die Farben der Linien sind auf sehr transparente Versionen
+  der Rinden- und Sandfarben eingestellt, um einen subtilen Effekt zu
+  erzielen, der die Gesamtästhetik ergänzt, ohne den Inhalt zu
+  überwältigen. Das Pseudo-Element ist so positioniert, dass es den
+  gesamten Viewport abdeckt und fixed positioniert ist, damit es beim
+  Scrollen an Ort und Stelle bleibt. Pointer-events: none stellt sicher,
+  dass das Overlay nicht mit der Interaktion der Benutzer mit der Seite
+  interferiert, und z-index: 9999 stellt sicher, dass es über allen
+  anderen Inhalten liegt, um die Textur sichtbar zu machen, ohne das
+  Layout oder die Funktionalität der Seite zu beeinträchtigen.
+*/
 body::before {
   content: '';
   position: fixed;
@@ -53,12 +98,13 @@ body::before {
   z-index: 9999;
 }
 
-/* ── HEADER & NAV ── */
+/* ── HEADER & NAVIGATION ── */
 /* 
- The header features a rich bark background with a subtle gradient accent at 
- the bottom, and a faint overlay of tree rings for texture. The inner content 
- is centered and animated for a smooth entrance. Navigation links are styled 
- with a monospace font and interactive hover effects to enhance usability. 
+ Der Header hat einen dunklen Rinden-Hintergrund mit einem subtilen
+ Farbverlaufs-Akzent am unteren Rand und einer zarten Überlagerung von
+ Baumringen für Textur. Der innere Inhalt ist zentriert und animiert für
+ einen sanften Eingang. Navigationslinks sind mit einer Monospace-Schrift
+ gestaltet und haben interaktive Hover-Effekte.
  */
 header {
   background: var(--bark);
@@ -66,7 +112,7 @@ header {
   overflow: hidden;
 }
 
-/* Gradient accent at the bottom of the header */
+/* Farbverlaufs-Akzent am unteren Rand des Headers */
 header::after {
   content: '';
   position: absolute;
@@ -75,7 +121,7 @@ header::after {
   background: linear-gradient(90deg, var(--honey), var(--oak), var(--honey));
 }
 
-/* Faint tree rings overlay */
+/* Zarte Baumringe-Überlagerung */
 .header-rings {
   position: absolute;
   right: -80px;
@@ -87,14 +133,15 @@ header::after {
 }
 
 /* 
- The rings are simple circles with no fill and a light stroke to create a 
- subtle texture effect without overpowering the header content. 
+ Die Ringe sind einfache Kreise ohne Füllung und mit einem hellen Strich,
+ um einen subtilen Textureffekt zu erzeugen, ohne den Header-Inhalt zu
+ überwältigen.
 */
 .header-rings circle { fill: none; stroke: var(--sand); stroke-width: 1.5; }
 
 /* 
- Inner content of the header is centered and has a fade-down animation 
- for a smooth entrance effect. 
+ Der innere Inhalt des Headers ist zentriert und hat eine
+ Fade-Down-Animation für einen sanften Eingangseffekt.
 */
 .header-inner {
   position: relative;
@@ -109,10 +156,10 @@ header::after {
 }
 
 /* 
- The eyebrow is styled with a monospace font, uppercase letters, and 
- increased letter spacing to create a distinctive label above the main 
- title. It also has a fade-down animation with a slight delay for a 
- staggered entrance effect. 
+ Das Eyebrow-Element ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label über dem
+ Haupttitel zu schaffen. Es hat auch eine Fade-Down-Animation mit leichter
+ Verzögerung für einen gestaffelten Eingangseffekt.
 */
 .header-eyebrow {
   font-family: 'Inconsolata', monospace;
@@ -125,9 +172,10 @@ header::after {
 }
 
 /* 
- The site logo is displayed as a block element with a fixed width and a fade-down 
- animation. The SVG inside the logo is styled to fill with a light color that 
- contrasts well against the dark bark background. 
+ Das Site-Logo wird als Block-Element mit fester Breite und
+ Fade-Down-Animation angezeigt. Das SVG im Logo ist so gestaltet, dass es
+ mit einer hellen Farbe gefüllt wird, die gut gegen den dunklen
+ Rinden-Hintergrund kontrastiert.
 */
 .site-logo {
   display: block;
@@ -137,9 +185,9 @@ header::after {
 }
 
 /* 
- The SVG inside the site logo is set to fill with a light color that contrasts 
- well against the dark bark background, ensuring good visibility and brand 
- recognition. 
+ Das SVG im Site-Logo wird mit einer hellen Farbe gefüllt, die gut gegen
+ den dunklen Rinden-Hintergrund kontrastiert und gute Sichtbarkeit sowie
+ Markenerkennbarkeit gewährleistet.
 */
 .site-logo svg {
   width: 100%;
@@ -148,9 +196,10 @@ header::after {
 }
 
 /* 
- The site title is styled with a serif font, a large responsive font size, and 
- a subtle color that complements the overall palette. It also has a fade-down 
- animation with a slight delay for a staggered entrance effect. 
+ The site title is styled with a serif font, a large responsive font
+ size, and a subtle color that complements the overall palette. It also
+ has a fade-down animation with a slight delay for a staggered entrance
+ effect. 
 */
 .footer-logo-img {
   display: block;
@@ -160,9 +209,9 @@ header::after {
 }
 
 /* 
- The SVG or image inside the footer logo is set to fill the container width while 
- maintaining its aspect ratio, ensuring it looks crisp and well-proportioned in 
- the footer section. 
+ Das SVG oder Bild im Footer-Logo füllt die Container-Breite aus, während
+ das Seitenverhältnis beibehalten wird, um sicherzustellen, dass es scharf
+ und gut proportioniert im Footer-Bereich aussieht.
 */
 .footer-logo-img svg,
 .footer-logo-img img {
@@ -171,20 +220,22 @@ header::after {
 }
 
 /* 
- The SVG inside the footer logo is styled to fill with a light color that contrasts 
- well against the dark bark background of the footer, ensuring good visibility and 
- brand recognition even in the smaller size used in the footer. 
+ Das SVG im Footer-Logo wird mit einer hellen Farbe gefüllt, die gut gegen
+ den dunklen Rinden-Hintergrund des Footers kontrastiert und gute
+ Sichtbarkeit sowie Markenerkennbarkeit auch in der kleineren Größe im
+ Footer gewährleistet.
 */
 .footer-logo-img svg {
   fill: #f4ece0;
 }
 
 /* 
- The site title is styled with a serif font, a large responsive font size, and 
- a subtle color that complements the overall palette. It also has a fade-down 
- animation with a slight delay for a staggered entrance effect. The span inside 
- the title is colored differently to create visual interest and highlight part of 
- the brand name. 
+ Der Site-Titel ist mit einer Serif-Schrift, einer großen responsiven
+ Schriftgröße und einer subtilen Farbe gestaltet, die die Gesamtpalette
+ ergänzt. Er hat auch eine Fade-Down-Animation mit leichter Verzögerung
+ für einen gestaffelten Eingangseffekt. Das Span-Element im Titel ist
+ anders eingefärbt, um visuelles Interesse zu schaffen und einen Teil des
+ Markennamens hervorzuheben.
 */
 .site-title {
   font-family: 'Marcellus', serif;
@@ -196,18 +247,20 @@ header::after {
 }
 
 /* 
- The span inside the site title is colored with the honey accent color to create 
- visual interest and highlight part of the brand name, adding a touch of warmth 
- and contrast to the overall design. 
+ Das Span-Element im Site-Titel ist mit der Honig-Akzentfarbe eingefärbt,
+ um visuelles Interesse zu schaffen und einen Teil des Markennamens
+ hervorzuheben, was einen Hauch von Wärme und Kontrast zum Gesamtdesign
+ hinzufügt.
 */
 .site-title span { color: var(--honey); }
 
 /* 
- The site tagline is styled with a serif font, italicized for emphasis, and a 
- smaller font size. The color is set to a semi-transparent version of the sand 
- color to create a subtle, complementary look that doesn't compete with the main 
- title. It also has a fade-down animation with a slight delay for a staggered 
- entrance effect. 
+ Der Site-Tagline ist mit einer Serif-Schrift, kursiv für Betonung und
+ einer kleineren Schriftgröße gestaltet. Die Farbe ist auf eine
+ halbtransparente Version der Sand-Farbe eingestellt, um einen subtilen,
+ ergänzenden Look zu schaffen, der nicht mit dem Haupttitel konkurriert.
+ Er hat auch eine Fade-Down-Animation mit leichter Verzögerung für einen
+ gestaffelten Eingangseffekt.
 */
 .site-tagline {
   font-family: 'Lora', serif;
@@ -220,38 +273,36 @@ header::after {
 }
 
 /* 
- The navigation bar is styled as a flex container with a gap between links, a 
- border that matches the overall color scheme, and a fade-down animation for a 
- smooth entrance. The links themselves are styled with a monospace font, uppercase 
- letters, and increased letter spacing for a distinctive look. They also have 
- interactive hover effects that change the color and background to enhance usability. 
+ The navigation bar is styled as a flex container with a gap between
+ links, a border that matches the overall color scheme, and a fade-down
+ animation for a smooth entrance. The links themselves are styled with a
+ monospace font, uppercase letters, and increased letter spacing for a
+ distinctive look. They also have interactive hover effects that change
+ the color and background to enhance usability. 
 */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 
- The fade-up animation is used for elements that should appear with a slight upward 
- motion, such as featured sections and cards. It starts with the element being 
- slightly below its final position and fully transparent, then transitions to its 
- final position while fading in. This creates a dynamic and engaging entrance effect 
- for content as the user scrolls down the page. 
-*/
+/* Fade-Up-Animation für Karten und Featured-Bereiche */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* 
- The navigation bar is styled as a flex container with a gap between links, a border 
- that matches the overall color scheme, and a fade-down animation for a smooth entrance. 
- The links themselves are styled with a monospace font, uppercase letters, and increased 
- letter spacing for a distinctive look. They also have interactive hover effects that change 
- the color and background to enhance usability. The navigation is also responsive, allowing 
- links to wrap to the next line on smaller screens without breaking the layout. 
+ Die Navigationsleiste ist als Flex-Container mit Abstand zwischen Links,
+ einem Rahmen, der zum Gesamtfarbschema passt, und einer Fade-Down-
+ Animation für einen sanften Eingang gestaltet. Die Links selbst sind mit
+ einer Monospace-Schrift, Großbuchstaben und erhöhtem Buchstabenabstand
+ für einen markanten Look gestaltet. Sie haben auch interaktive Hover-
+ Effekte, die Farbe und Hintergrund ändern, um die Benutzerfreundlichkeit
+ zu verbessern. Die Navigation ist auch responsiv und ermöglicht es Links,
+ auf kleineren Bildschirmen in die nächste Zeile umzubrechen, ohne das
+ Layout zu zerstören.
 */
-nav {
+header nav {
   display: flex;
   gap: 0;
   border: 1px solid rgba(200,145,58,0.3);
@@ -260,13 +311,15 @@ nav {
 }
 
 /* 
- Each navigation link is styled with a monospace font, uppercase letters, and increased 
- letter spacing for a distinctive look. They also have interactive hover effects that change 
- the color and background to enhance usability. The padding and border create a clear 
- separation between links while maintaining a cohesive design. The last link has no right 
- border to avoid an extra line at the end of the navigation bar. 
+ Jeder Navigationslink ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand für einen markanten Look gestaltet. Sie haben
+ auch interaktive Hover-Effekte, die Farbe und Hintergrund ändern, um die
+ Benutzerfreundlichkeit zu verbessern. Das Padding und der Rahmen schaffen
+ eine klare Trennung zwischen Links, während ein kohärentes Design
+ beibehalten wird. Der letzte Link hat keinen rechten Rahmen, um eine
+ zusätzliche Linie am Ende der Navigationsleiste zu vermeiden.
 */
-nav a {
+header nav a {
   font-family: 'Inconsolata', monospace;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
@@ -278,22 +331,25 @@ nav a {
   transition: color 0.2s, background 0.2s;
 }
 
-/* Remove right border from the last navigation link to prevent an extra line at the end */
-nav a:last-child { border-right: none; }
+/* Rechten Rahmen vom letzten Navigationslink entfernen */
+header nav a:last-child { 
+  border-right: none; 
+}
 
-/* 
- The hover effect for navigation links changes the color to the honey accent color and adds a 
- subtle background highlight using a semi-transparent version of the honey color. This provides 
- visual feedback to users when they interact with the navigation links, enhancing usability and 
- making it clear which link is being hovered over. The transition property ensures that the color 
- and background changes happen smoothly. 
-*/
-nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
+/* Hover-Effekt für Navigationslinks */
+header nav a:hover { 
+  color: var(--honey); 
+  background: rgba(200,145,58,0.08); 
+}
 
-/* ── MAIN CONTAINER ── */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+/* ── HAUPT-CONTAINER ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
-/* ── SECTION LABELS ── */
+/* ── BEREICHS-LABELS ── */
 .section-label {
   display: flex;
   align-items: center;
@@ -302,12 +358,15 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- Section labels are styled with a monospace font, uppercase letters, and increased letter 
- spacing to create a distinctive label for different sections of the page. The color is set 
- to a muted tone to complement the overall palette without overpowering the content. The section 
- label also includes horizontal lines on either side to visually separate it from the surrounding 
- content and create a clear division between sections. The white-space property ensures that the 
- label text does not wrap to multiple lines, maintaining a clean and organized appearance. 
+ Bereichs-Labels sind mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für
+ verschiedene Bereiche der Seite zu schaffen. Die Farbe ist auf einen
+ gedämpften Ton eingestellt, um die Gesamtpalette zu ergänzen, ohne den
+ Inhalt zu überwältigen. Das Bereichs-Label enthält auch horizontale
+ Linien auf beiden Seiten, um es visuell vom umgebenden Inhalt zu trennen
+ und eine klare Trennung zwischen Bereichen zu schaffen. Die white-space-
+ Eigenschaft stellt sicher, dass der Label-Text nicht in mehrere Zeilen
+ umbricht und ein sauberes und organisiertes Erscheinungsbild beibehält.
 */
 .section-label h2 {
   font-family: 'Inconsolata', monospace;
@@ -319,15 +378,22 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The horizontal lines on either side of the section label are created using pseudo-elements. They 
- are set to flex: 1 to take up the remaining space on either side of the label text, and have a 
- height of 1px with a background color that matches the overall color scheme. This creates a clean 
- and balanced look for the section labels, visually separating them from the surrounding content. 
+ Die horizontalen Linien auf beiden Seiten des Bereichs-Labels werden mit
+ Pseudo-Elementen erstellt. Sie sind auf flex: 1 eingestellt, um den
+ verbleibenden Platz auf beiden Seiten des Label-Textes einzunehmen, und
+ haben eine Höhe von 1px mit einer Hintergrundfarbe, die zum
+ Gesamtfarbschema passt. Dies schafft einen sauberen und ausgewogenen Look
+ für die Bereichs-Labels und trennt sie visuell vom umgebenden Inhalt.
 */
 .section-label::before,
-.section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
 
-/* ── FEATURED 3D ── */
+/* ── FEATURED-3D-BEREICH ── */
 .featured-3d {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -338,11 +404,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured 3D section is styled as a grid with two columns, where the first column is slightly 
- larger than the second to create a dynamic layout. The background is set to the bark color, and a 
- box shadow is added to create depth. The section also has a fade-up animation for a smooth 
- entrance effect. The overflow is hidden to ensure that any content that exceeds the boundaries 
- of the section does not disrupt the layout. 
+ Der Featured-3D-Bereich ist als Grid mit zwei Spalten gestaltet, wobei
+ die erste Spalte etwas größer ist als die zweite, um ein dynamisches
+ Layout zu schaffen. Der Hintergrund ist auf die Rinden-Farbe
+ eingestellt, und ein Box-Shadow wird hinzugefügt, um Tiefe zu schaffen.
+ Der Bereich hat auch eine Fade-Up-Animation für einen sanften
+ Eingangseffekt. Der Overflow ist versteckt, um sicherzustellen, dass
+ Inhalte, die die Grenzen des Bereichs überschreiten, das Layout nicht
+ stören.
 */
 .viewer-wrap {
   position: relative;
@@ -350,10 +419,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The iframe inside the viewer wrap is styled to take up the full width and height of the container, 
- with a minimum height to ensure it remains visible on smaller screens. The display is set to block 
- to remove any default inline spacing, and the border is removed for a clean look. This allows the 
- 3D viewer to be prominently displayed within the featured section without any distractions. 
+ Das iframe im Viewer-Wrap ist so gestaltet, dass es die volle Breite und
+ Höhe des Containers einnimmt, mit einer Mindesthöhe, um sicherzustellen,
+ dass es auf kleineren Bildschirmen sichtbar bleibt. Die Anzeige ist auf
+ Block eingestellt, um Standard-Inline-Abstände zu entfernen, und der
+ Rahmen wird für ein sauberes Aussehen entfernt. Dies ermöglicht es, den
+ 3D-Viewer prominent im Featured-Bereich anzuzeigen, ohne Ablenkungen.
 */
 .viewer-wrap iframe {
   width: 100%;
@@ -364,12 +435,15 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The viewer badge is positioned absolutely within the viewer wrap, placed at the bottom left corner. 
- It is styled with a monospace font, uppercase letters, and increased letter spacing for a distinctive 
- look. The background is a semi-transparent version of the honey color to create contrast against the 
- dark background of the viewer, while the text color is set to the bark color for readability. The 
- padding provides some space around the text, and pointer-events: none ensures that the badge does not 
- interfere with interactions with the 3D viewer itself. 
+ Das Viewer-Badge ist absolut im Viewer-Wrap positioniert, in der unteren
+ linken Ecke platziert. Es ist mit einer Monospace-Schrift, Großbuchstaben
+ und erhöhtem Buchstabenabstand für einen markanten Look gestaltet. Der
+ Hintergrund ist eine halbtransparente Version der Honig-Farbe, um
+ Kontrast gegen den dunklen Hintergrund des Viewers zu schaffen, während
+ die Textfarbe auf die Rinden-Farbe für Lesbarkeit eingestellt ist. Das
+ Padding bietet etwas Platz um den Text, und pointer-events: none stellt
+ sicher, dass das Badge nicht mit Interaktionen mit dem 3D-Viewer selbst
+ interferiert.
 */
 .viewer-badge {
   position: absolute;
@@ -385,10 +459,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The viewer hint is styled with a monospace font, uppercase letters, and increased letter spacing for a distinctive 
- look. The color is set to a muted tone to complement the overall palette without overpowering the content. The 
- text is centered to align with the viewer and provide a clear instruction or hint to users about interacting with 
- the 3D viewer. The margin-top creates some space between the viewer and the hint text for better readability. 
+ Der Viewer-Hinweis ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand für einen markanten Look gestaltet. Die Farbe
+ ist auf einen gedämpften Ton eingestellt, um die Gesamtpalette zu
+ ergänzen, ohne den Inhalt zu überwältigen. Der Text ist zentriert, um
+ sich mit dem Viewer auszurichten und eine klare Anweisung oder einen
+ Hinweis für Benutzer zur Interaktion mit dem 3D-Viewer zu geben. Der
+ margin-top schafft etwas Platz zwischen dem Viewer und dem Hinweistext
+ für bessere Lesbarkeit.
 */
 @media (max-width: 900px) {
   .featured-3d { grid-template-columns: 1fr; }
@@ -396,10 +474,13 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- On smaller screens, the featured 3D section switches to a single-column layout to ensure that the content remains 
- readable and visually appealing. The minimum height of the iframe is also reduced to better fit smaller screen sizes 
- while still maintaining visibility of the 3D viewer. This responsive design ensures that the featured section looks great 
- and functions well across a variety of devices. 
+ Auf kleineren Bildschirmen wechselt der Featured-3D-Bereich zu einem
+ einspaltigen Layout, um sicherzustellen, dass der Inhalt lesbar und
+ visuell ansprechend bleibt. Die Mindesthöhe des iframes wird ebenfalls
+ reduziert, um besser auf kleinere Bildschirmgrößen zu passen, während die
+ Sichtbarkeit des 3D-Viewers erhalten bleibt. Dieses responsive Design
+ stellt sicher, dass der Featured-Bereich auf einer Vielzahl von Geräten
+ großartig aussieht und gut funktioniert.
  */
 .featured {
   display: grid;
@@ -411,12 +492,13 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured section is styled as a grid with two columns, where the first column is slightly larger than the 
- second to create a dynamic layout. 
- The background is set to the bark color, and a box shadow is added to create depth. The section also has a 
- fade-up animation for a smooth entrance effect. 
- The overflow is hidden to ensure that any content that exceeds the boundaries of the section does not disrupt 
- the layout. 
+ Der Featured-Bereich ist als Grid mit zwei Spalten gestaltet, wobei die
+ erste Spalte etwas größer ist als die zweite, um ein dynamisches Layout
+ zu schaffen. Der Hintergrund ist auf die Rinden-Farbe eingestellt, und
+ ein Box-Shadow wird hinzugefügt, um Tiefe zu schaffen. Der Bereich hat
+ auch eine Fade-Up-Animation für einen sanften Eingangseffekt. Der
+ Overflow ist versteckt, um sicherzustellen, dass Inhalte, die die Grenzen
+ des Bereichs überschreiten, das Layout nicht stören.
  */
 .featured-visual {
   position: relative;
@@ -429,18 +511,24 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured visual is styled with a rich gradient background that evokes the colors of wood and honey. 
- It has a minimum height to ensure it remains visually impactful, and overflow is hidden to maintain a 
- clean layout. The content inside the visual is centered both vertically and horizontally using flexbox, 
- making it an ideal space for showcasing an image or 3D model related to the featured content. 
+ Das Featured-Visual ist mit einem satten Farbverlaufs-Hintergrund
+ gestaltet, der die Farben von Holz und Honig hervorruft. Es hat eine
+ Mindesthöhe, um visuell wirkungsvoll zu bleiben, und der Overflow ist
+ versteckt, um ein sauberes Layout zu erhalten. Der Inhalt im Visual ist
+ sowohl vertikal als auch horizontal mit Flexbox zentriert, was es zu
+ einem idealen Raum macht, um ein Bild oder 3D-Modell im Zusammenhang mit
+ dem Featured-Inhalt zu präsentieren.
  */
 .wood-art { width: 240px; height: 240px; opacity: 0.5; }
 
 /* 
- The after pseudo-element of the featured visual creates a gradient overlay that adds depth and visual interest to the 
- background. It transitions from transparent to the bark color, creating a subtle vignette effect that draws attention 
- to the center of the visual. This overlay enhances the overall aesthetic of the featured section without overpowering 
- the content placed within it. 
+ Das After-Pseudo-Element des Featured-Visuals erstellt eine
+ Farbverlaufs-Überlagerung, die Tiefe und visuelles Interesse zum
+ Hintergrund hinzufügt. Es geht von transparent zur Rinden-Farbe über und
+ erzeugt einen subtilen Vignetten-Effekt, der die Aufmerksamkeit auf die
+ Mitte des Visuals lenkt. Diese Überlagerung verbessert die
+ Gesamtästhetik des Featured-Bereichs, ohne den darin platzierten Inhalt
+ zu überwältigen.
 */
 .featured-visual::after {
   content: '';
@@ -450,10 +538,13 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured content is styled with padding to create space around the text, and uses flexbox to arrange its children in a 
- column and center them vertically. This allows for a clean and organized presentation of the featured title, excerpt, meta 
- information, and call-to-action button. The layout ensures that the content is easy to read and visually balanced within the 
- featured section. 
+ Der Featured-Content ist mit Padding gestaltet, um Platz um den Text zu
+ schaffen, und verwendet Flexbox, um seine Kinder in einer Spalte
+ anzuordnen und sie vertikal zu zentrieren. Dies ermöglicht eine saubere
+ und organisierte Präsentation des Featured-Titels, Auszugs, Meta-
+ Informationen und Call-to-Action-Buttons. Das Layout stellt sicher, dass
+ der Inhalt leicht zu lesen und visuell ausgewogen im Featured-Bereich
+ ist.
 */
 .featured-content {
   padding: 3rem 2.5rem;
@@ -463,9 +554,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The post tag is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the 
- featured content. The color is set to the honey accent color to create contrast against the dark background of the featured section. 
- The margin-bottom creates space between the tag and the title for better readability. 
+ Das Post-Tag ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für den
+ Featured-Inhalt zu schaffen. Die Farbe ist auf die Honig-Akzentfarbe
+ eingestellt, um Kontrast gegen den dunklen Hintergrund des Featured-
+ Bereichs zu schaffen. Der margin-bottom schafft Platz zwischen dem Tag
+ und dem Titel für bessere Lesbarkeit.
 */  
 .post-tag {
   font-family: 'Inconsolata', monospace;
@@ -477,8 +571,11 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured title is styled with a serif font, a large responsive font size, and a subtle color that complements the overall palette. 
- The line height is set to create a balanced vertical rhythm, and the margin-bottom creates space between the title and the excerpt for better readability. 
+ Der Featured-Titel ist mit einer Serif-Schrift, einer großen responsiven
+ Schriftgröße und einer subtilen Farbe gestaltet, die die Gesamtpalette
+ ergänzt. Die Zeilenhöhe ist so eingestellt, dass sie einen ausgewogenen
+ vertikalen Rhythmus schafft, und der margin-bottom schafft Platz
+ zwischen dem Titel und dem Auszug für bessere Lesbarkeit.
 */
 .featured-title {
   font-family: 'Marcellus', serif;
@@ -489,8 +586,12 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured excerpt is styled with a slightly smaller font size than the title, and a semi-transparent color to create a subtle contrast against the background. 
- The line height is set to improve readability, and the margin-bottom creates space between the excerpt and the meta information for better visual separation. 
+ Der Featured-Auszug ist mit einer etwas kleineren Schriftgröße als der
+ Titel gestaltet und einer halbtransparenten Farbe, um einen subtilen
+ Kontrast gegen den Hintergrund zu schaffen. Die Zeilenhöhe ist so
+ eingestellt, dass sie die Lesbarkeit verbessert, und der margin-bottom
+ schafft Platz zwischen dem Auszug und den Meta-Informationen für bessere
+ visuelle Trennung.
 */
 .featured-excerpt {
   font-size: 0.93rem;
@@ -500,9 +601,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The featured meta information is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the metadata. 
- The color is set to a semi-transparent version of the honey color to create contrast against the dark background while maintaining a subtle appearance. 
- The margin-bottom creates space between the meta information and the call-to-action button for better visual separation. 
+ Die Featured-Meta-Informationen sind mit einer Monospace-Schrift,
+ Großbuchstaben und erhöhtem Buchstabenabstand gestaltet, um ein
+ markantes Label für die Metadaten zu schaffen. Die Farbe ist auf eine
+ halbtransparente Version der Honig-Farbe eingestellt, um Kontrast gegen
+ den dunklen Hintergrund zu schaffen, während ein subtiles Erscheinungsbild
+ beibehalten wird. Der margin-bottom schafft Platz zwischen den Meta-
+ Informationen und dem Call-to-Action-Button für bessere visuelle
+ Trennung.
 */
 .featured-meta {
   font-family: 'Inconsolata', monospace;
@@ -513,9 +619,16 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The call-to-action button in the featured section is styled as an inline-block element with a monospace font, uppercase letters, and increased letter spacing for a distinctive look. 
- The color is set to the bark color for the text, and the background is set to the honey accent color to create contrast against the dark background of the featured section. 
- The padding provides space around the text, and a transition is added for smooth hover effects. The align-self: flex-start ensures that the button aligns to the start of the content column, creating a visually appealing layout. 
+ Der Call-to-Action-Button im Featured-Bereich ist als Inline-Block-
+ Element mit einer Monospace-Schrift, Großbuchstaben und erhöhtem
+ Buchstabenabstand für einen markanten Look gestaltet. Die Farbe ist auf
+ die Rinden-Farbe für den Text eingestellt, und der Hintergrund ist auf
+ die Honig-Akzentfarbe eingestellt, um Kontrast gegen den dunklen
+ Hintergrund des Featured-Bereichs zu schaffen. Das Padding bietet Platz
+ um den Text, und eine Transition wird für sanfte Hover-Effekte
+ hinzugefügt. Das align-self: flex-start stellt sicher, dass der Button am
+ Anfang der Content-Spalte ausgerichtet ist und ein visuell ansprechendes
+ Layout schafft.
 */
 .btn-read {
   display: inline-block;
@@ -532,11 +645,26 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The hover effect for the call-to-action button changes the background color to a slightly darker shade of the honey accent color and applies a subtle upward translation to create a sense of interactivity. This provides visual feedback to users when they interact with the button, enhancing usability and making it clear that the button is clickable. The transition property ensures that the background color change and the transform happen smoothly. 
+ Der Hover-Effekt für den Call-to-Action-Button ändert die
+ Hintergrundfarbe zu einem etwas dunkleren Farbton der Honig-Akzentfarbe
+ und wendet eine subtile Aufwärts-Translation an, um ein Gefühl von
+ Interaktivität zu schaffen. Dies bietet visuelles Feedback für Benutzer,
+ wenn sie mit dem Button interagieren, verbessert die Benutzerfreundlich-
+ keit und macht deutlich, dass der Button anklickbar ist. Die Transition-
+ Eigenschaft stellt sicher, dass die Hintergrundfarbänderung und die
+ Transform sanft erfolgen.
 */
 .btn-read:hover { background: #d9a24a; transform: translateY(-2px); }
 
-/* ── POSTS GRID ── */
+/* 
+ Das Posts-Grid ist als responsives Grid-Layout mit drei gleichen Spalten
+ und einem Abstand zwischen ihnen gestaltet. Dies ermöglicht eine saubere
+ und organisierte Präsentation mehrerer Post-Karten auf der Seite. Der
+ margin-bottom schafft Platz zwischen dem Grid und dem folgenden Inhalt
+ für bessere visuelle Trennung. Auf kleineren Bildschirmen passt sich das
+ Grid an weniger Spalten an, um Lesbarkeit und visuellen Appeal zu
+ erhalten.
+*/
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -545,7 +673,13 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The posts grid is styled as a responsive grid layout with three equal columns and a gap between them. This allows for a clean and organized presentation of multiple post cards on the page. The margin-bottom creates space between the grid and the following content for better visual separation. On smaller screens, the grid adjusts to fewer columns to maintain readability and visual appeal. 
+ Das Posts-Grid ist als responsives Grid-Layout mit drei gleichen Spalten
+ und einem Abstand zwischen ihnen gestaltet. Dies ermöglicht eine saubere
+ und organisierte Präsentation mehrerer Post-Karten auf der Seite. Der
+ margin-bottom schafft Platz zwischen dem Grid und dem folgenden Inhalt
+ für bessere visuelle Trennung. Auf kleineren Bildschirmen passt sich das
+ Grid an weniger Spalten an, um Lesbarkeit und visuellen Appeal zu
+ erhalten.
 */
 .post-card {
   background: var(--linen);
@@ -556,7 +690,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- Each post card is styled with a light background color and a subtle border to create a clean and modern look. The overflow is hidden to ensure that any content that exceeds the boundaries of the card does not disrupt the layout. The transition property allows for smooth hover effects when the user interacts with the card, enhancing usability and visual appeal. The fade-up animation gives each card a dynamic entrance as it appears on the page. 
+ Jede Post-Karte ist mit einer hellen Hintergrundfarbe und einem subtilen
+ Rahmen gestaltet, um einen sauberen und modernen Look zu schaffen. Der
+ Overflow ist versteckt, um sicherzustellen, dass Inhalte, die die Grenzen
+ der Karte überschreiten, das Layout nicht stören. Die Transition-
+ Eigenschaft ermöglicht sanfte Hover-Effekte, wenn der Benutzer mit der
+ Karte interagiert, was die Benutzerfreundlichkeit und den visuellen
+ Appeal verbessert. Die Fade-Up-Animation gibt jeder Karte einen
+ dynamischen Eingang, wenn sie auf der Seite erscheint.
 */
 .post-card:nth-child(2) { animation-delay: 0.1s; }
 .post-card:nth-child(3) { animation-delay: 0.2s; }
@@ -565,12 +706,24 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 .post-card:nth-child(6) { animation-delay: 0.5s; }
 
 /* 
- The hover effect for each post card applies a subtle upward translation and a more pronounced box shadow to create a sense of depth and interactivity. This provides visual feedback to users when they hover over a card, making it clear that the card is clickable and encouraging engagement. The transition property ensures that the transform and box-shadow changes happen smoothly, enhancing the overall user experience. 
+ Der Hover-Effekt für jede Post-Karte wendet eine subtile Aufwärts-
+ Translation und einen ausgeprägteren Box-Shadow an, um ein Gefühl von
+ Tiefe und Interaktivität zu schaffen. Dies bietet visuelles Feedback für
+ Benutzer, wenn sie über eine Karte fahren, macht deutlich, dass die Karte
+ anklickbar ist und ermutigt zum Engagement. Die Transition-Eigenschaft
+ stellt sicher, dass die Transform- und Box-Shadow-Änderungen sanft
+ erfolgen und die Gesamt-Benutzererfahrung verbessern.
 */
 .post-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px var(--shadow); }
 
 /* 
- The card thumbnail is styled with a fixed height and overflow hidden to create a consistent visual appearance for the images within the post cards. This ensures that all thumbnails have the same height, creating a uniform look across the grid. The overflow hidden property prevents any part of the image that exceeds the boundaries of the thumbnail from being visible, maintaining a clean and organized layout. 
+ Das Karten-Thumbnail ist mit einer festen Höhe und verstecktem Overflow
+ gestaltet, um ein konsistentes visuelles Erscheinungsbild für die Bilder
+ in den Post-Karten zu schaffen. Dies stellt sicher, dass alle Thumbnails
+ die gleiche Höhe haben und einen einheitlichen Look im Grid schaffen. Die
+ Overflow-Hidden-Eigenschaft verhindert, dass Teile des Bildes, die die
+ Grenzen des Thumbnails überschreiten, sichtbar sind, und erhält ein
+ sauberes und organisiertes Layout.
 */
 .card-thumb {
   height: 180px;
@@ -578,7 +731,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The inner container of the card thumbnail is styled to take up the full width and height of the thumbnail, with a transition applied to the transform property for smooth hover effects. The display is set to flex, and the content is centered both vertically and horizontally, making it an ideal space for showcasing an image or icon related to the post. When the user hovers over the post card, the inner container scales up slightly to create a dynamic and engaging visual effect. 
+ Der innere Container des Karten-Thumbnails ist so gestaltet, dass er die
+ volle Breite und Höhe des Thumbnails einnimmt, mit einer Transition auf
+ die Transform-Eigenschaft für sanfte Hover-Effekte. Die Anzeige ist auf
+ Flex eingestellt, und der Inhalt ist sowohl vertikal als auch horizontal
+ zentriert, was es zu einem idealen Raum macht, um ein Bild oder Icon im
+ Zusammenhang mit dem Post zu präsentieren. Wenn der Benutzer über die
+ Post-Karte fährt, skaliert der innere Container leicht nach oben, um
+ einen dynamischen und ansprechenden visuellen Effekt zu schaffen.
 */
 .card-thumb-inner {
   width: 100%;
@@ -590,12 +750,25 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The hover effect for the card thumbnail scales up the inner container slightly to create a dynamic and engaging visual effect when the user hovers over the post card. This provides visual feedback to users, making it clear that the card is interactive and encouraging them to click through to read more. The transition property ensures that the scaling happens smoothly, enhancing the overall user experience. 
+ Der Hover-Effekt für das Karten-Thumbnail skaliert den inneren Container
+ leicht nach oben, um einen dynamischen und ansprechenden visuellen Effekt
+ zu schaffen, wenn der Benutzer über die Post-Karte fährt. Dies bietet
+ visuelles Feedback für Benutzer, macht deutlich, dass die Karte
+ interaktiv ist und ermutigt sie, durchzuklicken, um mehr zu lesen. Die
+ Transition-Eigenschaft stellt sicher, dass die Skalierung sanft erfolgt
+ und die Gesamt-Benutzererfahrung verbessert.
 */
 .post-card:hover .card-thumb-inner { transform: scale(1.06); }
 
 /* 
- The different thumbnail themes (t1, t2, t3, etc.) are styled with linear gradient backgrounds that evoke the colors and textures of wood. Each theme uses a combination of warm browns and subtle variations to create a rich and visually appealing backdrop for the card thumbnails. These gradients add depth and interest to the thumbnails, making them stand out within the post cards while maintaining a cohesive aesthetic with the overall design of the site. 
+ Die verschiedenen Thumbnail-Themes (t1, t2, t3, etc.) sind mit linearen
+ Farbverlaufs-Hintergründen gestaltet, die die Farben und Texturen von
+ Holz hervorrufen. Jedes Theme verwendet eine Kombination aus warmen
+ Brauntönen und subtilen Variationen, um eine reiche und visuell
+ ansprechende Kulisse für die Karten-Thumbnails zu schaffen. Diese
+ Farbverläufe fügen Tiefe und Interesse zu den Thumbnails hinzu, lassen
+ sie in den Post-Karten hervorstechen, während eine kohärente Ästhetik mit
+ dem Gesamtdesign der Website beibehalten wird.
 */
 .t1 { background: linear-gradient(135deg, #3a2515 0%, #7a4f2a 100%); }
 .t2 { background: linear-gradient(135deg, #2a3515 0%, #5a7030 100%); }
@@ -605,17 +778,34 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 .t6 { background: linear-gradient(135deg, #251535 0%, #503070 100%); }
 
 /* 
- The thumbnail icons are styled with a fixed width and height, and a reduced opacity to create a subtle, ghosted effect against the gradient backgrounds. This allows the icons to add visual interest and reinforce the theme of woodworking without overpowering the overall design of the card thumbnails. The consistent size of the icons helps maintain a cohesive look across different thumbnail themes. 
+ Die Thumbnail-Icons sind mit einer festen Breite und Höhe gestaltet und
+ einer reduzierten Deckkraft, um einen subtilen, geisterhaften Effekt
+ gegen die Farbverlaufs-Hintergründe zu schaffen. Dies ermöglicht es den
+ Icons, visuelles Interesse hinzuzufügen und das Thema der Holzbearbeitung
+ zu verstärken, ohne das Gesamtdesign der Karten-Thumbnails zu
+ überwältigen. Die konsistente Größe der Icons hilft, einen kohärenten
+ Look über verschiedene Thumbnail-Themes hinweg zu erhalten.
 */
 .thumb-icon { width: 70px; height: 70px; opacity: 0.25; }
 
 /* 
- The card body is styled with padding to create space around the text content within the post cards. This ensures that the title, excerpt, and other information have enough breathing room, making it easier to read and visually appealing. The padding values are chosen to create a balanced layout within the card, contributing to a clean and organized presentation of the post information. 
+ Der Karten-Body ist mit Padding gestaltet, um Platz um den Textinhalt in
+ den Post-Karten zu schaffen. Dies stellt sicher, dass Titel, Auszug und
+ andere Informationen genug Raum zum Atmen haben, was es leichter zu lesen
+ und visuell ansprechend macht. Die Padding-Werte sind so gewählt, dass
+ sie ein ausgewogenes Layout in der Karte schaffen und zu einer sauberen
+ und organisierten Präsentation der Post-Informationen beitragen.
 */
 .card-body { padding: 1.4rem 1.5rem 1.6rem; }
 
 /* 
- The card tag is styled with a monospace font, uppercase letters, and increased letter spacing to create a distinctive label for the post category or tag. The color is set to the oak accent color to create contrast against the light background of the card, while still complementing the overall color palette. The margin-bottom creates space between the tag and the title for better readability. 
+ Das Karten-Tag ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für die
+ Post-Kategorie oder das Tag zu schaffen. Die Farbe ist auf die Eichen-
+ Akzentfarbe eingestellt, um Kontrast gegen den hellen Hintergrund der
+ Karte zu schaffen, während sie immer noch die Gesamtfarbpalette ergänzt.
+ Der margin-bottom schafft Platz zwischen dem Tag und dem Titel für
+ bessere Lesbarkeit.
 */
 .card-tag {
   font-family: 'Inconsolata', monospace;
@@ -627,7 +817,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The card title is styled with a serif font, a slightly larger font size than the excerpt, and a color that complements the overall palette. The line height is set to create a balanced vertical rhythm, and the margin-bottom creates space between the title and the excerpt for better readability. This styling helps the card title stand out as the main headline for the post, drawing attention and encouraging users to read more. 
+ Der Karten-Titel ist mit einer Serif-Schrift, einer etwas größeren
+ Schriftgröße als der Auszug und einer Farbe gestaltet, die die
+ Gesamtpalette ergänzt. Die Zeilenhöhe ist so eingestellt, dass sie einen
+ ausgewogenen vertikalen Rhythmus schafft, und der margin-bottom schafft
+ Platz zwischen dem Titel und dem Auszug für bessere Lesbarkeit. Diese
+ Gestaltung hilft dem Karten-Titel, als Hauptüberschrift für den Post
+ hervorzustechen, Aufmerksamkeit zu erregen und Benutzer zu ermutigen,
+ mehr zu lesen.
 */
 .card-title {
   font-family: 'Marcellus', serif;
@@ -638,7 +835,14 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The card excerpt is styled with a slightly smaller font size than the title, and a muted color to create a subtle contrast against the light background of the card. The line height is set to improve readability, and the margin-bottom creates space between the excerpt and the card footer for better visual separation. This styling helps the card excerpt provide a brief summary of the post content while maintaining a clean and organized appearance within the card. 
+ Der Karten-Auszug ist mit einer etwas kleineren Schriftgröße als der
+ Titel und einer gedämpften Farbe gestaltet, um einen subtilen Kontrast
+ gegen den hellen Hintergrund der Karte zu schaffen. Die Zeilenhöhe ist so
+ eingestellt, dass sie die Lesbarkeit verbessert, und der margin-bottom
+ schafft Platz zwischen dem Auszug und dem Karten-Footer für bessere
+ visuelle Trennung. Diese Gestaltung hilft dem Karten-Auszug, eine kurze
+ Zusammenfassung des Post-Inhalts zu bieten, während ein sauberes und
+ organisiertes Erscheinungsbild in der Karte beibehalten wird.
 */
 .card-excerpt {
   font-size: 0.83rem;
@@ -648,7 +852,15 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The card footer is styled as a flex container to arrange the read more link and meta information horizontally. The justify-content: space-between property ensures that the read more link is aligned to the left and the meta information is aligned to the right, creating a balanced layout within the footer. The border-top provides a clear separation between the main content of the card and the footer, while the padding creates space around the elements for better readability. The font styling is consistent with other elements in the design, maintaining a cohesive look across the site. 
+ Der Karten-Footer ist als Flex-Container gestaltet, um den "Mehr lesen"-
+ Link und Meta-Informationen horizontal anzuordnen. Die justify-content:
+ space-between-Eigenschaft stellt sicher, dass der "Mehr lesen"-Link links
+ ausgerichtet ist und die Meta-Informationen rechts ausgerichtet sind, was
+ ein ausgewogenes Layout im Footer schafft. Der border-top bietet eine
+ klare Trennung zwischen dem Hauptinhalt der Karte und dem Footer, während
+ das Padding Platz um die Elemente für bessere Lesbarkeit schafft. Die
+ Schriftgestaltung ist konsistent mit anderen Elementen im Design und
+ erhält einen kohärenten Look über die Website hinweg.
 */
 .card-footer {
   display: flex;
@@ -664,12 +876,31 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
 }
 
 /* 
- The read more link in the card footer is styled as an inline element with a color that matches the honey accent color to create contrast against the light background of the card. The text-decoration: none removes the default underline from the link, and the transition property allows for smooth color changes on hover. The hover effect changes the color to the oak accent color, providing visual feedback to users when they interact with the link and encouraging them to click through to read more. 
+ Der "Mehr lesen"-Link im Karten-Footer ist als Inline-Element mit einer
+ Farbe gestaltet, die der Honig-Akzentfarbe entspricht, um Kontrast gegen
+ den hellen Hintergrund der Karte zu schaffen. Die text-decoration: none
+ entfernt die Standard-Unterstreichung vom Link, und die Transition-
+ Eigenschaft ermöglicht sanfte Farbänderungen beim Hover. Der Hover-Effekt
+ ändert die Farbe zur Eichen-Akzentfarbe, bietet visuelles Feedback für
+ Benutzer, wenn sie mit dem Link interagieren und ermutigt sie,
+ durchzuklicken, um mehr zu lesen.
 */
 .read-more { color: var(--honey); text-decoration: none; transition: color 0.2s; }
 .read-more:hover { color: var(--oak); }
 
-/* ── ABOUT BAND ── */
+/* 
+ Der About-Bereich ist mit einem sandfarbenen Hintergrund gestaltet, der
+ einen warmen und einladenden Kontrast zum dunkleren Rinden-Hintergrund
+ der Seite bietet. Der Bereich ist als Grid mit zwei Spalten gestaltet,
+ wobei die erste Spalte für das Avatar-Element reserviert ist und die
+ zweite Spalte für den Textinhalt verwendet wird. Das Padding schafft
+ Platz um den Inhalt, während die Border-Top und Border-Bottom klare
+ Trennungen zwischen diesem Bereich und dem umgebenden Inhalt schaffen. Die
+ Gap-Eigenschaft sorgt für ausreichend Abstand zwischen den beiden
+ Spalten, und die Align-Items: center stellt sicher, dass der Avatar und
+ der Text vertikal ausgerichtet sind, was ein ausgewogenes und
+ ansprechendes Layout schafft.
+ */
 .about-band {
   background: var(--sand);
   border-top: 1px solid var(--rule);
@@ -683,7 +914,17 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   max-width: 1100px;
 }
 
-
+/* 
+ Das Avatar-Element im About-Bereich ist als Kreis mit einem Farbverlaufs-
+ Hintergrund gestaltet, der die Farben von Holz hervorruft. Es ist so
+ gestaltet, dass es die volle Breite und Höhe des Containers einnimmt, mit
+ Flexbox zentriertem Inhalt, was es zu einem idealen Raum macht, um ein
+ Bild oder Icon zu präsentieren. Die Border fügt eine klare Trennung
+ zwischen dem Avatar und dem Hintergrund hinzu, während die Border-Radius:
+ 50% das Element in einen perfekten Kreis verwandelt. Diese Gestaltung
+ hilft dem Avatar, als visuelles Highlight im About-Bereich hervorzustechen
+ und Aufmerksamkeit zu erregen.
+*/
 .about-avatar {
   width: 120px;
   height: 120px;
@@ -696,13 +937,60 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   border: 3px solid var(--honey);
 }
 
+/*
+  Das SVG-Icon im Avatar ist mit einer festen Breite und Höhe gestaltet
+  und einer reduzierten Deckkraft, um einen subtilen, geisterhaften Effekt
+  gegen den Farbverlaufs-Hintergrund zu schaffen. Dies ermöglicht es dem
+  Icon, visuelles Interesse hinzuzufügen und das Thema der Holzbearbeitung
+  zu verstärken, ohne das Gesamtdesign des Avatars zu überwältigen. Die
+  konsistente Größe des Icons hilft, einen kohärenten Look über
+  verschiedene Bereiche der Website hinweg zu erhalten.
+  */
 .about-avatar svg { width: 60px; height: 60px; opacity: 0.7; }
 
-.about-text h3 { font-family: 'Marcellus', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+/* 
+ Der Text im About-Bereich ist mit einer Serif-Schrift, einer angenehmen
+ Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette ergänzt.
+ Die Zeilenhöhe ist so eingestellt, dass sie einen ausgewogenen vertikalen
+ Rhythmus schafft, und der margin-bottom schafft Platz zwischen Absätzen
+ für bessere Lesbarkeit. Diese Gestaltung hilft dem Text, leicht zu lesen
+ und visuell ansprechend zu sein, während er gleichzeitig eine warme und
+ einladende Atmosphäre im About-Bereich schafft.
+*/
+.about-text h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
-.about-text p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; max-width: 600px; }
+/* 
+ Der Text im About-Bereich ist mit einer Serif-Schrift, einer angenehmen
+ Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette ergänzt.
+ Die Zeilenhöhe ist so eingestellt, dass sie einen ausgewogenen vertikalen
+ Rhythmus schafft, und der margin-bottom schafft Platz zwischen Absätzen
+ für bessere Lesbarkeit. Diese Gestaltung hilft dem Text, leicht zu lesen
+ und visuell ansprechend zu sein, während er gleichzeitig eine warme und
+ einladende Atmosphäre im About-Bereich schafft.
+*/
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 600px;
+}
 
-/* ── NEWSLETTER ── */
+/* 
+ Der Newsletter-Bereich ist mit einem warmen, holzähnlichen Hintergrund
+ gestaltet, der einen einladenden Raum für Benutzer schafft, um sich für
+ Updates anzumelden. Das Padding bietet ausreichend Platz um den Inhalt,
+ während die Textausrichtung auf center eingestellt ist, um eine klare und
+ fokussierte Präsentation zu schaffen. Der margin-bottom schafft Platz
+ zwischen diesem Bereich und dem folgenden Inhalt für bessere visuelle
+ Trennung. Die Position: relative ermöglicht es, das dekorative Pseudo-
+ Element innerhalb des Newsletter-Bereichs zu positionieren, während
+ overflow: hidden sicherstellt, dass das Pseudo-Element das Layout nicht
+ stört.
+*/
 .newsletter {
   background: var(--walnut);
   padding: 3.5rem 2rem;
@@ -712,6 +1000,16 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   overflow: hidden;
 }
 
+/* 
+ Das dekorative Pseudo-Element im Newsletter-Bereich ist ein großer,
+ halbtransparenter Kreis, der als visuelles Element dient, um Interesse
+ und Tiefe zum Hintergrund hinzuzufügen. Es ist absolut positioniert, um
+ in der oberen rechten Ecke des Newsletter-Bereichs zu sitzen, und hat
+ eine große Größe, um einen dramatischen Effekt zu erzielen. Die Border mit
+ einer halbtransparenten Version der Honig-Farbe fügt einen subtilen
+ Akzent hinzu, der zum Gesamtdesign der Website passt, ohne den Inhalt des
+ Newsletter-Bereichs zu überwältigen.
+*/
 .newsletter::before {
   content: '';
   position: absolute;
@@ -721,11 +1019,66 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   top: -150px; right: -100px;
 }
 
-.newsletter h3 { font-family: 'Marcellus', serif; font-size: 1.9rem; color: var(--linen); margin-bottom: 0.6rem; }
-.newsletter p { font-size: 0.9rem; color: rgba(232,216,192,0.6); margin-bottom: 1.8rem; }
+/* 
+ Der Newsletter-Titel ist mit einer Serif-Schrift, einer großen
+ Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette ergänzt.
+ Der margin-bottom schafft Platz zwischen dem Titel und der Beschreibung
+ für bessere Lesbarkeit. Diese Gestaltung hilft dem Titel, als Haupt-
+ Überschrift für den Newsletter-Bereich hervorzustechen, Aufmerksamkeit zu
+ erregen und Benutzer zu ermutigen, sich anzumelden.
+*/
+.newsletter h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.9rem;
+  color: var(--linen);
+  margin-bottom: 0.6rem;
+}
 
-.nl-form { display: flex; max-width: 440px; margin: 0 auto; }
+/* 
+ Die Newsletter-Beschreibung ist mit einer etwas kleineren Schriftgröße
+ als der Titel und einer halbtransparenten Farbe gestaltet, um einen
+ subtilen Kontrast gegen den warmen Hintergrund des Newsletter-Bereichs zu
+ schaffen. Die Zeilenhöhe ist so eingestellt, dass sie die Lesbarkeit
+ verbessert, und der margin-bottom schafft Platz zwischen der Beschreibung
+ und dem Anmeldeformular für bessere visuelle Trennung. Diese Gestaltung
+ hilft der Beschreibung, eine klare und ansprechende Erklärung des
+ Newsletter-Angebots zu bieten, während ein sauberes und organisiertes
+ Erscheinungsbild im Newsletter-Bereich beibehalten wird.
+*/
+.newsletter p {
+  font-size: 0.9rem;
+  color: rgba(232,216,192,0.6);
+  margin-bottom: 1.8rem;
+}
 
+/* 
+ Das Newsletter-Anmeldeformular ist als flexibler Container gestaltet, um
+ das Eingabefeld und den Anmelde-Button horizontal anzuordnen. Die max-
+ width begrenzt die Breite des Formulars, um sicherzustellen, dass es auf
+ größeren Bildschirmen nicht zu breit wird, während margin: 0 auto es
+ zentriert. Diese Gestaltung schafft ein sauberes und organisiertes Layout
+ für das Anmeldeformular, das leicht zugänglich und visuell ansprechend
+ ist.
+*/
+.nl-form {
+  display: flex;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* 
+ Das Eingabefeld im Newsletter-Anmeldeformular ist so gestaltet, dass es
+ flexibel ist, um den verfügbaren Platz im Formular einzunehmen, mit
+ ausreichend Padding für Benutzerfreundlichkeit. Der Hintergrund ist eine
+ halbtransparente Version der weißen Farbe, um Kontrast gegen den dunklen
+ Hintergrund des Newsletter-Bereichs zu schaffen, während die Textfarbe
+ auf die Leinen-Farbe eingestellt ist, um Lesbarkeit zu gewährleisten. Die
+ Schriftgestaltung ist konsistent mit anderen Elementen im Design, und die
+ Outline: none entfernt die Standard-Fokus-Umrandung für ein saubereres
+ Aussehen. Das Eingabefeld bietet eine klare und benutzerfreundliche
+ Möglichkeit für Benutzer, ihre E-Mail-Adresse einzugeben, um sich für den
+ Newsletter anzumelden.
+*/
 .nl-form input {
   flex: 1;
   padding: 0.8rem 1.2rem;
@@ -737,8 +1090,30 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   outline: none;
 }
 
-.nl-form input::placeholder { color: rgba(232,216,192,0.3); }
+/* 
+ Das Placeholder-Text im Eingabefeld des Newsletter-Anmeldeformulars ist
+ mit einer halbtransparenten Version der Leinen-Farbe gestaltet, um einen
+ subtilen Kontrast gegen den dunklen Hintergrund des Newsletter-Bereichs
+ zu schaffen, während die Lesbarkeit erhalten bleibt. Diese Gestaltung
+ hilft dem Placeholder-Text, als hilfreicher Hinweis für Benutzer zu
+ dienen, was in das Eingabefeld eingegeben werden soll, ohne das
+ Gesamtdesign des Formulars zu stören.
+*/
+.nl-form input::placeholder {
+  color: rgba(232,216,192,0.3);
+}
 
+/* 
+ Der Anmelde-Button im Newsletter-Anmeldeformular ist als Inline-Block-
+ Element mit einer Monospace-Schrift, Großbuchstaben und erhöhtem
+ Buchstabenabstand für einen markanten Look gestaltet. Die Farbe ist auf
+ die Rinden-Farbe für den Text eingestellt, und der Hintergrund ist auf
+ die Honig-Akzentfarbe eingestellt, um Kontrast gegen den dunklen
+ Hintergrund des Newsletter-Bereichs zu schaffen. Das Padding bietet Platz
+ um den Text, und eine Transition wird für sanfte Hover-Effekte
+ hinzugefügt. Der Cursor: pointer stellt sicher, dass Benutzer wissen,
+ dass der Button anklickbar ist.
+*/
 .nl-form button {
   padding: 0.8rem 1.6rem;
   background: var(--honey);
@@ -753,16 +1128,110 @@ nav a:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
   transition: background 0.2s;
 }
 
+/* 
+ Der Hover-Effekt für den Anmelde-Button im Newsletter-Anmeldeformular
+ ändert die Hintergrundfarbe zu einem etwas dunkleren Farbton der Honig-
+ Akzentfarbe, um visuelles Feedback für Benutzer zu bieten, wenn sie mit
+ dem Button interagieren. Dies macht deutlich, dass der Button anklickbar
+ ist und ermutigt Benutzer, sich anzumelden. Die Transition-Eigenschaft
+ stellt sicher, dass die Hintergrundfarbänderung sanft erfolgt und die
+ Gesamt-Benutzererfahrung verbessert.
+*/
 .nl-form button:hover { background: #d9a24a; }
 
-/* ── FOOTER ── */
-footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
+/* 
+ Der Footer ist mit einem dunklen, rindenähnlichen Hintergrund gestaltet,
+ der einen starken Kontrast zum restlichen Inhalt der Seite bietet und
+ einen klaren Abschluss für die Website schafft. Das Padding bietet
+ ausreichend Platz um den Inhalt, während die Textausrichtung auf center
+ eingestellt ist, um eine klare und fokussierte Präsentation zu schaffen.
+ Diese Gestaltung hilft dem Footer, als eigenständiger Bereich am Ende der
+ Seite hervorzustechen, Aufmerksamkeit zu erregen und wichtige
+ Informationen oder Links zu präsentieren.
+*/
+footer {
+  background: var(--bark);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
 
-.footer-logo { font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--linen); margin-bottom: 0.3rem; }
-.footer-logo span { color: var(--honey); }
+/* 
+ Das Logo im Footer ist als Block-Element mit einer festen Breite
+ gestaltet, um ein konsistentes und ausgewogenes Erscheinungsbild zu
+ schaffen. Es ist zentriert, um die Aufmerksamkeit auf sich zu ziehen, und
+ hat eine reduzierte Deckkraft, um einen subtilen Effekt gegen den dunklen
+ Hintergrund des Footers zu schaffen. Diese Gestaltung hilft dem Logo, als
+ visuelles Highlight im Footer hervorzustechen, ohne das Gesamtdesign des
+ Footers zu überwältigen.
+*/
+.footer-logo-img {
+  display: block;
+  width: 90px;
+  margin: 0 auto 1rem;
+  opacity: 0.75;
+}
 
-.footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+/* 
+ Das SVG-Logo im Footer ist so gestaltet, dass es die volle Breite und
+ Höhe des Containers einnimmt, mit einer Füllfarbe, die eine helle Version
+ der Leinen-Farbe ist, um Kontrast gegen den dunklen Hintergrund des
+ Footers zu schaffen. Diese Gestaltung hilft dem Logo, als markantes
+ visuelles Element im Footer hervorzustechen, Aufmerksamkeit zu erregen und
+ die Markenidentität der Website zu verstärken.
+*/
+.footer-logo-img svg {
+  width: 100%;
+  height: auto;
+  fill: #f4ece0;
+}
 
+/* 
+ Der Untertitel im Footer ist mit einer Monospace-Schrift, Großbuchstaben
+ und erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für den
+ Footer zu schaffen. Die Farbe ist auf eine halbtransparente Version der
+ Honig-Farbe eingestellt, um Kontrast gegen den dunklen Hintergrund des
+ Footers zu schaffen, während ein subtiles Erscheinungsbild beibehalten
+ wird. Der margin-bottom schafft Platz zwischen dem Untertitel und den
+ Links für bessere visuelle Trennung, und die Italic-Schriftart verleiht
+ dem Untertitel einen einzigartigen und ansprechenden Stil.
+*/
+.footer-sub {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(200,145,58,0.5);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* 
+ Die Links im Footer sind als flexibler Container gestaltet, um die Links
+ horizontal anzuordnen, mit justify-content: center, um sie zu zentrieren,
+ und gap: 2rem, um ausreichend Abstand zwischen den Links zu schaffen. Der
+ margin-bottom schafft Platz zwischen den Links und dem Copyright-Text für
+ bessere visuelle Trennung. Die flex-wrap: wrap-Eigenschaft stellt sicher,
+ dass die Links auf kleineren Bildschirmen in mehrere Zeilen umbrechen
+ können, um Lesbarkeit und visuelles Appeal zu erhalten.
+*/
+footer nav.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* 
+ Die Links im Footer sind mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes und kohärentes
+ Erscheinungsbild zu schaffen, das zum Gesamtdesign der Website passt. Die
+ Farbe ist auf eine halbtransparente Version der Honig-Farbe eingestellt,
+ um Kontrast gegen den dunklen Hintergrund des Footers zu schaffen, während
+ ein subtiles Erscheinungsbild beibehalten wird. Die Transition-Eigenschaft
+ ermöglicht sanfte Farbänderungen beim Hover, was visuelles Feedback für
+ Benutzer bietet und die Benutzerfreundlichkeit verbessert.
+*/
 .footer-links a {
   font-family: 'Inconsolata', monospace;
   font-size: 0.65rem;
@@ -773,25 +1242,127 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
   transition: color 0.2s;
 }
 
-.footer-links a:hover { color: var(--honey); }
-.footer-copy { font-family: 'Inconsolata', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(232,216,192,0.2); }
+/* 
+ Der Hover-Effekt für die Links im Footer ändert die Farbe zu einer
+ volleren Version der Honig-Farbe, um visuelles Feedback für Benutzer zu
+ bieten, wenn sie mit den Links interagieren. Dies macht deutlich, dass die
+ Links anklickbar sind und ermutigt Benutzer, durchzuklicken, um mehr zu
+ erfahren oder mit der Website zu interagieren. Die Transition-Eigenschaft
+ stellt sicher, dass die Farbänderung sanft erfolgt und die Gesamt-
+ Benutzererfahrung verbessert.
+*/
+.footer-links a:hover {
+  color: var(--honey);
+}
 
-/* ── RESPONSIVE ── */
+/* 
+ Der Copyright-Text im Footer ist mit einer Monospace-Schrift,
+ Großbuchstaben und erhöhtem Buchstabenabstand gestaltet, um ein markantes
+ Label für die Urheberrechtsinformationen zu schaffen. Die Farbe ist auf
+ eine sehr halbtransparente Version der Leinen-Farbe eingestellt, um einen
+ subtilen Kontrast gegen den dunklen Hintergrund des Footers zu schaffen,
+ während die Lesbarkeit erhalten bleibt. Diese Gestaltung hilft dem
+ Copyright-Text, als abschließendes Element im Footer hervorzustechen,
+ Aufmerksamkeit zu erregen und wichtige rechtliche Informationen zu
+ präsentieren.
+*/
+.footer-copy {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(232,216,192,0.2);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. RESPONSIVE DESIGN
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Tablet und kleinere Desktops (max-width: 900px) */
 @media (max-width: 900px) {
-  .featured { grid-template-columns: 1fr; }
-  .featured-visual { min-height: 260px; }
-  .featured-visual::after { background: linear-gradient(180deg, transparent 60%, var(--bark) 100%); }
-  .posts-grid { grid-template-columns: 1fr 1fr; }
-  .about-band { grid-template-columns: 1fr; text-align: center; }
-  .about-avatar { margin: 0 auto; }
+  .featured-3d {
+    grid-template-columns: 1fr;
+  }
+  
+  .viewer-wrap iframe {
+    min-height: 300px;
+  }
+  
+  .featured {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-visual {
+    min-height: 260px;
+  }
+  
+  .featured-visual::after {
+    background: linear-gradient(180deg, transparent 60%, var(--bark) 100%);
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .about-band {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .about-avatar {
+    margin: 0 auto;
+  }
 }
 
+/* Tablet (max-width: 960px) */
+@media (max-width: 960px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet und Content-Grid (max-width: 860px) */
+@media (max-width: 860px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile (max-width: 600px) */
 @media (max-width: 600px) {
-  .posts-grid { grid-template-columns: 1fr; }
-  .nl-form { flex-direction: column; }
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nl-form {
+    flex-direction: column;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-header h2 {
+    font-size: 1.1rem;
+  }
 }
 
-/* ── 3D PROJECT CARD ── */
+/* Kleine Mobile-Geräte (max-width: 480px) */
+@media (max-width: 480px) {
+  .drawings-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+/* 
+ Das 3D-Post-Card-Layout ist so gestaltet, dass es ein eingebettetes 3D-
+ Modell oder eine interaktive Ansicht in einem festen Bereich innerhalb der
+ Karte ermöglicht. Das Thumbnail hat eine feste Höhe und einen dunklen
+ Hintergrund, um das 3D-Modell hervorzuheben, während die Position:
+ relative es ermöglicht, das 3D-Badge innerhalb des Thumbnails zu
+ positionieren. Das iframe nimmt die volle Breite und Höhe des Thumbnails
+ ein, um eine immersive Erfahrung zu bieten, und die Border: none entfernt
+ die Standardrahmen um das iframe für ein saubereres Erscheinungsbild.
+*/
 .post-card.card-3d .card-thumb {
   height: 220px;
   padding: 0;
@@ -799,6 +1370,16 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
   position: relative;
 }
 
+/* 
+ Das iframe innerhalb des 3D-Post-Card-Thumbnails ist so gestaltet, dass
+ es die volle Breite und Höhe des Thumbnails einnimmt, mit Border: none,
+ um die Standardrahmen zu entfernen, und display: block, um sicherzustellen
+ dass es als Block-Element behandelt wird. Diese Gestaltung ermöglicht es
+ dem eingebetteten 3D-Modell oder der interaktiven Ansicht, den
+ verfügbaren Raum im Thumbnail vollständig zu nutzen, was eine immersive
+ und ansprechende Erfahrung für Benutzer schafft, wenn sie mit der Post-
+ Karte interagieren.
+*/
 .post-card.card-3d .card-thumb iframe {
   width: 100%;
   height: 100%;
@@ -806,6 +1387,17 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
   display: block;
 }
 
+/* 
+ Das 3D-Badge in der 3D-Post-Karte ist absolut positioniert, um in der
+ unteren linken Ecke des Thumbnails zu sitzen, und ist mit einer Monospace-
+ Schrift, Großbuchstaben und erhöhtem Buchstabenabstand gestaltet, um ein
+ markantes Label für die 3D-Post-Karte zu schaffen. Die Farbe ist auf die
+ Rinden-Farbe eingestellt, und der Hintergrund ist eine halbtransparente
+ Version der Honig-Farbe, um Kontrast gegen den dunklen Hintergrund des
+ Thumbnails zu schaffen. Das Padding bietet Platz um den Text, und pointer-
+ events: none stellt sicher, dass das Badge nicht mit Mausinteraktionen
+ interferiert, was es zu einem rein dekorativen Element macht.
+*/
 .card-3d-badge {
   position: absolute;
   bottom: 0.5rem;
@@ -820,7 +1412,18 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
   z-index: 2;
 }
 
-/* ── BREADCRUMB ── */
+/* 
+ Das Breadcrumb-Layout ist so gestaltet, dass es eine klare und
+ organisierte Navigation durch die Website ermöglicht. Es hat eine maximale
+ Breite, um sicherzustellen, dass es auf größeren Bildschirmen nicht zu
+ breit wird, und ist zentriert, um die Aufmerksamkeit auf sich zu ziehen.
+ Das Padding bietet Platz um den Text, und die Schriftgestaltung ist
+ konsistent mit anderen Elementen im Design, um einen kohärenten Look über
+ die Website hinweg zu schaffen. Die Links im Breadcrumb sind so gestaltet,
+ dass sie visuelles Feedback beim Hover bieten, was die Benutzerfreundlich-
+ keit verbessert und es Benutzern erleichtert, durch die Website zu
+ navigieren.
+*/
 .breadcrumb {
   max-width: 1100px;
   margin: 0 auto;
@@ -830,132 +1433,648 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
   letter-spacing: 0.1em;
   color: var(--muted);
 }
-.breadcrumb a { color: var(--honey); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.breadcrumb span { margin: 0 0.5rem; opacity: 0.4; }
 
-/* ── PROJECT HERO ── */
-.project-hero { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); animation: fadeUp 0.7s ease both; }
-.project-category { font-family: 'Inconsolata', monospace; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--honey); margin-bottom: 0.6rem; }
-.project-title { font-family: 'Marcellus', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 0.6rem; }
-.project-subtitle { font-family: 'Lora', serif; font-style: italic; font-size: 1.05rem; color: var(--muted); margin-bottom: 1.2rem; }
-.project-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: 'Inconsolata', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
-.project-meta-item strong { color: var(--bark); display: block; margin-bottom: 0.1rem; }
-
-/* ── 3D VIEWER ── */
-.viewer-section { margin: 2.5rem 0; animation: fadeUp 0.7s 0.15s ease both; }
-.viewer-frame { width: 100%; aspect-ratio: 16/9; background: #1a1008; border: 1px solid var(--rule); overflow: hidden; box-shadow: 0 8px 40px var(--shadow); }
-.viewer-frame iframe { width: 100%; height: 100%; border: none; display: block; }
-.viewer-hint { margin-top: 0.6rem; font-family: 'Inconsolata', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); text-align: center; }
-
-/* ── CONTENT GRID ── */
-/*.content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; margin: 3rem 0 4rem; animation: fadeUp 0.7s 0.25s ease both; }*/
-.content-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; margin: 3rem 0 4rem; animation: fadeUp 0.7s 0.25s ease both; }
-
-/* ── ARTICLE ── */
-.project-article h2 { font-family: 'Marcellus', serif; font-size: 1.45rem; margin: 2.5rem 0 0.8rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
-.project-article h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.project-article p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 1rem; color: #3a2a1e; }
-
-.project-article ul { list-style: none; margin: 0.5rem 0 1.2rem; }
-.project-article ul li { font-size: 0.95rem; line-height: 1.7; color: #3a2a1e; padding: 0.3rem 0 0.3rem 1.4rem; border-bottom: 1px solid var(--rule); position: relative; }
-.project-article ul li:last-child { border-bottom: none; }
-.project-article ul li::before { content: '✦'; position: absolute; left: 0; color: var(--honey); font-size: 0.6rem; top: 0.55rem; }
-
-.pull-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; line-height: 1.6; border-left: 3px solid var(--honey); padding: 0.8rem 1.5rem; margin: 1.8rem 0; color: var(--walnut); background: var(--linen); }
-
-/* Numbered steps */
-.steps { list-style: none; counter-reset: steps; margin: 0.5rem 0 1.2rem; }
-.steps li { counter-increment: steps; display: flex; gap: 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); font-size: 0.95rem; color: #3a2a1e; align-items: flex-start; }
-.steps li:last-child { border-bottom: none; }
-.steps li::before { content: counter(steps); font-family: 'Marcellus', serif; font-size: 1.4rem; color: var(--honey); flex-shrink: 0; line-height: 1.2; min-width: 1.5rem; }
-.steps li div { flex: 1; }
-.steps li strong { display: block; font-family: 'Marcellus', serif; font-size: 1rem; margin-bottom: 0.2rem; }
-
-/* ── SIDEBAR ── */
-.sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
-.info-box { background: var(--linen); border: 1px solid var(--rule); padding: 1.5rem; }
-.info-box h4 { font-family: 'Inconsolata', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
-.info-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); font-size: 0.88rem; }
-.info-row:last-child { border-bottom: none; }
-.info-row .label { font-family: 'Inconsolata', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.info-row .value { font-weight: 600; color: var(--bark); text-align: right; }
-
-.material-list { list-style: none; }
-.material-list li { font-size: 0.88rem; padding: 0.45rem 0; border-bottom: 1px solid var(--rule); color: #3a2a1e; display: flex; gap: 0.5rem; align-items: baseline; }
-.material-list li:last-child { border-bottom: none; }
-.material-list li::before { content: '—'; color: var(--honey); flex-shrink: 0; }
-
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
-.tag { font-family: 'Inconsolata', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid var(--oak); color: var(--oak); }
-
-/* ── BACK LINK ── */
-.back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Inconsolata', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; color: var(--honey); border: 1px solid var(--honey); padding: 0.6rem 1.2rem; margin-bottom: 3rem; transition: background 0.2s, color 0.2s; }
-.back-link:hover { background: var(--honey); color: var(--bark); }
-
-/* ── FOOTER ── */
-footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
-.footer-logo-img {
-  display: block;
-  width: 90px;
-  margin: 0 auto 1rem;
-  opacity: 0.75;
-}
-.footer-logo-img svg {
-  width: 100%;
-  height: auto;
-  fill: #f4ece0;
-}
-.footer-sub { font-family: 'Inconsolata', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,145,58,0.5); margin-bottom: 1rem; font-style: italic; }
-.footer-copy { font-family: 'Inconsolata', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(232,216,192,0.2); }
-
-@media (max-width: 860px) {
-  .content-grid { grid-template-columns: 1fr; }
+/* 
+ Die Links im Breadcrumb sind mit einer Monospace-Schrift, Großbuchstaben
+ und erhöhtem Buchstabenabstand gestaltet, um ein markantes und kohärentes
+ Erscheinungsbild zu schaffen, das zum Gesamtdesign der Website passt. Die
+ Farbe ist auf die Honig-Akzentfarbe eingestellt, um Kontrast gegen den
+ hellen Hintergrund des Breadcrumbs zu schaffen, während die Lesbarkeit
+ erhalten bleibt. Die text-decoration: none entfernt die Standard-
+ Unterstreichung von Links, und die Hover-Eigenschaft fügt eine
+ Unterstreichung hinzu, um visuelles Feedback für Benutzer zu bieten, wenn
+ sie mit den Links interagieren. Der Abstand zwischen den Links wird durch
+ das span-Element mit margin und reduzierter Deckkraft geschaffen, was eine
+ klare Trennung zwischen den einzelnen Ebenen der Navigation bietet.
+*/
+.breadcrumb a {
+  color: var(--honey);
+  text-decoration: none;
 }
 
-/* ── PARTS TABLE ── */
-.parts-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 0.5rem;
-  font-size: 0.88rem;
+/* 
+ Der Hover-Effekt für die Links im Breadcrumb fügt eine Unterstreichung
+ hinzu, um visuelles Feedback für Benutzer zu bieten, wenn sie mit den
+ Links interagieren. Dies macht deutlich, dass die Links anklickbar sind
+ und ermutigt Benutzer, durch die Navigation zu klicken, um verschiedene
+ Ebenen der Website zu erkunden. Die text-decoration: underline sorgt für
+ eine klare und sofortige visuelle Rückmeldung, was die Benutzerfreundlich-
+ keit verbessert und es Benutzern erleichtert, durch die Website zu
+ navigieren.
+*/
+.breadcrumb a:hover {
+  text-decoration: underline;
 }
-.parts-table thead tr {
-  background: var(--walnut);
-  color: var(--linen);
+
+/* 
+ Das span-Element im Breadcrumb wird verwendet, um den Abstand zwischen den
+ Links zu schaffen und eine klare Trennung zwischen den einzelnen Ebenen
+ der Navigation zu bieten. Es hat margin, um Platz um den Text zu schaffen,
+ und eine reduzierte Deckkraft, um einen subtilen Effekt zu erzielen, der
+ die Links hervorhebt, ohne das Gesamtdesign des Breadcrumbs zu
+ überwältigen. Diese Gestaltung hilft dem Breadcrumb, eine klare und
+ organisierte Navigation durch die Website zu ermöglichen, während ein
+ sauberes und ansprechendes Erscheinungsbild beibehalten wird.
+*/
+.breadcrumb span {
+  margin: 0 0.5rem;
+  opacity: 0.4;
 }
-.parts-table th {
+
+/* 
+ Der Projekt-Hero-Bereich ist mit großzügigem Padding gestaltet, um Platz
+ um den Inhalt zu schaffen, und einer Border-Bottom, um eine klare Trennung
+ zwischen diesem Bereich und dem folgenden Inhalt zu bieten. Die Animation:
+ fadeUp sorgt für einen sanften Aufblendeffekt, wenn der Bereich in den
+ Viewport eintritt, was die visuelle Anziehungskraft verbessert und Benutzer
+ dazu ermutigt, weiterzulesen. Diese Gestaltung hilft dem Projekt-Hero, als
+ markanter und ansprechender Einführungsbereich für das Projekt
+ hervorzustechen, Aufmerksamkeit zu erregen und wichtige Informationen über
+ das Projekt zu präsentieren.
+*/
+.project-hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+  animation: fadeUp 0.7s ease both;
+}
+
+/* 
+ Die Projekt-Kategorie ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für die
+ Projektkategorie zu schaffen. Die Farbe ist auf die Honig-Akzentfarbe
+ eingestellt, um Kontrast gegen den hellen Hintergrund des Projekt-Hero-
+ Bereichs zu schaffen, während die Lesbarkeit erhalten bleibt. Der margin-
+ bottom schafft Platz zwischen der Kategorie und dem Titel für bessere
+ Lesbarkeit. Diese Gestaltung hilft der Projekt-Kategorie, als klarer
+ Indikator für die Art des Projekts zu dienen, während ein sauberes und
+ ansprechendes Erscheinungsbild im Projekt-Hero-Bereich beibehalten wird.
+*/
+.project-category {
   font-family: 'Inconsolata', monospace;
   font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  padding: 0.6rem 0.8rem;
-  text-align: left;
+  color: var(--honey);
+  margin-bottom: 0.6rem;
 }
-.parts-table td {
-  padding: 0.5rem 0.8rem;
-  border-bottom: 1px solid var(--rule);
-  color: #3a2a1e;
+
+/* 
+ Der Projekt-Titel ist mit einer Serif-Schrift, einer großen Schriftgröße
+ und einer Farbe gestaltet, die die Gesamtpalette ergänzt. Die Zeilenhöhe
+ ist so eingestellt, dass sie einen ausgewogenen vertikalen Rhythmus
+ schafft, und der margin-bottom schafft Platz zwischen dem Titel und dem
+ Untertitel für bessere Lesbarkeit. Diese Gestaltung hilft dem Projekt-
+ Titel, als Hauptüberschrift für das Projekt hervorzustechen, Aufmerksam-
+ keit zu erregen und Benutzer zu ermutigen, mehr über das Projekt zu
+ erfahren.
+*/
+.project-title {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+/* 
+ Der Projekt-Untertitel ist mit einer Serif-Schrift, kursiver Schriftart
+ und einer mittleren Schriftgröße gestaltet, um einen subtilen Kontrast zu
+ dem Haupttitel zu schaffen. Die Farbe ist auf die gedämpfte Akzentfarbe
+ eingestellt, um Lesbarkeit und visuelle Hierarchie zu gewährleisten. Der
+ margin-bottom schafft Platz zwischen dem Untertitel und dem Hauptinhalt
+ für bessere Lesbarkeit. Diese Gestaltung hilft dem Projekt-Untertitel, als
+ ergänzende Information zum Projekt hervorzustechen, Aufmerksamkeit zu
+ erregen und Benutzer zu ermutigen, mehr über das Projekt zu erfahren.
+*/
+.project-subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+/* 
+ Der Projekt-Meta-Bereich ist als flexibler Container gestaltet, um die
+ Meta-Informationen horizontal anzuordnen, mit flex-wrap: wrap, um
+ sicherzustellen, dass die Informationen auf kleineren Bildschirmen in
+ mehrere Zeilen umbrechen können. Die Gap-Eigenschaft sorgt für
+ ausreichend Abstand zwischen den einzelnen Meta-Informationen, und die
+ Schriftgestaltung ist konsistent mit anderen Elementen im Design, um einen
+ kohärenten Look über die Website hinweg zu schaffen. Die Farbe ist auf die
+ gedämpfte Akzentfarbe eingestellt, um Lesbarkeit und visuelle Hierarchie
+ zu gewährleisten, während die text-transform: uppercase die Meta-
+ Informationen als wichtige Labels hervorhebt.
+*/
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   font-family: 'Inconsolata', monospace;
-  font-size: 0.82rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
 }
-.parts-table tbody tr:nth-child(even) { background: var(--linen); }
-.parts-table tbody tr:hover { background: var(--sand); }
-.parts-table tr.table-sum td {
-  font-weight: 700;
+
+/* 
+ Die starken Elemente innerhalb des Projekt-Meta-Bereichs sind so
+ gestaltet, dass sie als klare Labels für die Meta-Informationen dienen.
+ Sie haben eine Farbe, die die Rinden-Farbe ist, um Kontrast gegen den
+ gedämpften Hintergrund der Meta-Informationen zu schaffen, und display:
+ block, um sicherzustellen, dass sie als Block-Elemente behandelt werden.
+ Der margin-bottom schafft Platz zwischen den Labels und den entsprechenden
+ Informationen für bessere Lesbarkeit. Diese Gestaltung hilft den starken
+ Elementen im Projekt-Meta-Bereich, als wichtige Indikatoren für die Meta-
+ Informationen hervorzustechen, Aufmerksamkeit zu erregen und Benutzern zu
+ helfen, die Informationen schnell zu verstehen.
+*/
+.project-meta-item strong {
   color: var(--bark);
-  background: var(--sand);
-  border-top: 2px solid var(--oak);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+/* 
+ Der Viewer-Bereich ist mit großzügigem Margin gestaltet, um Platz um den
+ Inhalt zu schaffen, und die Animation: fadeUp sorgt für einen sanften
+ Aufblendeffekt, wenn der Bereich in den Viewport eintritt, was die visuelle
+ Anziehungskraft verbessert und Benutzer dazu ermutigt, weiterzulesen. Diese
+ Gestaltung hilft dem Viewer-Bereich, als markanter und ansprechender
+ Abschnitt für eingebettete Inhalte wie Videos oder interaktive Elemente
+ hervorzustechen, Aufmerksamkeit zu erregen und wichtige Informationen oder
+ Medien zum Projekt zu präsentieren.
+*/
+.viewer-section {
+  margin: 2.5rem 0;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+/* 
+ Der Viewer-Frame ist so gestaltet, dass er die volle Breite des Containers
+ einnimmt und ein Seitenverhältnis von 16:9 beibehält, was es ideal für die
+ Präsentation von Videos oder interaktiven Inhalten macht. Der dunkle
+ Hintergrund und die Border sorgen für einen klaren Rahmen um den Inhalt,
+ während overflow: hidden sicherstellt, dass alles, was über die Grenzen
+ des Frames hinausgeht, verborgen bleibt. Die Box-Shadow-Eigenschaft fügt
+ einen subtilen Schatten hinzu, der dem Frame Tiefe verleiht und ihn vom
+ Hintergrund abhebt, was die visuelle Anziehungskraft verbessert.
+*/
+.viewer-frame {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #1a1008;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  box-shadow: 0 8px 40px var(--shadow);
+}
+
+/* 
+ Das iframe innerhalb des Viewer-Frames ist so gestaltet, dass es die volle
+ Breite und Höhe des Frames einnimmt, mit Border: none, um die Standard-
+ rahmen zu entfernen, und display: block, um sicherzustellen, dass es als
+ Block-Element behandelt wird. Diese Gestaltung ermöglicht es dem
+ eingebetteten Inhalt, den verfügbaren Raum im Frame vollständig zu nutzen,
+ was eine immersive und ansprechende Erfahrung für Benutzer schafft, wenn
+ sie mit dem Viewer interagieren.
+*/
+.viewer-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* 
+ Der Viewer-Hinweis ist mit einer Monospace-Schrift, einer kleinen
+ Schriftgröße und einem erhöhten Buchstabenabstand gestaltet, um ein
+ markantes Label für den Viewer-Bereich zu schaffen. Die Farbe ist auf die
+ gedämpfte Akzentfarbe eingestellt, um Kontrast gegen den hellen Hintergrund
+ des Projekt-Hero-Bereichs zu schaffen, während die Lesbarkeit erhalten
+ bleibt. Der margin-top schafft Platz zwischen dem Viewer-Frame und dem
+ Hinweis für bessere Lesbarkeit. Diese Gestaltung hilft dem Viewer-Hinweis,
+ als hilfreicher Hinweis für Benutzer zu dienen, was im Viewer-Bereich
+ präsentiert wird oder wie sie mit dem eingebetteten Inhalt interagieren
+ können, ohne das Gesamtdesign des Bereichs zu stören.
+*/
+.viewer-hint {
+  margin-top: 0.6rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* 
+ Das Content-Grid ist als flexibler Container gestaltet, um den Hauptinhalt
+ des Projekts in einem klaren und organisierten Layout zu präsentieren. Es
+ hat eine einzelne Spalte, um sicherzustellen, dass der Inhalt auf allen
+ Bildschirmgrößen gut lesbar ist, und die Gap-Eigenschaft sorgt für
+ ausreichend Abstand zwischen den einzelnen Abschnitten des Inhalts. Das
+ Margin schafft Platz um das Grid, und die Animation: fadeUp sorgt für
+ einen sanften Aufblendeffekt, wenn der Bereich in den Viewport eintritt,
+ was die visuelle Anziehungskraft verbessert und Benutzer dazu ermutigt,
+ weiterzulesen. Diese Gestaltung hilft dem Content-Grid, als markanter und
+ ansprechender Abschnitt für den Hauptinhalt des Projekts hervorzustechen,
+ Aufmerksamkeit zu erregen und wichtige Informationen oder Medien zum
+ Projekt zu präsentieren.
+*/
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  margin: 3rem 0 4rem;
+  animation: fadeUp 0.7s 0.25s ease both;
+}
+
+/* 
+ Die Überschriften im Artikel sind mit einer Serif-Schrift, einer
+ mittleren Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette
+ ergänzt. Der margin schafft Platz um die Überschriften, um eine klare
+ visuelle Hierarchie zu schaffen, und die Border-Top-Eigenschaft fügt eine
+ klare Trennung zwischen den Abschnitten des Artikels hinzu. Die padding-
+ top sorgt für zusätzlichen Platz über der Überschrift, um sicherzustellen,
+ dass sie nicht zu nah an der vorherigen Abschnittsgrenze sitzt. Diese
+ Gestaltung hilft den Überschriften im Artikel, als wichtige Markierungen
+ für verschiedene Abschnitte des Inhalts hervorzustechen, Aufmerksamkeit zu
+ erregen und Benutzern zu helfen, den Artikel leicht zu scannen und zu
+ verstehen.
+*/
+.project-article h2 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.45rem;
+  margin: 2.5rem 0 0.8rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* 
+ Die erste Überschrift im Artikel hat keinen oberen Rand oder Padding, um
+ sicherzustellen, dass sie nicht zu weit von der vorherigen Abschnitts-
+ grenze entfernt ist. Dies schafft eine klarere visuelle Verbindung
+ zwischen der Überschrift und dem vorherigen Inhalt, was die Lesbarkeit
+ verbessert und es Benutzern erleichtert, den Artikel zu scannen und zu
+ verstehen.
+*/
+.project-article h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* 
+ Die Absätze im Artikel sind mit einer Serif-Schrift, einer leicht
+ kleineren Schriftgröße als die Überschriften und einer Farbe gestaltet,
+ die die Gesamtpalette ergänzt. Die Zeilenhöhe ist so eingestellt, dass sie
+ die Lesbarkeit verbessert, und der margin-bottom schafft Platz zwischen
+ den Absätzen für bessere visuelle Trennung. Diese Gestaltung hilft den
+ Absätzen im Artikel, als klarer und gut lesbarer Text hervorzustechen,
+ Aufmerksamkeit zu erregen und Benutzern zu helfen, den Inhalt leicht zu
+ lesen und zu verstehen.
+*/
+.project-article p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+  color: #3a2a1e;
+}
+
+/* 
+ Die ungeordneten Listen im Artikel sind so gestaltet, dass sie die
+ Standard-Aufzählungszeichen entfernen und stattdessen benutzerdefinierte
+ Aufzählungszeichen verwenden, die durch die ::before-Pseudoelemente
+ erstellt werden. Die margin schafft Platz um die Listen, um eine klare
+ visuelle Hierarchie zu schaffen, und die list-style: none entfernt die
+ Standard-Aufzählungszeichen. Diese Gestaltung hilft den ungeordneten
+ Listen im Artikel, als klarer und gut organisierter Abschnitt des Inhalts
+ hervorzustechen, Aufmerksamkeit zu erregen und Benutzern zu helfen, die
+ Informationen leicht zu scannen und zu verstehen.
+*/
+.project-article ul {
+  list-style: none;
+  margin: 0.5rem 0 1.2rem;
+}
+
+/* 
+ Die Listenelemente in den ungeordneten Listen des Artikels sind mit einer
+ leicht kleineren Schriftgröße als die Absätze und einer Farbe gestaltet,
+ die die Gesamtpalette ergänzt. Die Zeilenhöhe ist so eingestellt, dass
+ sie die Lesbarkeit verbessert, und das Padding schafft Platz um den Text,
+ während die Border-Bottom-Eigenschaft eine klare Trennung zwischen den
+ einzelnen Listenelementen hinzufügt. Die Position: relative ermöglicht
+ es, die benutzerdefinierten Aufzählungszeichen mit den ::before-
+ Pseudoelementen zu positionieren. Diese Gestaltung hilft den Listen-
+ elementen in den ungeordneten Listen des Artikels, als klarer und gut
+ organisierter Abschnitt des Inhalts hervorzustechen, Aufmerksamkeit zu
+ erregen und Benutzern zu helfen, die Informationen leicht zu scannen und
+ zu verstehen.
+*/
+.project-article ul li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #3a2a1e;
+  padding: 0.3rem 0 0.3rem 1.4rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+/* 
+ Das letzte Listenelement in den ungeordneten Listen des Artikels hat
+ keinen unteren Rand, um sicherzustellen, dass es nicht zu weit von der
+ nächsten Abschnittsgrenze entfernt ist. Dies schafft eine klarere visuelle
+ Verbindung zwischen dem letzten Listenelement und dem folgenden Inhalt,
+ was die Lesbarkeit verbessert und es Benutzern erleichtert, den Artikel
+ zu scannen und zu verstehen.
+*/
+.project-article ul li:last-child {
   border-bottom: none;
 }
 
-/* ── STÜCKLISTE COLLAPSIBLE ── */
-.stueckliste-box .parts-table { font-size: 0.78rem; margin: 0.4rem 0 0.8rem; }
-.stueckliste-box .parts-table th { font-size: 0.6rem; padding: 0.4rem 0.6rem; }
-.stueckliste-box .parts-table td { padding: 0.35rem 0.6rem; font-size: 0.78rem; }
+/* 
+ Die benutzerdefinierten Aufzählungszeichen für die Listenelemente in den
+ ungeordneten Listen des Artikels werden mit den ::before-Pseudoelementen
+ erstellt. Sie sind absolut positioniert, um in der linken Seite des
+ Listenelements zu sitzen, und haben eine Farbe, die die Honig-Akzentfarbe
+ ist, um Kontrast gegen den Text zu schaffen. Die font-size ist so
+ eingestellt, dass sie proportional zum Text ist, und die content: '✦'
+ verwendet ein spezielles Symbol als Aufzählungszeichen, was den Listen
+ einen einzigartigen und ansprechenden Stil verleiht.
+*/
+.project-article ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--honey);
+  font-size: 0.6rem;
+  top: 0.55rem;
+}
 
-details { border-bottom: 1px solid var(--rule); }
-details:last-child { border-bottom: none; }
+/* 
+ Die Pull-Quotes im Artikel sind mit einer Serif-Schrift, kursiver
+ Schriftart und einer leicht größeren Schriftgröße gestaltet, um einen
+ subtilen Kontrast zu den normalen Absätzen zu schaffen. Die Zeilenhöhe
+ ist so eingestellt, dass sie die Lesbarkeit verbessert, und die Border-
+ Left-Eigenschaft fügt eine klare visuelle Markierung hinzu, um die Pull-
+ Quote hervorzuheben. Das Padding schafft Platz um den Text, und die Farbe
+ und der Hintergrund sind so gewählt, dass sie Kontrast gegen den
+ restlichen Inhalt des Artikels schaffen, während ein sauberes und
+ ansprechendes Erscheinungsbild beibehalten wird. Diese Gestaltung hilft
+ den Pull-Quotes im Artikel, als markante und ansprechende Zitate oder
+ wichtige Informationen hervorzustechen, Aufmerksamkeit zu erregen und
+ Benutzern zu helfen, die Informationen leicht zu lesen und zu verstehen.
+*/
+.pull-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--honey);
+  padding: 0.8rem 1.5rem;
+  margin: 1.8rem 0;
+  color: var(--walnut);
+  background: var(--linen);
+}
+
+/* 
+ Die Schritte-Listen im Artikel sind so gestaltet, dass sie die Standard-
+ Aufzählungszeichen entfernen und stattdessen nummerierte Schritte
+ verwenden, die durch die counter-reset und counter-increment Eigenschaften
+ erstellt werden. Die margin schafft Platz um die Listen, um eine klare
+ visuelle Hierarchie zu schaffen, und die list-style: none entfernt die
+ Standard-Aufzählungszeichen. Diese Gestaltung hilft den Schritte-Listen im
+ Artikel, als klarer und gut organisierter Abschnitt des Inhalts
+ hervorzustechen, Aufmerksamkeit zu erregen und Benutzern zu helfen, die
+ Informationen leicht zu scannen und zu verstehen.
+*/
+.steps {
+  list-style: none;
+  counter-reset: steps;
+  margin: 0.5rem 0 1.2rem;
+}
+
+/* 
+ Die Listenelemente in den Schritte-Listen des Artikels sind mit einer
+ leicht kleineren Schriftgröße als die Absätze und einer Farbe gestaltet,
+ die die Gesamtpalette ergänzt. Die Zeilenhöhe ist so eingestellt, dass
+ sie die Lesbarkeit verbessert, und das Padding schafft Platz um den Text,
+ während die Border-Bottom-Eigenschaft eine klare Trennung zwischen den
+ einzelnen Listenelementen hinzufügt. Die Position: relative ermöglicht
+ es, die nummerierten Schritte mit den counter-increment und ::before-
+ Pseudoelementen zu erstellen. Diese Gestaltung hilft den Listenelementen
+ in den Schritte-Listen des Artikels, als klarer und gut organisierter
+ Abschnitt des Inhalts hervorzustechen, Aufmerksamkeit zu erregen und
+ Benutzern zu helfen, die Informationen leicht zu scannen und zu verstehen.
+*/
+.steps li {
+  counter-increment: steps;
+  display: flex;
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+  color: #3a2a1e;
+  align-items: flex-start;
+}
+
+/* 
+ Das letzte Listenelement in den Schritte-Listen des Artikels hat keinen
+ unteren Rand, um sicherzustellen, dass es nicht zu weit von der nächsten
+ Abschnittsgrenze entfernt ist. Dies schafft eine klarere visuelle
+ Verbindung zwischen dem letzten Listenelement und dem folgenden Inhalt,
+ was die Lesbarkeit verbessert und es Benutzern erleichtert, den Artikel
+ zu scannen und zu verstehen.
+*/
+.steps li:last-child {
+  border-bottom: none;
+}
+
+/* 
+ Die nummerierten Schritte für die Listenelemente in den Schritte-Listen
+ des Artikels werden mit den counter-increment und ::before-Pseudoelementen
+ erstellt. Sie haben eine Monospace-Schrift, eine größere Schriftgröße und
+ eine Farbe, die die Honig-Akzentfarbe ist, um Kontrast gegen den Text zu
+ schaffen. Die content: counter(steps) verwendet die CSS-Counter-Funktion,
+ um die aktuelle Schrittzahl anzuzeigen, was den Listen einen klaren und
+ organisierten Stil verleiht, der es Benutzern erleichtert, den Fortschritt
+ durch die Schritte zu verfolgen.
+*/
+.steps li::before {
+  content: counter(steps);
+  font-family: 'Marcellus', serif;
+  font-size: 1.4rem;
+  color: var(--honey);
+  flex-shrink: 0;
+  line-height: 1.2;
+  min-width: 1.5rem;
+}
+
+/* 
+ Der Inhalt innerhalb der Listenelemente in den Schritte-Listen des
+ Artikels ist so gestaltet, dass er den verfügbaren Platz einnimmt,
+ während die nummerierten Schritte auf der linken Seite sitzen. Die flex:
+ 1 Eigenschaft ermöglicht es dem Inhalt, den verfügbaren Raum zu nutzen,
+ während die gap-Eigenschaft einen klaren Abstand zwischen den
+ nummerierten Schritten und dem Inhalt schafft. Diese Gestaltung hilft dem
+ Inhalt innerhalb der Listenelemente in den Schritte-Listen des Artikels,
+ als klarer und gut organisierter Abschnitt des Inhalts hervorzustechen,
+ Aufmerksamkeit zu erregen und Benutzern zu helfen, die Informationen
+ leicht zu scannen und zu verstehen.
+*/
+.steps li div {
+  flex: 1;
+}
+
+/* 
+ Die starken Elemente innerhalb der Listenelemente in den Schritte-Listen
+ des Artikels sind so gestaltet, dass sie als klare Labels für die
+ Schritte dienen. Sie haben eine Farbe, die die Rinden-Farbe ist, um
+ Kontrast gegen den Text zu schaffen, und display: block, um sicher-
+ zustellen, dass sie als Block-Elemente behandelt werden. Der margin-bottom
+ schafft Platz zwischen den Labels und den entsprechenden Informationen für
+ bessere Lesbarkeit. Diese Gestaltung hilft den starken Elementen innerhalb
+ der Listenelemente in den Schritte-Listen des Artikels, als wichtige
+ Indikatoren für die Schritte hervorzustechen, Aufmerksamkeit zu erregen
+ und Benutzern zu helfen, die Informationen schnell zu verstehen.
+*/
+.steps li strong {
+  display: block;
+  font-family: 'Marcellus', serif;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+/* 
+ Die Sidebar im Artikel ist als flexibler Container gestaltet, um die
+ Informationen in einer klaren und organisierten Weise zu präsentieren. Die
+ flex-direction: column sorgt dafür, dass die Informationen vertikal
+ angeordnet sind, und die gap-Eigenschaft sorgt für ausreichend Abstand
+ zwischen den einzelnen Informationsboxen, was die Lesbarkeit verbessert
+ und es Benutzern erleichtert, die Informationen zu scannen und zu
+ verstehen.
+*/
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 
+ Die Info-Boxen in der Sidebar sind mit einem Hintergrund und einer Border
+ gestaltet, die Kontrast gegen den restlichen Inhalt des Artikels schaffen,
+ während das Padding Platz um den Text schafft. Diese Gestaltung hilft den
+ Info-Boxen in der Sidebar, als klarer und gut organisierter Abschnitt des
+ Inhalts hervorzustechen, Aufmerksamkeit zu erregen und Benutzern zu
+ helfen, die Informationen leicht zu scannen und zu verstehen.
+*/
+.info-box {
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+}
+
+/* 
+ Die Überschriften in den Info-Boxen der Sidebar sind mit einer Monospace-
+ Schrift, einer kleinen Schriftgröße und einem erhöhten Buchstabenabstand
+ gestaltet, um ein markantes Label für die Informationen in der Box zu
+ schaffen. Die Farbe ist auf die gedämpfte Akzentfarbe eingestellt, um
+ Kontrast gegen den Hintergrund der Box zu schaffen, während die Lesbarkeit
+ erhalten bleibt. Der margin-bottom schafft Platz zwischen der Überschrift
+ und dem folgenden Inhalt für bessere Lesbarkeit, und die Border-Bottom-
+ Eigenschaft fügt eine klare Trennung zwischen der Überschrift und dem
+ Inhalt hinzu. Diese Gestaltung hilft den Überschriften in den Info-Boxen
+ der Sidebar, als wichtige Markierungen für die Informationen in der Box
+ hervorzustechen, Aufmerksamkeit zu erregen und Benutzern zu helfen, die
+ Informationen leicht zu scannen und zu verstehen.
+*/
+.info-box h4 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* 
+ Die Tag-Listen in den Info-Boxen der Sidebar sind als flexible Container
+ gestaltet, um die Tags in einer klaren und organisierten Weise zu
+ präsentieren. Die flex-wrap: wrap sorgt dafür, dass die Tags auf kleineren
+ Bildschirmen in mehrere Zeilen umbrechen können, und die gap-Eigenschaft
+ sorgt für ausreichend Abstand zwischen den einzelnen Tags, was die
+ Lesbarkeit verbessert und es Benutzern erleichtert, die Informationen zu
+ scannen und zu verstehen.
+*/
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* 
+ Die einzelnen Tags in den Tag-Listen der Info-Boxen der Sidebar sind mit
+ einer Monospace-Schrift, einer kleinen Schriftgröße und einem erhöhten
+ Buchstabenabstand gestaltet, um ein markantes Label für die Informationen
+ in der Box zu schaffen. Die Farbe ist auf die Honig-Akzentfarbe
+ eingestellt, um Kontrast gegen den Hintergrund der Box zu schaffen,
+ während die Lesbarkeit erhalten bleibt. Das Padding schafft Platz um den
+ Text, und die Border-Eigenschaft fügt eine klare visuelle Markierung
+ hinzu, um die Tags hervorzuheben. Diese Gestaltung hilft den einzelnen
+ Tags in den Tag-Listen der Info-Boxen der Sidebar, als wichtige
+ Indikatoren für die Informationen in der Box hervorzustechen,
+ Aufmerksamkeit zu erregen und Benutzern zu helfen, die Informationen
+ leicht zu scannen und zu verstehen.
+*/
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--honey);
+  border: 1px solid var(--honey);
+  padding: 0.6rem 1.2rem;
+  margin-bottom: 3rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* 
+ Der Hover-Effekt für die Back-Link-Elemente fügt einen Hintergrund und eine
+ Farbänderung hinzu, um visuelles Feedback für Benutzer zu bieten, wenn sie
+ mit den Links interagieren. Dies macht deutlich, dass die Links anklickbar
+ sind und ermutigt Benutzer, zurück zur Hauptseite oder zum vorherigen
+ Inhalt zu navigieren. Die Hintergrundfarbe wird auf die Honig-Akzentfarbe
+ eingestellt, um Kontrast gegen den Text zu schaffen, während die
+ Farbänderung auf die Rinden-Farbe eingestellt wird, um Lesbarkeit zu
+ gewährleisten. Diese Gestaltung verbessert die Benutzerfreundlichkeit und
+ macht es Benutzern leichter, durch die Website zu navigieren.
+*/
+.back-link:hover {
+  background: var(--honey);
+  color: var(--bark);
+}
+
+
+
+
+
+
+
+
+
+/* ── DETAILS-ELEMENTE ── */
+details { 
+  border-bottom: 1px solid var(--rule); 
+}
+
+details:last-child { 
+  border-bottom: none; 
+}
 
 details summary {
   font-family: 'Inconsolata', monospace;
@@ -972,7 +2091,9 @@ details summary {
   user-select: none;
 }
 
-details summary::-webkit-details-marker { display: none; }
+details summary::-webkit-details-marker { 
+  display: none; 
+}
 
 details summary::after {
   content: '›';
@@ -982,8 +2103,13 @@ details summary::after {
   transition: transform 0.2s;
 }
 
-details[open] summary::after { transform: rotate(90deg); }
-details summary:hover { color: var(--honey); }
+details[open] summary::after { 
+  transform: rotate(90deg); 
+}
+
+details summary:hover { 
+  color: var(--honey); 
+}
 
 /* ── STÜCKLISTE INLINE (im Artikel) ── */
 .stueckliste-inline {
@@ -1006,7 +2132,7 @@ details summary:hover { color: var(--honey); }
 .stueckliste-inline .parts-table th { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
 .stueckliste-inline .parts-table td { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
 
-/* ── DRAWINGS GRID ── */
+/* ── ZEICHNUNGEN GRID ── */
 .drawings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1014,8 +2140,7 @@ details summary:hover { color: var(--honey); }
   margin: 1.2rem 0 2rem;
 }
 
-/* Drawing cards */
-.drawing-card,
+/* Zeichnungs-Karten */
 .drawing-thumb {
   position: relative;
   cursor: pointer;
@@ -1026,14 +2151,12 @@ details summary:hover { color: var(--honey); }
   aspect-ratio: 1.41;
 }
 
-.drawing-card:hover,
 .drawing-thumb:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px var(--shadow);
   border-color: var(--honey);
 }
 
-.drawing-card img,
 .drawing-thumb img {
   width: 100%;
   height: 100%;
@@ -1061,91 +2184,13 @@ details summary:hover { color: var(--honey); }
   opacity: 1;
 }
 
-.drawing-card-label {
-  display: block;
-  font-family: 'Inconsolata', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0.35rem 0.5rem;
-  text-align: center;
-  border-top: 1px solid var(--rule);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
-/* ── LIGHTBOX 
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(20,12,6,0.93);
-  z-index: 10000;
-  align-items: center;
-  justify-content: center;
-}
 
-.lightbox.active { display: flex; }
-*/
-.lb-inner {
-  max-width: 90vw;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.lb-inner img {
-  max-width: 100%;
-  max-height: 82vh;
-  object-fit: contain;
-  display: block;
-  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
-}
 
-#lbCaption {
-  font-family: 'Inconsolata', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(200,145,58,0.8);
-  margin-top: 0.8rem;
-  text-align: center;
-}
 
-.lb-close {
-  position: fixed;
-  top: 1.2rem; right: 1.5rem;
-  background: none; border: 1px solid rgba(200,145,58,0.5);
-  color: var(--honey); font-size: 1.2rem;
-  width: 2.2rem; height: 2.2rem;
-  cursor: pointer; line-height: 1;
-  transition: background 0.2s;
-}
 
-.lb-close:hover { background: rgba(200,145,58,0.15); }
-
-.lb-prev, .lb-next {
-  position: fixed;
-  top: 50%; transform: translateY(-50%);
-  background: none; border: 1px solid rgba(200,145,58,0.4);
-  color: var(--honey); font-size: 2.5rem;
-  width: 3rem; height: 5rem;
-  cursor: pointer; line-height: 1;
-  transition: background 0.2s;
-}
-
-.lb-prev { left: 1rem; }
-.lb-next { right: 1rem; }
-.lb-prev:hover, .lb-next:hover { background: rgba(200,145,58,0.12); }
-
-@media (max-width: 480px) {
-  .drawings-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-}
-
-/* ── TOOL CARDS ── */
+/* ── WERKZEUG-KARTEN ── */
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1241,6 +2286,254 @@ details summary:hover { color: var(--honey); }
   margin-bottom: 0.4rem;
 }
 
+/* 
+ Der Werkzeug-Name ist mit einer Serif-Schrift, einer größeren Schriftgröße
+ und einer Farbe gestaltet, die die Gesamtpalette ergänzt. Die Zeilenhöhe
+ ist so eingestellt, dass sie einen ausgewogenen vertikalen Rhythmus
+ schafft, und der margin-bottom schafft Platz zwischen dem Namen und der
+ Beschreibung für bessere Lesbarkeit. Diese Gestaltung hilft dem Werkzeug-
+ Namen, als Hauptüberschrift für die Werkzeug-Karte hervorzustechen,
+ Aufmerksamkeit zu erregen und Benutzer zu ermutigen, mehr über das
+ Werkzeug zu erfahren.
+*/
+.tool-name {
+  font-family: 'Marcellus', serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--bark);
+  margin-bottom: 0.8rem;
+}
+
+/* 
+ Die Werkzeug-Beschreibung ist mit einer etwas kleineren Schriftgröße als
+ der Name und einer gedämpften Farbe gestaltet, um einen subtilen Kontrast
+ gegen den hellen Hintergrund der Karte zu schaffen. Die Zeilenhöhe ist so
+ eingestellt, dass sie die Lesbarkeit verbessert, und der margin-bottom
+ schafft Platz zwischen der Beschreibung und dem Footer für bessere
+ visuelle Trennung. Diese Gestaltung hilft der Werkzeug-Beschreibung, eine
+ kurze Zusammenfassung des Werkzeugs zu bieten, während ein sauberes und
+ organisiertes Erscheinungsbild in der Karte beibehalten wird.
+*/
+.tool-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+}
+
+/* 
+ Der Werkzeug-Footer ist als Flex-Container gestaltet, um den Kauf-Button
+ rechts auszurichten. Die justify-content: flex-end-Eigenschaft stellt
+ sicher, dass der Button rechts ausgerichtet ist, während die Border-Top
+ eine klare Trennung zwischen dem Hauptinhalt der Karte und dem Footer
+ bietet. Das Padding schafft Platz um die Elemente für bessere Lesbarkeit.
+ Diese Gestaltung hilft dem Werkzeug-Footer, als klarer Abschluss der
+ Werkzeug-Karte zu dienen und den Kauf-Button prominent zu präsentieren.
+*/
+.tool-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+}
+
+/* 
+ Der Kauf-Button ist als Inline-Block-Element mit einer Monospace-Schrift,
+ Großbuchstaben und erhöhtem Buchstabenabstand für einen markanten Look
+ gestaltet. Die Farbe ist auf die Rinden-Farbe für den Text eingestellt,
+ und der Hintergrund ist auf die Honig-Akzentfarbe eingestellt, um
+ Kontrast gegen den hellen Hintergrund der Karte zu schaffen. Das Padding
+ bietet Platz um den Text, und eine Transition wird für sanfte Hover-
+ Effekte hinzugefügt. Die white-space: nowrap stellt sicher, dass der
+ Button-Text nicht in mehrere Zeilen umbricht.
+*/
+.tool-buy-btn {
+  display: inline-block;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bark);
+  background: var(--honey);
+  padding: 0.65rem 1.5rem;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+/* 
+ Der Hover-Effekt für den Kauf-Button ändert die Hintergrundfarbe zu einem
+ etwas dunkleren Farbton der Honig-Akzentfarbe und wendet eine subtile
+ Aufwärts-Translation an, um ein Gefühl von Interaktivität zu schaffen.
+ Dies bietet visuelles Feedback für Benutzer, wenn sie mit dem Button
+ interagieren, verbessert die Benutzerfreundlichkeit und macht deutlich,
+ dass der Button anklickbar ist.
+*/
+.tool-buy-btn:hover { background: #d9a24a; transform: translateY(-2px); }
+
+/* 
+ Die Kategorie-Bereiche sind mit großzügigem margin-bottom gestaltet, um
+ Platz zwischen den einzelnen Kategorien zu schaffen und eine klare
+ visuelle Trennung zu bieten. Diese Gestaltung hilft den Kategorie-
+ Bereichen, als eigenständige Abschnitte hervorzustechen und es Benutzern
+ zu erleichtern, durch die verschiedenen Werkzeugkategorien zu navigieren.
+*/
+.category-section { margin-bottom: 4rem; }
+
+/* 
+ Der Kategorie-Header ist als Flex-Container gestaltet, um das Icon, den
+ Titel und die Anzahl horizontal anzuordnen. Die Gap-Eigenschaft sorgt für
+ ausreichend Abstand zwischen den Elementen, und die Border-Bottom bietet
+ eine klare Trennung zwischen dem Header und dem folgenden Inhalt. Das
+ Padding schafft Platz um die Elemente für bessere Lesbarkeit. Diese
+ Gestaltung hilft dem Kategorie-Header, als markanter Abschnitt für jede
+ Werkzeugkategorie hervorzustechen.
+*/
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 3rem 0 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--bark);
+}
+
+/* 
+ Das Kategorie-Icon ist als quadratischer Container mit einem dunklen
+ Hintergrund gestaltet, der das SVG-Icon zentriert. Die flex-shrink: 0
+ stellt sicher, dass das Icon seine Größe beibehält, auch wenn der
+ verfügbare Platz begrenzt ist. Diese Gestaltung hilft dem Kategorie-Icon,
+ als visuelles Highlight im Kategorie-Header hervorzustechen.
+*/
+.category-icon {
+  width: 36px; height: 36px;
+  background: var(--bark);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 
+ Das SVG-Icon im Kategorie-Icon ist mit einer festen Größe und einer
+ Strichfarbe gestaltet, die die Honig-Akzentfarbe ist. Die stroke-width
+ ist so eingestellt, dass sie einen klaren und sichtbaren Strich schafft,
+ während fill: none sicherstellt, dass nur die Umrisse des Icons sichtbar
+ sind. Diese Gestaltung hilft dem SVG-Icon, als markantes visuelles
+ Element im Kategorie-Header hervorzustechen.
+*/
+.category-icon svg { width: 18px; height: 18px; stroke: var(--honey); fill: none; stroke-width: 1.5; }
+
+/* 
+ Die Kategorie-Überschrift ist mit einer Serif-Schrift, einer mittleren
+ Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette ergänzt.
+ Diese Gestaltung hilft der Kategorie-Überschrift, als Hauptüberschrift
+ für die Werkzeugkategorie hervorzustechen und Aufmerksamkeit zu erregen.
+*/
+.category-header h2 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.3rem;
+  color: var(--bark);
+  letter-spacing: 0.02em;
+}
+
+/* 
+ Die Kategorie-Anzahl ist mit einer Monospace-Schrift, Großbuchstaben und
+ erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für die
+ Anzahl der Werkzeuge in der Kategorie zu schaffen. Die margin-left: auto
+ schiebt die Anzahl an das rechte Ende des Kategorie-Headers. Diese
+ Gestaltung hilft der Kategorie-Anzahl, als klarer Indikator für die Anzahl
+ der Werkzeuge in der Kategorie zu dienen.
+*/
+.category-count {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-left: auto;
+  text-transform: uppercase;
+}
+
+/* 
+ Die Bewertungs-Begründung ist mit einer etwas kleineren Schriftgröße,
+ kursiver Schriftart und einer gedämpften Farbe gestaltet, um einen
+ subtilen Kontrast zu schaffen. Diese Gestaltung hilft der Bewertungs-
+ Begründung, als ergänzende Information zur Bewertung hervorzustechen.
+*/
+.rating-reason {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+}
+
+/* ── LIGHTBOX ── */
+
+/* 
+ Die Lightbox ist im Grundzustand versteckt und wird nur angezeigt, wenn
+ sie die Klasse "open" erhält. Sie ist als fixed positioniertes Element
+ gestaltet, das den gesamten Viewport abdeckt, mit einem dunklen
+ halbtransparenten Hintergrund. Die Flexbox-Eigenschaften zentrieren den
+ Inhalt sowohl vertikal als auch horizontal. Der z-index: 9999 stellt
+ sicher, dass die Lightbox über allen anderen Inhalten liegt.
+*/
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 
+ Der geöffnete Zustand der Lightbox ändert die display-Eigenschaft auf
+ flex, um die Lightbox sichtbar zu machen und den Inhalt zu zentrieren.
+ Diese Gestaltung ermöglicht es, die Lightbox mit JavaScript zu öffnen und
+ zu schließen, indem die Klasse "open" hinzugefügt oder entfernt wird.
+*/
+.lightbox.open {
+  display: flex;
+}
+
+/* 
+ Die Bildunterschrift in der Lightbox ist mit einer Serif-Schrift, weißer
+ Farbe und zentriertem Text gestaltet, um eine klare und lesbare
+ Beschreibung des angezeigten Bildes zu bieten. Der margin-top schafft
+ Platz zwischen dem Bild und der Bildunterschrift für bessere Lesbarkeit.
+*/
+#lbCaption {
+  color: #fff;
+  margin-top: 15px;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+/* ── HERO IMAGE ── */
+
+/* 
+ Das Hero-Bild ist so gestaltet, dass es zentriert und mit einer maximalen
+ Breite angezeigt wird, um sicherzustellen, dass es auf größeren
+ Bildschirmen nicht zu groß wird. Die border-radius fügt abgerundete Ecken
+ hinzu, um einen modernen und ansprechenden Look zu schaffen. Der margin
+ schafft Platz um das Bild für bessere visuelle Trennung.
+*/
+.hero-image img {
+  width: 50%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 6px;
+}form: uppercase;
+  color: var(--oak);
+  margin-bottom: 0.4rem;
+}
+
 .tool-name {
   font-family: 'Marcellus', serif;
   font-size: 1.5rem;
@@ -1280,7 +2573,7 @@ details summary:hover { color: var(--honey); }
 
 .tool-buy-btn:hover { background: #d9a24a; transform: translateY(-2px); }
 
-/* ── CATEGORY SECTIONS ── */
+/* ── KATEGORIE-BEREICHE ── */
 .category-section { margin-bottom: 4rem; }
 
 .category-header {
@@ -1316,13 +2609,7 @@ details summary:hover { color: var(--honey); }
   text-transform: uppercase;
 }
 
-@media (max-width: 960px) {
-  .tools-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .tools-grid { grid-template-columns: 1fr; }
-  .category-header h2 { font-size: 1.1rem; }
-}
+
 
 .rating-reason {
   font-size: 0.9rem;
@@ -1332,42 +2619,29 @@ details summary:hover { color: var(--honey); }
   margin-bottom: 1.6rem;
 }
 
-/* Grundzustand der Lightbox: Versteckt */
+/* ── LIGHTBOX ── */
+
+/* Grundzustand: Versteckt */
 .lightbox {
-  display: none; /* WICHTIG: Standardmäßig ausblenden */
+  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Schwarzer Hintergrund mit Transparenz */
+  background-color: rgba(0, 0, 0, 0.9);
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-/* Wenn die Klasse .open per JS hinzugefügt wird */
+/* Geöffneter Zustand */
 .lightbox.open {
-  display: flex; /* Erscheint als Flex-Container */
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 80%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 80vh;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  border: 2px solid #fff;
-}
-
+/* Bildunterschrift */
 #lbCaption {
   color: #fff;
   margin-top: 15px;
@@ -1375,24 +2649,7 @@ details summary:hover { color: var(--honey); }
   text-align: center;
 }
 
-/* Schließen-Button & Pfeile */
-.close-lightbox, .lb-prev, .lb-next {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  user-select: none;
-}
-
-.close-lightbox { top: -50px; right: 0; }
-.lb-prev { left: -60px; top: 50%; transform: translateY(-50%); }
-.lb-next { right: -60px; top: 50%; transform: translateY(-50%); }
-
-.close-lightbox:hover, .lb-prev:hover, .lb-next:hover {
-  color: #ccc;
-}
-
+/* ── HERO IMAGE ── */
 .hero-image img {
   width: 50%;
   max-width: 600px;
