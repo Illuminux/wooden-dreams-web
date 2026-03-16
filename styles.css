@@ -849,7 +849,8 @@ footer { background: var(--bark); padding: 2.5rem 2rem; text-align: center; }
 .viewer-hint { margin-top: 0.6rem; font-family: 'Inconsolata', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); text-align: center; }
 
 /* ── CONTENT GRID ── */
-.content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; margin: 3rem 0 4rem; animation: fadeUp 0.7s 0.25s ease both; }
+/*.content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 3.5rem; margin: 3rem 0 4rem; animation: fadeUp 0.7s 0.25s ease both; }*/
+.content-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; margin: 3rem 0 4rem; animation: fadeUp 0.7s 0.25s ease both; }
 
 /* ── ARTICLE ── */
 .project-article h2 { font-family: 'Marcellus', serif; font-size: 1.45rem; margin: 2.5rem 0 0.8rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
