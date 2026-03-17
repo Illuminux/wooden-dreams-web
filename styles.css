@@ -2134,8 +2134,8 @@ details summary:hover {
 
 /* ── ZEICHNUNGEN GRID ── */
 .drawings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
   margin: 1.2rem 0 2rem;
 }
@@ -2148,7 +2148,8 @@ details summary:hover {
   background: var(--linen);
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
-  aspect-ratio: 1.41;
+  height: 200px;
+  width: auto;
 }
 
 .drawing-thumb:hover {
@@ -2158,9 +2159,9 @@ details summary:hover {
 }
 
 .drawing-thumb img {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: opacity 0.2s;
 }
