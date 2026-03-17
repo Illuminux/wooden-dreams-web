@@ -2124,6 +2124,87 @@ footer nav.footer-links {
 
 
 
+/* ══════════════════════════════════════════════════════════════════════════
+   VISUELLE ANKER FÜR PROJEKTSEITEN
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Text-Divider - Horizontale Linie mit Holz-Charakter */
+.text-divider {
+  height: 2px;
+  background: var(--rule);
+  border: none;
+  margin: 3rem 0;
+  opacity: 0.6;
+}
+
+/* 2. Note-Box - Dezente Hinweisbox für wichtige Informationen */
+.note-box {
+  background: var(--linen);
+  border-left: 3px solid var(--honey);
+  padding: 1.2rem 1.5rem;
+  margin: 1.8rem 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(43, 30, 20, 0.08);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--walnut);
+}
+
+.note-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* 3. Step-Card - Kleine visuelle Karte für Arbeitsschritte */
+.step-card {
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 3px 12px rgba(43, 30, 20, 0.1);
+  border-radius: 3px;
+}
+
+.step-card h4 {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 600;
+}
+
+.step-card p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--walnut);
+  margin-bottom: 0.8rem;
+}
+
+.step-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* 4. Image-Slot - Platzhalter für spätere Bilder */
+.image-slot {
+  height: 240px;
+  background: var(--sand);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  border-radius: 3px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
 /* ── DETAILS-ELEMENTE ── */
 details { 
   border-bottom: 1px solid var(--rule); 
