@@ -2507,11 +2507,16 @@ details summary:hover {
 */
 .lightbox-content {
   position: relative;
-  max-width: 90%;
-  max-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* Erhöhe die Ausnutzung der Fläche auf 98% */
+  max-width: 98vw;  /* Nutzt fast die komplette Breite des Viewports */
+  max-height: 95vh; /* Nutzt fast die komplette Höhe des Viewports */
+  
+  width: auto;      /* Wichtig: Breite soll sich proportional anpassen */
+  height: auto;     /* Wichtig: Höhe soll sich proportional anpassen */
+  
+  object-fit: contain;
+  display: block;
+  margin: auto;     /* Zentriert das Bild, falls noch Platz bleibt */
 }
 
 /* 
