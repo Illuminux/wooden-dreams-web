@@ -2205,6 +2205,231 @@ footer nav.footer-links {
   opacity: 0.7;
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   TABELLEN-DESIGN FÜR PROJEKTSEITEN (STÜCKLISTEN)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Wrapper für Tabellen */
+.wood-table {
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  box-shadow: 0 3px 12px var(--shadow);
+  overflow-x: auto;
+}
+
+/* 2. Tabelle selbst */
+.wood-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+/* 3. Tabellenkopf */
+.wood-table thead th {
+  background: var(--sand);
+  color: var(--walnut);
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 2px solid var(--rule);
+  letter-spacing: 0.02em;
+}
+
+/* 4. Zebra-Streifen für gerade Zeilen */
+.wood-table tbody tr:nth-child(even) {
+  background: rgba(250, 246, 240, 0.5);
+}
+
+/* 5. Hover-Effekt */
+.wood-table tbody tr:hover {
+  background: rgba(200, 145, 58, 0.05);
+  transition: background 0.2s ease;
+}
+
+/* 6. Tabellenzellen */
+.wood-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--bark);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+/* Letzte Zeile ohne unteren Border */
+.wood-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Erste Spalte leicht hervorgehoben */
+.wood-table td:first-child {
+  font-weight: 500;
+  color: var(--walnut);
+}
+
+/* Links in Tabellen */
+.wood-table a {
+  color: var(--honey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.wood-table a:hover {
+  color: var(--oak);
+  text-decoration: underline;
+}
+
+/* Kleine Schrift in Tabellen */
+.wood-table small {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   STÜCKLISTEN-DESIGN (PARTS-LIST & PARTS-TABLE)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Details-Element für Stücklisten */
+.parts-list {
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.parts-list summary {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--walnut);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.parts-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.parts-list summary::before {
+  content: '▸';
+  color: var(--honey);
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+
+.parts-list[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.parts-list summary:hover {
+  color: var(--oak);
+}
+
+/* 2. Parts-Table - Haupttabelle */
+.parts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 1.2rem;
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  box-shadow: 0 2px 8px rgba(43, 30, 20, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* 3. Tabellenkopf */
+.parts-table thead th {
+  background: var(--sand);
+  color: var(--walnut);
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-align: left;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--rule);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* 4. Zebra-Streifen für gerade Zeilen */
+.parts-table tbody tr:nth-child(even) {
+  background: rgba(250, 246, 240, 0.4);
+}
+
+/* 5. Hover-Effekt */
+.parts-table tbody tr:hover {
+  background: rgba(200, 145, 58, 0.06);
+  transition: background 0.2s ease;
+}
+
+/* 6. Tabellenzellen */
+.parts-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--bark);
+  line-height: 1.65;
+  vertical-align: top;
+}
+
+/* Letzte Zeile ohne unteren Border */
+.parts-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Erste Spalte (Bauteil-Name) hervorgehoben */
+.parts-table td:first-child {
+  font-weight: 500;
+  color: var(--walnut);
+}
+
+/* Links in Parts-Table */
+.parts-table a {
+  color: var(--honey);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 0.88rem;
+}
+
+.parts-table a:hover {
+  color: var(--oak);
+  text-decoration: underline;
+}
+
+/* Kleine Schrift in Parts-Table */
+.parts-table small {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Responsive: Horizontales Scrollen auf kleinen Bildschirmen */
+@media (max-width: 768px) {
+  .parts-list {
+    padding: 1rem;
+  }
+  
+  .parts-table {
+    font-size: 0.85rem;
+  }
+  
+  .parts-table thead th,
+  .parts-table td {
+    padding: 0.6rem 0.8rem;
+  }
+}
+
 /* ── DETAILS-ELEMENTE ── */
 details { 
   border-bottom: 1px solid var(--rule); 
