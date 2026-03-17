@@ -2502,16 +2502,98 @@ details summary:hover {
 }
 
 /* 
+ Der Lightbox-Content-Container enthält nur das Bild.
+*/
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+ Das Bild in der Lightbox wird zentriert und mit maximalen Abmessungen
+ versehen, um sicherzustellen, dass es auf allen Bildschirmgrößen gut
+ dargestellt wird.
+*/
+#lbImg {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* 
+ Die Navigationspfeile für vorheriges und nächstes Bild sind absolut
+ positioniert auf der Lightbox-Ebene und erscheinen links und rechts
+ im freien Bereich, nicht über dem Bild.
+*/
+.lb-prev,
+.lb-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: var(--honey);
+  cursor: pointer;
+  user-select: none;
+  padding: 1rem;
+  transition: color 0.2s, opacity 0.2s;
+  z-index: 10000;
+  opacity: 0.7;
+}
+
+.lb-prev:hover,
+.lb-next:hover {
+  color: var(--linen);
+  opacity: 1;
+}
+
+.lb-prev {
+  left: 2rem;
+}
+
+.lb-next {
+  right: 2rem;
+}
+
+/* 
+ Der Schließen-Button wird oben rechts in der Lightbox positioniert.
+*/
+.close-lightbox {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  font-size: 3rem;
+  color: var(--honey);
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.2s, opacity 0.2s;
+  opacity: 0.7;
+}
+
+.close-lightbox:hover {
+  color: var(--linen);
+  opacity: 1;
+}
+
+/* 
  Die Bildunterschrift in der Lightbox ist mit einer Serif-Schrift, weißer
  Farbe und zentriertem Text gestaltet, um eine klare und lesbare
  Beschreibung des angezeigten Bildes zu bieten. Der margin-top schafft
  Platz zwischen dem Bild und der Bildunterschrift für bessere Lesbarkeit.
+ Die Caption ist ein Block-Element und erscheint unter dem Bild.
 */
 #lbCaption {
   color: #fff;
   margin-top: 15px;
   font-family: 'Lora', serif;
   text-align: center;
+  width: 100%;
+  display: block;
+  max-width: 90%;
 }
 
 /* ── HERO IMAGE ── */
