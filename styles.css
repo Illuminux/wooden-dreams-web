@@ -3129,6 +3129,38 @@ h3 + .stueckliste-inline {
   text-align: center;
 }
 
+/* ── TEXTSPALTE FÜR PROJEKTSEITEN ── */
+
+/* 
+ Projektartikel erhalten eine definierte Textspalte mit optimaler
+ Lesebreite (~65 Zeichen). Überschriften, Absätze und Listen werden
+ in dieser Spalte zentriert, während Bilder, Tabellen und spezielle
+ Container die volle Breite nutzen können.
+*/
+.project-article > h2,
+.project-article > h3,
+.project-article > p,
+.project-article > ul,
+.project-article > ol,
+.project-article > blockquote,
+.project-article > .pull-quote {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+ Bilder, Tabellen, Info-Boxen und Zeichnungs-Grids bleiben
+ in voller Breite für maximale Wirkung.
+*/
+.project-article > .drawings-grid,
+.project-article > .info-box,
+.project-article > .viewer-section,
+.project-article > img,
+.project-article > figure {
+  max-width: 100%;
+}
+
 /* ── HERO IMAGE ── */
 .hero-image img {
   width: 50%;
