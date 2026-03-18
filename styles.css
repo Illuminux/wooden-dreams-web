@@ -2031,9 +2031,15 @@ footer nav.footer-links {
  helfen, die Informationen leicht zu scannen und zu verstehen.
 */
 .info-box {
-  background: var(--linen);
+  background: rgba(234, 221, 202, 0.3);
   border: 1px solid var(--rule);
   padding: 1.5rem;
+  border-left: 3px solid var(--honey);
+  transition: background 0.2s;
+}
+
+.info-box:hover {
+  background: rgba(234, 221, 202, 0.5);
 }
 
 /* 
@@ -2146,8 +2152,8 @@ footer nav.footer-links {
 
 /* 2. Note-Box - Dezente Hinweisbox für wichtige Informationen */
 .note-box {
-  background: var(--linen);
-  border-left: 3px solid var(--honey);
+  background: rgba(234, 221, 202, 0.4);
+  border-left: 4px solid var(--honey);
   padding: var(--space-s) var(--space-m);
   margin: var(--space-m) 0;
   border-radius: 4px;
@@ -2155,6 +2161,16 @@ footer nav.footer-links {
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--walnut);
+}
+
+.note-box strong {
+  color: var(--bark);
+}
+
+/* Warnhinweise visuell verstärken */
+.note-box:has(strong:first-child) {
+  border-left-color: #d4a24e;
+  border-left-width: 5px;
 }
 
 .note-box p:last-child {
@@ -2406,15 +2422,29 @@ footer nav.footer-links {
 
 /* Links in Parts-Table */
 .parts-table a {
-  color: var(--honey);
-  text-decoration: none;
-  transition: color 0.2s;
+  color: var(--bark);
+  text-decoration: underline;
+  text-decoration-color: var(--honey);
+  text-underline-offset: 2px;
   font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.parts-table a::after {
+  content: " →";
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-block;
 }
 
 .parts-table a:hover {
-  color: var(--oak);
-  text-decoration: underline;
+  color: var(--honey);
+}
+
+.parts-table a:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 /* Kleine Schrift in Parts-Table */
@@ -2540,15 +2570,24 @@ h3 + .stueckliste-inline {
   border: 1px solid var(--rule);
   background: var(--linen);
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   height: 200px;
   width: auto;
 }
 
 .drawing-thumb:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px var(--shadow);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  background: #fff;
   border-color: var(--honey);
+}
+
+.drawing-thumb img {
+  transition: opacity 0.2s;
+}
+
+.drawing-thumb:hover img {
+  opacity: 0.95;
 }
 
 .drawing-thumb img {
@@ -3149,6 +3188,23 @@ h3 + .stueckliste-inline {
   margin-right: auto;
 }
 
+/* Verbesserte Hierarchie: Mehr Whitespace vor Hauptüberschriften */
+.project-article > h2 {
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-article > h3 {
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Erste Überschrift ohne zusätzlichen Abstand */
+.project-article > h2:first-child,
+.project-article > h3:first-child {
+  margin-top: 0;
+}
+
 /* 
  Bilder, Tabellen, Info-Boxen und Zeichnungs-Grids bleiben
  in voller Breite für maximale Wirkung.
@@ -3161,6 +3217,29 @@ h3 + .stueckliste-inline {
   max-width: 100%;
 }
 
+/* Responsive: Textspalte auf mobilen Geräten */
+@media (max-width: 768px) {
+  .project-article > h2,
+  .project-article > h3,
+  .project-article > p,
+  .project-article > ul,
+  .project-article > ol,
+  .project-article > blockquote,
+  .project-article > .pull-quote {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .project-article > h2 {
+    margin-top: 2.5rem;
+  }
+  
+  .project-article > h3 {
+    margin-top: 2rem;
+  }
+}
+
 /* ── HERO IMAGE ── */
 .hero-image img {
   width: 50%;
@@ -3168,4 +3247,32 @@ h3 + .stueckliste-inline {
   display: block;
   margin: 0 auto 1rem auto;
   border-radius: 6px;
+}
+
+/* Responsive Hero-Images */
+@media (max-width: 768px) {
+  .hero-image img {
+    width: 90%;
+  }
+  
+  .hero-image table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .hero-image table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-image table td {
+    display: block;
+    width: 100%;
+  }
+  
+  .hero-image table td img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
