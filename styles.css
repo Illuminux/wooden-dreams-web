@@ -2297,11 +2297,9 @@ footer nav.footer-links {
 /* 1. Details-Element für Stücklisten */
 .parts-list {
   background: var(--linen);
-  border: 1px solid var(--rule);
   padding: 1.5rem;
   margin: 1.5rem 0;
   border-radius: 4px;
-  box-shadow: 0 2px 10px var(--shadow);
 }
 
 .parts-list summary {
