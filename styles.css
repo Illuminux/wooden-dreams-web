@@ -364,6 +364,10 @@ header nav a:hover {
   margin: var(--space-xl) 0 var(--space-l);
 }
 
+.section-label:first-child {
+  margin-top: 0;
+}
+
 /* 
  Bereichs-Labels sind mit einer Monospace-Schrift, Großbuchstaben und
  erhöhtem Buchstabenabstand gestaltet, um ein markantes Label für
@@ -1706,7 +1710,12 @@ footer nav.footer-links {
   color: var(--bark);
   line-height: 1.15;
   letter-spacing: 0.02em;
-  margin: 0 0 var(--space-m);
+  margin: var(--space-xl) 0 var(--space-l);
+}
+
+.container h1:first-child,
+.project-article h1:first-child {
+  margin-top: 0;
 }
 
 /* h2 = Klare Hauptabschnitte mit visueller Trennung */
@@ -1716,7 +1725,7 @@ footer nav.footer-links {
   font-size: clamp(1.6rem, 3.5vw, 2rem);
   color: var(--walnut);
   line-height: 1.3;
-  margin: var(--space-xl) 0 var(--space-s);
+  margin: var(--space-l) 0 var(--space-m);
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--rule);
 }
@@ -1724,8 +1733,6 @@ footer nav.footer-links {
 .container h2:first-child,
 .project-article h2:first-child {
   margin-top: 0;
-  padding-top: 0;
-  border-top: none;
 }
 
 /* h3 = Unterabschnitte / Module */
@@ -1735,7 +1742,7 @@ footer nav.footer-links {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: var(--oak);
   line-height: 1.35;
-  margin: var(--space-l) 0 var(--space-xs);
+  margin: var(--space-m) 0 var(--space-s);
 }
 
 /* h4 = Detail-Ebene (technische Labels) */
@@ -1747,7 +1754,7 @@ footer nav.footer-links {
   text-transform: uppercase;
   color: var(--muted);
   line-height: 1.5;
-  margin: var(--space-m) 0 var(--space-xs);
+  margin: var(--space-s) 0 var(--space-xs);
   font-weight: 600;
 }
 
@@ -1767,19 +1774,11 @@ footer nav.footer-links {
 .project-article h2 {
   font-family: 'Marcellus', serif;
   font-size: 1.45rem;
-  margin: var(--space-l) 0 var(--space-xs);
+  margin: var(--space-l) 0 var(--space-m);
   padding-top: var(--space-l);
   border-top: 1px solid var(--rule);
 }
 
-/* 
- Die erste Überschrift im Artikel hat keinen oberen Rand oder Padding, um
- sicherzustellen, dass sie nicht zu weit von der vorherigen Abschnitts-
- grenze entfernt ist. Dies schafft eine klarere visuelle Verbindung
- zwischen der Überschrift und dem vorherigen Inhalt, was die Lesbarkeit
- verbessert und es Benutzern erleichtert, den Artikel zu scannen und zu
- verstehen.
-*/
 .project-article h2:first-child {
   margin-top: 0;
   padding-top: 0;
@@ -1799,7 +1798,7 @@ footer nav.footer-links {
 .project-article p {
   font-size: 0.97rem;
   line-height: 1.85;
-  margin-bottom: var(--space-s);
+  margin: var(--space-s) 0;
   color: #3a2a1e;
 }
 
@@ -1816,7 +1815,7 @@ footer nav.footer-links {
 */
 .project-article ul {
   list-style: none;
-  margin: var(--space-xs) 0 var(--space-s);
+  margin: var(--space-s) 0;
 }
 
 /* 
@@ -1893,8 +1892,8 @@ footer nav.footer-links {
   font-size: 1.15rem;
   line-height: 1.6;
   border-left: 3px solid var(--honey);
-  padding: var(--space-xs) var(--space-m);
-  margin: var(--space-m) 0;
+  padding: var(--space-s) var(--space-m);
+  margin: var(--space-l) 0;
   color: var(--walnut);
   background: var(--linen);
 }
@@ -1913,7 +1912,7 @@ footer nav.footer-links {
 .steps {
   list-style: none;
   counter-reset: steps;
-  margin: var(--space-xs) 0 var(--space-s);
+  margin: var(--space-s) 0;
 }
 
 /* 
@@ -2227,6 +2226,10 @@ footer nav.footer-links {
   overflow-x: auto;
 }
 
+.wood-table table {
+  margin: 0;
+}
+
 /* 2. Tabelle selbst */
 .wood-table table {
   width: 100%;
@@ -2305,7 +2308,7 @@ footer nav.footer-links {
 .parts-list {
   background: var(--linen);
   padding: var(--space-m);
-  margin: var(--space-m) 0;
+  margin: var(--space-l) 0;
   border-radius: 4px;
 }
 
@@ -2315,7 +2318,8 @@ footer nav.footer-links {
   font-size: 0.95rem;
   color: var(--walnut);
   cursor: pointer;
-  padding: var(--space-xs) 0;
+  padding: 0;
+  margin-bottom: var(--space-s);
   list-style: none;
   display: flex;
   align-items: center;
@@ -2346,7 +2350,7 @@ footer nav.footer-links {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
-  margin-top: var(--space-s);
+  margin: var(--space-m) 0 var(--space-l);
   background: var(--linen);
   border: 1px solid var(--rule);
   box-shadow: 0 2px 8px rgba(43, 30, 20, 0.06);
@@ -2486,26 +2490,46 @@ details summary:hover {
   border: 1px solid var(--rule);
   padding: var(--space-m);
 }
+
 .stueckliste-inline h4 {
   font-family: 'Marcellus', serif;
   font-size: 1.45rem;
   letter-spacing: 0;
   text-transform: none;
   color: var(--bark);
-  margin-bottom: var(--space-s);
+  margin: 0 0 var(--space-s);
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--rule);
 }
-.stueckliste-inline .parts-table { font-size: 0.88rem; }
+
+.stueckliste-inline .parts-table {
+  margin: var(--space-s) 0 0;
+}
 .stueckliste-inline .parts-table th { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
 .stueckliste-inline .parts-table td { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+
+/* Verhindere doppelte Abstände zwischen Überschriften und Komponenten */
+h2 + .note-box,
+h2 + .step-card,
+h2 + .image-slot,
+h2 + .parts-list,
+h2 + .wood-table,
+h2 + .stueckliste-inline,
+h3 + .note-box,
+h3 + .step-card,
+h3 + .image-slot,
+h3 + .parts-list,
+h3 + .wood-table,
+h3 + .stueckliste-inline {
+  margin-top: var(--space-s);
+}
 
 /* ── ZEICHNUNGEN GRID ── */
 .drawings-grid {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-xs);
-  margin: var(--space-s) 0 var(--space-l);
+  margin: var(--space-l) 0;
 }
 
 /* Zeichnungs-Karten */
