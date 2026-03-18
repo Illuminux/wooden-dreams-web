@@ -30,6 +30,13 @@
   --muted:     #7a6250;
   --rule:      rgba(74,51,35,0.15);
   --shadow:    rgba(43,30,20,0.18);
+  
+  /* Vertical Spacing System */
+  --space-xs:  0.5rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2rem;
+  --space-xl:  3rem;
 }
 
 /* 
@@ -353,8 +360,8 @@ header nav a:hover {
 .section-label {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin: 3.5rem 0 2rem;
+  gap: var(--space-s);
+  margin: var(--space-xl) 0 var(--space-l);
 }
 
 /* 
@@ -1699,7 +1706,7 @@ footer nav.footer-links {
   color: var(--bark);
   line-height: 1.15;
   letter-spacing: 0.02em;
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-m);
 }
 
 /* h2 = Klare Hauptabschnitte mit visueller Trennung */
@@ -1709,8 +1716,8 @@ footer nav.footer-links {
   font-size: clamp(1.6rem, 3.5vw, 2rem);
   color: var(--walnut);
   line-height: 1.3;
-  margin: 3rem 0 1.2rem;
-  padding-bottom: 0.8rem;
+  margin: var(--space-xl) 0 var(--space-s);
+  padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--rule);
 }
 
@@ -1728,7 +1735,7 @@ footer nav.footer-links {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: var(--oak);
   line-height: 1.35;
-  margin: 2rem 0 0.8rem;
+  margin: var(--space-l) 0 var(--space-xs);
 }
 
 /* h4 = Detail-Ebene (technische Labels) */
@@ -1740,7 +1747,7 @@ footer nav.footer-links {
   text-transform: uppercase;
   color: var(--muted);
   line-height: 1.5;
-  margin: 1.5rem 0 0.6rem;
+  margin: var(--space-m) 0 var(--space-xs);
   font-weight: 600;
 }
 
@@ -1760,8 +1767,8 @@ footer nav.footer-links {
 .project-article h2 {
   font-family: 'Marcellus', serif;
   font-size: 1.45rem;
-  margin: 2.5rem 0 0.8rem;
-  padding-top: 2.5rem;
+  margin: var(--space-l) 0 var(--space-xs);
+  padding-top: var(--space-l);
   border-top: 1px solid var(--rule);
 }
 
@@ -1792,7 +1799,7 @@ footer nav.footer-links {
 .project-article p {
   font-size: 0.97rem;
   line-height: 1.85;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-s);
   color: #3a2a1e;
 }
 
@@ -1809,7 +1816,7 @@ footer nav.footer-links {
 */
 .project-article ul {
   list-style: none;
-  margin: 0.5rem 0 1.2rem;
+  margin: var(--space-xs) 0 var(--space-s);
 }
 
 /* 
@@ -1886,8 +1893,8 @@ footer nav.footer-links {
   font-size: 1.15rem;
   line-height: 1.6;
   border-left: 3px solid var(--honey);
-  padding: 0.8rem 1.5rem;
-  margin: 1.8rem 0;
+  padding: var(--space-xs) var(--space-m);
+  margin: var(--space-m) 0;
   color: var(--walnut);
   background: var(--linen);
 }
@@ -1906,7 +1913,7 @@ footer nav.footer-links {
 .steps {
   list-style: none;
   counter-reset: steps;
-  margin: 0.5rem 0 1.2rem;
+  margin: var(--space-xs) 0 var(--space-s);
 }
 
 /* 
@@ -1925,8 +1932,8 @@ footer nav.footer-links {
 .steps li {
   counter-increment: steps;
   display: flex;
-  gap: 1.2rem;
-  padding: 1rem 0;
+  gap: var(--space-s);
+  padding: var(--space-s) 0;
   border-bottom: 1px solid var(--rule);
   font-size: 0.95rem;
   color: #3a2a1e;
@@ -2133,7 +2140,7 @@ footer nav.footer-links {
   height: 2px;
   background: var(--rule);
   border: none;
-  margin: 3rem 0;
+  margin: var(--space-xl) 0;
   opacity: 0.6;
 }
 
@@ -2141,8 +2148,8 @@ footer nav.footer-links {
 .note-box {
   background: var(--linen);
   border-left: 3px solid var(--honey);
-  padding: 1.2rem 1.5rem;
-  margin: 1.8rem 0;
+  padding: var(--space-s) var(--space-m);
+  margin: var(--space-m) 0;
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(43, 30, 20, 0.08);
   font-size: 0.92rem;
@@ -2158,8 +2165,8 @@ footer nav.footer-links {
 .step-card {
   background: var(--linen);
   border: 1px solid var(--rule);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
+  padding: var(--space-m);
+  margin: var(--space-m) 0;
   box-shadow: 0 3px 12px rgba(43, 30, 20, 0.1);
   border-radius: 3px;
 }
@@ -2170,8 +2177,8 @@ footer nav.footer-links {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 0.8rem;
-  padding-bottom: 0.6rem;
+  margin: 0 0 var(--space-xs);
+  padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--rule);
   font-weight: 600;
 }
@@ -2180,7 +2187,7 @@ footer nav.footer-links {
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--walnut);
-  margin-bottom: 0.8rem;
+  margin-bottom: var(--space-xs);
 }
 
 .step-card p:last-child {
@@ -2195,7 +2202,7 @@ footer nav.footer-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin: var(--space-l) 0;
   border-radius: 3px;
   font-family: 'Inconsolata', monospace;
   font-size: 0.75rem;
@@ -2213,8 +2220,8 @@ footer nav.footer-links {
 .wood-table {
   background: var(--linen);
   border: 1px solid var(--rule);
-  padding: 1.5rem;
-  margin: 2rem 0;
+  padding: var(--space-m);
+  margin: var(--space-l) 0;
   border-radius: 4px;
   box-shadow: 0 3px 12px var(--shadow);
   overflow-x: auto;
@@ -2297,8 +2304,8 @@ footer nav.footer-links {
 /* 1. Details-Element für Stücklisten */
 .parts-list {
   background: var(--linen);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
+  padding: var(--space-m);
+  margin: var(--space-m) 0;
   border-radius: 4px;
 }
 
@@ -2308,11 +2315,11 @@ footer nav.footer-links {
   font-size: 0.95rem;
   color: var(--walnut);
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: var(--space-xs) 0;
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: var(--space-xs);
 }
 
 .parts-list summary::-webkit-details-marker {
@@ -2339,7 +2346,7 @@ footer nav.footer-links {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
-  margin-top: 1.2rem;
+  margin-top: var(--space-s);
   background: var(--linen);
   border: 1px solid var(--rule);
   box-shadow: 0 2px 8px rgba(43, 30, 20, 0.06);
@@ -2474,10 +2481,10 @@ details summary:hover {
 
 /* ── STÜCKLISTE INLINE (im Artikel) ── */
 .stueckliste-inline {
-  margin: 2.5rem 0;
+  margin: var(--space-l) 0;
   background: var(--linen);
   border: 1px solid var(--rule);
-  padding: 1.5rem;
+  padding: var(--space-m);
 }
 .stueckliste-inline h4 {
   font-family: 'Marcellus', serif;
@@ -2485,8 +2492,8 @@ details summary:hover {
   letter-spacing: 0;
   text-transform: none;
   color: var(--bark);
-  margin-bottom: 1rem;
-  padding-bottom: 0.8rem;
+  margin-bottom: var(--space-s);
+  padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--rule);
 }
 .stueckliste-inline .parts-table { font-size: 0.88rem; }
@@ -2497,8 +2504,8 @@ details summary:hover {
 .drawings-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 1.2rem 0 2rem;
+  gap: var(--space-xs);
+  margin: var(--space-s) 0 var(--space-l);
 }
 
 /* Zeichnungs-Karten */
