@@ -52,7 +52,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* Sanftes Scrollen für Anker-Links */
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth;
+}
+
+/* Reduziere Animationen für Nutzer mit Präferenz */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    2. GLOBALES LAYOUT & TYPOGRAFIE
@@ -94,15 +108,19 @@ Leseerlebnis bietet.
   anderen Inhalten liegt, um die Textur sichtbar zu machen, ohne das
   Layout oder die Funktionalität der Seite zu beeinträchtigen.
 */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(92deg, transparent 0px, transparent 18px, rgba(139,99,64,0.025) 18px, rgba(139,99,64,0.025) 19px),
-    repeating-linear-gradient(88deg, transparent 0px, transparent 34px, rgba(43,30,20,0.018) 34px, rgba(43,30,20,0.018) 35px);
-  pointer-events: none;
-  z-index: 9999;
+/* Textur-Overlay nur auf größeren Bildschirmen für bessere Performance */
+@media (min-width: 768px) {
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(92deg, transparent 0px, transparent 18px, rgba(139,99,64,0.025) 18px, rgba(139,99,64,0.025) 19px),
+      repeating-linear-gradient(88deg, transparent 0px, transparent 34px, rgba(43,30,20,0.018) 34px, rgba(43,30,20,0.018) 35px);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+  }
 }
 
 /* ── HEADER & NAVIGATION ── */
@@ -347,6 +365,13 @@ header nav a:last-child {
 header nav a:hover { 
   color: var(--honey); 
   background: rgba(200,145,58,0.08); 
+}
+
+/* Fokus-State für Barrierefreiheit */
+header nav a:focus {
+  outline: 2px solid var(--honey);
+  outline-offset: 2px;
+  color: var(--honey);
 }
 
 /* ── HAUPT-CONTAINER ── */
@@ -1288,6 +1313,61 @@ footer nav.footer-links {
    8. RESPONSIVE DESIGN
    ══════════════════════════════════════════════════════════════════════════ */
 
+/* ══════════════════════════════════════════════════════════════════════════
+   ZUSÄTZLICHE BARRIEREFREIHEIT & PERFORMANCE
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Fokus-States für alle interaktiven Elemente */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+details summary:focus {
+  outline: 2px solid var(--honey);
+  outline-offset: 2px;
+}
+
+/* Skip-Link für Screenreader */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--honey);
+  color: var(--bark);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Verbesserte Kontraste für bessere Lesbarkeit */
+.card-excerpt,
+.featured-excerpt,
+.project-subtitle {
+  color: #5a4a3a; /* Dunklerer Farbton für besseren Kontrast */
+}
+
+/* Performance: GPU-Beschleunigung für Animationen */
+.post-card,
+.tool-card,
+.drawing-thumb {
+  will-change: transform;
+}
+
+.post-card:hover,
+.tool-card:hover,
+.drawing-thumb:hover {
+  will-change: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. RESPONSIVE DESIGN
+   ══════════════════════════════════════════════════════════════════════════ */
+
 /* Tablet und kleinere Desktops (max-width: 900px) */
 @media (max-width: 900px) {
   .featured-3d {
@@ -1355,12 +1435,70 @@ footer nav.footer-links {
   .category-header h2 {
     font-size: 1.1rem;
   }
+  
+  /* Navigation auf Mobile optimieren */
+  header nav {
+    flex-direction: column;
+  }
+  
+  header nav a {
+    border-right: none;
+    border-bottom: 1px solid rgba(200,145,58,0.3);
+    text-align: center;
+  }
+  
+  header nav a:last-child {
+    border-bottom: none;
+  }
+  
+  /* Reduzierte Padding auf Mobile */
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .header-inner {
+    padding: 2rem 1rem 2rem;
+  }
+  
+  /* Kleinere Schriftgrößen auf Mobile */
+  .site-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+  
+  /* Tabellen horizontal scrollbar machen */
+  .parts-table,
+  .wood-table table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Kleine Mobile-Geräte (max-width: 480px) */
 @media (max-width: 480px) {
   .drawings-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  /* Lightbox-Navigation auf kleinen Geräten anpassen */
+  .lb-prev,
+  .lb-next {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  
+  .lb-prev {
+    left: 0.5rem;
+  }
+  
+  .lb-next {
+    right: 0.5rem;
+  }
+  
+  .close-lightbox {
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
   }
 }
 
