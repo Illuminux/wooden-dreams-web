@@ -2966,8 +2966,6 @@ h3 + .stueckliste-inline {
   align-items: center;
   gap: 1.2rem;
   margin: 3rem 0 2rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 2px solid var(--bark);
 }
 
 /* 
@@ -2995,16 +2993,18 @@ h3 + .stueckliste-inline {
 .category-icon svg { width: 18px; height: 18px; stroke: var(--honey); fill: none; stroke-width: 1.5; }
 
 /* 
- Die Kategorie-Überschrift ist mit einer Serif-Schrift, einer mittleren
- Schriftgröße und einer Farbe gestaltet, die die Gesamtpalette ergänzt.
- Diese Gestaltung hilft der Kategorie-Überschrift, als Hauptüberschrift
- für die Werkzeugkategorie hervorzustechen und Aufmerksamkeit zu erregen.
+ Die Kategorie-Überschrift ist harmonisiert mit .project-article h2
+ für konsistente Darstellung über alle Seiten hinweg.
 */
 .category-header h2 {
-  font-family: 'Marcellus', serif;
-  font-size: 1.3rem;
-  color: var(--bark);
-  letter-spacing: 0.02em;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  color: var(--walnut);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 600;
 }
 
 /* 
@@ -3238,8 +3238,6 @@ h3 + .stueckliste-inline {
   align-items: center;
   gap: 1.2rem;
   margin: 3rem 0 2rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 2px solid var(--bark);
 }
 
 .category-icon {
@@ -3251,10 +3249,14 @@ h3 + .stueckliste-inline {
 .category-icon svg { width: 18px; height: 18px; stroke: var(--honey); fill: none; stroke-width: 1.5; }
 
 .category-header h2 {
-  font-family: 'Marcellus', serif;
-  font-size: 1.3rem;
-  color: var(--bark);
-  letter-spacing: 0.02em;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  color: var(--walnut);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 600;
 }
 
 .category-count {
