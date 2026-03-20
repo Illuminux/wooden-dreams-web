@@ -2180,6 +2180,11 @@ details summary:focus {
   background: rgba(234, 221, 202, 0.5);
 }
 
+/* Entferne margin von Paragraphen in info-box */
+.info-box p {
+  margin: 0;
+}
+
 /* 
  Die Überschriften in den Info-Boxen der Sidebar sind mit einer Monospace-
  Schrift, einer kleinen Schriftgröße und einem erhöhten Buchstabenabstand
@@ -2303,6 +2308,16 @@ details summary:focus {
 
 .note-box strong {
   color: var(--bark);
+}
+
+/* Entferne margin von Paragraphen in note-box */
+.note-box p {
+  margin: 0;
+}
+
+/* Entferne margin von summary in note-box */
+.note-box summary {
+  margin: 0;
 }
 
 /* Warnhinweise visuell verstärken */
@@ -2474,11 +2489,15 @@ details summary:focus {
   color: var(--walnut);
   cursor: pointer;
   padding: 0;
-  margin-bottom: var(--space-s);
+  margin: var(--space-s) 0 0 0;
   list-style: none;
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+}
+
+.parts-list summary:first-child {
+  margin-top: 0;
 }
 
 .parts-list summary::-webkit-details-marker {
@@ -2498,6 +2517,12 @@ details summary:focus {
 
 .parts-list summary:hover {
   color: var(--oak);
+}
+
+/* details in parts-list ohne padding und margin-bottom */
+.parts-list details {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* 2. Parts-Table - Haupttabelle */
@@ -2676,6 +2701,18 @@ details summary:hover {
 }
 .stueckliste-inline .parts-table th { font-size: 0.65rem; padding: 0.5rem 0.8rem; }
 .stueckliste-inline .parts-table td { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+
+/* details in stueckliste-inline ohne padding und margin-bottom */
+.stueckliste-inline details {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+
+/* Entferne margin von Paragraphen in stueckliste-inline */
+.stueckliste-inline p {
+  margin: 0;
+}
 
 /* Verhindere doppelte Abstände zwischen Überschriften und Komponenten */
 h2 + .note-box,
