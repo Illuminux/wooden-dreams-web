@@ -1879,7 +1879,7 @@ details summary:focus {
 .container h3,
 .project-article h3 {
   font-family: 'Lora', serif;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: var(--oak);
   line-height: 1.5;
   margin: var(--space-m) 0 var(--space-s);
@@ -1914,7 +1914,7 @@ details summary:focus {
   font-family: 'Marcellus', serif;
   font-size: 1.45rem;
   margin: var(--space-l) 0 var(--space-m);
-  padding-top: var(--space-l);
+  padding-top: var(--space-xl);
   border-top: 1px solid var(--rule);
 }
 
@@ -2979,6 +2979,10 @@ h3 + .stueckliste-inline {
  dass der Button anklickbar ist.
 */
 .tool-buy-btn:hover { background: #d9a24a; transform: translateY(-2px); }
+
+section.baugruppe {
+  margin-top: 2.5rem;
+}
 
 /* 
  Die Kategorie-Bereiche sind mit großzügigem margin-bottom gestaltet, um
