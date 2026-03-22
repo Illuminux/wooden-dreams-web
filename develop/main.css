@@ -1,0 +1,17 @@
+/* main.css */
+
+/* 1. Fundament & Konfiguration */
+@import "css/variables.css";
+@import "css/reset.css";
+@import "css/animations.css";
+
+/* 2. Layout-Struktur */
+@import "css/layout.css";
+
+/* 3. Komponenten (Wiederverwendbare Bausteine) */
+@import "css/components.css";
+@import "css/tools.css";
+
+/* 4. Spezifische Seitenbereiche */
+@import "css/projects.css";
+

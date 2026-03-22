@@ -1,0 +1,42 @@
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-main);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.75;
+}
+
+/* Textur-Overlay */
+@media (min-width: 768px) {
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(92deg, transparent 0px, transparent 18px, rgba(139,99,64,0.025) 18px, rgba(139,99,64,0.025) 19px),
+      repeating-linear-gradient(88deg, transparent 0px, transparent 34px, rgba(43,30,20,0.018) 34px, rgba(43,30,20,0.018) 35px);
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
