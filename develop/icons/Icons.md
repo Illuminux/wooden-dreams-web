@@ -6,7 +6,6 @@
 | ![Hobel](./plane.png) | `plane.png` | Hobel | Handhobel zum Glätten und Formen von Holzoberflächen |
 | ![Stechbeitel](./chisels.png) | `chisels.png` | Stechbeitel | Zum Ausstemmen und Nacharbeiten von Holz |
 | ![Akkuschrauber](./drills.png) | `drills.png` | Akkuschrauber | Zum Herstellen von Löchern |
-| ![Schraubendreher](./screwdrivers.png) | `screwdrivers.png` | Schraubendreher | Zum Ein- und Ausdrehen von Schrauben |
 | ![Messer](./knives.png) | `knives.png` | Messer | Zum Schneiden und Zuschneiden |
 | ![Zangen](./pliers.png) | `pliers.png` | Zangen | Zum Greifen, Biegen, Halten, Schneiden |
 | ![Schleifblock](./sanding-block.png) | `sanding-block.png` | Schleifblock | Zum Schleifen von Oberflächen |
@@ -44,12 +43,9 @@
 | ![Hocker](./stool.png) | `stool.png` | Hocker | Kleiner Sitzhocker |
 | ![Regal](./shelf.png) | `shelf.png` | Regal | Offenes Standregal mit mehreren Fächern |
 | ![TV-Board](./tv-stand.png) | `tv-stand.png` | TV-Board | Niedriges Medienmöbel mit Ablagen |
-| ![Schuhregal](./shoe-rack,png) | `shoe-rack,png` | Schuhregal | Niedriges Regal für Schuhe |
-| ![Truhe](./trunk.png) | `trunk.png` | Truhe | Holztruhe mit Deckel |
 | ![Spiegel](./mirror.png) | `mirror.png` | Spiegel | Wandspiegel mit Rahmen |
 | ![Gartenbank](./garden-bench.png) | `garden-bench.png` | Gartenbank | Outdoor Sitzbank |
 | ![Vogelhaus](./birdhouse.png) | `birdhouse.png` | Vogelhaus | Kleines Häuschen für Vögel |
-| ![Eckverbindung](./corner.png) | `corner.png` | Eckverbindung | Grundlegende rechtwinklige Verbindung zweier Bauteile. |
 | ![Massivholzblock](./solid_block.png) | `solid_block.png` | Massivholzblock | Ein kompakter Holzklotz oder ein geschlossener Korpus. |
 | ![Schubladenfach](./drawer_component.png) | `drawer_component.png` | Schubladenfach | Einzelne Komponente für ein Aufbewahrungsmöbel. |
 | ![Kleinkommode](./mini_chest.png) | `mini_chest.png` | Kleinkommode | Fertiges Projekt mit zwei Schubladenelementen. |
