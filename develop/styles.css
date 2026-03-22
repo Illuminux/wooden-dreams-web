@@ -2714,6 +2714,12 @@ details summary:hover {
   margin: 0;
 }
 
+.drawing-hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: var(--space-xs) 0;
+}
+
 /* Verhindere doppelte Abstände zwischen Überschriften und Komponenten */
 h2 + .note-box,
 h2 + .step-card,
