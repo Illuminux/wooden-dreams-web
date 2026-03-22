@@ -18,6 +18,7 @@
 | ![Hocker](./stool.png) | `stool.png` | Hocker | Runder Sitzhocker |
 | ![Tischkreissägen](./tablesaws.png) | `tablesaws.png` | Tischkreissägen | Stationäre Säge mit Tisch |
 | ![Schwingschleifer](./orbital-sander.png) | `orbital-sander.png` | Schwingschleifer | Zum Schleifen und Glätten von Holzoberflächen |
+| ![Absaugen](./vacuum.png) | `vacuum.png` | Absaugen | Staubsauger und Absauggeräte für die Werkstatt |
 | ![Fräsen](./routers.png) | `routers.png` | Fräsen | Zum Profilieren und Kantenbearbeiten |
 | ![Schleifmaschinen](./sanders.png) | `sanders.png` | Schleifmaschinen | Zum Schleifen, Entgraten, Trennen |
 | ![Stichsäge](./jigsaw.png) | `jigsaw.png` | Stichsäge | Zum Sägen von Kurven und Ausschnitten |
