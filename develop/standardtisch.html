@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Standardtisch — Knut's Wooden Dreams</title>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="main.css" />
   <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -20,13 +20,13 @@
     <div class="container">
 
       <!-- Breadcrumb-Navigation -->
-      <div class="breadcrumb">
-        <a href="knuts-wooden-dreams.html">Startseite</a>
-        <span>›</span>
-        <a href="#">Werkstattausstattung</a>
-        <span>›</span>
-        Standardtisch
-      </div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="knuts-wooden-dreams.html" class="breadcrumb__link">Startseite</a>
+        <span class="breadcrumb__separator">›</span>
+        <a href="#" class="breadcrumb__link">Werkstattausstattung</a>
+        <span class="breadcrumb__separator">›</span>
+        <span class="breadcrumb__current">Standardtisch</span>
+      </nav>
 
       <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
       <div class="project-hero">
@@ -779,7 +779,7 @@
             </p>
 
             <div class="drawings-grid" id="drawingsGridEckenUnten"></div>
-            <p class="drawing-hint">Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; Klick auf PDF öffnet die technische Zeichnung in Originalgröße als PDF.</p>
+    
             <div class="info-box stueckliste-inline">
               <details open class="parts-list">
                 <summary>Fertigung der Ecken unten</summary>
@@ -818,6 +818,24 @@
             <!-- Zapfenverbindungen an den Rahmenhölzern -->
             <h3><img src="./icons/tenon_joint.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Zapfenverbindungen an den Rahmenhölzern</h3>
 
+<div class="image-grid-box">
+  <div class="image-grid">
+    <img src="./standardtisch/zapfen_01.png" alt="Bild 1">
+    <img src="./standardtisch/zapfen_02.png" alt="Bild 2">
+
+    <div class="caption">1. Zapfen nach Ist‑Maß anreißen</div>
+    <div class="caption">2. Absetzschnitt an der Kappsäge</div>
+
+    <img src="./standardtisch/zapfen_03.png" alt="Bild 3">
+    <img src="./standardtisch/zapfen_04.png" alt="Bild 4">
+
+    <div class="caption">3. Zapfen an der Bandsäge</div>
+    <div class="caption">4. Fertiger Zapfen mit Bohrung</div>
+  </div>
+</div>
+
+
+
             <p>
               Die Zapfenverbindungen sind für alle Rahmenhölzer identisch ausgeführt und werden vor der Montage vollständig hergestellt.
               Die folgenden Schritte gelten gleichermaßen für den oberen und unteren Rahmen sowie für die Vorder- und Seitenrahmen.
@@ -848,6 +866,50 @@
               Dies erfolgt vorzugsweise mit einer Kantenfräse oder Oberfräse, um ein gleichmäßiges Ergebnis zu erzielen.
             </p>
 
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Zapfenverbindungen an den Rahmenhölzern</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rahmenholz vorn</td>
+                      <td>2</td>
+                      <td>600×54×54&nbsp;mm</td>
+                      <td>
+                        Zapfen nach Ist‑Maß angerissen,<br>
+                        Absetzschnitt 17&nbsp;mm tief mit Kapp‑Zugsäge,<br>
+                        Längsschnitte mit Bandsäge,<br>
+                        Zapfen auf 20&nbsp;mm Sollmaß gefräst,<br>
+                        Nasenverzapfung gemäß Zeichnung,<br>
+                        Durchgangs- und Sacklochbohrungen für Verbundmuffen
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Rahmenholz Seite</td>
+                      <td>2</td>
+                      <td>500×54×54&nbsp;mm</td>
+                      <td>
+                        Zapfen nach Ist‑Maß angerissen,<br>
+                        Absetzschnitt 17&nbsp;mm tief mit Kapp‑Zugsäge,<br>
+                        Längsschnitte mit Bandsäge,<br>
+                        Zapfen auf 20&nbsp;mm Sollmaß gefräst,<br>
+                        Nasenverzapfung gemäß Zeichnung,<br>
+                        Durchgangs- und Sacklochbohrungen für Verbundmuffen
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
             <p>
               Alternativ können die Zapfen mit einem scharfen Stechbeitel auf Maß ausgearbeitet werden.
               Dies bietet sich an, wenn keine Fräse verfügbar ist oder bewusst von Hand gearbeitet werden soll.
@@ -875,6 +937,35 @@
               Die Zapfenverbindungen an den Beinen sind für alle vier Beine identisch ausgeführt und werden vollständig vor der Montage hergestellt.
               Die Zapfen verbinden die Beine mit den Rahmenhölzern des oberen und unteren Rahmens.
             </p>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Zapfenverbindungen an den Beinen</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bein</td>
+                      <td>4</td>
+                      <td>812×54×54&nbsp;mm</td>
+                      <td>
+                        Zapfen nach Ist‑Maß angerissen,<br>
+                        Absetzschnitte und Längsschnitte vollständig mit der Bandsäge,<br>
+                        Zapfen auf Sollmaß gefräst oder mit Stechbeitel ausgearbeitet,<br>
+                        Durchgangs- und Sacklochbohrungen für Verbundmuffen gemäß Zeichnung
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
 
             <p>
               Die Zapfen werden entsprechend der tatsächlichen Holzbreite (Ist-Maß) angerissen.
@@ -969,6 +1060,44 @@
               und gebohrt.
             </p>
 
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Fertigung und Montage der Seitenplatten</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Seitenplatte links</td>
+                      <td>1</td>
+                      <td>702×280×18&nbsp;mm</td>
+                      <td>
+                        25× Ø 4 mm Bohrungen (12 mm tief) gemäß Zeichnung,<br>
+                        Bohrbild für Auszüge nach Maßangaben,<br>
+                        Kanten brechen
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Seitenplatte rechts</td>
+                      <td>1</td>
+                      <td>702×280×18&nbsp;mm</td>
+                      <td>
+                        25× Ø 4 mm Bohrungen (12 mm tief) gemäß Zeichnung,<br>
+                        spiegelbildliches Bohrbild zur linken Seite,<br>
+                        Kanten brechen
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
             <p>
               Die Seitenplatten werden nicht über sichtbare Durchgangsbohrungen befestigt,
               sondern mit Pocket-Holes montiert. Die Pocket-Holes sind in den technischen
@@ -1039,6 +1168,34 @@
               Verschraubung mit den Ecken unten.
             </p>
 
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Fertigung der Bodenplatte</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bodenplatte</td>
+                      <td>1</td>
+                      <td>490×390×18&nbsp;mm</td>
+                      <td>
+                        Zuschnitt auf Endmaß nach Ausmessen des Rahmens,<br>
+                        Kanten leicht brechen,<br>
+                        Senkbohrungen gemäß Zeichnung für Verschraubung mit den Ecken unten
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
             <h4><img src="./icons/angle_bracket.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Montage der Ecken unten</h4>
 
             <p>
@@ -1085,6 +1242,8 @@
               Platte abschließen.
             </p>
 
+            <hr class="text-divider">
+
             <!-- Fertigung und Montage der Tischplatte -->
             <h3><img src="./icons/dining-table.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Fertigung und Montage der Tischplatte</h3>
 
@@ -1099,6 +1258,35 @@
             </p>
 
             <div class="drawings-grid" id="drawingsGridMontageTischplatte"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Fertigung und Montage der Tischplatte</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Tischplatte</td>
+                      <td>1</td>
+                      <td>600×600×22&nbsp;mm</td>
+                      <td>
+                        Fertigzuschnitt aus MDF,<br>
+                        Kanten mit der Kantenfräse leicht brechen,<br>
+                        Oberfläche mit 2K‑Hartlack lackieren,<br>
+                        Montage von unten mit Ø 4×40 mm Holzschrauben
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
 
             <h4><img src="./icons/paint.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Montage der Tischplatte</h4>
 
@@ -1115,6 +1303,105 @@
               MDF-Platte zu vermeiden. Nach der Montage wird geprüft, ob die Platte
               plan aufliegt und der Überstand an allen Seiten gleichmäßig ist.
             </p>
+
+            <hr class="text-divider">
+
+            <!--  -->
+            <h3><img src="./icons/drawer_component.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Fertigung und Montage der Schublade</h3>
+
+            <div class="drawings-grid" id="drawingsGridMontageSchublade"></div>
+
+            <h4><img src="./icons/dado_groove.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Fertigung der Schublade</h4>
+            <p>
+              Die Schublade wird aus fünf zugeschnittenen Leimholzplatten aufgebaut. Front, Rückteil und die beiden
+              Seitenteile erhalten die in den Zeichnungen angegebenen Lamello-Fräsungen. Die Positionen sind so gewählt,
+              dass die Zarge beim Verleimen sauber geführt wird und sich ohne Verzug ausrichten lässt. Die Seitenteile
+              besitzen zusätzlich eine Nut für den Boden sowie mehrere Bohrungen, über die der Boden später fixiert wird.
+              Vor dem Zusammenbau werden alle Kanten kontrolliert und gegebenenfalls leicht nachgearbeitet, damit die
+              Bauteile ohne Spannung zusammengefügt werden können. Die Bodenplatte wird auf das Endmaß gebracht und die
+              Kanten werden gebrochen, damit sie sich gleichmäßig in die Nut einschieben lässt.
+            </p>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Fertigung und Montage der Schublade</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Anzahl</th>
+                      <th>Rohmaß</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Front</td>
+                      <td>1</td>
+                      <td>486×200×18&nbsp;mm</td>
+                      <td>
+                        Lamello‑Fräsungen gemäß Zeichnung,<br>
+                        Kanten kontrollieren und leicht brechen
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Rückteil</td>
+                      <td>1</td>
+                      <td>454×200×18&nbsp;mm</td>
+                      <td>
+                        Lamello‑Fräsungen gemäß Zeichnung,<br>
+                        Kanten kontrollieren und leicht brechen
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Seite links</td>
+                      <td>1</td>
+                      <td>482×200×18&nbsp;mm</td>
+                      <td>
+                        Lamello‑Fräsungen gemäß Zeichnung,<br>
+                        umlaufende Nut für Boden,<br>
+                        Bohrungen für Bodenfixierung,<br>
+                        Kanten nacharbeiten
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Seite rechts</td>
+                      <td>1</td>
+                      <td>482×200×18&nbsp;mm</td>
+                      <td>
+                        Lamello‑Fräsungen gemäß Zeichnung,<br>
+                        umlaufende Nut für Boden,<br>
+                        Bohrungen für Bodenfixierung,<br>
+                        Kanten nacharbeiten
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Bodenplatte</td>
+                      <td>1</td>
+                      <td>435×500×4&nbsp;mm</td>
+                      <td>
+                        Zuschnitt auf Endmaß,<br>
+                        Kanten brechen,<br>
+                        Einschieben in die Nut,<br>
+                        Verschraubung am Rückteil
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
+            <h4><img src="./icons/joint_assembly.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Montage der Schublade</h4>
+            <p>
+              Für die Montage werden zunächst Front und Seitenteile miteinander verleimt. Die Lamellos sorgen dafür, dass
+              die Bauteile beim Ansetzen der Zwingen in ihrer Position bleiben. Sobald die Verbindung geschlossen ist,
+              wird das Rückteil eingesetzt und ebenfalls verleimt. Während der Presszeit werden die Diagonalen gemessen,
+              um die Rechtwinkligkeit sicherzustellen. Nach dem Aushärten wird die Bodenplatte in die umlaufende Nut
+              eingeschoben und am hinteren Ende über die vorgesehenen Bohrungen verschraubt. Abschließend wird der Griff
+              auf der Front montiert. Die Schublade kann danach in die Auszüge eingesetzt und auf gleichmäßigen Lauf
+              geprüft werden.
+            </p>
+
           </section>
 
           <!-- Zeichnungen -->
@@ -1163,16 +1450,32 @@
             
               // 14. Fertigung und Montage der Tischplatte
               renderDrawingGrid('drawingsGridMontageTischplatte', 'standardtisch', [19], 'Fertigung und Montage der Tischplatte');
+            
+              // 15. Fertigung und Montage der Schublade
+              renderDrawingGrid('drawingsGridMontageSchublade', 'standardtisch', [30, 31, 32, 33, 34], 'Fertigung und Montage der Schublade');
+            
             });
           </script>
 
-          <h2><img src="./icons/joint_assembly.png" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Montage — Schritt für Schritt</h2>
-          <ol class="steps">
-            {{MONTAGE_SCHRITTE}}
-          </ol>
+          <section id="fazit" class="project-section">
+            <h2>
+              <img src="./icons/surface_finish.png" alt="Finish" style="height:1em;vertical-align:middle;margin-right:0.3em;">
+              Fazit
+            </h2>
 
-          <h2>{{EINSATZ_TITEL}}</h2>
-          {{EINSATZ_TEXT}}
+            <p>
+              Der Standardtisch zeigt, wie sich ein einfaches Grundmodul zu einem stabilen und vielseitigen Möbel entwickeln lässt.
+              Die Konstruktion bleibt bewusst klar gehalten: wenige Bauteile, wiederkehrende Verbindungen und ein Aufbau, der sich
+              in der Werkstatt zuverlässig umsetzen lässt. Die Kombination aus Rahmen, Korpus und Tischplatte ergibt ein solides
+              Ganzes, das sich bei Bedarf erweitern oder anpassen lässt.
+            </p>
+
+            <p>
+              Mit diesem Tisch steht ein funktionales Basiselement bereit, das sowohl im Alltag als auch in der Werkstatt seinen
+              Platz findet. Die Konstruktion ist nachvollziehbar, die Montage bleibt überschaubar, und das Ergebnis wirkt
+              aufgeräumt und langlebig.
+            </p>
+          </section>
 
         </article>
       </div>

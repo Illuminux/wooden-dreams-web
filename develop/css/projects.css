@@ -814,3 +814,39 @@ details {
     }
   }
 }
+
+/* ── IMAGE-GRID-BOX (allgemein) ── */
+.image-grid-box {
+  float: right;
+  width: 260px;
+
+  background: var(--linen);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-m);
+  box-shadow: 0 2px 4px var(--shadow);
+
+  margin-left: var(--space-m);
+  margin-bottom: var(--space-m);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 10px 20px;
+  justify-content: center;
+}
+
+.image-grid img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.image-grid .caption {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
