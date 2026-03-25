@@ -1,0 +1,226 @@
+{
+  "categories": [
+    {
+      "id": "saegen",
+      "label": "Sägen",
+      "icon": "tablesaws",
+      "tools": [
+        {
+          "name": "Kapp- und Gehrungssäge KGS 254 M",
+          "maker": "Metabo",
+          "type": "Stationär · Kapp-/Gehrungssäge",
+          "power": "Kabel",
+          "rating": 5,
+          "ratingText": "Soft‑Start, präzise Schattenlinie, macht richtig Spaß.",
+          "description": "254 mm Sägeblatt, Zugfunktion für breite Werkstücke, klare Schatten-Schnittanzeige. Ideal für präzise Winkel- und Gehrungsschnitte.",
+          "asin": "B0CBSJ3X2B",
+          "amazon": true
+        },
+        {
+          "name": "Akku-Kreissäge UniversalCirc 18V-53",
+          "maker": "Bosch",
+          "type": "Akku · Kreissäge",
+          "power": "18V",
+          "rating": 3,
+          "ratingText": "Solide, macht was sie soll.",
+          "description": "53 mm Schnitttiefe, 160 mm Sägeblatt, Power-for-All. Für flexible Zuschnitte direkt am Werkstück.",
+          "asin": "B0BX4KJKCR",
+          "amazon": true
+        },
+        {
+          "name": "Bandsäge Basa 1",
+          "maker": "Scheppach",
+          "type": "Stationär · Bandsäge",
+          "power": "Kabel",
+          "rating": 4,
+          "ratingText": "Top für den Preis, einfache Blattführung.",
+          "description": "300 W Induktionsmotor, 100 mm Schnitthöhe, 195 mm Durchlassbreite, schwenkbarer Tisch.",
+          "asin": "B08Q8CLF76",
+          "amazon": true
+        },
+        {
+          "name": "Akku Mini Handkreissäge UniversalCirc 12",
+          "maker": "Bosch",
+          "type": "Akku · Mini-Kreissäge",
+          "power": "12V",
+          "rating": 4,
+          "ratingText": "Handlich und flexibel, Anschlag schwach.",
+          "description": "Kompakt, 26 mm Schnitttiefe, ideal für Laminat, Paneele und enge Stellen.",
+          "asin": "B01N7JVTXH",
+          "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "fraesen",
+      "label": "Fräsen",
+      "icon": "routers",
+      "tools": [
+        {
+          "name": "Oberfräse POF 1400 ACE",
+          "maker": "Bosch",
+          "type": "Kabel · Oberfräse",
+          "power": "Kabel",
+          "rating": 4,
+          "ratingText": "Kraftvoll, präzise, sehr gutes Preis‑Leistungs‑Verhältnis.",
+          "description": "1.400 W, Konstantelektronik, 55 mm Frästiefe, inkl. Zubehör.",
+          "asin": "B000X1R0Z6",
+          "amazon": true
+        },
+        {
+          "name": "Akku-Kantenfräse AdvancedTrimRouter 18V-8",
+          "maker": "Bosch",
+          "type": "Akku · Kantenfräse",
+          "power": "18V",
+          "rating": 5,
+          "ratingText": "Lieblingswerkzeug – leicht, flexibel, überzeugend.",
+          "description": "Bürstenlos, 10.000–30.000 U/min, 6 & 8 mm Spannzange.",
+          "asin": "B09Z6Z9Y9Q",
+          "amazon": true
+        },
+        {
+          "name": "Oberfräse 710W",
+          "maker": "KATSU",
+          "type": "Kabel · Frästisch",
+          "power": "Kabel",
+          "rating": 3,
+          "ratingText": "Preis-Leistungs-Hammer, aber wenig Power.",
+          "description": "Makita‑RT0700‑Klon, fest im Frästisch verbaut.",
+          "asin": "B07D7Z8Z8M",
+          "amazon": true
+        },
+        {
+          "name": "Flachdübelfräse TE-BJ 900",
+          "maker": "Einhell",
+          "type": "Kabel · Flachdübelfräse",
+          "power": "Kabel",
+          "rating": 4,
+          "ratingText": "Perfekt für Möbelbau, laut.",
+          "description": "900 W, 20 mm Frästiefe, stufenlose Höhen- und Winkeleinstellung.",
+          "asin": "B00KQ8KZ9E",
+          "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "schleifen",
+      "label": "Schleifen",
+      "icon": "sanders",
+      "tools": [
+        {
+          "name": "Akku Exzenterschleifer AdvancedOrbit 18",
+          "maker": "Bosch",
+          "type": "Akku 18V · Exzenterschleifer",
+          "power": "18V",
+          "rating": 3,
+          "ratingText": "Fürs schnelle, kabellose Schleifen gut, aber zwei klare Schwächen: Die Akku-Position stört beim Handling, und die Absaugung ist ungünstig platziert — der Staubsauger-Adapter schleift am Teller. Besser das neue Modell wählen.",
+          "description": "125 mm Schleifteller, Drehzahlvorwahl, Microfilter-Staubbox. Schleift Holz, Lack und geschwungene Flächen kabellos — ein Akku für alle Power-for-All-Geräte.",
+          "asin": "B06XCMVTPZ",
+          "amazon": true
+        },
+        {
+          "name": "Band- und Tellerschleifer BTS900",
+          "maker": "Scheppach",
+          "type": "Stationär · Band- & Tellerschleifer",
+          "power": "Kabel",
+          "rating": 5,
+          "ratingText": "Für meine Anwendungen perfekt. Kraft genug, stabil, vielseitig einsetzbar und für den Preis absolut überzeugend. Ein Gerät, das man schnell nicht mehr missen möchte.",
+          "description": "370 W Induktionsmotor, 915 mm Schleifband, 150 mm Schleifteller. Band 0–90° schwenkbar, Tisch 0–45° neigbar. Für präzise Schleifarbeiten an geraden, konkaven und konvexen Flächen.",
+          "asin": "B09NQFP41Y",
+          "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "bohren",
+      "label": "Bohren & Druckluft",
+      "icon": "drillpress",
+      "tools": [
+        {
+          "name": "Akkuschrauber AdvancedDrill 18",
+          "maker": "Bosch",
+          "type": "Akku 18V · Akkuschrauber",
+          "power": "18V",
+          "rating": 4,
+          "ratingText": "Einfach ein Akkuschrauber — zuverlässig, handlich und perfekt für Möbelbau und Alltag. Kein High-End-Gerät, aber solide und angenehm zu nutzen. Ein Stern Abzug, weil er funktional bleibt, ohne besondere Highlights.",
+          "description": "Bürstenloser Motor, 36 Nm, 1 kg, magnetische Schraubenhalterung. Automatische Gangumschaltung zwischen Schrauben und Bohren — power-for-all-kompatibel.",
+          "asin": "B07HHQ2TZP",
+          "amazon": true
+        },
+        {
+          "name": "Akkubohrschrauber UniversalDrill 18V",
+          "maker": "Bosch",
+          "type": "Akku 18V · Akkubohrschrauber",
+          "power": "18V",
+          "rating": 4,
+          "ratingText": "Noch ein Akkuschrauber eben — zuverlässig, solide und für Alltag und Möbelbau völlig ausreichend. Kein besonderes Highlight, aber ein guter, unkomplizierter Begleiter.",
+          "description": "40 Nm, 2-Gang-Getriebe, 20 Drehmomentstufen, 13 mm Metallbohrfutter. Für Bohren und Schrauben in Holz, Metall und Kunststoff — kompakt und leicht (1,2 kg).",
+          "asin": "B08LND5ZBM",
+          "amazon": true
+        },
+        {
+          "name": "Tischbohrmaschine DP60",
+          "maker": "Scheppach",
+          "type": "Stationär · Tischbohrmaschine",
+          "power": "Kabel",
+          "rating": 4,
+          "ratingText": "Einfach günstiger als die Bosch — und dafür richtig gut. Ein Stern Abzug für die LED-Beleuchtung, denn ob an oder aus macht kaum einen Unterschied.",
+          "description": "710 W, 2-Gang-Getriebe, stufenlose Drehzahl 170–2.600 U/min. Digitaldisplay, Laser, LED-Licht und Schnellspann-Bohrfutter (1,5–13 mm). Bis 40 mm Bohrtiefe in Holz.",
+          "asin": "B08D87DDDK",
+          "amazon": true
+        },
+        {
+          "name": "Kompressor HC10-Twin",
+          "maker": "Scheppach",
+          "type": "Stationär · Kompressor",
+          "power": "Kabel",
+          "rating": 2,
+          "ratingText": "Für meine Zwecke nicht die beste Wahl. Zu kleiner Tank, zu laut und die Druckabschaltung funktioniert nicht immer zuverlässig. Für leichte Aufgaben okay, aber insgesamt keine Empfehlung.",
+          "description": "Ölfreier Doppeltank-Kompressor mit 7,5 L Kesselvolumen, 8 bar max. Druck, 750 W. Kompakt, wartungsarm, mit Gummistandfüßen. Für Druckluftnageln, Reifen und Ausblasen.",
+          "asin": "B0CJVNP8BJ",
+          "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "absaugen",
+      "label": "Absaugen",
+      "icon": "vacuum",
+      "tools": [
+        {
+          "name": "Nass- und Trockensauger AdvancedVac 20",
+          "maker": "Bosch",
+          "type": "Kabel · Nass-/Trockensauger",
+          "power": "Kabel",
+          "rating": 5,
+          "ratingText": "Top Sauger, vor allem in den Angebotswochen. Die Slave-Schaltung funktioniert perfekt und macht das Arbeiten mit Elektrowerkzeugen richtig angenehm. Klare Empfehlung.",
+          "description": "1.200 W, 20 L Behälter, antistatischer Schlauch, Universaladapter für alle Bosch-Geräte. Schaltet sich automatisch mit dem angeschlossenen Elektrowerkzeug ein und aus.",
+          "asin": "B06XTB2L21",
+          "amazon": true
+        },
+        {
+          "name": "Akku Nass- und Trockensauger AdvancedVac 18V-8",
+          "maker": "Bosch",
+          "type": "Akku 18V · Nass-/Trockensauger",
+          "power": "18V",
+          "rating": 3,
+          "ratingText": "Macht nur Sinn, wenn wirklich kein Strom zur Verfügung steht. Ansonsten ein echter Akku-Fresser. Für kleine Einsätze okay, aber ich würde ihn nicht nochmal kaufen.",
+          "description": "3-in-1: Saugen, Nasssaugen und Blasen. 8 L Behälter, Eco-Modus, 18V Power-for-All. Anschließbar an Elektrowerkzeuge — kabellos und überall einsetzbar.",
+          "asin": "B09CLDC89W",
+          "amazon": true
+        },
+        {
+          "name": "Nass-/Trockensauger WD 2 Plus V-12",
+          "maker": "Kärcher",
+          "type": "Kabel · im Bandsägentisch verbaut",
+          "power": "Kabel",
+          "rating": 3,
+          "ratingText": "Solider, günstiger Sauger und im Bandsägentisch verbaut absolut ausreichend. Was aber wirklich fehlt, ist die Slave-Schaltung — damit wäre er deutlich praktischer. Für einfache Aufgaben okay.",
+          "description": "1.000 W, 12 L Kunststoffbehälter, Patronenfilter ohne Wechsel für nass und trocken. Blasfunktion, 4 m Kabel, 4 Rollen. Kompakt, robust und ideal als günstiger Werkstattsauger.",
+          "asin": "B09MD6NFGL",
+          "amazon": true
+        }
+      ]
+    }
+  ]
+}
