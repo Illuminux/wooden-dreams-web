@@ -133,34 +133,44 @@ header nav {
   }
 }
 
-/* ── SECTION-LABEL ── */
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: var(--space-s);
+/* ── SECTION LABELS ── */
+
+/* BLOCK + MODIFIER: zentrierter Titel mit durchgehender Linie */
+.section-label.section-label-first {
+  display: block;
+  text-align: center;
   margin: var(--space-xl) 0 var(--space-l);
-
-  &:first-child:not(.section-label-first) {
-    margin-top: 0;
-  }
-
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  h2 {
-    font-family: 'Inconsolata', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--rule);
 }
+
+/* Modifier deaktiviert die alten Linien */
+.section-label.section-label-first::before,
+.section-label.section-label-first::after {
+  display: none;
+  content: none;
+}
+
+/* ELEMENT (abgeleitet): Typografie wie echte H2, aber ohne eigene Linie */
+.section-label.section-label-first > h2 {
+  margin: 0;
+
+  /* echte H2-Typografie */
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--walnut);
+
+  /* deine globalen H2-Extras */
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+
+  /* WICHTIG: verhindert die zweite Linie */
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
 
 /* Spezieller Abstand für die erste Section-Label, damit sie nicht zu nah am Header liegt */
 .section-label-first {
