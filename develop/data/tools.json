@@ -64,7 +64,7 @@
           "rating": 4,
           "ratingText": "Kraftvoll, präzise, sehr gutes Preis‑Leistungs‑Verhältnis.",
           "description": "1.400 W, Konstantelektronik, 55 mm Frästiefe, inkl. Zubehör.",
-          "asin": "B000X1R0Z6",
+          "asin": "B000W34ZEW",
           "amazon": true
         },
         {
@@ -75,7 +75,7 @@
           "rating": 5,
           "ratingText": "Lieblingswerkzeug – leicht, flexibel, überzeugend.",
           "description": "Bürstenlos, 10.000–30.000 U/min, 6 & 8 mm Spannzange.",
-          "asin": "B09Z6Z9Y9Q",
+          "asin": "B0BD5TC72F",
           "amazon": true
         },
         {
@@ -86,7 +86,7 @@
           "rating": 3,
           "ratingText": "Preis-Leistungs-Hammer, aber wenig Power.",
           "description": "Makita‑RT0700‑Klon, fest im Frästisch verbaut.",
-          "asin": "B07D7Z8Z8M",
+          "asin": "B07FQ9NVYF",
           "amazon": true
         },
         {
@@ -97,7 +97,7 @@
           "rating": 4,
           "ratingText": "Perfekt für Möbelbau, laut.",
           "description": "900 W, 20 mm Frästiefe, stufenlose Höhen- und Winkeleinstellung.",
-          "asin": "B00KQ8KZ9E",
+          "asin": "B0CS6J4KLV",
           "amazon": true
         }
       ]
@@ -133,7 +133,7 @@
     },
     {
       "id": "bohren",
-      "label": "Bohren & Druckluft",
+      "label": "Bohren",
       "icon": "drillpress",
       "tools": [
         {
@@ -167,17 +167,6 @@
           "ratingText": "Einfach günstiger als die Bosch — und dafür richtig gut. Ein Stern Abzug für die LED-Beleuchtung, denn ob an oder aus macht kaum einen Unterschied.",
           "description": "710 W, 2-Gang-Getriebe, stufenlose Drehzahl 170–2.600 U/min. Digitaldisplay, Laser, LED-Licht und Schnellspann-Bohrfutter (1,5–13 mm). Bis 40 mm Bohrtiefe in Holz.",
           "asin": "B08D87DDDK",
-          "amazon": true
-        },
-        {
-          "name": "Kompressor HC10-Twin",
-          "maker": "Scheppach",
-          "type": "Stationär · Kompressor",
-          "power": "Kabel",
-          "rating": 2,
-          "ratingText": "Für meine Zwecke nicht die beste Wahl. Zu kleiner Tank, zu laut und die Druckabschaltung funktioniert nicht immer zuverlässig. Für leichte Aufgaben okay, aber insgesamt keine Empfehlung.",
-          "description": "Ölfreier Doppeltank-Kompressor mit 7,5 L Kesselvolumen, 8 bar max. Druck, 750 W. Kompakt, wartungsarm, mit Gummistandfüßen. Für Druckluftnageln, Reifen und Ausblasen.",
-          "asin": "B0CJVNP8BJ",
           "amazon": true
         }
       ]
@@ -218,6 +207,24 @@
           "ratingText": "Solider, günstiger Sauger und im Bandsägentisch verbaut absolut ausreichend. Was aber wirklich fehlt, ist die Slave-Schaltung — damit wäre er deutlich praktischer. Für einfache Aufgaben okay.",
           "description": "1.000 W, 12 L Kunststoffbehälter, Patronenfilter ohne Wechsel für nass und trocken. Blasfunktion, 4 m Kabel, 4 Rollen. Kompakt, robust und ideal als günstiger Werkstattsauger.",
           "asin": "B09MD6NFGL",
+          "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "pressure",
+      "label": "Druckluft",
+      "icon": "pressure",
+      "tools": [
+        {
+          "name": "Kompressor HC10-Twin",
+          "maker": "Scheppach",
+          "type": "Stationär · Kompressor",
+          "power": "Kabel",
+          "rating": 2,
+          "ratingText": "Für meine Zwecke nicht die beste Wahl. Zu kleiner Tank, zu laut und die Druckabschaltung funktioniert nicht immer zuverlässig. Für leichte Aufgaben okay, aber insgesamt keine Empfehlung.",
+          "description": "Ölfreier Doppeltank-Kompressor mit 7,5 L Kesselvolumen, 8 bar max. Druck, 750 W. Kompakt, wartungsarm, mit Gummistandfüßen. Für Druckluftnageln, Reifen und Ausblasen.",
+          "asin": "B0CJVNP8BJ",
           "amazon": true
         }
       ]

@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="tool-body">
     ${maker ? `<p class="tool-maker">${maker}</p>` : ""}
-    <h2 class="tool-name">${name}</h2>
+    <h3 class="card-title">${name}</h3>
 
-    <p class="tool-desc">${desc}</p>
+    <p class="card-excerpt">${desc}</p>
 
     <p class="tool-rating">${stars(tool.rating)}</p>
     ${ratingText ? `<p class="rating-reason">${ratingText}</p>` : ""}
@@ -120,6 +120,24 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       const container = document.querySelector(CONTAINER_SELECTOR);
       if (!container || !data.categories) return;
+
+      // ---------- Werkzeuge & Kategorien zählen ----------
+      const totalCategories = data.categories.length;
+
+      const totalTools = data.categories.reduce((sum, category) => {
+        return sum + (category.tools ? category.tools.length : 0);
+      }, 0);
+
+      const summaryEl = document.querySelector("#tools-summary");
+      if (summaryEl) {
+
+        const toolLabel = totalTools === 1 ? "Werkzeug" : "Werkzeuge";
+        const categoryLabel = totalCategories === 1 ? "Kategorie" : "Kategorien";
+
+        summaryEl.innerHTML = `
+          <h2>${totalTools} ${toolLabel} in ${totalCategories} ${categoryLabel}</h2>
+        `;
+      }
 
       data.categories.forEach(category => {
         container.insertAdjacentHTML(
