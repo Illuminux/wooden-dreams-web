@@ -2,16 +2,21 @@
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 5rem;
+  gap: var(--space-l);
+  margin-bottom: var(--space-xl);
 
-  @media (max-width: 960px) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 600px) { grid-template-columns: 1fr; }
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── TOOL-CARD ── */
 .tool-card {
-  background: var(--linen);
+  background: var(--card-bg);
   border: 1px solid var(--rule);
   overflow: hidden;
   animation: fadeUp 0.7s ease both;
@@ -22,9 +27,12 @@
   &:nth-child(5) { animation-delay: 0.4s; }
   &:nth-child(6) { animation-delay: 0.5s; }
 
-  &:hover .tool-thumb img { transform: scale(1.04); }
+  &:hover .tool-thumb img {
+    transform: scale(1.04);
+  }
 }
 
+/* ── THUMB ── */
 .tool-thumb {
   position: relative;
   height: 320px;
@@ -39,11 +47,12 @@
     height: 100%;
     object-fit: contain;
     background: #fff;
-    padding: 1.5rem;
+    padding: var(--space-m);
     transition: transform 0.35s ease;
   }
 }
 
+/* ── PLACEHOLDER ── */
 .tool-thumb-placeholder {
   width: 100%;
   height: 100%;
@@ -51,8 +60,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  background: linear-gradient(160deg, #3d2b1a 0%, #5a3d22 50%, #7a5530 100%);
+  gap: var(--space-s);
+  background: linear-gradient(
+    160deg,
+    #3d2b1a 0%,
+    #5a3d22 50%,
+    #7a5530 100%
+  );
 
   svg {
     width: 80px;
@@ -61,21 +75,22 @@
   }
 
   span {
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-ui);
     font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    letter-spacing: var(--letterspacing-wide);
     text-transform: uppercase;
     color: rgba(244,236,224,0.3);
   }
 }
 
+/* ── CATEGORY BADGE ── */
 .tool-category-badge {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-family: 'Inconsolata', monospace;
+  top: var(--space-s);
+  left: var(--space-s);
+  font-family: var(--font-ui);
   font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--letterspacing-medium);
   text-transform: uppercase;
   background: rgba(200,145,58,0.9);
   color: var(--bark);
@@ -83,100 +98,109 @@
   font-weight: 500;
 }
 
+/* ── BODY ── */
 .tool-body {
-  padding: 2rem 2rem 1.8rem;
+  padding: var(--space-l) var(--space-l) var(--space-m);
 }
 
 .tool-maker {
-  font-family: 'Inconsolata', monospace;
+  font-family: var(--font-ui);
   font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--letterspacing-wide);
   text-transform: uppercase;
   color: var(--oak);
   margin-bottom: 0.4rem;
 }
 
 .tool-name {
-  font-family: 'Marcellus', serif;
-  font-size: 1.5rem;
-  line-height: 1.25;
-  color: var(--bark);
-  margin-bottom: 0.8rem;
+  font-family: var(--font-heading-accent);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-heading-strong);
+  line-height: var(--line-height-heading-base);
 }
 
 .tool-desc {
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 1.6rem;
+  margin-bottom: var(--space-m);
 }
 
+/* ── FOOTER ── */
 .tool-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   border-top: 1px solid var(--rule);
-  padding-top: 1.2rem;
+  padding-top: var(--space-s);
 }
 
 .tool-buy-btn {
   display: inline-block;
-  font-family: 'Inconsolata', monospace;
+  font-family: var(--font-ui);
   font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--letterspacing-medium);
   text-transform: uppercase;
   text-decoration: none;
   color: var(--bark);
-  background: var(--honey);
+  background: var(--accent);
   padding: 0.65rem 1.5rem;
   transition: background 0.2s, transform 0.2s;
   white-space: nowrap;
 
-  &:hover { background: #d9a24a; transform: translateY(-2px); }
+  &:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
 }
 
+/* ── RATING REASON ── */
 .rating-reason {
   font-size: 0.9rem;
   font-style: italic;
-  color: var(--muted);
+  color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 1.6rem;
+  margin-bottom: var(--space-m);
 }
 
 /* ── KATEGORIE-BEREICHE ── */
-.category-section { margin-bottom: 4rem; }
+.category-section {
+  margin-bottom: var(--space-xl);
+}
 
 .category-header {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  margin: 3rem 0 2rem;
+  gap: var(--space-s);
+  margin: var(--space-xl) 0 var(--space-l);
 
   h2 {
-    font-family: 'Lora', serif;
-    font-size: 1.8rem;
+    font-family: var(--font-heading-primary);
+    font-size: var(--font-size-h2-category);
+    font-weight: var(--font-weight-heading-strong);
+    line-height: var(--line-height-heading-tight);
     color: var(--walnut);
+
+    letter-spacing: var(--letterspacing-medium);
     padding-bottom: var(--space-xs);
     border-bottom: 1px solid var(--rule);
-    line-height: 1.3;
     margin: 0;
-    font-weight: 600;
-
-    @media (max-width: 600px) { font-size: 1.1rem; }
   }
 }
 
 .category-count {
-  font-family: 'Inconsolata', monospace;
+  font-family: var(--font-ui);
   font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  color: var(--muted);
+  letter-spacing: var(--letterspacing-medium);
+  color: var(--text-muted);
   margin-left: auto;
   text-transform: uppercase;
 }
 
 /* ── BAUGRUPPE ── */
-section.baugruppe { margin-top: 2.5rem; }
+section.baugruppe {
+  margin-top: var(--space-l);
+}
 
 /* ── BEM TOOL-GRID (neue Struktur) ── */
 .tool-grid {
@@ -194,8 +218,8 @@ section.baugruppe { margin-top: 2.5rem; }
   }
 
   &__name {
-    font-family: 'Marcellus', serif;
+    font-family: var(--font-heading-accent);
     font-size: 0.9rem;
-    color: var(--clr-bark);
+    color: var(--bark);
   }
 }

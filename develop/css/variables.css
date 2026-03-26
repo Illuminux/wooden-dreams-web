@@ -1,5 +1,7 @@
 :root {
-  /* --- Primitive Tokens (Farben) --- */
+  /* ─────────────────────────────────────────────
+     Primitive Tokens (Farben)
+     ───────────────────────────────────────────── */
   --clr-bark:       #2b1e14;
   --clr-walnut:     #4a3323;
   --clr-oak:        #8b6340;
@@ -9,17 +11,21 @@
   --clr-warm-white: #faf6f0;
   --clr-muted:      #7a6250;
 
-  /* --- Semantic Tokens (Funktion) --- */
-  --page-bg:      var(--clr-warm-white);
-  --card-bg:      var(--clr-linen);
-  --text-main:    var(--clr-bark);
-  --text-muted:   var(--clr-muted);
-  --accent:       var(--clr-honey);
-  --accent-hover: var(--clr-oak);
-  --border-color: rgba(74, 51, 35, 0.15);
-  --shadow-color: rgba(43, 30, 20, 0.18);
+  /* ─────────────────────────────────────────────
+     Semantic Tokens (Funktion)
+     ───────────────────────────────────────────── */
+  --page-bg:        var(--clr-warm-white);
+  --card-bg:        var(--clr-linen);
+  --text-main:      var(--clr-bark);
+  --text-muted:     var(--clr-muted);
+  --accent:         var(--clr-honey);
+  --accent-hover:   var(--clr-oak);
+  --border-color:   rgba(74, 51, 35, 0.15);
+  --shadow-color:   rgba(43, 30, 20, 0.18);
 
-  /* --- Legacy-Aliases (Kompatibilität mit styles.css) --- */
+  /* ─────────────────────────────────────────────
+     Legacy Aliases (Kompatibilität)
+     ───────────────────────────────────────────── */
   --bark:       var(--clr-bark);
   --walnut:     var(--clr-walnut);
   --oak:        var(--clr-oak);
@@ -31,12 +37,46 @@
   --rule:       var(--border-color);
   --shadow:     var(--shadow-color);
 
-  /* --- Spacing System --- */
+  /* ─────────────────────────────────────────────
+     Typography Tokens (BEM-neutral)
+     ───────────────────────────────────────────── */
+
+  /* Schriftfamilien */
+  --font-heading-primary: 'Lora', serif;
+  --font-heading-accent:  'Marcellus', serif;
+  --font-ui:              'Inconsolata', monospace;
+
+  /* Überschriften-Größen */
+  --font-size-h2-hero:     2.2rem;
+  --font-size-h2-category: 1.6rem;
+  --font-size-h2-content:  1.45rem;
+  --font-size-h3:          1.2rem;
+
+  /* Schriftgewichte */
+  --font-weight-heading-strong: 600;
+  --font-weight-heading-normal: 500;
+
+  /* Letterspacing */
+  --letterspacing-wide:   0.25em;
+  --letterspacing-medium: 0.08em;
+  --letterspacing-none:   0;
+
+  /* Line Heights */
+  --line-height-heading-tight: 1.35;
+  --line-height-heading-base:  1.5;
+  --line-height-heading-loose: 1.55;
+
+  /* ─────────────────────────────────────────────
+     Spacing System
+     ───────────────────────────────────────────── */
   --space-xs: 0.5rem;
   --space-s:  1rem;
   --space-m:  1.5rem;
   --space-l:  2rem;
   --space-xl: 3rem;
 
+  /* ─────────────────────────────────────────────
+     Radius
+     ───────────────────────────────────────────── */
   --radius-md: 8px;
 }
