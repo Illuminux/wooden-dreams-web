@@ -10,6 +10,65 @@
 }
 
 /* ── HEADER ── */
+#header-placeholder {
+  display: block;
+  width: 100%;
+}
+
+/* Falls Header über <noscript> gerendert wird, darf der Container nicht schrumpfen. */
+body > noscript {
+  display: block;
+  width: 100%;
+}
+
+#header-placeholder > header,
+body > header,
+body > noscript > header {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Defensive: verhindert jede Breitenbegrenzung durch konkurrierende Regeln. */
+body > #header-placeholder,
+body > #header-placeholder > header,
+body > noscript,
+body > noscript > header {
+  display: block !important;
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+}
+
+@media (max-width: 700px) {
+  /* Mobile: Header immer full-bleed, auch wenn ein Parent ihn begrenzt. */
+  #header-placeholder,
+  #header-placeholder > header,
+  body > header,
+  body > noscript,
+  body > noscript > header {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: var(--clr-bark);
+  }
+
+  body > #header-placeholder,
+  body > #header-placeholder > header,
+  body > noscript,
+  body > noscript > header {
+    inline-size: 100vw !important;
+    max-inline-size: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 header {
   background: var(--clr-bark);
   position: relative;
