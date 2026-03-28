@@ -41,6 +41,7 @@
  */
 const lightboxState = {
     images: [],
+    pages: [],
     index: 0,
     title: "",
     lastFocusedElement: null,
@@ -73,6 +74,10 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
     // valide sind
     if (!grid || !pages || pages.length === 0 || !fileName || !sectionTitle) return;
 
+    // Vor erneutem Rendern vorhandene Einträge entfernen, damit der Aufbau
+    // idempotent bleibt.
+    grid.replaceChildren();
+
     // Basis-Pfad zu den Bildern und PDFs
     const basePath = `./${fileName}/`;
 
@@ -94,11 +99,11 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
         img.src = imagePaths[idx];
         img.alt = `${sectionTitle} Seite ${page}`;
         img.loading = 'lazy';
-        img.onclick = () => openLightbox(imagePaths, idx, sectionTitle);
+        img.onclick = () => openLightbox(imagePaths, pages, idx, sectionTitle);
         img.onkeydown = (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                openLightbox(imagePaths, idx, sectionTitle);
+                openLightbox(imagePaths, pages, idx, sectionTitle);
             }
         };
         img.setAttribute('role', 'button');
@@ -111,8 +116,8 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
         pdf.className = 'pdf-download';
         pdf.textContent = 'PDF';
         pdf.target = '_blank';
-        pdf.rel = 'noopener';
-        pdf.setAttribute('aria-label', `${sectionTitle} Seite ${page} als PDF herunterladen`);
+        pdf.rel = 'noopener noreferrer';
+        pdf.setAttribute('aria-label', `${sectionTitle} Seite ${page} als PDF in neuem Tab öffnen`);
 
         // Thumbnail zuerst, damit die Seite schneller lädt
         wrapper.appendChild(img);
@@ -218,16 +223,21 @@ function initProjectJumpLinks() {
         );
         const maxItems = Number.parseInt(nav.getAttribute('data-jump-max') || '5', 10);
 
-        const items = getProjectNavItems(rootSelector, sectionsSelector, headingLevel, 'data-jump-label');
-        if (!items.length) return;
-
         nav.innerHTML = '';
+        const items = getProjectNavItems(rootSelector, sectionsSelector, headingLevel, 'data-jump-label');
+        if (!items.length) {
+            nav.hidden = true;
+            return;
+        }
+
         items.slice(0, Number.isNaN(maxItems) ? 5 : maxItems).forEach((item) => {
             const link = document.createElement('a');
             link.href = `#${item.id}`;
             link.textContent = item.label;
             nav.appendChild(link);
         });
+
+        nav.hidden = false;
     });
 }
 
@@ -236,11 +246,12 @@ function initProjectJumpLinks() {
  * einem Titel
  * 
  * @param {string[]} imageArray - Array der Bildpfade für die Lightbox
+ * @param {number[]} pageNumbers - Array der echten Zeichnungsseiten
  * @param {number} index - Startindex des angeklickten Bildes
  * @param {string} title - Titel für die Bildunterschrift (z.B.
  *                         "Standardtisch", "Seitenteile" etc.)
  */
-function openLightbox(imageArray, index, title) {
+function openLightbox(imageArray, pageNumbers, index, title) {
 
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -248,9 +259,10 @@ function openLightbox(imageArray, index, title) {
     // Aktuell fokussiertes Element speichern für späteren Fokus-Restore
     lightboxState.lastFocusedElement = document.activeElement;
 
-    lightboxState.images = imageArray;  // Alle Bilder der aktuellen Sektion
-    lightboxState.index = index;        // Startindex setzen
-    lightboxState.title = title;        // Titel für Bildunterschrift setzen
+    lightboxState.images = imageArray;      // Alle Bilder der aktuellen Sektion
+    lightboxState.pages = pageNumbers || []; // Echte Zeichnungsseiten merken
+    lightboxState.index = index;            // Startindex setzen
+    lightboxState.title = title;            // Titel für Bildunterschrift setzen
 
     // Lightbox mit dem aktuellen Bild und Titel aktualisieren
     updateLightbox();
@@ -285,6 +297,7 @@ function closeLightbox() {
 
     // Status zurücksetzen
     lightboxState.images = [];
+    lightboxState.pages = [];
     lightboxState.index = 0;
     lightboxState.title = "";
     lightboxState.lastFocusedElement = null;
@@ -407,9 +420,10 @@ function updateLightbox() {
 
     // Wenn beide Elemente existieren, aktualisieren
     if (img && cap) {
+        const currentPage = lightboxState.pages[lightboxState.index] || lightboxState.index + 1;
         img.src = lightboxState.images[lightboxState.index];
-        img.alt = `${lightboxState.title} – Seite ${lightboxState.index + 1} von ${lightboxState.images.length}`;
-        cap.textContent = `${lightboxState.title} – Seite ${lightboxState.index + 1} von ${lightboxState.images.length}`;
+        img.alt = `${lightboxState.title} – Zeichnung Seite ${currentPage}`;
+        cap.textContent = `${lightboxState.title} – Zeichnung Seite ${currentPage}`;
         
         // Live-Region für Screenreader (falls noch nicht gesetzt)
         if (!cap.hasAttribute('aria-live')) {
