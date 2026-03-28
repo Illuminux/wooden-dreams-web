@@ -124,6 +124,77 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
 }
 
 /**
+ * Baut ein dynamisches Inhaltsverzeichnis für Projektseiten.
+ *
+ * Verwendung im HTML:
+ * <nav class="project-toc" data-toc-root=".project-article"
+ *      data-toc-sections="section[id]" data-toc-heading-level="2">
+ *   <ul class="project-toc__list"></ul>
+ * </nav>
+ */
+function initProjectToc() {
+    const tocs = document.querySelectorAll('.project-toc');
+    if (!tocs.length) return;
+
+    tocs.forEach((toc) => {
+        const list = toc.querySelector('.project-toc__list');
+        if (!list) return;
+
+        const rootSelector = toc.getAttribute('data-toc-root') || 'main';
+        const sectionsSelector = toc.getAttribute('data-toc-sections') || 'section[id]';
+        const headingLevel = Number.parseInt(
+            toc.getAttribute('data-toc-heading-level') || '2',
+            10
+        );
+
+        const root = document.querySelector(rootSelector);
+        if (!root || Number.isNaN(headingLevel) || headingLevel < 1 || headingLevel > 6) {
+            toc.hidden = true;
+            return;
+        }
+
+        const headingTag = `H${headingLevel}`;
+        const sections = Array.from(root.querySelectorAll(sectionsSelector));
+
+        const items = sections
+            .map((section) => {
+                if (!section.id) return null;
+
+                const directHeading = Array.from(section.children).find(
+                    (node) => node.tagName === headingTag
+                );
+                if (!directHeading) return null;
+
+                const label = (section.getAttribute('data-toc-label') || directHeading.textContent || '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+
+                if (!label) return null;
+                return { id: section.id, label };
+            })
+            .filter(Boolean);
+
+        list.innerHTML = '';
+
+        if (!items.length) {
+            toc.hidden = true;
+            return;
+        }
+
+        items.forEach((item) => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `#${item.id}`;
+            link.textContent = item.label;
+            li.appendChild(link);
+            list.appendChild(li);
+        });
+
+        toc.hidden = false;
+    });
+}
+
+/**
  * Öffnet die Lightbox mit einem Array von Bildern, dem Startindex und
  * einem Titel
  * 
@@ -188,6 +259,9 @@ function closeLightbox() {
  * Initialisiert Event Listener nach dem DOM-Laden
  */
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Dynamische Schnellnavigation für Projektseiten erzeugen
+    initProjectToc();
 
     /**
      * Schließt die Lightbox, wenn außerhalb des Bildes geklickt wird
