@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="category-section" id="${category.id || ""}">
   <div class="category-header">
     <h2>
-      <img src="./icons/${icon}.png"
+      <img src="./icons/${icon}.svg"
            alt=""
            style="height:32px;vertical-align:middle;margin-right:0.3em;">
       ${label}

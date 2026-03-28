@@ -1,0 +1,465 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SVG Preview</title>
+  <style>
+    :root {
+      --bg: #f2eee6;
+      --panel: #fff9ef;
+      --ink: #2b1e17;
+      --muted: #6d5a4c;
+      --line: #dfcfb8;
+      --accent: #2f7a56;
+      --warn: #9a3b27;
+      --shadow: 0 10px 24px rgba(43,30,23,.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at 12% -5%, #fff7e9 0 18%, transparent 19%),
+        radial-gradient(circle at 92% 0%, #ebe0cf 0 16%, transparent 17%),
+        var(--bg);
+    }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0; font-size: clamp(1.35rem, 2.4vw, 2rem); letter-spacing: .02em; }
+    .meta { margin-top: 8px; color: var(--muted); font-size: .95rem; }
+
+    .controls {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 12px;
+    }
+    .input, .select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+      font-size: .95rem;
+    }
+
+    .status {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .82rem;
+    }
+    .pill.ok { border-color: #b9d7c6; color: #1f6042; }
+    .pill.warn { border-color: #e1b9ae; color: #7e2f21; }
+
+    .issues {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 12px 14px;
+    }
+    .panel h2 { margin: 0 0 8px; font-size: 1rem; }
+    .panel ul { margin: 0; padding-left: 18px; max-height: 180px; overflow: auto; }
+    .panel li { margin: 2px 0; color: var(--muted); font-size: .9rem; }
+
+    .grid {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .card {
+      margin: 0;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      min-height: 176px;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      padding: 12px;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 13px 26px rgba(43,30,23,.12); }
+    .card img {
+      width: 72px; height: 72px; object-fit: contain;
+      background: #fff; border: 1px dashed #e8ddcf; border-radius: 10px; padding: 8px;
+    }
+    .card figcaption { margin-top: 10px; text-align: center; color: var(--ink); font-size: .83rem; word-break: break-word; }
+    .cat { margin-top: 4px; color: var(--muted); font-size: .75rem; text-align: center; }
+
+    @media (max-width: 860px){
+      .controls { grid-template-columns: 1fr; }
+      .issues { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>SVG Icon Preview</h1>
+    <p class="meta">Total icons: 55 | Canvas: 24 x 24 | Quelle: REDME.md</p>
+
+    <section class="controls" aria-label="Filter">
+      <input id="search" class="input" type="search" placeholder="Dateiname filtern..." />
+      <select id="category" class="select">
+      
+      </select>
+    </section>
+
+    <section class="status">
+      <span class="pill ok">Vorhanden: <strong id="shown">55</strong> / 55</span>
+      <span class="pill warn">Fehlend in REDME-Referenzen: 9</span>
+      <span class="pill">Nicht referenziert in REDME: 0</span>
+    </section>
+
+    <section class="issues">
+      <article class="panel">
+        <h2>Fehlende Icons aus REDME</h2>
+        <ul>
+<li>assembling.svg</li>
+<li>drilling.svg</li>
+<li>gluing.svg</li>
+<li>marking_gauge_alt.svg</li>
+<li>measuring.svg</li>
+<li>planing.svg</li>
+<li>sanding.svg</li>
+<li>sawing.svg</li>
+<li>scroll_saw.svg</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>Vorhanden, aber nicht referenziert</h2>
+        <ul>
+<li>Keine</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="grid" class="grid">
+      <figure class="card" data-name="band_saw.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="band_saw.svg" alt="band_saw.svg" loading="lazy" />
+        <figcaption>band_saw.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="beam.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="beam.svg" alt="beam.svg" loading="lazy" />
+        <figcaption>beam.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+      <figure class="card" data-name="belt_sander.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="belt_sander.svg" alt="belt_sander.svg" loading="lazy" />
+        <figcaption>belt_sander.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="bench_grinder.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="bench_grinder.svg" alt="bench_grinder.svg" loading="lazy" />
+        <figcaption>bench_grinder.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="caliper.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="caliper.svg" alt="caliper.svg" loading="lazy" />
+        <figcaption>caliper.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="chisel.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="chisel.svg" alt="chisel.svg" loading="lazy" />
+        <figcaption>chisel.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="circular_saw.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="circular_saw.svg" alt="circular_saw.svg" loading="lazy" />
+        <figcaption>circular_saw.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="clamp.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="clamp.svg" alt="clamp.svg" loading="lazy" />
+        <figcaption>clamp.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="combination_pliers.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="combination_pliers.svg" alt="combination_pliers.svg" loading="lazy" />
+        <figcaption>combination_pliers.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="compressor.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="compressor.svg" alt="compressor.svg" loading="lazy" />
+        <figcaption>compressor.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="cordless_drill.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="cordless_drill.svg" alt="cordless_drill.svg" loading="lazy" />
+        <figcaption>cordless_drill.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="dowel.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="dowel.svg" alt="dowel.svg" loading="lazy" />
+        <figcaption>dowel.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="drill.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="drill.svg" alt="drill.svg" loading="lazy" />
+        <figcaption>drill.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="drill_press.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="drill_press.svg" alt="drill_press.svg" loading="lazy" />
+        <figcaption>drill_press.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="dust_extraction.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="dust_extraction.svg" alt="dust_extraction.svg" loading="lazy" />
+        <figcaption>dust_extraction.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="folding_ruler.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="folding_ruler.svg" alt="folding_ruler.svg" loading="lazy" />
+        <figcaption>folding_ruler.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="glue_clamp.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="glue_clamp.svg" alt="glue_clamp.svg" loading="lazy" />
+        <figcaption>glue_clamp.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="hammer.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="hammer.svg" alt="hammer.svg" loading="lazy" />
+        <figcaption>hammer.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="hand_plane.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="hand_plane.svg" alt="hand_plane.svg" loading="lazy" />
+        <figcaption>hand_plane.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="handsaw.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="handsaw.svg" alt="handsaw.svg" loading="lazy" />
+        <figcaption>handsaw.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="heat_gun.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="heat_gun.svg" alt="heat_gun.svg" loading="lazy" />
+        <figcaption>heat_gun.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="japanese_saw.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="japanese_saw.svg" alt="japanese_saw.svg" loading="lazy" />
+        <figcaption>japanese_saw.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="jigsaw.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="jigsaw.svg" alt="jigsaw.svg" loading="lazy" />
+        <figcaption>jigsaw.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="jointer.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="jointer.svg" alt="jointer.svg" loading="lazy" />
+        <figcaption>jointer.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="lumber_stack.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="lumber_stack.svg" alt="lumber_stack.svg" loading="lazy" />
+        <figcaption>lumber_stack.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+      <figure class="card" data-name="mallet.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="mallet.svg" alt="mallet.svg" loading="lazy" />
+        <figcaption>mallet.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="marking_gauge.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="marking_gauge.svg" alt="marking_gauge.svg" loading="lazy" />
+        <figcaption>marking_gauge.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="masking_tape.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="masking_tape.svg" alt="masking_tape.svg" loading="lazy" />
+        <figcaption>masking_tape.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="miter_saw.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="miter_saw.svg" alt="miter_saw.svg" loading="lazy" />
+        <figcaption>miter_saw.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="nail.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="nail.svg" alt="nail.svg" loading="lazy" />
+        <figcaption>nail.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="nail_gun.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="nail_gun.svg" alt="nail_gun.svg" loading="lazy" />
+        <figcaption>nail_gun.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="orbital_sander.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="orbital_sander.svg" alt="orbital_sander.svg" loading="lazy" />
+        <figcaption>orbital_sander.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="paint_bucket.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="paint_bucket.svg" alt="paint_bucket.svg" loading="lazy" />
+        <figcaption>paint_bucket.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="paintbrush.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="paintbrush.svg" alt="paintbrush.svg" loading="lazy" />
+        <figcaption>paintbrush.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="pencil.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="pencil.svg" alt="pencil.svg" loading="lazy" />
+        <figcaption>pencil.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="pincers.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="pincers.svg" alt="pincers.svg" loading="lazy" />
+        <figcaption>pincers.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="router.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="router.svg" alt="router.svg" loading="lazy" />
+        <figcaption>router.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="router_table.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="router_table.svg" alt="router_table.svg" loading="lazy" />
+        <figcaption>router_table.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="routing.svg" data-category="ðŸ”§ Arbeitsschritte / TÃ¤tigkeiten">
+        <img src="routing.svg" alt="routing.svg" loading="lazy" />
+        <figcaption>routing.svg</figcaption>
+        <small class="cat">ðŸ”§ Arbeitsschritte / TÃ¤tigkeiten</small>
+      </figure>
+      <figure class="card" data-name="sawhorse.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="sawhorse.svg" alt="sawhorse.svg" loading="lazy" />
+        <figcaption>sawhorse.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+      <figure class="card" data-name="screw.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="screw.svg" alt="screw.svg" loading="lazy" />
+        <figcaption>screw.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="screwdriver.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="screwdriver.svg" alt="screwdriver.svg" loading="lazy" />
+        <figcaption>screwdriver.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="spirit_level.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="spirit_level.svg" alt="spirit_level.svg" loading="lazy" />
+        <figcaption>spirit_level.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="spray_gun.svg" data-category="ðŸ”Œ Elektroâ€‘Werkzeuge">
+        <img src="spray_gun.svg" alt="spray_gun.svg" loading="lazy" />
+        <figcaption>spray_gun.svg</figcaption>
+        <small class="cat">ðŸ”Œ Elektroâ€‘Werkzeuge</small>
+      </figure>
+      <figure class="card" data-name="square_ruler.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="square_ruler.svg" alt="square_ruler.svg" loading="lazy" />
+        <figcaption>square_ruler.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="table_saw.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="table_saw.svg" alt="table_saw.svg" loading="lazy" />
+        <figcaption>table_saw.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="tape_measure.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="tape_measure.svg" alt="tape_measure.svg" loading="lazy" />
+        <figcaption>tape_measure.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="utility_knife.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="utility_knife.svg" alt="utility_knife.svg" loading="lazy" />
+        <figcaption>utility_knife.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="vacuum_cleaner.svg" data-category="ðŸ­ StationÃ¤re Maschinen">
+        <img src="vacuum_cleaner.svg" alt="vacuum_cleaner.svg" loading="lazy" />
+        <figcaption>vacuum_cleaner.svg</figcaption>
+        <small class="cat">ðŸ­ StationÃ¤re Maschinen</small>
+      </figure>
+      <figure class="card" data-name="vise.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="vise.svg" alt="vise.svg" loading="lazy" />
+        <figcaption>vise.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+      <figure class="card" data-name="wood_glue.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="wood_glue.svg" alt="wood_glue.svg" loading="lazy" />
+        <figcaption>wood_glue.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="wood_screw.svg" data-category="ðŸ§© ZubehÃ¶r & Verbrauchsmaterial">
+        <img src="wood_screw.svg" alt="wood_screw.svg" loading="lazy" />
+        <figcaption>wood_screw.svg</figcaption>
+        <small class="cat">ðŸ§© ZubehÃ¶r & Verbrauchsmaterial</small>
+      </figure>
+      <figure class="card" data-name="wooden_board.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="wooden_board.svg" alt="wooden_board.svg" loading="lazy" />
+        <figcaption>wooden_board.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+      <figure class="card" data-name="wooden_mallet.svg" data-category="ðŸ§° Handwerkzeuge">
+        <img src="wooden_mallet.svg" alt="wooden_mallet.svg" loading="lazy" />
+        <figcaption>wooden_mallet.svg</figcaption>
+        <small class="cat">ðŸ§° Handwerkzeuge</small>
+      </figure>
+      <figure class="card" data-name="workbench.svg" data-category="ðŸªµ Material & Werkstatt">
+        <img src="workbench.svg" alt="workbench.svg" loading="lazy" />
+        <figcaption>workbench.svg</figcaption>
+        <small class="cat">ðŸªµ Material & Werkstatt</small>
+      </figure>
+    </section>
+  </main>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const cards = [...grid.querySelectorAll('.card')];
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const shown = document.getElementById('shown');
+
+    function applyFilter() {
+      const q = search.value.trim().toLowerCase();
+      const c = category.value;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const cat = card.dataset.category;
+        const matchName = !q || name.includes(q);
+        const matchCat = c === 'Alle' || cat === c;
+        const show = matchName && matchCat;
+        card.style.display = show ? 'grid' : 'none';
+        if (show) visible++;
+      });
+
+      shown.textContent = String(visible);
+    }
+
+    search.addEventListener('input', applyFilter);
+    category.addEventListener('change', applyFilter);
+    applyFilter();
+  </script>
+</body>
+</html>
