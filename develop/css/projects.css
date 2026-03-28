@@ -13,6 +13,11 @@
   @media (max-width: 900px) { grid-template-columns: 1fr; }
 }
 
+.container .featured-3d .featured-title {
+  color: var(--clr-warm-white) !important;
+  text-shadow: none;
+}
+
 .viewer-wrap {
   position: relative;
   background: #1a1008;

@@ -1,0 +1,16 @@
+about.html|Ueber Knut und seine Arbeitsweise: Von der Idee in CAD bis zur Umsetzung in Holz, mit Einblicken in Werkstatt, Methoden und Lernwege.
+bandsaegentisch.html|Bandsaegentisch aus Holz mit Schrank, Saugerfach und Rollen: kompakt geplant, stabil gebaut und flexibel fuer den Werkstattalltag einsetzbar.
+baumbank.html|Halbe Baumbank aus Douglasie mit klarer Form, solider Konstruktion und wetterfester Umsetzung fuer einen langlebigen, einladenden Platz im Garten.
+bohrmaschinentisch.html|Bohrmaschinentisch mit stabilem Unterbau, Schubladen fuer Zubehoer und Rollen fuer Mobilitaet - robust, uebersichtlich und praxisnah gebaut.
+datenschutz.html|Datenschutzhinweise zu Verarbeitung, Speicherung und Rechten bei der Nutzung von Knuts Wooden Dreams - transparent, nachvollziehbar und aktuell.
+faltwerkbank.html|Faltwerkbank mit klappbarer Arbeitsflaeche: stabil im Einsatz, schnell verstaut und ideal fuer flexible Arbeitsablaeufe in kleinen Werkstattraeumen.
+gartentisch.html|Massiver Gartentisch aus Douglasie mit markanter Maserung, hoher Standfestigkeit und langlebiger Konstruktion fuer Terrasse, Garten und Alltag.
+impressum.html|Impressum mit allen rechtlich erforderlichen Angaben und Kontaktinformationen fuer Knuts Wooden Dreams, klar strukturiert und schnell auffindbar.
+kontakt.html|Kontaktseite fuer Fragen, Feedback und Projektanfragen rund um Knuts Wooden Dreams - direkt, unkompliziert und mit kurzen Wegen erreichbar.
+kuechenschrank.html|Kuechenschrank fuer Recycling mit Schubladen, Massivholzplatte und durchdachter Aufteilung - funktional geplant und harmonisch im Wohnbereich umgesetzt.
+planfraestisch.html|Planfraestisch fuer praezises Abrichten mit stabiler Basis, sauber gefuehrtem Schlitten und wiederholgenauen Ergebnissen fuer Bretter und Platten.
+schuhbank.html|Schuhbank in Eiche und MDF mit klarer Linienfuehrung, verstecktem Stauraum und praktischer Nutzung - aufgeraeumt, modern und alltagstauglich.
+schuhschrank.html|Schuhschrank passend zur Schuhbank mit warmen Holzfronten, Roll-Top-Detail und grosszuegigem Stauraum fuer einen ordentlichen Eingangsbereich.
+shelf-workbench.html|Shelf-Workbench als klappbare Mehrzweck-Werkbank mit Ebenen fuer Maschinen und Einsaetze - mobil, platzsparend und flexibel im Werkstatteinsatz.
+standardtisch.html|Standardtisch als robuster Rollcontainer mit Schubladen fuer uebersichtliche Organisation - flexibel einsetzbar und langlebig im Werkstattalltag.
+werkzeuge.html|Werkzeuguebersicht mit ausgewaehlten Maschinen und Handwerkzeugen fuer Planung, Zuschnitt, Montage und Finish - kompakt, praxisnah und hilfreich.

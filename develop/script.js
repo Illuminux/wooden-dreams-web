@@ -28,7 +28,7 @@
  * für die Zeichnungen, Lightbox-Elemente) bereits im HTML-Dokument vorhanden
  * sind.
  * 
- * (c) 2026 by Knut's Wooden Dreams, All rights reserved.
+ * © 2026 by Knut's Wooden Dreams, All rights reserved.
  * Warning: This code is protected by copyright and may not be reproduced,
  * distributed, or used without permission from the author. For inquiries,
  * please contact Knut at admin@welzels.de.

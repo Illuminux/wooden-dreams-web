@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Site is publicly crawlable.

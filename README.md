@@ -82,6 +82,11 @@ Projekte bleiben autark und sauber strukturiert.
 - Python-Skripte bleiben in `Python-Tools/`
 - `.venv` bleibt in `develop/`
 
+**Zeichencodierung (wichtig):**
+- Alle Textdateien (`.html`, `.css`, `.js`, `.md`, `.json`, `.xml`) in **UTF-8** speichern.
+- Keine ANSI/Windows-1252-Konvertierung verwenden, um Mojibake (z. B. `Ã¤`, `â€”`) zu vermeiden.
+- Projektweite Standardwerte sind in `.editorconfig` definiert.
+
 ---
 
 ## Vorteile dieser Struktur

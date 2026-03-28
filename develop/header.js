@@ -3,7 +3,7 @@
  * Injiziert den gemeinsamen Header in Seiten mit #header-placeholder
  * Das HTML ist direkt eingebettet, damit es auch mit file:// funktioniert
  * 
- * (c) 2026 by Knut's Wooden Dreams, All rights reserved.
+ * © 2026 by Knut's Wooden Dreams, All rights reserved.
  * Warning: This code is protected by copyright and may not be reproduced,
  * distributed, or used without permission from the author. For inquiries,
  * please contact Knut at admin@welzels.de.
@@ -29,15 +29,15 @@ function injectHeader() {
     <circle cx="190" cy="190" r="188"/>
 </svg>
 <div class="header-inner">
-    <a href="knuts-wooden-dreams.html">
-        <img src="images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="site-logo">
+    <a href="./knuts-wooden-dreams.html">
+        <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="site-logo">
     </a>
     <nav aria-label="Hauptnavigation">
-        <a href="knuts-wooden-dreams.html">Projekte</a>
-        <a href="#">Techniken</a>
-        <a href="werkzeuge.html">Werkzeuge</a>
-        <a href="#">Holzarten</a>
-        <a href="about.html">Über mich</a>
+        <a href="./knuts-wooden-dreams.html">Projekte</a>
+        <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Techniken</span>
+        <a href="./werkzeuge.html">Werkzeuge</a>
+        <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Holzarten</span>
+        <a href="./about.html">Über mich</a>
     </nav>
 </div>
 </header>
@@ -54,7 +54,8 @@ function markActiveLink() {
     const navLinks = document.querySelectorAll('#header-placeholder nav a');
     
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = (link.getAttribute('href') || '').replace(/^\.\//, '').split('?')[0].split('#')[0];
+        if (href === currentPage) {
             link.classList.add('active');
         }
     });
