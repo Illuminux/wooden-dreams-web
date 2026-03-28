@@ -29,18 +29,8 @@ body > noscript > header {
   max-width: 100%;
 }
 
-/* Defensive: verhindert jede Breitenbegrenzung durch konkurrierende Regeln. */
-body > #header-placeholder,
-body > #header-placeholder > header,
-body > noscript,
-body > noscript > header {
-  display: block !important;
-  inline-size: 100% !important;
-  max-inline-size: 100% !important;
-}
-
 @media (max-width: 700px) {
-  /* Mobile: Header immer full-bleed, auch wenn ein Parent ihn begrenzt. */
+  /* Mobile: Header full-width ohne aggressive Overrides. */
   #header-placeholder,
   #header-placeholder > header,
   body > header,
@@ -51,16 +41,6 @@ body > noscript > header {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     background: var(--clr-bark);
-  }
-
-  body > #header-placeholder,
-  body > #header-placeholder > header,
-  body > noscript,
-  body > noscript > header {
-    inline-size: 100vw !important;
-    max-inline-size: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
   }
 
   .header-inner {
