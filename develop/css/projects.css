@@ -96,6 +96,34 @@
   margin-bottom: 0.1rem;
 }
 
+.heading-icon {
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+
+.project-image-float-right {
+  float: right;
+  max-width: 40%;
+  margin: 0 0 1rem 2rem;
+}
+
+.flow-clear {
+  clear: both;
+}
+
+.image-grid-narrow-col {
+  grid-template-columns: 100px;
+  gap: 10px 0;
+}
+
+.project-image-full {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
 .project-toc {
   margin-top: 1.25rem;
   padding: 0.95rem 0;
