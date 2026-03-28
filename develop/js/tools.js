@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    tools.js
    Dynamisches Rendering aller Werkzeug-Kategorien
    Quelle: ./data/tools.json
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="category-section" id="${category.id || ""}">
   <div class="category-header">
     <h2>
-      <img src="./icons/${icon}.svg"
+      <img src="./symbols/${icon}.svg"
            alt=""
            style="height:32px;vertical-align:middle;margin-right:0.3em;">
       ${label}
@@ -150,3 +150,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Fehler beim Laden der Werkzeuge:", err);
     });
 });
+
