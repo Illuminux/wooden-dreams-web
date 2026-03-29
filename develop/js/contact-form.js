@@ -1,19 +1,48 @@
+/**
+ * @file contact-form.js
+ * @brief Validierung und Versandvorbereitung fuer das Kontaktformular.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ */
+
+/**
+ * @function initContactForm
+ * @brief Initialisiert Formularvalidierung, Zeichenzahler und Mailto-Versand.
+ * @returns {void}
+ */
 (() => {
+  /** @type {HTMLFormElement|null} Formularcontainer. */
   const form = document.querySelector('.contact-form');
+  /** @type {HTMLInputElement|null} Eingabefeld fuer Namen. */
   const nameInput = document.getElementById('name');
+  /** @type {HTMLInputElement|null} Eingabefeld fuer E-Mail. */
   const emailInput = document.getElementById('email');
+  /** @type {HTMLInputElement|null} Auswahlfeld fuer Thema. */
   const topicInput = document.getElementById('topic');
+  /** @type {HTMLTextAreaElement|null} Nachrichtenfeld. */
   const messageInput = document.getElementById('message');
+  /** @type {HTMLInputElement|null} Checkbox fuer Einwilligung. */
   const consentInput = document.getElementById('consent');
+  /** @type {HTMLInputElement|null} Honeypot-Feld zur Bot-Erkennung. */
   const honeypot = document.getElementById('website');
+  /** @type {HTMLElement|null} Zeichenzaehler der Nachricht. */
   const counter = document.getElementById('message-counter');
+  /** @type {HTMLElement|null} Rueckmeldebereich fuer Statusmeldungen. */
   const feedback = document.getElementById('contact-feedback');
+  /** @type {HTMLButtonElement|null} Senden-Button des Formulars. */
   const button = form ? form.querySelector('.contact-form__button') : null;
 
   if (!form || !nameInput || !emailInput || !topicInput || !messageInput || !consentInput || !feedback || !button) {
     return;
   }
 
+  /**
+   * @function setFeedback
+   * @brief Setzt Rueckmeldungstext und Statusklasse.
+   * @param {string} message Auszugebende Meldung.
+   * @param {string} [kind] Optionale CSS-Klasse, z. B. is-success oder is-error.
+   * @returns {void}
+   */
   function setFeedback(message, kind) {
     feedback.textContent = message;
     feedback.classList.remove('is-success', 'is-error');
@@ -22,6 +51,11 @@
     }
   }
 
+  /**
+   * @function validate
+   * @brief Prueft alle Formularfelder inkl. Honeypot.
+   * @returns {boolean} True bei gueltiger Eingabe, sonst false.
+   */
   function validate() {
     if (!nameInput.checkValidity()) {
       setFeedback('Bitte gib einen Namen mit mindestens 2 Zeichen ein.', 'is-error');
@@ -61,6 +95,11 @@
     return true;
   }
 
+  /**
+   * @function updateCounter
+   * @brief Aktualisiert den Zeichenzahler auf Basis der Nachrichtenlaenge.
+   * @returns {void}
+   */
   function updateCounter() {
     if (!counter) {
       return;
@@ -73,18 +112,25 @@
   updateCounter();
 
   form.addEventListener('submit', (event) => {
+    /** @type {SubmitEvent} */
     event.preventDefault();
 
     if (!validate()) {
       return;
     }
 
+    /** @type {string} */
     const name = nameInput.value.trim();
+    /** @type {string} */
     const email = emailInput.value.trim();
+    /** @type {string} */
     const topic = topicInput.value.trim();
+    /** @type {string} */
     const message = messageInput.value.trim();
 
+    /** @type {string} */
     const subject = encodeURIComponent('Kontaktanfrage | Knut\'s Wooden Dreams');
+    /** @type {string} */
     const body = encodeURIComponent(
       [
         'Hallo Knut,',
@@ -110,6 +156,8 @@
       form.reset();
       updateCounter();
     } catch (error) {
+      /** @type {unknown} */
+      void error;
       setFeedback('Konnte das Mailprogramm nicht oeffnen. Bitte schreibe an admin@welzels.de.', 'is-error');
     } finally {
       window.setTimeout(() => {

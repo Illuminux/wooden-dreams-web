@@ -1,18 +1,19 @@
 /**
- * Header-Injection Script
- * Injiziert den gemeinsamen Header in Seiten mit #header-placeholder
- * Das HTML ist direkt eingebettet, damit es auch mit file:// funktioniert
- * 
- * © 2026 by Knut's Wooden Dreams, All rights reserved.
- * Warning: This code is protected by copyright and may not be reproduced,
- * distributed, or used without permission from the author. For inquiries,
- * please contact Knut at admin@welzels.de.
+ * @file header.js
+ * @brief Injiziert den gemeinsamen Header in Seiten mit #header-placeholder.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Das HTML ist direkt eingebettet, damit es auch mit file:// funktioniert.
  */
 
 /**
- * Injiziert den Header-HTML-Code in das Placeholder-Element
+ * @function injectHeader
+ * @brief Injiziert den Header-HTML-Code in das Placeholder-Element.
+ * @returns {void}
  */
 function injectHeader() {
+    /** @type {HTMLElement|null} Placeholder fuer den Header. */
     const placeholder = document.getElementById('header-placeholder');
     if (!placeholder) return;
 
@@ -47,13 +48,18 @@ function injectHeader() {
 }
 
 /**
- * Markiert den aktiven Navigationslink basierend auf der aktuellen Seite
+ * @function markActiveLink
+ * @brief Markiert den aktiven Navigationslink basierend auf der aktuellen Seite.
+ * @returns {void}
  */
 function markActiveLink() {
+    /** @type {string} Aktueller Dateiname aus der URL. */
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    /** @type {NodeListOf<HTMLAnchorElement>} Navigationslinks im Header. */
     const navLinks = document.querySelectorAll('#header-placeholder nav a');
     
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
+        /** @type {string} Normalisierte Link-Zielseite ohne Query/Hash. */
         const href = (link.getAttribute('href') || '').replace(/^\.\//, '').split('?')[0].split('#')[0];
         if (href === currentPage) {
             link.classList.add('active');
@@ -62,8 +68,9 @@ function markActiveLink() {
 }
 
 /**
- * Initialisierung: Führt injectHeader() aus, sobald das DOM bereit ist
+ * @event DOMContentLoaded
+ * @brief Initialisiert den Header, sobald das DOM bereit ist.
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     injectHeader();
 });

@@ -1,6 +1,22 @@
 /**
- * Lightbox-Logik für Projektseiten
+ * @file lightbox.js
+ * @brief Lightbox-Logik fuer Projektseiten.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
  */
+
+/**
+ * @typedef {Object} LightboxState
+ * @property {string[]} images Aktuelle Bildpfade in der Lightbox.
+ * @property {Array<number|string>} pages Aktuelle Seitennummern.
+ * @property {number} index Aktueller Bildindex.
+ * @property {string} title Titel der Zeichnungsserie.
+ * @property {Element|null} lastFocusedElement Fokusziel vor dem Oeffnen.
+ * @property {number} touchStartX Startposition fuer Swipe-Geste.
+ * @property {number} touchEndX Endposition fuer Swipe-Geste.
+ */
+
+/** @type {LightboxState} */
 const lightboxState = window.lightboxState || {
   images: [],
   pages: [],
@@ -13,7 +29,17 @@ const lightboxState = window.lightboxState || {
 
 window.lightboxState = lightboxState;
 
+/**
+ * @function openLightbox
+ * @brief Oeffnet die Lightbox mit einer Bildserie.
+ * @param {string[]} imageArray Bildpfade der Serie.
+ * @param {Array<number|string>} pageNumbers Zugehoerige Seitennummern.
+ * @param {number} index Startindex.
+ * @param {string} title Titel fuer Caption und Alt-Text.
+ * @returns {void}
+ */
 function openLightbox(imageArray, pageNumbers, index, title) {
+  /** @type {HTMLElement|null} */
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
 
@@ -37,7 +63,13 @@ function openLightbox(imageArray, pageNumbers, index, title) {
   if (closeBtn.focus) closeBtn.focus();
 }
 
+/**
+ * @function closeLightbox
+ * @brief Schliesst die Lightbox und stellt Fokus/Status wieder her.
+ * @returns {void}
+ */
 function closeLightbox() {
+  /** @type {HTMLElement|null} */
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
 
@@ -57,7 +89,14 @@ function closeLightbox() {
   lightboxState.touchEndX = 0;
 }
 
+/**
+ * @function moveDrawing
+ * @brief Wechselt zyklisch zum naechsten oder vorherigen Bild.
+ * @param {number} step Richtung und Schrittweite (-1 oder +1).
+ * @returns {void}
+ */
 function moveDrawing(step) {
+  /** @type {number} */
   const len = lightboxState.images.length;
   if (len === 0) return;
 
@@ -65,8 +104,15 @@ function moveDrawing(step) {
   updateLightbox();
 }
 
+/**
+ * @function handleSwipe
+ * @brief Interpretiert Touch-Geste als Vor/Zurueck-Navigation.
+ * @returns {void}
+ */
 function handleSwipe() {
+  /** @type {number} */
   const minSwipeDistance = 50;
+  /** @type {number} */
   const distance = lightboxState.touchEndX - lightboxState.touchStartX;
 
   if (Math.abs(distance) < minSwipeDistance) return;
@@ -78,12 +124,20 @@ function handleSwipe() {
   }
 }
 
+/**
+ * @function updateLightbox
+ * @brief Aktualisiert Bild, Alt-Text und Caption der Lightbox.
+ * @returns {void}
+ */
 function updateLightbox() {
+  /** @type {HTMLImageElement|null} */
   const img = document.getElementById('lbImg');
+  /** @type {HTMLElement|null} */
   const cap = document.getElementById('lbCaption');
 
   if (!img || !cap) return;
 
+  /** @type {number|string} */
   const currentPage = lightboxState.pages[lightboxState.index] || lightboxState.index + 1;
 
   img.src = lightboxState.images[lightboxState.index];

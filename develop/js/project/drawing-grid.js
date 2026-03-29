@@ -1,23 +1,43 @@
 /**
- * Rendering für Zeichnungs-Grid inklusive PDF-Links
+ * @file drawing-grid.js
+ * @brief Rendering fuer Zeichnungs-Grid inklusive PDF-Links.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ */
+
+/**
+ * @function renderDrawingGrid
+ * @brief Rendert Vorschaubilder und PDF-Links fuer eine Zeichnungssektion.
+ * @param {string} containerId ID des Zielcontainers.
+ * @param {string} fileName Dateibasis fuer Bild- und PDF-Pfade.
+ * @param {Array<number|string>} pages Seitennummern der Zeichnungen.
+ * @param {string} sectionTitle Titel der Sektion fuer Alt- und ARIA-Texte.
+ * @returns {void}
  */
 function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
+  /** @type {HTMLElement|null} */
   const grid = document.getElementById(containerId);
   if (!grid || !pages || pages.length === 0 || !fileName || !sectionTitle) return;
 
   // Idempotent rendern: bei erneutem Aufruf bestehende Einträge entfernen.
   grid.replaceChildren();
 
+  /** @type {string} */
   const basePath = `./${fileName}/`;
+  /** @type {string[]} */
   const imagePaths = pages.map((p) => `${basePath}${String(p).padStart(2, '0')}_${fileName}.png`);
 
   pages.forEach((page, idx) => {
+    /** @type {string} */
     const num = String(page).padStart(2, '0');
+    /** @type {string} */
     const pdfPath = `${basePath}${num}_${fileName}.pdf`;
 
+    /** @type {HTMLDivElement} */
     const wrapper = document.createElement('div');
     wrapper.className = 'drawing-thumb';
 
+    /** @type {HTMLImageElement} */
     const img = document.createElement('img');
     img.src = imagePaths[idx];
     img.alt = `${sectionTitle} Seite ${page}`;
@@ -33,6 +53,7 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
     img.setAttribute('tabindex', '0');
     img.setAttribute('aria-label', `${sectionTitle} Seite ${page} in Lightbox öffnen`);
 
+    /** @type {HTMLAnchorElement} */
     const pdf = document.createElement('a');
     pdf.href = pdfPath;
     pdf.className = 'pdf-download';

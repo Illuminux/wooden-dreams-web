@@ -1,18 +1,19 @@
 /**
- * Footer-Injection Script
- * Injiziert den gemeinsamen Footer in Seiten mit #footer-placeholder
- * Das HTML ist direkt eingebettet, damit es auch mit file:// funktioniert
- * 
- * © 2026 by Knut's Wooden Dreams, All rights reserved.
- * Warning: This code is protected by copyright and may not be reproduced,
- * distributed, or used without permission from the author. For inquiries,
- * please contact Knut at admin@welzels.de.
+ * @file footer.js
+ * @brief Injiziert den gemeinsamen Footer in Seiten mit #footer-placeholder.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Das HTML ist direkt eingebettet, damit es auch mit file:// funktioniert.
  */
 
 /**
- * Injiziert den Footer-HTML-Code in das Placeholder-Element
+ * @function injectFooter
+ * @brief Injiziert den Footer-HTML-Code in das Placeholder-Element.
+ * @returns {void}
  */
 function injectFooter() {
+    /** @type {HTMLElement|null} Placeholder fuer den Footer. */
     const placeholder = document.getElementById('footer-placeholder');
     if (!placeholder) return;
 
@@ -32,8 +33,9 @@ function injectFooter() {
 }
 
 /**
- * Initialisierung: Führt injectFooter() aus, sobald das DOM bereit ist
+ * @event DOMContentLoaded
+ * @brief Initialisiert den Footer, sobald das DOM bereit ist.
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     injectFooter();
 });
