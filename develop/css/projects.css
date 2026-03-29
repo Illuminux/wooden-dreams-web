@@ -349,7 +349,7 @@
 .project-article h3 {
   font-size: 1.08rem;
   line-height: 1.4;
-  margin: calc(var(--space-s) + 0.2rem) 0 0.35rem;
+  margin: calc(var(--space-s) + 0.35rem) 0 0.5rem;
   font-weight: 500;
   color: var(--walnut);
 }
@@ -357,7 +357,7 @@
 .project-article h4 {
   font-size: 0.98rem;
   line-height: 1.35;
-  margin: 0.5rem 0 0.2rem;
+  margin: 0.75rem 0 0.3rem;
   font-weight: 500;
 }
 
@@ -682,6 +682,19 @@ h2 + .parts-list, h2 + .wood-table, h2 + .stueckliste-inline,
 h3 + .note-box, h3 + .step-card, h3 + .image-slot,
 h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   margin-top: var(--space-s);
+}
+
+/* Nach Hinweis-/Infoboxen Überschriften dichter anschließen lassen. */
+.project-article .note-box + h2,
+.project-article .note-box + h3,
+.project-article .note-box + h4,
+.project-article .info-box + h2,
+.project-article .info-box + h3,
+.project-article .info-box + h4,
+.project-article .stueckliste-inline + h2,
+.project-article .stueckliste-inline + h3,
+.project-article .stueckliste-inline + h4 {
+  margin-top: 1.25rem;
 }
 
 /* ── TABELLEN ── */
