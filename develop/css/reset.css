@@ -1,13 +1,44 @@
+/**
+ * @file reset.css
+ * @brief Globale Reset- und Basisregeln fuer Layout, Typografie und Accessibility.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei legt grundlegende, seitenweite CSS-Standards fest:
+ * - konsistente Box-Berechnung und Nullsetzen von Margin/Padding,
+ * - Basis-Typografie und Farbkontext ueber CSS-Variablen,
+ * - dezentes Textur-Overlay fuer groessere Viewports,
+ * - Respect fuer Nutzerpraeferenz "reduced motion".
+ *
+ * Wichtig: Diese Datei soll nur fundamentale Grundlagen enthalten.
+ * Komponenten- oder bereichsspezifische Regeln liegen in den Modul-Stylesheets.
+ */
+
+/*
+ * Reset fuer alle Elemente inklusive Pseudo-Elemente.
+ * - box-sizing: border-box verhindert unerwartete Breitenberechnungen.
+ * - margin/padding: 0 entfernt Browser-Defaults fuer konsistente Ausgangslage.
+ */
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 
   padding: 0; 
 }
 
+/*
+ * Sanftes Scrollen fuer Sprunglinks (z. B. Inhaltsverzeichnis).
+ * Wird bei reduced-motion explizit deaktiviert.
+ */
 html { 
   scroll-behavior: smooth; 
 }
 
+/*
+ * Globale Dokument-Basis:
+ * - Hintergrund- und Textfarben ueber Design-Tokens,
+ * - Grundschrift fuer den gesamten Seiteninhalt,
+ * - erhoehte line-height fuer bessere Lesbarkeit.
+ */
 body {
   background: var(--page-bg);
   color: var(--text-main);
@@ -15,7 +46,12 @@ body {
   line-height: 1.75;
 }
 
-/* Textur-Overlay */
+/*
+ * Subtiles Textur-Overlay ab Tablet-Breite.
+ * - als fixed Ebene ueber dem gesamten Viewport,
+ * - pointer-events deaktiviert, damit keine Interaktionen blockiert werden,
+ * - rein dekorativ zur optischen Materialitaet (Holz-/Werkstattcharakter).
+ */
 @media (min-width: 768px) {
   body::before {
     content: '';
@@ -30,6 +66,11 @@ body {
   }
 }
 
+/*
+ * Accessibility: Nutzerpraeferenz fuer reduzierte Bewegung respektieren.
+ * Animationen/Transitionen werden auf nahezu 0 gesetzt,
+ * smooth scrolling wird deaktiviert.
+ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

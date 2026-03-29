@@ -1,4 +1,25 @@
-/* ── ACCESSIBILITY ── */
+/**
+ * @file components.css
+ * @brief Wiederverwendbare UI-Komponenten und Interaktionsmuster.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei enthaelt modulare Bausteine, die seitenuebergreifend genutzt werden,
+ * darunter Accessibility-Helfer, Buttons, Featured-Elemente, Kartenlayouts,
+ * Newsletter- und Kontaktformular-Komponenten sowie die Lightbox.
+ *
+ * Strukturprinzip:
+ * - Allgemeine Hilfskomponenten zuerst (A11y, Performance, Buttons),
+ * - danach inhaltliche Blöcke (Featured, Karten, Newsletter),
+ * - abschliessend interaktive Overlays und Formulare.
+ */
+
+/*
+ * Accessibility-Grundkomponenten.
+ * - .skip-link fuer Tastatur-Schnellnavigation zum Hauptinhalt,
+ * - .visually-hidden fuer semantischen, aber visuell ausgeblendeten Text,
+ * - einheitliche Fokus-Umrandung fuer interaktive Elemente.
+ */
 .skip-link {
   position: absolute;
   top: 0.55rem;
@@ -54,7 +75,10 @@ details summary:focus {
   outline-offset: 2px;
 }
 
-/* ── PERFORMANCE ── */
+/*
+ * Performance-Hinweis fuer animierte/hoverbare Karten.
+ * will-change wird nur dort gesetzt, wo Transform-Effekte auftreten.
+ */
 .post-card,
 .tool-card,
 .drawing-thumb {
@@ -63,7 +87,10 @@ details summary:focus {
   &:hover { will-change: auto; }
 }
 
-/* ── BUTTONS ── */
+/*
+ * Button- und Link-Buttons (Call-to-Action + Ruecknavigation).
+ * Definiert Typografie, Abstaende und Hover-Rueckmeldungen konsistent.
+ */
 .btn-read {
   display: inline-block;
   font-family: 'Inconsolata', monospace;
@@ -98,7 +125,10 @@ details summary:focus {
   &:hover { background: var(--honey); color: var(--bark); }
 }
 
-/* ── FEATURED ── */
+/*
+ * Featured-Komponenten fuer hervorgehobene Inhalte im Hero-/Lead-Bereich.
+ * Enthalten visuelle und textliche Teilbereiche inkl. responsiver Umschaltung.
+ */
 .featured {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -178,7 +208,10 @@ details summary:focus {
   margin-bottom: 1.5rem;
 }
 
-/* ── POST-KARTEN ── */
+/*
+ * Projekt-/Post-Kartenraster inkl. 3D-Kartenvariante.
+ * Umfasst Grid-Layout, Kartenaufbau, Thumbnail-Stile und Metabereiche.
+ */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -236,7 +269,9 @@ details summary:focus {
   justify-content: center;
 }
 
-/* Thumbnail-Themes */
+/*
+ * Thumbnail-Themes als schnelle Farbvarianten fuer Platzhalter-/Icon-Hintergruende.
+ */
 .t1 { background: linear-gradient(135deg, #3a2515 0%, #7a4f2a 100%); }
 .t2 { background: linear-gradient(135deg, #2a3515 0%, #5a7030 100%); }
 .t3 { background: linear-gradient(135deg, #352515 0%, #7a5a30 100%); }
@@ -307,7 +342,10 @@ details summary:focus {
   z-index: 2;
 }
 
-/* ── NEWSLETTER ── */
+/*
+ * Newsletter-Container (Legacy/Grundstruktur).
+ * Definiert Flaeche, Dekor-Overlay und Grundabstaende.
+ */
 .newsletter {
   background: var(--walnut);
   padding: 3.5rem 2rem;
@@ -327,7 +365,10 @@ details summary:focus {
 
 }
 
-/* ── LIGHTBOX ── */
+/*
+ * Lightbox-Overlay fuer Zeichnungen/Bilder.
+ * Enthaelt Overlay-Flaeche, Medienanzeige, Navigation und Schliessen-Button.
+ */
 .lightbox {
   display: none;
   position: fixed;
@@ -441,7 +482,10 @@ details summary:focus {
   max-width: 90%;
 }
 
-/* ── BEM NEWSLETTER (neue Struktur) ── */
+/*
+ * BEM Newsletter (neue Struktur).
+ * Komponentenklassen fuer Titel, Text, Formular, Eingabe, Button und Feedback.
+ */
 .newsletter .newsletter__title {
   font-family: 'Marcellus', serif;
   font-size: 1.9rem;
@@ -521,7 +565,11 @@ details summary:focus {
   color: var(--feedback-error);
 }
 
-/* ── KONTAKTFORMULAR ── */
+/*
+ * Kontaktformular-Komponenten.
+ * Umfasst Introbereich, Feldgruppen, Inputs, Auswahlfelder, Checkbox,
+ * Validierungsfeedback, Counter und Responsive-Varianten.
+ */
 .contact-form {
   max-width: none;
   width: 100%;

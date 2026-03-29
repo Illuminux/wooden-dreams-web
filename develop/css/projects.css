@@ -1,4 +1,22 @@
-/* ── FEATURED-3D ── */
+/**
+ * @file projects.css
+ * @brief Layout- und Komponentenregeln fuer Projektseiten und Projektlisten.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei steuert die projektspezifische Darstellung, u. a.:
+ * - Featured-3D-Teaser,
+ * - Hero-, Inhalts- und Navigationsbereiche,
+ * - Typografische Hierarchie fuer Projektartikel,
+ * - Info-/Hinweisboxen, Tabellen und Stuecklisten,
+ * - Zeichnungsgrid, Lightbox-nahe Darstellungen und responsive Feinheiten,
+ * - BEM-Erweiterungen fuer die neue Struktur.
+ */
+
+/*
+ * Featured-3D-Teaser auf Projektuebersichten.
+ * Zweispaltiges Highlight-Layout mit Hover-Interaktion.
+ */
 .featured-3d {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -49,7 +67,9 @@
   pointer-events: none;
 }
 
-/* ── PROJEKT-HERO ── */
+/*
+ * Projekt-Hero inklusive Kategorie, Titel, Untertitel und Metadaten.
+ */
 .project-hero {
   padding: 2.5rem 0 2rem;
   border-bottom: 1px solid var(--rule);
@@ -197,7 +217,9 @@
   }
 }
 
-/* ── VIEWER-SECTION ── */
+/*
+ * Viewer-Section fuer eingebettete 3D-/Medienansichten.
+ */
 .viewer-section {
   margin: 2.5rem 0;
   animation: fadeUp 0.7s 0.15s ease both;
@@ -270,7 +292,10 @@
   }
 }
 
-/* ── CONTENT-GRID ── */
+/*
+ * Content-Grid der Projektseite.
+ * Definiert vertikalen Rhythmus und responsive Abstaende.
+ */
 .content-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -290,7 +315,9 @@
   margin-top: 0;
 }
 
-/* ── ÜBERSCHRIFTEN-HIERARCHIE ── */
+/*
+ * Ueberschriften-Hierarchie fuer Container- und Projektkontext.
+ */
 .container h1,
 .project-article h1 {
   font-family: 'Marcellus', serif;
@@ -338,7 +365,10 @@
   font-weight: 600;
 }
 
-/* ── PROJEKTSEITEN: LEICHTERE HEADING-HIERARCHIE ── */
+/*
+ * Projektseiten-spezifische Heading-Feinjustierung.
+ * Leichterer Duktus fuer lange Lesestrecken.
+ */
 .project-article h2 {
   font-size: clamp(2.02rem, 2.8vw, 2.78rem);
   line-height: 1.35;
@@ -376,7 +406,10 @@
   }
 }
 
-/* ── PROJEKT-ARTIKEL ── */
+/*
+ * Hauptstil fuer Projektartikel.
+ * Regelt Lesebreite, Textfluss, Listen, Formular-Einbettung und Mobile-Verhalten.
+ */
 .project-article {
   margin-top: var(--space-xl);
 
@@ -560,7 +593,9 @@
   }
 }
 
-/* ── PULL-QUOTE ── */
+/*
+ * Pull-Quote zur inhaltlichen Hervorhebung einzelner Aussagen.
+ */
 .pull-quote {
   font-family: 'Lora', serif;
   font-style: italic;
@@ -573,7 +608,9 @@
   background: var(--linen);
 }
 
-/* ── STEPS ── */
+/*
+ * Nummerierte Schrittlisten mit eigener Counter-Darstellung.
+ */
 .steps {
   list-style: none;
   counter-reset: steps;
@@ -612,7 +649,9 @@
   }
 }
 
-/* ── SIDEBAR (Projekt-Ebene) ── */
+/*
+ * Sidebar auf Projektebene und zugehoerige Infoboxen.
+ */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -648,7 +687,9 @@
   margin-top: 0.5rem;
 }
 
-/* ── VISUELLE ANKER ── */
+/*
+ * Visuelle Anker/Trenner fuer lange Inhaltsseiten.
+ */
 .text-divider {
   height: 2px;
   background: var(--rule);
@@ -759,7 +800,9 @@ h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   margin-top: 1.25rem;
 }
 
-/* ── TABELLEN ── */
+/*
+ * Tabellenstile fuer Material- und Informationsdarstellungen.
+ */
 .wood-table {
   background: var(--linen);
   border: 1px solid var(--rule);
@@ -813,7 +856,9 @@ h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   small { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 }
 
-/* ── STÜCKLISTEN ── */
+/*
+ * Stuecklisten-Komponenten auf Basis von details/summary und Tabellen.
+ */
 .parts-list {
   background: var(--linen);
   padding: var(--space-m);
@@ -913,7 +958,9 @@ h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   }
 }
 
-/* ── STÜCKLISTE INLINE ── */
+/*
+ * Inline-Stueckliste fuer kompakte Einbettung in den Lesefluss.
+ */
 .stueckliste-inline {
   margin: var(--space-l) 0;
   background: transparent;
@@ -970,7 +1017,9 @@ h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   content: none;
 }
 
-/* ── DETAILS-ELEMENTE ── */
+/*
+ * Globales Styling fuer details/summary innerhalb der Projektinhalte.
+ */
 details {
   border-bottom: 1px solid var(--rule);
 
@@ -1005,7 +1054,9 @@ details {
   &[open] summary::after { transform: rotate(90deg); }
 }
 
-/* ── ZEICHNUNGEN-GRID ── */
+/*
+ * Zeichnungsgrid mit Thumbnail-Interaktion und PDF-Schnellzugriff.
+ */
 .drawings-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1083,7 +1134,9 @@ details {
   margin-top: 0.5rem;
 }
 
-/* ── HERO IMAGE ── */
+/*
+ * Hero-Image-Block inklusive Tabellen-/Mehrbild-Variante.
+ */
 .hero-image {
   margin: 0.45rem 0 0.9rem;
 
@@ -1121,7 +1174,9 @@ details {
   }
 }
 
-/* ── RESPONSIVE TABELLEN ── */
+/*
+ * Responsive-Absicherung fuer tabellarische Inhalte auf kleinen Viewports.
+ */
 @media (max-width: 600px) {
   .parts-table,
   .wood-table table {
@@ -1131,7 +1186,10 @@ details {
   }
 }
 
-/* ── BEM PROJEKT-ARTIKEL (neue Struktur) ── */
+/*
+ * BEM Projekt-Artikel (neue Struktur).
+ * Vorbereitete Klassen fuer modulare Migration.
+ */
 .project-article {
   &__hero {
     width: 100%;
@@ -1149,7 +1207,9 @@ details {
   }
 }
 
-/* ── BEM ZEICHNUNGS-GRID (neue Struktur) ── */
+/*
+ * BEM Zeichnungsgrid (neue Struktur).
+ */
 .drawings-grid {
   &__item {
     background: var(--clr-linen);
@@ -1168,7 +1228,9 @@ details {
   }
 }
 
-/* ── BEM INFO-BOX (neue Struktur) ── */
+/*
+ * BEM Info-Box (neue Struktur).
+ */
 .info-box {
   &__stat {
     &-label {
@@ -1185,7 +1247,9 @@ details {
   }
 }
 
-/* ── IMAGE-GRID-BOX (allgemein) ── */
+/*
+ * Allgemeine Image-Grid-Box als rechtsfliessender Medienanker.
+ */
 .image-grid-box {
   float: right;
   width: 240px;

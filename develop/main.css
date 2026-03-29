@@ -1,17 +1,47 @@
-/* main.css */
+/**
+ * @file main.css
+ * @brief Zentrale CSS-Einstiegsdatei mit geordneter Import-Reihenfolge.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei steuert die globale Zusammenstellung aller Stylesheets.
+ * Die Reihenfolge ist absichtlich aufgebaut, um Kaskade und Spezifitaet
+ * nachvollziehbar zu halten:
+ * 1) Fundament (Variablen, Reset, Animation-Grundlagen)
+ * 2) Layout-Struktur
+ * 3) Wiederverwendbare Komponenten
+ * 4) Seiten-/Bereichsspezifische Erweiterungen
+ *
+ * Hinweis: Veraenderungen an der Import-Reihenfolge koennen
+ * ueberschreibende Regeln und visuelle Prioritaeten beeinflussen.
+ */
 
-/* 1. Fundament & Konfiguration */
+/*
+ * 1. Fundament & Konfiguration
+ * - Design-Tokens und Farb-/Spacing-Variablen
+ * - Browser-Reset und Basis-Accessibility
+ * - Globale Animationen/Transitions
+ */
 @import "css/variables.css";
 @import "css/reset.css";
 @import "css/animations.css";
 
-/* 2. Layout-Struktur */
+/*
+ * 2. Layout-Struktur
+ * Raster, Abstaende und Grundaufbau der Seite.
+ */
 @import "css/layout.css";
 
-/* 3. Komponenten (Wiederverwendbare Bausteine) */
+/*
+ * 3. Komponenten (Wiederverwendbare Bausteine)
+ * Modulklassen fuer wiederkehrende UI-Elemente.
+ */
 @import "css/components.css";
 @import "css/tools.css";
 
-/* 4. Spezifische Seitenbereiche */
+/*
+ * 4. Spezifische Seitenbereiche
+ * Seitenspezifische Regeln, die auf den Basismodulen aufbauen.
+ */
 @import "css/projects.css";
 

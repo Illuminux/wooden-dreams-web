@@ -1,3 +1,29 @@
+/**
+ * @file variables.css
+ * @brief Zentrale Design-Tokens fuer Farben, Typografie, Abstaende und Radius.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei definiert das visuelle Grundsystem des Projekts als CSS-Custom-Properties.
+ * Alle nachgelagerten Stylesheets greifen auf diese Tokens zu, um Konsistenz in
+ * Farbgebung, Typografie und Spacing sicherzustellen.
+ *
+ * Token-Gruppen:
+ * - Primitive Tokens: rohe Farbwerte ohne konkrete Funktion.
+ * - Semantic Tokens: funktionsbezogene Namen fuer UI-Bausteine.
+ * - Legacy Aliases: Rueckwaertskompatibilitaet fuer bestehende Selektoren.
+ * - Typography Tokens: Schriftfamilien, Groessen, Gewichte und Rhythmus.
+ * - Spacing System: standardisierte Abstands-Skala.
+ * - Radius: wiederverwendbare Eckenrundung.
+ *
+ * Hinweis: Bestehende Token-Namen sollten bevorzugt erweitert statt ersetzt werden,
+ * um unbeabsichtigte Seiteneffekte in importierenden Styles zu vermeiden.
+ */
+
+/*
+ * Root-Token-Container.
+ * Alle Variablen sind global verfuegbar und bilden die Grundlage der Kaskade.
+ */
 :root {
   /* ─────────────────────────────────────────────
      Primitive Tokens (Farben)
@@ -21,6 +47,15 @@
   --accent:         var(--clr-honey);
   --accent-hover:   var(--clr-oak);
   --accent-soft:    #d9a24a;
+   --accent-08:      rgba(200, 145, 58, 0.08);
+   --accent-30:      rgba(200, 145, 58, 0.3);
+   --accent-50:      rgba(200, 145, 58, 0.5);
+   --linen-20:       rgba(232, 216, 192, 0.2);
+   --linen-40:       rgba(232, 216, 192, 0.4);
+   --linen-60:       rgba(232, 216, 192, 0.6);
+   --linen-45:       rgba(244, 236, 224, 0.45);
+   --linen-50:       rgba(244, 236, 224, 0.5);
+   --linen-70:       rgba(244, 236, 224, 0.7);
   --feedback-success: #d8eec7;
   --feedback-error:   #ffd3c5;
   --border-color:   rgba(74, 51, 35, 0.15);

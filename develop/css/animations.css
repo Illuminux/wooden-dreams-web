@@ -1,8 +1,34 @@
+/**
+ * @file animations.css
+ * @brief Zentrale Keyframes fuer wiederverwendbare Einblend- und Bewegungseffekte.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei kapselt globale Animationen, die von Komponenten und
+ * Seitenbereichen genutzt werden koennen. Die Keyframes sind bewusst
+ * klein gehalten, damit sie flexibel kombinierbar bleiben.
+ *
+ * Zusammenspiel mit Accessibility:
+ * Die eigentliche Reduktion von Bewegung erfolgt zentral in
+ * [develop/css/reset.css](develop/css/reset.css) ueber die Media Query
+ * prefers-reduced-motion.
+ */
+
+/*
+ * fadeDown
+ * Weiches Einblenden mit leichter Bewegung von oben nach unten.
+ * Geeignet fuer Header- oder Intro-Elemente.
+ */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/*
+ * fadeUp
+ * Weiches Einblenden mit leichter Bewegung von unten nach oben.
+ * Geeignet fuer Cards, Listen und sequentielle Content-Reveals.
+ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -1,4 +1,25 @@
-/* ── CONTAINER ── */
+/**
+ * @file layout.css
+ * @brief Layout- und Strukturregeln fuer globale Seitenbereiche.
+ * @copyright Copyright (C) 2026 Knut's Wooden Dreams
+ * @license GPL-3.0-only
+ * @details
+ * Diese Datei enthaelt die strukturellen CSS-Regeln fuer:
+ * - zentrale Inhaltsbreiten (.container),
+ * - Kopfbereich und Navigation,
+ * - globale Sektionstitel,
+ * - About-Band,
+ * - Footer-Varianten,
+ * - Breadcrumbs und Sidebar-Layout.
+ *
+ * Ziel ist eine stabile, wiederverwendbare Layout-Basis, auf der
+ * komponenten- und seitenbezogene Styles aufbauen.
+ */
+
+/*
+ * Container-Basis fuer zentrale Seitenbereiche.
+ * Definiert eine maximale Lesebreite und responsives Innenpadding.
+ */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -9,7 +30,11 @@
   }
 }
 
-/* ── HEADER ── */
+/*
+ * Header-Grundlayout inklusive voller Breite fuer Placeholder/Injected-Header.
+ * Stellt sicher, dass Header sowohl als direktes Element als auch via Injection
+ * konsistent dargestellt wird.
+ */
 #header-placeholder {
   display: block;
   width: 100%;
@@ -23,7 +48,11 @@ body > header {
 }
 
 @media (max-width: 700px) {
-  /* Mobile: Header full-width ohne aggressive Overrides. */
+  /*
+   * Mobile-Full-Width fuer den Header.
+   * Nutzt Viewport-Breite plus negative Randausgleichsrechnung,
+   * damit der Header sauber bis an die Geraeteraender reicht.
+   */
   #header-placeholder,
   #header-placeholder > header,
   body > header,
@@ -55,6 +84,10 @@ header {
   }
 }
 
+/*
+ * Dekorative Hintergrundringe im Header.
+ * Rein visuell, mit geringer Opazitaet fuer subtile Tiefenwirkung.
+ */
 .header-rings {
   position: absolute;
   right: -80px;
@@ -83,6 +116,10 @@ header {
   }
 }
 
+/*
+ * Optionale Eyebrow-Zeile oberhalb des Hauptlogos/-titels.
+ * Dient als kurzer Kontext oder Abschnittslabel.
+ */
 .header-eyebrow {
   font-family: 'Inconsolata', monospace;
   font-size: 0.7rem;
@@ -102,6 +139,10 @@ header {
   svg { width: 100%; height: auto; fill: var(--linen); }
 }
 
+/*
+ * Haupttitel im Header mit responsiver Skalierung.
+ * Geeignet fuer starke Markenpraesenz im Hero-Bereich.
+ */
 .site-title {
   font-family: 'Marcellus', serif;
   font-size: clamp(2.4rem, 7vw, 5.5rem);
@@ -121,17 +162,21 @@ header {
   font-family: 'Lora', serif;
   font-style: italic;
   font-size: 1.1rem;
-  color: rgba(232,216,192,0.6);
+  color: var(--linen-60);
   margin-top: 0.6rem;
   margin-bottom: 2.2rem;
   animation: fadeDown 0.7s 0.2s ease both;
 }
 
-/* ── NAVIGATION ── */
+/*
+ * Hauptnavigation im Header.
+ * Desktop: horizontale Linkleiste.
+ * Mobile: vertikale Stapelung mit Trennlinien.
+ */
 header nav {
   display: flex;
   gap: 0;
-  border: 1px solid rgba(200,145,58,0.3);
+  border: 1px solid var(--accent-30);
   animation: fadeDown 0.7s 0.3s ease both;
   flex-wrap: wrap;
 
@@ -142,9 +187,9 @@ header nav {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(244,236,224,0.7);
+    color: var(--linen-70);
     padding: 0.6rem 1.4rem;
-    border-right: 1px solid rgba(200,145,58,0.3);
+    border-right: 1px solid var(--accent-30);
     transition: color 0.2s, background 0.2s;
     display: inline-block;
     text-align: center;
@@ -153,12 +198,12 @@ header nav {
   }
 
   a {
-    &:hover { color: var(--honey); background: rgba(200,145,58,0.08); }
+    &:hover { color: var(--honey); background: var(--accent-08); }
     &:focus { outline: 2px solid var(--honey); outline-offset: 2px; color: var(--honey); }
   }
 
   .nav-coming-soon {
-    color: rgba(244,236,224,0.45);
+    color: var(--linen-45);
     cursor: default;
   }
 
@@ -168,7 +213,7 @@ header nav {
     a,
     .nav-coming-soon {
       border-right: none;
-      border-bottom: 1px solid rgba(200,145,58,0.3);
+      border-bottom: 1px solid var(--accent-30);
       text-align: center;
 
       &:last-child { border-bottom: none; }
@@ -176,7 +221,10 @@ header nav {
   }
 }
 
-/* ── SECTION LABELS ── */
+/*
+ * Section-Labels fuer zentrale Inhaltsbereiche.
+ * Enthalten Varianten fuer den ersten sichtbaren Abschnitt unter dem Header.
+ */
 
 /* BLOCK + MODIFIER: zentrierter Titel mit durchgehender Linie */
 .section-label.section-label-first {
@@ -215,12 +263,15 @@ header nav {
 }
 
 
-/* Spezieller Abstand für die erste Section-Label, damit sie nicht zu nah am Header liegt */
+/* Spezieller Abstand fuer die erste Section-Label, damit sie nicht zu nah am Header liegt. */
 .section-label-first {
   margin-top: 2.5rem; /* oder jeder gewünschte Wert */
 }
 
-/* ── ABOUT-BAND ── */
+/*
+ * About-Band als hervorgehobener Informationsblock.
+ * Nutzt Grid fuer zweispaltiges Layout mit responsiver Einspalten-Umstellung.
+ */
 .about-band {
   background: var(--sand);
   border-top: 1px solid var(--rule);
@@ -257,6 +308,9 @@ header nav {
   }
 }
 
+/*
+ * Typografische Regeln fuer den Textbereich der About-Sektion.
+ */
 .about-text {
   h3 {
     font-family: 'Marcellus', serif;
@@ -272,7 +326,10 @@ header nav {
   }
 }
 
-/* ── FOOTER ── */
+/*
+ * Klassischer Footer-Block (Legacy-Struktur).
+ * Wird parallel zur neueren BEM-Variante gepflegt.
+ */
 footer {
   background: var(--bark);
   padding: 2.5rem 2rem;
@@ -294,7 +351,7 @@ footer {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(200,145,58,0.5);
+  color: var(--accent-50);
   margin-bottom: 1rem;
   font-style: italic;
 }
@@ -313,7 +370,7 @@ footer nav.footer-links {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(232,216,192,0.4);
+  color: var(--linen-40);
   transition: color 0.2s;
 
   &:hover { color: var(--honey); }
@@ -323,10 +380,13 @@ footer nav.footer-links {
   font-family: 'Inconsolata', monospace;
   font-size: 0.6rem;
   letter-spacing: 0.1em;
-  color: rgba(232,216,192,0.2);
+  color: var(--linen-20);
 }
 
-/* ── BREADCRUMB ── */
+/*
+ * Breadcrumb-Navigation fuer Unterseiten.
+ * Verbessert Orientierung und schnelle Ruecknavigation.
+ */
 .breadcrumb {
   max-width: 1100px;
   margin: 0 auto;
@@ -349,7 +409,10 @@ footer nav.footer-links {
   }
 }
 
-/* ── BEM SITE-FOOTER (neue Struktur) ── */
+/*
+ * BEM Site-Footer (neue Struktur).
+ * Moderne, modulare Alternative zum Legacy-Footer.
+ */
 .site-footer {
   background: var(--clr-bark);
   color: var(--clr-linen);
@@ -379,7 +442,7 @@ footer nav.footer-links {
   }
 
   &__link {
-    color: rgba(244,236,224,0.7);
+    color: var(--linen-70);
     text-decoration: none;
     font-family: 'Inconsolata', monospace;
     font-size: 0.8rem;
@@ -391,12 +454,15 @@ footer nav.footer-links {
 
   &__copy {
     font-size: 0.8rem;
-    color: rgba(244,236,224,0.5);
+    color: var(--linen-50);
     margin-top: var(--space-m);
   }
 }
 
-/* ── SIDEBAR (Layout-Ebene) ── */
+/*
+ * Sidebar auf Layout-Ebene.
+ * Definiert Widget-Rahmen, Titel- und Linkdarstellung.
+ */
 .sidebar {
   display: flex;
   flex-direction: column;
