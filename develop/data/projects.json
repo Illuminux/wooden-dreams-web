@@ -1,0 +1,182 @@
+{
+  "featuredProjectSlug": "shelf-workbench",
+  "categories": [
+    {
+      "id": "werkstattausstattung",
+      "label": "Werkstattausstattung",
+      "icon": "workbench",
+      "projects": [
+        {
+          "slug": "shelf-workbench",
+          "title": "Shelf-Workbench",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstatt",
+          "url": "./shelf-workbench.html",
+          "excerpt": "Die Shelf-Workbench ist eine klappbare Holzwerkbank mit mehreren Ebenen für Einsätze, Maschinen und Vorrichtungen. In der Arbeitsvariante wird sie ausgeklappt und bietet volle Zugänglichkeit zu allen Ablagen. Für die Lagerung lässt sie sich kompakt zusammenklappen und auf ihren Rollen platzsparend verstauen. Eine flexible, mobile Lösung für die Werkstatt.",
+          "meta": "6. März 2026 · Fusion 360 · Werkstattausstattung",
+          "featured": true,
+          "image": {
+            "src": "./images/projekte/shelfworkbench.png",
+            "alt": "Shelf-Workbench",
+            "width": 799,
+            "height": 632
+          }
+        },
+        {
+          "slug": "planfraestisch",
+          "title": "Planfrästisch",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstatt",
+          "url": "./planfraestisch.html",
+          "excerpt": "Ein präziser Planfrästisch auf Basis der Faltwerkbank. Die stabile Konstruktion trägt die Fräseinheit sicher und ermöglicht gleichmäßige Zustellungen über die gesamte Werkstücklänge. Der sauber geführte Schlitten sorgt für wiederholgenaue Ergebnisse – ideal zum Abrichten von Brettern, Bohlen oder verleimten Platten. Mobil, robust und für exakte Oberflächen gemacht.",
+          "image": {
+            "src": "./images/projekte/planfraestisch.png",
+            "alt": "Planfrästisch",
+            "width": 842,
+            "height": 632
+          }
+        },
+        {
+          "slug": "faltwerkbank",
+          "title": "Faltwerkbank",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstatt",
+          "url": "./faltwerkbank.html",
+          "excerpt": "Eine klappbare Holzwerkbank, die sich für verschiedene Arbeiten flexibel ausklappen lässt. Im Arbeitszustand bietet sie eine stabile, großzügige Fläche oder – je nach Bedarf – eine aufgelegte Tischplatte. Für die Lagerung wird sie kompakt zusammengefaltet und lässt sich dank der Rollen leicht verstauen. Praktisch, mobil und platzsparend.",
+          "image": {
+            "src": "./images/projekte/faltwerkbank.png",
+            "alt": "Faltwerkbank",
+            "width": 842,
+            "height": 632
+          }
+        },
+        {
+          "slug": "bandsaegentisch",
+          "title": "Bandsägentisch",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstatt",
+          "url": "./bandsaegentisch.html",
+          "excerpt": "Ein stabiler, kompakter Holztisch als solide Basis für die Bandsäge. Die Konstruktion ist sauber gezinkt und bietet im unteren Schrank genug Platz für einen kleinen Nass-/Trockensauger samt Zubehör. Vier leichtgängige Rollen sorgen für volle Beweglichkeit in der Werkstatt. Robust, funktional und durchdacht.",
+          "image": {
+            "src": "./images/projekte/bandsaegentisch.png",
+            "alt": "Bandsägentisch",
+            "width": 630,
+            "height": 626
+          }
+        },
+        {
+          "slug": "bohrmaschinentisch",
+          "title": "Bohrmaschinentisch",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstatt",
+          "url": "./bohrmaschinentisch.html",
+          "excerpt": "Der Bohrmaschinentisch kombiniert eine stabile Standfläche für die Tischbohrmaschine mit einem mobilen Unterschrank aus Holz. Fünf Schubladen bieten strukturierten Stauraum für Bohrer, Zubehör und Werkzeuge. Dank der montierten Rollen bleibt die gesamte Einheit flexibel und leicht zu bewegen – robust, funktional und perfekt organisiert.",
+          "image": {
+            "src": "./images/projekte/bohrmaschinentisch.png",
+            "alt": "Bohrmaschinentisch",
+            "width": 633,
+            "height": 632
+          }
+        },
+        {
+          "slug": "standardtisch",
+          "title": "Standardtisch",
+          "tag": "Werkstattausstattung",
+          "area": "Werkstattausstattung",
+          "url": "./standardtisch.html",
+          "excerpt": "Ein kompakter Rollcontainer aus massiver Fichte, ausgestattet mit fünf leichtgängigen Schubladen und stabilen Rollen für maximale Flexibilität in der Werkstatt. Die sichtbare Maserung verleiht dem Möbel eine natürliche, handwerkliche Note, während die robuste Bauweise für Ordnung und Übersicht im täglichen Einsatz sorgt.",
+          "image": {
+            "src": "./images/projekte/standardtisch.png",
+            "alt": "Standardtisch",
+            "width": 820,
+            "height": 632
+          }
+        }
+      ]
+    },
+    {
+      "id": "gartenmoebel",
+      "label": "Gartenmöbel",
+      "icon": "garden",
+      "projects": [
+        {
+          "slug": "gartentisch",
+          "title": "Gartentisch",
+          "tag": "Gartenmöbel",
+          "area": "Garten",
+          "url": "./gartentisch.html",
+          "excerpt": "Der Gartentisch besteht vollständig aus massiven Douglasienbohlen, deren warme Farbnuancen und markante Maserung sofort ins Auge fallen. Die charakteristischen Äste und die leicht rötliche Tönung verleihen dem Tisch einen natürlichen, lebendigen Look. Das stabile Untergestell mit schräg gestellten Beinen und Querstreben sorgt für hohe Standfestigkeit – ideal für den Einsatz im Garten, auf der Terrasse oder als robuster Outdoor-Arbeitstisch.",
+          "image": {
+            "src": "./images/projekte/gartentisch.png",
+            "alt": "Gartentisch",
+            "width": 632,
+            "height": 632
+          }
+        },
+        {
+          "slug": "baumbank",
+          "title": "Halbe Baumbank",
+          "tag": "Gartenmöbel",
+          "area": "Garten",
+          "url": "./baumbank.html",
+          "excerpt": "Sommerabende im Garten, ein schattiger Platz, Holz, das mit der Zeit eine schöne Patina entwickelt – genau dafür ist diese halbrunde Baumbank gemacht. Sie besteht aus massiver Douglasie und verbindet natürliche Optik mit einer klaren, geradlinigen Konstruktion. Die warmen Holzbohlen formen eine V-förmige Sitzfläche, ergänzt durch eine luftige Rückenlehne aus horizontalen Lamellen. Eine einladende, handwerklich präzise Sitzgelegenheit, die sich harmonisch in den Garten einfügt.",
+          "image": {
+            "src": "./images/projekte/baumbank.png",
+            "alt": "Halbe Baumbank",
+            "width": 1065,
+            "height": 898
+          }
+        }
+      ]
+    },
+    {
+      "id": "inneneinrichtung",
+      "label": "Inneneinrichtung",
+      "icon": "cabinet_unit",
+      "projects": [
+        {
+          "slug": "schuhschrank",
+          "title": "Schuhschrank",
+          "tag": "Möbel",
+          "area": "Inneneinrichtung",
+          "url": "./schuhschrank.html",
+          "excerpt": "Ein moderner Schuhschrank, der die Gestaltung der Schuhbank konsequent aufgreift: warme Holzfronten, ein mattblauer Korpus und dieselbe ruhige, reduzierte Formensprache. Die fünf Schubladen bieten reichlich Stauraum für Schuhe und Alltagsdinge. Das Roll-Top-Element der oberen Lade eignet sich ideal für Bürsten, Einlegesohlen, Schnürsenkel und Schuhspanner und setzt zugleich einen feinen gestalterischen Akzent. So entsteht ein harmonisches Ensemble, das den Eingangsbereich optisch wie funktional ergänzt.",
+          "image": {
+            "src": "./images/projekte/schuhschrank.png",
+            "alt": "Schuhschrank",
+            "width": 661,
+            "height": 510
+          }
+        },
+        {
+          "slug": "schuhbank",
+          "title": "Schuhbank",
+          "tag": "Möbel",
+          "area": "Inneneinrichtung",
+          "url": "./schuhbank.html",
+          "excerpt": "Eine moderne Interpretation der klassischen Schuhbank: warmes Eichenholz in Natur kombiniert mit klar weiß lackiertem MDF. Die Konstruktion wirkt leicht, aufgeräumt und funktional – mit großzügigen Schubladen, die Schuhe und Alltagsdinge unsichtbar verschwinden lassen. Ein zeitloses Möbelstück, das Ordnung schafft und sich harmonisch in moderne Wohnräume einfügt.",
+          "image": {
+            "src": "./images/projekte/schuhbank.png",
+            "alt": "Schuhbank",
+            "width": 973,
+            "height": 632
+          }
+        },
+        {
+          "slug": "kuechenschrank",
+          "title": "Küchenschrank für Recycling",
+          "tag": "Möbel",
+          "area": "Inneneinrichtung",
+          "url": "./kuechenschrank.html",
+          "excerpt": "Ein kompakter Fichtenschrank mit geölter Massivholzplatte und weiß lasierten Flächen, durch die die natürliche Struktur des Holzes sanft sichtbar bleibt. Zwei Schubladen oben bieten Platz für Kleinteile, darunter sorgt eine große Lade für Ordnung bei Glas-, Papier- und Pfand-Recycling. Schlicht, funktional und harmonisch im Wohnbereich.",
+          "image": {
+            "src": "./images/projekte/kuechenschrank.png",
+            "alt": "Küchenschrank",
+            "width": 801,
+            "height": 632
+          }
+        }
+      ]
+    }
+  ]
+}
