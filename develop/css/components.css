@@ -518,7 +518,7 @@ details summary:focus {
 }
 
 .newsletter .newsletter__feedback.is-error {
-  color: #ffd3c5;
+  color: var(--feedback-error);
 }
 
 /* ── KONTAKTFORMULAR ── */
@@ -587,7 +587,7 @@ details summary:focus {
 }
 
 .contact-form__intro-text a:hover {
-  color: #d9a24a;
+  color: var(--accent-soft);
 }
 
 .contact-form__row {
@@ -724,11 +724,11 @@ details summary:focus {
 }
 
 .contact-form__feedback.is-success {
-  color: #d8eec7;
+  color: var(--feedback-success);
 }
 
 .contact-form__feedback.is-error {
-  color: #ffd3c5;
+  color: var(--feedback-error);
 }
 
 .contact-form__button {
@@ -748,7 +748,7 @@ details summary:focus {
 }
 
 .contact-form__button:hover {
-  background: #d9a24a;
+  background: var(--accent-soft);
 }
 
 .contact-form__button:disabled {

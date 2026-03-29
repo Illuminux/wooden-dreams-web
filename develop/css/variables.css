@@ -20,6 +20,9 @@
   --text-muted:     var(--clr-muted);
   --accent:         var(--clr-honey);
   --accent-hover:   var(--clr-oak);
+  --accent-soft:    #d9a24a;
+  --feedback-success: #d8eec7;
+  --feedback-error:   #ffd3c5;
   --border-color:   rgba(74, 51, 35, 0.15);
   --shadow-color:   rgba(43, 30, 20, 0.18);
 
