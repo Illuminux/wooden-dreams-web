@@ -3,62 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{PROJEKT_TITEL}} â€” Knut's Wooden Dreams</title>
+  <title>{{PROJEKT_TITEL}} — Knut's Wooden Dreams</title>
+  <meta name="description" content="{{META_BESCHREIBUNG}}" />
+  <link rel="canonical" href="./{{DATEINAME}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:title" content="{{PROJEKT_TITEL}} — Knut's Wooden Dreams" />
+  <meta property="og:description" content="{{META_BESCHREIBUNG}}" />
+  <meta property="og:url" content="./{{DATEINAME}}" />
+  <meta property="og:image" content="./images/projekte/{{OG_IMAGE_DATEI}}" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./main.css" />
   <script type="text/javascript" src="./script.js"></script>
 </head>
 <body>
 
   <!-- HEADER -->
   <div id="header-placeholder"></div>
-  <noscript>
-    <header>
-      <svg class="header-rings" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="190" cy="190" r="20"/>
-        <circle cx="190" cy="190" r="40"/>
-        <circle cx="190" cy="190" r="62"/>
-        <circle cx="190" cy="190" r="86"/>
-        <circle cx="190" cy="190" r="112"/>
-        <circle cx="190" cy="190" r="140"/>
-        <circle cx="190" cy="190" r="170"/>
-        <circle cx="190" cy="190" r="188"/>
-      </svg>
-      <div class="header-inner">
-        <a href="./knuts-wooden-dreams.html">
-          <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="site-logo">
-        </a>
-        <nav aria-label="Hauptnavigation">
-          <a href="./knuts-wooden-dreams.html">Projekte</a>
-          <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Techniken</span>
-          <a href="./werkzeuge.html">Werkzeuge</a>
-          <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Holzarten</span>
-          <a href="./about.html">ï¿½ber mich</a>
-        </nav>
-      </div>
-    </header>
-  </noscript>
   <script src="./header.js"></script>
+
+  <!-- Breadcrumb-Navigation -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="./knuts-wooden-dreams.html" class="breadcrumb__link">Startseite</a>
+    <span class="breadcrumb__separator">›</span>
+    <a href="./knuts-wooden-dreams.html#{{KATEGORIE_ANCHOR}}" class="breadcrumb__link">{{KATEGORIE}}</a>
+    <span class="breadcrumb__separator">›</span>
+    <span class="breadcrumb__current" aria-current="page">{{PROJEKT_NAME}}</span>
+  </nav>
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- Container fÃ¼r den gesamten Seiteninhalt -->
+    <!-- Container für den gesamten Seiteninhalt -->
     <div class="container">
 
-      <!-- Breadcrumb-Navigation -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="./knuts-wooden-dreams.html">Startseite</a>
-        <span>â€º</span>
-        <a href="#">{{KATEGORIE}}</a>
-        <span>â€º</span>
-        {{PROJEKT_NAME}}
-      </nav>
+      <div class="section-label section-label-first"><h1>{{PROJEKT_TITEL}}</h1></div>
 
       <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
       <div class="project-hero">
-        <p class="project-category">âœ¦ &nbsp; {{KATEGORIE}}</p>
-        <h1 class="project-title">{{PROJEKT_TITEL}}</h1>
+        <p class="project-category">{{KATEGORIE}}</p>
         <p class="project-subtitle">{{PROJEKT_UNTERTITEL}}</p>
+
+        <!-- Projekt-Meta-Informationen -->
         <div class="project-meta">
           <div class="project-meta-item"><strong>Holz</strong>{{HOLZART}}</div>
           <div class="project-meta-item"><strong>Module</strong>{{MODULE}}</div>
@@ -66,109 +52,119 @@
           <div class="project-meta-item"><strong>Aufwand</strong>{{AUFWAND}}</div>
           <div class="project-meta-item"><strong>Software</strong>{{SOFTWARE}}</div>
         </div>
+
+        <!-- Inhaltsverzeichnis -->
+        <nav class="project-toc" aria-label="Inhaltsverzeichnis" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2">
+          <p class="project-toc__title">Schnellnavigation</p>
+          <ul class="project-toc__list"></ul>
+        </nav>
       </div>
 
       <!-- 3D VIEWER -->
       <div class="viewer-section">
         <div class="viewer-frame">
-          <iframe title="3D-Modell"
+          <iframe
             class="viewer-iframe"
-            src="./{{VIEWER_URL}}"
+            title="3D-Modell von {{PROJEKT_NAME}}"
+            src="{{VIEWER_URL}}"
             allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
           </iframe>
         </div>
-        <p class="viewer-hint">ðŸ–± Drehen Â· Scrollen zum Zoomen Â· Rechtsklick zum Verschieben</p>
+        <p class="viewer-hint">🖱 Drehen · Scrollen zum Zoomen · Rechtsklick zum Verschieben</p>
       </div>
+
+      <!-- Jump-Links für schnelle Navigation zu Hauptabschnitten -->
+      <nav class="project-jump-links" aria-label="Direkt zu Hauptabschnitten springen" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2" data-jump-max="5"></nav>
 
       <!-- Inhaltsgrid -->
       <div class="content-grid">
         <article class="project-article">
 
-          <!-- Einleitung und Idee -->
           <section id="idee" class="baugruppe">
-            <h2><img src="./symbols/marking.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Die Idee</h2>
+            <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Die Idee</h2>
             {{IDEEN_TEXT}}
           </section>
 
-          <hr class="text-divider">
-
-          <!-- Baugruppen -->
-          <section id="baugruppen" class="baugruppe">
-            <h2><img src="./symbols/lumber.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Warum {{HOLZART}} die perfekte Wahl ist</h2>
+          <section id="holzart" class="baugruppe">
+            <h2><img src="./symbols/lumber.svg" alt="" class="heading-icon"> Warum {{HOLZART}} die perfekte Wahl ist</h2>
             {{HOLZART_VORTEILE}}
+          </section>
 
+          <section id="zitate" class="baugruppe">
             <div class="pull-quote">
               {{HOLZART_PULL_QUOTE}}
             </div>
+          </section>
 
-            <h2><img src="./symbols/workbench.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Warum dieses Projekt so viel SpaÃŸ macht</h2>
+          <section id="spass" class="baugruppe">
+            <h2><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Warum dieses Projekt so viel Spaß macht</h2>
             {{SPASS_TEXT}}
+          </section>
 
-            <!-- STÃœCKLISTE -->
+          <section id="stueckliste" class="baugruppe">
+            <h2><img src="./symbols/cabinet_unit.svg" alt="" class="heading-icon"> Stückliste</h2>
             <div class="info-box stueckliste-inline">
-              <h4><img src="./symbols/hardware_tray.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> StÃ¼ckliste</h4>
-              {{STUECKLISTE_INHALT}}
-            </div>
+              <h4>Stückliste</h4>
 
-            <h2><img src="./symbols/dimensioning.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Technische Zeichnungen</h2>
-            <p><small>
-              Klick auf eine Zeichnung Ã¶ffnet die Vollansicht â€” mit BlÃ¤ttern zwischen den Seiten.<br>
-              Klick auf PDF Ã¶ffnet die technische Zeichnung in OriginalgrÃ¶ÃŸe als PDF-Datei.
-            </small></p>
+              {{STUECKLISTE_INHALT}}
+
+            </div>
+          </section>
+
+          <section id="zeichnungen" class="baugruppe">
+            <h2><img src="./symbols/dimensioning.svg" alt="" class="heading-icon"> Technische Zeichnungen</h2>
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
 
             <div class="drawings-grid" id="drawingsGrid"></div>
           </section>
 
-          <hr class="text-divider">
+          <!-- Zeichnungen -->
+          <script>
+            // Sobald das HTML geladen ist, befüllen wir die Grids
+            document.addEventListener('DOMContentLoaded', () => {
+              // Datengetriebene Konfiguration für alle Zeichnungsgrids
+              const drawingConfigs = [];
+              // Platzhalter: Zeichnungen später hier eintragen, z. B.
+              // {
+              //   containerId: 'drawingsGrid',
+              //   pages: [1, 2, 3],
+              //   title: '{{PROJEKT_NAME}}'
+              // }
 
-          <!-- Fertigung -->
-          <section class="baugruppe">
-            <h2><img src="./symbols/joint_assembly.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Montage â€” Schritt fÃ¼r Schritt</h2>
+              drawingConfigs.forEach((cfg) => {
+                renderDrawingGrid(cfg.containerId, '{{ZEICHNUNGEN_ORDNER}}', cfg.pages, cfg.title);
+              });
+
+            });
+          </script>
+
+          <section id="montage" class="baugruppe">
+            <h2><img src="./symbols/bench_assembly.svg" alt="" class="heading-icon"> Montage — Schritt für Schritt</h2>
             <ol class="steps">
               {{MONTAGE_SCHRITTE}}
             </ol>
+          </section>
 
-            <h2><img src="./symbols/dining-table.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> {{EINSATZ_TITEL}}</h2>
+          <section id="einsatz" class="project-section">
+            <h2><img src="./symbols/surface_finish.svg" alt="" class="heading-icon"> {{EINSATZ_TITEL}}</h2>
             {{EINSATZ_TEXT}}
           </section>
 
         </article>
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-          <div class="info-box">
-            <h4><img src="./symbols/toolbox.svg" alt="" aria-hidden="true" style="height:1em;vertical-align:middle;margin-right:0.3em;"> Tags</h4>
-            <div class="tag-list">
-              {{TAGS}}
-            </div>
-          </div>
-        </aside>
-
       </div>
 
-      <a href="./knuts-wooden-dreams.html" class="back-link">â† ZurÃ¼ck zur Ãœbersicht</a>
+      <a href="./knuts-wooden-dreams.html" class="back-link">← Zurück zur Übersicht</a>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <div id="footer-placeholder"></div>
-  <noscript>
-    <footer>
-      <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="footer-logo-img" />
-      <nav class="footer-links" aria-label="Footer-Navigation">
-        <a href="./impressum.html">Impressum</a>
-        <a href="./datenschutz.html">Datenschutz</a>
-        <a href="./kontakt.html">Kontakt</a>
-        <a href="./rss.xml">RSS</a>
-      </nav>
-      <p class="footer-sub">Crafted by Hand</p>
-      <p class="footer-copy">ï¿½ 2026 Knut's Wooden Dreams ï¿½ Alle Rechte vorbehalten</p>
-    </footer>
-  </noscript>
   <script src="./footer.js"></script>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
-    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <button type="button" class="close-lightbox" data-close aria-label="Lightbox schließen" onclick="closeLightbox()">&times;</button>
     <a class="lb-prev" onclick="moveDrawing(-1)">&#10094;</a>
     <a class="lb-next" onclick="moveDrawing(1)">&#10095;</a>
     <div class="lightbox-content">
