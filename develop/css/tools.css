@@ -16,9 +16,10 @@
 
 /* ── TOOL-CARD ── */
 .tool-card {
-  background: var(--card-bg);
+  background: var(--linen);
   border: 1px solid var(--rule);
   overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
   animation: fadeUp 0.7s ease both;
 
   &:nth-child(2) { animation-delay: 0.1s; }
@@ -27,8 +28,13 @@
   &:nth-child(5) { animation-delay: 0.4s; }
   &:nth-child(6) { animation-delay: 0.5s; }
 
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px var(--shadow);
+  }
+
   &:hover .tool-thumb img {
-    transform: scale(1.04);
+    transform: scale(1.06);
   }
 }
 
@@ -48,7 +54,7 @@
     object-fit: contain;
     background: #fff;
     padding: var(--space-m);
-    transition: transform 0.35s ease;
+    transition: transform 0.5s ease;
   }
 }
 
