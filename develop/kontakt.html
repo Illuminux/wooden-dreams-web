@@ -20,84 +20,93 @@
 
   <!-- HEADER -->
   <div id="header-placeholder"></div>
-  <noscript>
-    <header>
-      <svg class="header-rings" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="190" cy="190" r="20"/>
-        <circle cx="190" cy="190" r="40"/>
-        <circle cx="190" cy="190" r="62"/>
-        <circle cx="190" cy="190" r="86"/>
-        <circle cx="190" cy="190" r="112"/>
-        <circle cx="190" cy="190" r="140"/>
-        <circle cx="190" cy="190" r="170"/>
-        <circle cx="190" cy="190" r="188"/>
-      </svg>
-      <div class="header-inner">
-        <a href="./knuts-wooden-dreams.html">
-          <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="site-logo">
-        </a>
-        <nav aria-label="Hauptnavigation">
-          <a href="./knuts-wooden-dreams.html">Projekte</a>
-          <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Techniken</span>
-          <a href="./werkzeuge.html">Werkzeuge</a>
-          <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Holzarten</span>
-          <a href="./about.html">�ber mich</a>
-        </nav>
-      </div>
-    </header>
-  </noscript>
   <script src="./js/header.js"></script>
 
   <!-- Breadcrumb-Navigation -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="./knuts-wooden-dreams.html">Startseite</a>
-    <span>›</span>
-    Kontakt
+    <a href="./knuts-wooden-dreams.html" class="breadcrumb__link">Startseite</a>
+    <span class="breadcrumb__separator">›</span>
+    <span class="breadcrumb__current" aria-current="page">Kontakt</span>
   </nav>
 
   <!-- MAIN CONTENT -->
   <main>
+    <!-- Container für den gesamten Seiteninhalt -->
     <div class="container">
-      
-      <div class="section-label section-label-first"><h2>Datenschutz</h2></div>
 
-      <!-- Kontakt-Inhalt -->
-      <p>Du möchtest mir etwas schreiben? Nutze einfach das folgende Formular oder sende eine E‑Mail an <a href="mailto:admin@welzels.de">admin@welzels.de</a>.</p>
+      <div class="section-label section-label-first"><h1>Kontakt</h1></div>
 
-      <form action="mailto:admin@welzels.de" method="post" enctype="text/plain" class="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="Name" required />
+      <div class="project-hero">
+        <p class="project-category">Rechtliches</p>
+        <p class="project-subtitle">Direkter Kontakt für Fragen, Feedback und Projektanfragen.</p>
+      </div>
 
-        <label for="email">E‑Mail</label>
-        <input type="email" id="email" name="E-Mail" required />
+      <div class="content-grid">
 
-        <label for="message">Nachricht</label>
-        <textarea id="message" name="Nachricht" rows="6" required></textarea>
+        <article class="project-article">
 
-        <button type="submit">Senden</button>
-      </form>
+          <section id="formular" class="baugruppe">
+            <form action="mailto:admin@welzels.de" method="post" enctype="text/plain" class="contact-form" novalidate>
+              <div class="contact-form__intro">
+                <p class="contact-form__intro-title">Kontaktaufnahme</p>
+                <p class="contact-form__intro-text">Du möchtest mir etwas schreiben? Nutze einfach das folgende Formular.</p>
+              </div>
 
-      <p>Alternativ kannst du mich auch direkt per Mail erreichen: <a href="mailto:admin@welzels.de">admin@welzels.de</a></p>
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="Name" autocomplete="name" minlength="2" placeholder="Dein Name" required />
+                </div>
 
-      <br>
+                <div class="contact-form__field">
+                  <label for="email">E-Mail</label>
+                  <input type="email" id="email" name="E-Mail" autocomplete="email" inputmode="email" placeholder="deine@email.de" required />
+                </div>
+              </div>
+
+              <div class="contact-form__field">
+                <label for="topic">Thema</label>
+                <select id="topic" name="Thema" required>
+                  <option value="" selected disabled>Bitte wählen</option>
+                  <option value="Frage zu einem Projekt">Frage zu einem Projekt</option>
+                  <option value="Feedback zur Website">Feedback zur Website</option>
+                  <option value="Kooperation">Kooperation</option>
+                  <option value="Sonstiges">Sonstiges</option>
+                </select>
+              </div>
+
+              <div class="contact-form__field">
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="Nachricht" rows="6" minlength="20" maxlength="2000" placeholder="Worum geht es?" required></textarea>
+                <p class="contact-form__counter"><span id="message-counter">0</span>/2000</p>
+              </div>
+
+              <label class="contact-form__check">
+                <input type="checkbox" id="consent" name="Einverstaendnis" required />
+                <span>Ich habe die Hinweise gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu.</span>
+              </label>
+
+              <input type="text" id="website" name="Website" class="contact-form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <p class="contact-form__hint">Beim Klick auf Senden wird dein Mailprogramm mit vorausgefüllter Nachricht geöffnet.</p>
+
+              <p id="contact-feedback" class="contact-form__feedback" role="status" aria-live="polite"></p>
+
+              <button type="submit" class="contact-form__button">Nachricht senden</button>
+            </form>
+          </section>
+
+        </article>
+
+      </div>
+
       <a href="./knuts-wooden-dreams.html" class="back-link">← Zurück zur Übersicht</a>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <div id="footer-placeholder"></div>
-  <noscript>
-    <footer>
-      <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="footer-logo-img" />
-      <nav class="footer-links" aria-label="Footer-Navigation">
-        <a href="./impressum.html">Impressum</a>
-        <a href="./datenschutz.html">Datenschutz</a>
-        <a href="./kontakt.html">Kontakt</a>
-        <a href="./rss.xml">RSS</a>
-      </nav>
-      <p class="footer-sub">Crafted by Hand</p>
-      <p class="footer-copy">� 2026 Knut's Wooden Dreams � Alle Rechte vorbehalten</p>
-    </footer>
-  </noscript>
+  <script src="./js/contact-form.js"></script>
   <script src="./js/footer.js"></script>
 </body>
 </html>

@@ -443,6 +443,69 @@
     text-decoration-color: var(--honey);
   }
 
+  /* Kontaktformular nutzt eine dunkle Flaeche und braucht eigene Kontrastfarben. */
+  .contact-form p.contact-form__intro-title {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 1.5rem 0 1rem;
+    margin-bottom: 0.6rem;
+    font-family: 'Marcellus', serif;
+    font-size: 1.9rem;
+    color: var(--linen);
+    line-height: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: center;
+  }
+
+  .contact-form p.contact-form__intro-text {
+    color: rgba(236,223,204,0.92);
+    font-size: 0.84rem;
+    line-height: 1.62;
+    margin: 0;
+    text-align: center;
+  }
+
+  .contact-form p.contact-form__intro-text a,
+  .contact-form p.contact-form__intro-text a:visited {
+    color: var(--honey);
+    text-decoration-color: rgba(200,145,58,0.65);
+  }
+
+  .contact-form p.contact-form__intro-text a:hover,
+  .contact-form p.contact-form__intro-text a:focus-visible {
+    color: #d9a24a;
+    text-decoration-color: #d9a24a;
+  }
+
+  .contact-form p.contact-form__hint {
+    color: rgba(236,223,204,0.82);
+    font-size: 0.7rem;
+    line-height: 1.55;
+    margin: 0.25rem 0 0;
+  }
+
+  .contact-form p.contact-form__counter {
+    color: rgba(236,223,204,0.78);
+    font-size: 0.68rem;
+    margin: -0.12rem 0 0;
+  }
+
+  .contact-form p.contact-form__feedback {
+    color: rgba(236,223,204,0.84);
+    font-size: 0.74rem;
+    margin: 0.15rem 0 0;
+  }
+
+  .contact-form p.contact-form__feedback.is-success {
+    color: #d8eec7;
+  }
+
+  .contact-form p.contact-form__feedback.is-error {
+    color: #ffd3c5;
+  }
+
   /* Einheitlicher Lesefluss in den langen Baugruppen-Textblöcken. */
   section.baugruppe > p {
     margin: 0.62rem 0;
