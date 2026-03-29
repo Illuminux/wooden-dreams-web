@@ -2,6 +2,7 @@
 .featured-3d {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
+  margin-bottom: 48px;
   background: var(--clr-bark);
   box-shadow: 0 8px 40px var(--shadow-color);
   animation: fadeUp 0.8s 0.2s ease both;
@@ -339,7 +340,7 @@
 
 /* ── PROJEKTSEITEN: LEICHTERE HEADING-HIERARCHIE ── */
 .project-article h2 {
-  font-size: clamp(1.55rem, 2.1vw, 1.9rem);
+  font-size: clamp(2.02rem, 2.8vw, 2.78rem);
   line-height: 1.35;
   margin: var(--space-m) 0 var(--space-s);
   padding-bottom: 0.25rem;
@@ -347,7 +348,7 @@
 }
 
 .project-article h3 {
-  font-size: 1.08rem;
+  font-size: 1.56rem;
   line-height: 1.4;
   margin: calc(var(--space-s) + 0.35rem) 0 0.5rem;
   font-weight: 500;
@@ -355,7 +356,7 @@
 }
 
 .project-article h4 {
-  font-size: 0.98rem;
+  font-size: 1.21rem;
   line-height: 1.35;
   margin: 0.75rem 0 0.3rem;
   font-weight: 500;
@@ -363,15 +364,15 @@
 
 @media (max-width: 640px) {
   .project-article h2 {
-    font-size: 1.45rem;
+    font-size: 1.78rem;
   }
 
   .project-article h3 {
-    font-size: 1.02rem;
+    font-size: 1.39rem;
   }
 
   .project-article h4 {
-    font-size: 0.94rem;
+    font-size: 1.21rem;
   }
 }
 
@@ -633,7 +634,6 @@
     font-family: 'Inconsolata', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -664,7 +664,7 @@
   margin: 0.9rem 0;
   border-radius: 0;
   box-shadow: none;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   color: var(--walnut);
 
@@ -704,7 +704,6 @@
     font-family: 'Inconsolata', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
     color: var(--muted);
     margin: 0 0 var(--space-xs);
     padding-bottom: var(--space-xs);
@@ -961,7 +960,6 @@ h3 + .parts-list, h3 + .wood-table, h3 + .stueckliste-inline {
   font-family: 'Lora', serif;
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   color: var(--walnut);
   font-weight: 600;
   padding: 0.28rem 0;
@@ -982,7 +980,6 @@ details {
     font-family: 'Inconsolata', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--bark);
     padding: 0.65rem 0;
     cursor: pointer;
@@ -1178,7 +1175,6 @@ details {
       display: block;
       font-family: 'Inconsolata', monospace;
       font-size: 0.7rem;
-      text-transform: uppercase;
       color: var(--text-muted);
     }
 
