@@ -571,6 +571,23 @@
     }
   }
 
+  ol {
+    list-style-position: outside;
+    list-style-type: decimal;
+    margin: var(--space-s) 0 var(--space-s) 1.4rem;
+    padding: 0;
+
+    li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #2a1e14;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--rule);
+
+      &:last-child { border-bottom: none; }
+    }
+  }
+
   @media (max-width: 768px) {
     & > h2,
     & > h3,
