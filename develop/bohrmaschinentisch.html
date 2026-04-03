@@ -32,136 +32,417 @@
     <span class="breadcrumb__current" aria-current="page">Bohrmaschinentisch</span>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- Container für den gesamten Seiteninhalt -->
-    <div class="container">
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container">
 
-      <div class="section-label section-label-first"><h1>Der Bohrmaschinentisch</h1></div>
+    <div class="section-label section-label-first">
+      <h1>Der Bohrmaschinentisch</h1>
+    </div>
 
-      <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
-      <div class="project-hero">
-        <p class="project-category">Werkstattausstattung</p>
-        <p class="project-subtitle">Ein stabiler und praktischer Tisch für die präzise Arbeit mit Bohrmaschinen, konstruiert aus hochwertigem Holz und ausgestattet mit speziellen Aufnahmen für verschiedene Bohrmaschinen.</p>
+    <div class="project-hero">
+      <p class="project-category">Werkstattausstattung</p>
 
-        <!-- Projekt-Meta-Informationen -->
-        <div class="project-meta">
-          <div class="project-meta-item"><strong>Holz</strong>Fichte</div>
-          <div class="project-meta-item"><strong>Module</strong>4</div>
-          <div class="project-meta-item"><strong>Kategorie</strong>Werkstattausstattung</div>
-          <div class="project-meta-item"><strong>Aufwand</strong>mittel</div>
-          <div class="project-meta-item"><strong>Software</strong>Fusion 360</div>
-        </div>
+      <p class="project-subtitle">
+        Eine funktionale Erweiterung des Standardtischs für präzise Bohrarbeiten.
+        Der Bohrmaschinentisch übernimmt Korpus, Raster und Baugruppen unverändert
+        und ergänzt diese gezielt um eine angepasste Tischplatte sowie eine
+        doppelt genutzte 1&nbsp;HE‑Schublade.
+      </p>
 
-        <!-- Inhaltsverzeichnis -->
-        <nav class="project-toc" aria-label="Inhaltsverzeichnis" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2">
-          <p class="project-toc__title">Schnellnavigation</p>
-          <ul class="project-toc__list"></ul>
-        </nav>
+      <div class="project-meta">
+        <div class="project-meta-item"><strong>Holz</strong>Kiefer / MDF</div>
+        <div class="project-meta-item"><strong>Module</strong>4</div>
+        <div class="project-meta-item"><strong>Kategorie</strong>Werkstattausstattung</div>
+        <div class="project-meta-item"><strong>Aufwand</strong>mittel</div>
+        <div class="project-meta-item"><strong>Software</strong>Fusion 360</div>
       </div>
+
+      <nav class="project-toc"
+           aria-label="Inhaltsverzeichnis"
+           data-toc-root=".project-article"
+           data-toc-sections="section[id]"
+           data-toc-heading-level="2">
+        <p class="project-toc__title">Schnellnavigation</p>
+        <ul class="project-toc__list"></ul>
+      </nav>
+    </div>
 
       <!-- 3D VIEWER -->
-      <div class="viewer-section">
-        <div class="viewer-frame">
-          <iframe
-            class="viewer-iframe"
-            title="3D-Modell des Bohrmaschinentischs"
+    <div class="viewer-section">
+      <div class="viewer-frame">
+        <iframe
+          class="viewer-iframe"
+          title="3D-Modell des Bohrmaschinentischs"
             src="https://googlemail23972.autodesk360.com/shares/public/SH28cd1QT2badd0ea72b120ba4849f43fb9a?mode=embed"
             allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
-          </iframe>
-        </div>
-        <p class="viewer-hint">🖱 Drehen · Scrollen zum Zoomen · Rechtsklick zum Verschieben</p>
+        </iframe>
       </div>
-
-      <!-- Jump-Links für schnelle Navigation zu Hauptabschnitten -->
-      <nav class="project-jump-links" aria-label="Direkt zu Hauptabschnitten springen" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2" data-jump-max="5"></nav>
-
-      <!-- Inhaltsgrid -->
-      <div class="content-grid">
-        <article class="project-article">
-
-          <section id="idee" class="baugruppe">
-            <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Die Idee</h2>
-            {{IDEEN_TEXT}}
-          </section>
-
-          <section id="holzart" class="baugruppe">
-            <h2><img src="./symbols/lumber.svg" alt="" class="heading-icon"> Warum {{HOLZART}} die perfekte Wahl ist</h2>
-            {{HOLZART_VORTEILE}}
-          </section>
-
-          <section id="zitate" class="baugruppe">
-            <div class="pull-quote">
-              {{HOLZART_PULL_QUOTE}}
-            </div>
-          </section>
-
-          <section id="spass" class="baugruppe">
-            <h2><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Warum dieses Projekt so viel Spaß macht</h2>
-            {{SPASS_TEXT}}
-          </section>
-
-          <section id="stueckliste" class="baugruppe">
-            <h2><img src="./symbols/cabinet_unit.svg" alt="" class="heading-icon"> Stückliste</h2>
-            <div class="info-box stueckliste-inline">
-              <h4>Stückliste</h4>
-
-              {{STUECKLISTE_INHALT}}
-
-            </div>
-          </section>
-
-          <section id="zeichnungen" class="baugruppe">
-            <h2><img src="./symbols/dimensioning.svg" alt="" class="heading-icon"> Technische Zeichnungen</h2>
-            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
-
-            <div class="drawings-grid" id="drawingsGrid"></div>
-          </section>
-
-          <!-- Zeichnungen -->
-          <script>
-            // Sobald das HTML geladen ist, befüllen wir die Grids
-            document.addEventListener('DOMContentLoaded', () => {
-              // Datengetriebene Konfiguration für alle Zeichnungsgrids
-              const drawingConfigs = [];
-              // Platzhalter: Zeichnungen später hier eintragen, z. B.
-              // {
-              //   containerId: 'drawingsGrid',
-              //   pages: [1, 2, 3],
-              //   title: 'Bohrmaschinentisch'
-              // }
-
-              drawingConfigs.forEach((cfg) => {
-                renderDrawingGrid(cfg.containerId, 'bohrmaschinentisch', cfg.pages, cfg.title);
-              });
-
-            });
-          </script>
-
-          <section id="montage" class="baugruppe">
-            <h2><img src="./symbols/bench_assembly.svg" alt="" class="heading-icon"> Montage — Schritt für Schritt</h2>
-            <ol class="steps">
-              {{MONTAGE_SCHRITTE}}
-            </ol>
-          </section>
-
-          <section id="einsatz" class="project-section">
-            <h2><img src="./symbols/surface_finish.svg" alt="" class="heading-icon"> {{EINSATZ_TITEL}}</h2>
-            {{EINSATZ_TEXT}}
-          </section>
-
-        </article>
-
-      </div>
-
-      <a href="./knuts-wooden-dreams.html" class="back-link">← Zurück zur Übersicht</a>
+      <p class="viewer-hint">🖱 Drehen · Scrollen zum Zoomen · Rechtsklick zum Verschieben</p>
     </div>
-  </main>
+
+    <nav class="project-jump-links"
+         aria-label="Direkt zu Hauptabschnitten springen"
+         data-toc-root=".project-article"
+         data-toc-sections="section[id]"
+         data-toc-heading-level="2"
+         data-jump-max="5"></nav>
+
+    <div class="content-grid">
+      <article class="project-article">
+
+        <!-- DIE IDEE -->
+        <section id="idee" class="baugruppe">
+          <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Die Idee</h2>
+
+          <p>
+            Der Bohrmaschinentisch ist keine Neuentwicklung, sondern eine gezielte
+            funktionale Ableitung des Standardtischs. Ziel war es, eine stabile,
+            präzise Arbeitsfläche für Bohrarbeiten zu schaffen, ohne das bestehende
+            System zu verändern.
+          </p>
+
+          <p>
+            Korpus, Raster, Baugruppen und Fertigungsprinzipien bleiben vollständig
+            erhalten. Anpassungen erfolgen ausschließlich dort, wo sie für den
+            Einsatz an der Bohrmaschine notwendig sind.
+          </p>
+        </section>
+
+        <!-- BAUGRUPPEN -->
+        <section id="baugruppen" class="baugruppe">
+          <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Baugruppen</h2>
+
+          <p>
+            Alle Baugruppen entsprechen dem Standardtisch, mit Ausnahme der
+            Tischplatte und der obersten Schublade.
+          </p>
+
+          <h3>Tischplatte</h3>
+          <p>
+            Die Tischplatte besteht aus einer 25&nbsp;mm starken MDF‑Platte
+            (600&nbsp;×&nbsp;600&nbsp;mm). Zwei gefräste Nuten nehmen C‑Nutschienen
+            aus Aluminium auf und ermöglichen das flexible Positionieren von
+            Anschlägen und Spannmitteln.
+          </p>
+
+          <div class="drawings-grid" id="drawingsGridTischplatte"></div>
+
+          <div class="info-box stueckliste-inline">
+            <details class="parts-list">
+              <summary>Stückliste – Tischplatte Bohrmaschinentisch</summary>
+
+              <table class="parts-table">
+                <thead>
+                  <tr>
+                    <th>Bauteil</th>
+                    <th>Anzahl</th>
+                    <th>Maße</th>
+                    <th>Material</th>
+                    <th>Beschreibung</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>Tischplatte</td>
+                    <td>1</td>
+                    <td>600×600×25 mm</td>
+                    <td>MDF</td>
+                    <td>
+                      MDF‑Platte 25 mm, Zuschnitt<br>
+                      Baumarkt‑Zuschnitt
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>C‑Nutschiene</td>
+                    <td>2</td>
+                    <td>600 mm</td>
+                    <td>Aluminium</td>
+                    <td>
+                      C‑Profil, rot eloxiert<br>
+                      Zubehör für Anschläge und Spannmittel
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Spax 3×10</td>
+                    <td>6</td>
+                    <td>–</td>
+                    <td>Edelstahl AISI 202</td>
+                    <td>
+                      Senkkopf, zur Befestigung der Nutschienen
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </details>
+          </div>
+
+          <h3>Oberste Schublade – 1&nbsp;HE Doppelt‑Korpus</h3>
+          <p>
+            Die oberste Schublade basiert auf der 1&nbsp;HE‑Standardschublade,
+            ist jedoch als Doppelt‑Korpus ausgeführt. Zwei Nutzungsebenen werden
+            innerhalb einer Schublade kombiniert.
+          </p>
+
+          <div class="drawings-grid" id="drawingsGridObersteSchublade"></div>
+
+          <ul>
+            <li>Rückteilhöhe reduziert auf 68&nbsp;mm</li>
+            <li>Seitenteile mit zusätzlichen Bohrungen für inneren Vollauszug</li>
+            <li>Obere Ebene für häufig genutzte Bohrer</li>
+            <li>Untere Ebene für Ersatz‑ und Spezialwerkzeuge</li>
+          </ul>
+
+          <h4>Schubladen Korpus aussen</h4>
+          
+          <div class="drawings-grid" id="drawingsGridObersteSchubladeAussen"></div>
+
+          <h4>Schubladen Korpus innen</h4>
+          
+          <div class="drawings-grid" id="drawingsGridObersteSchubladeInnen"></div>
+
+          <div class="info-box stueckliste-inline">
+            <details class="parts-list">
+              <summary>Stückliste – Oberste Schublade (Innenkorpus)</summary>
+
+              <table class="parts-table">
+                <thead>
+                  <tr>
+                    <th>Bauteil</th>
+                    <th>Anzahl</th>
+                    <th>Maße</th>
+                    <th>Material</th>
+                    <th>Beschreibung</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>Schublade Seite oben</td>
+                    <td>2</td>
+                    <td>374×62×18 mm</td>
+                    <td>Kiefer</td>
+                    <td>
+                      Träger für obere Nutzungsebene
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Schublade Front‑/Rückteil innen</td>
+                    <td>2</td>
+                    <td>385×62×18 mm</td>
+                    <td>Kiefer</td>
+                    <td>
+                      Innenkorpus, verschraubt und gedübelt
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Schublade Boden innen</td>
+                    <td>1</td>
+                    <td>386×374×5 mm</td>
+                    <td>Holz</td>
+                    <td>
+                      Boden der oberen Ebene
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Vollauszug (innen)</td>
+                    <td>2</td>
+                    <td>–</td>
+                    <td>Stahl</td>
+                    <td>
+                      Führung des Innenkorpus
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </details>
+          </div>
+        
+        </section>
+
+        <!-- FAZIT -->
+        <section id="fazit" class="baugruppe">
+          <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Fazit</h2>
+
+          <p>
+            Der Bohrmaschinentisch erweitert den Standardtisch gezielt um Funktionen
+            für präzise Bohrarbeiten. Das bestehende System bleibt vollständig
+            erhalten und wird lediglich dort ergänzt, wo es funktional sinnvoll ist.
+          </p>
+        </section>
+
+      </article>
+    </div>
+
+  </div>
+</main>
 
   <!-- FOOTER -->
   <div id="footer-placeholder"></div>
   <script src="./js/footer.js"></script>
 
+  <!-- Zeichnungen -->
+  <script>
+    // Sobald das HTML geladen ist, befüllen wir die Grids
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Datengetriebene Konfiguration für alle Zeichnungsgrids
+      const drawingConfigs = [
+        {
+          containerId: 'drawingsGridTischplatte',
+          pages: [
+            {
+              src: './bohrmaschinentisch/tischplatte.png',
+              caption: 'Tischplatte mit Nutschienen'
+            },
+            {
+              src: './bohrmaschinentisch/tischplatte_zeichnung.png',
+              pdf: './bohrmaschinentisch/tischplatte_zeichnung.pdf',
+              caption: 'Tischplatte mit Nutschienen'
+            },
+            {
+              src: './bohrmaschinentisch/tischplatte_tnut.png',
+              caption: 'Detailansicht der Nutschienen'
+            },
+            {
+              src: './bohrmaschinentisch/tischplatte_zsb_zeichnung.png',
+              pdf: './bohrmaschinentisch/tischplatte_zsb_zeichnung.pdf',
+              caption: 'Detailansicht der Nutschienen'
+            },
+            {
+              src: './bohrmaschinentisch/tischplatte_exp.png',
+              caption: 'Explosionsansicht der Nutschienen'
+            }
+          ],
+          title: 'Zeichnungen – Tischplatte'
+        },
+        {
+          containerId: 'drawingsGridObersteSchublade',
+          pages: [
+            {
+              src: './bohrmaschinentisch/schublade_doppelt1.png',
+              caption: 'Oberste Schublade – Gesamtansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_doppelt_exp1.png',
+              caption: 'Oberste Schublade – Explosionsansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_korpus_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_korpus_zeichnung.pdf',
+              caption: 'Oberste Schublade – Gesamtansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_doppelt2.png',
+              caption: 'Oberste Schublade – Äußer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_korpus_aussen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_korpus_aussen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Äußer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_doppelt3.png',
+              caption: 'Oberste Schublade – Innerer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_korpus_innen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_korpus_innen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Innerer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_doppelt3_exp.png',
+              caption: 'Oberste Schublade – Innerer Korpus Explosionsansicht'
+            }
+          ],
+          title: 'Zeichnungen – Oberste Schublade'
+        },
+        {
+          containerId: 'drawingsGridObersteSchubladeAussen',
+          pages: [
+            {
+              src: './bohrmaschinentisch/schublade_doppelt2.png',
+              caption: 'Oberste Schublade – Äußer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_korpus_aussen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_korpus_aussen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Äußer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_seite_links_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_seite_links_zeichnung.pdf',
+              caption: 'Oberste Schublade – Seitenansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_seite_rechts_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_seite_rechts_zeichnung.pdf',
+              caption: 'Oberste Schublade – Seitenansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_rueckteil_doppelt_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_rueckteil_doppelt_zeichnung.pdf',
+              caption: 'Oberste Schublade – Rückansicht'
+            }
+          ],
+          title: 'Zeichnungen – Oberste Schublade'
+        },
+        {
+          containerId: 'drawingsGridObersteSchubladeInnen',
+          pages: [
+            {
+              src: './bohrmaschinentisch/schublade_doppelt3.png',
+              caption: 'Oberste Schublade – Innerer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_doppelt3_exp.png',
+              caption: 'Oberste Schublade – Innerer Korpus Explosionsansicht'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_korpus_innen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_korpus_innen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Innerer Korpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_boden_innen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_boden_innen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Boden der oberen Ebene'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_seite_innen_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_seite_innen_zeichnung.pdf',
+              caption: 'Oberste Schublade – Seitenansicht Innenkorpus'
+            },
+            {
+              src: './bohrmaschinentisch/schublade_front_rueckteil_zeichnung.png',
+              pdf: './bohrmaschinentisch/schublade_front_rueckteil_zeichnung.pdf',
+              caption: 'Oberste Schublade – Rückansicht Innenkorpus'
+            }
+          ],
+          title: 'Zeichnungen – Oberste Schublade'
+        }
+      ];
+
+      drawingConfigs.forEach((cfg) => {
+        // pages enthält hier bereits konkrete Bildquellen, daher reicht ein leerer fileName.
+        renderDrawingGrid(cfg.containerId, '', cfg.pages, cfg.title);
+      });
+
+      // Für Plattformen ohne pdf-Attribut generische pdf-Pfade ergänzen (optional)
+      // TODO: falls erforderlich, kann diese Logik weiter automatisiert werden.
+
+    });
+  </script>
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <button type="button" class="close-lightbox" data-close aria-label="Lightbox schließen" onclick="closeLightbox()">&times;</button>

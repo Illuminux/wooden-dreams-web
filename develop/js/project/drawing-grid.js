@@ -17,21 +17,41 @@
 function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
   /** @type {HTMLElement|null} */
   const grid = document.getElementById(containerId);
-  if (!grid || !pages || pages.length === 0 || !fileName || !sectionTitle) return;
+  if (!grid || !pages || pages.length === 0 || !sectionTitle) return;
 
   // Idempotent rendern: bei erneutem Aufruf bestehende Einträge entfernen.
   grid.replaceChildren();
 
   /** @type {string} */
-  const basePath = `./${fileName}/`;
-  /** @type {string[]} */
-  const imagePaths = pages.map((p) => `${basePath}${String(p).padStart(2, '0')}_${fileName}.png`);
+  const basePath = fileName ? `./${fileName}/` : '';
+
+  /** @type {Array<string>} */
+  const imagePaths = pages.map((p) => {
+    if (p && typeof p === 'object' && p.src) {
+      return p.src;
+    }
+    const num = String(p).padStart(2, '0');
+    return `${basePath}${num}_${fileName}.png`;
+  });
 
   pages.forEach((page, idx) => {
     /** @type {string} */
-    const num = String(page).padStart(2, '0');
+    let imageSrc;
     /** @type {string} */
-    const pdfPath = `${basePath}${num}_${fileName}.pdf`;
+    let caption = '';
+    /** @type {string} */
+    let pdfPath;
+
+    if (page && typeof page === 'object' && page.src) {
+      imageSrc = page.src;
+      caption = page.caption || `Seite ${idx + 1}`;
+      pdfPath = page.pdf || '';
+    } else {
+      const num = String(page).padStart(2, '0');
+      imageSrc = imagePaths[idx];
+      caption = String(page);
+      pdfPath = `${basePath}${num}_${fileName}.pdf`;
+    }
 
     /** @type {HTMLDivElement} */
     const wrapper = document.createElement('div');
@@ -39,8 +59,8 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
 
     /** @type {HTMLImageElement} */
     const img = document.createElement('img');
-    img.src = imagePaths[idx];
-    img.alt = `${sectionTitle} Seite ${page}`;
+    img.src = imageSrc;
+    img.alt = `${sectionTitle} ${caption}`;
     img.loading = 'lazy';
     img.onclick = () => window.openLightbox(imagePaths, pages, idx, sectionTitle);
     img.onkeydown = (e) => {
@@ -51,19 +71,22 @@ function renderDrawingGrid(containerId, fileName, pages, sectionTitle) {
     };
     img.setAttribute('role', 'button');
     img.setAttribute('tabindex', '0');
-    img.setAttribute('aria-label', `${sectionTitle} Seite ${page} in Lightbox öffnen`);
-
-    /** @type {HTMLAnchorElement} */
-    const pdf = document.createElement('a');
-    pdf.href = pdfPath;
-    pdf.className = 'pdf-download';
-    pdf.textContent = 'PDF';
-    pdf.target = '_blank';
-    pdf.rel = 'noopener noreferrer';
-    pdf.setAttribute('aria-label', `${sectionTitle} Seite ${page} als PDF in neuem Tab öffnen`);
+    img.setAttribute('aria-label', `${sectionTitle} ${caption} in Lightbox öffnen`);
 
     wrapper.appendChild(img);
-    wrapper.appendChild(pdf);
+
+    if (pdfPath) {
+      /** @type {HTMLAnchorElement} */
+      const pdf = document.createElement('a');
+      pdf.href = pdfPath;
+      pdf.className = 'pdf-download';
+      pdf.textContent = 'PDF';
+      pdf.target = '_blank';
+      pdf.rel = 'noopener noreferrer';
+      pdf.setAttribute('aria-label', `${sectionTitle} ${caption} als PDF in neuem Tab öffnen`);
+      wrapper.appendChild(pdf);
+    }
+
     grid.appendChild(wrapper);
   });
 }
