@@ -95,7 +95,6 @@
               <li>Fünf leichtgängige Schubladen für Ordnung.</li>
               <li>Rollen für volle Flexibilität.</li>
             </ul>
-            <img src="./standardtisch/Standardtisch.png" alt="Standardtisch – 3D Ansicht" class="project-image-float-right">
             <p>
               Der Tisch ist kompakt, mobil und handwerklich sauber gebaut.
               Die sichtbare Fichtenmaserung verleiht ihm Wärme, während die robuste
@@ -123,9 +122,7 @@
 
           <!-- Baugruppen -->
           <section id="baugruppen" class="baugruppe">
-            <h2><img src="./symbols/cabinet_unit.svg" alt="" class="heading-icon"> Baugruppen</h2>
-
-            <h3><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Hauptbaugruppe – Standardtisch</h3>
+            <h2><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Die Baugruppen</h2>
             <div class="drawings-grid" id="drawingsGrid"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -200,14 +197,6 @@
           <!-- Baugruppe: Seitenteile --> 
           <section id="baugruppen-seitenteile" class="baugruppe">
             <h3><img src="./symbols/flat_component.svg" alt="" class="heading-icon"> Seitenteile – Standardtisch</h3>
-            <div class="hero-image">
-              <table>
-                <tr>
-                  <td><img src="./standardtisch/Standardtisch_Beine_links.png" alt="Seitenteile links – 3D Ansicht"></td>
-                  <td><img src="./standardtisch/Standardtisch_Beine_rechts.png" alt="Seitenteile rechts – 3D Ansicht"></td>
-                </tr>
-              </table>
-            </div>
             <div class="drawings-grid" id="drawingsGridSeitenteile"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -290,9 +279,6 @@
           <!-- Baugruppe: Rahmen oben -->
           <section id="baugruppen-rahmen-oben" class="baugruppe">
             <h3><img src="./symbols/frame_corner.svg" alt="" class="heading-icon"> Rahmen oben – Standardtisch</h3>           
-            <div class="hero-image">
-              <img src="./standardtisch/Standardtisch_Rahmen_oben.png" alt="Rahmen oben – 3D Ansicht">
-            </div>
             <div class="drawings-grid" id="drawingsGridRahmenOben"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -361,9 +347,6 @@
           <!-- Baugruppe: Rahmen unten -->
           <section id="baugruppen-rahmen-unten" class="baugruppe">
             <h3><img src="./symbols/halving_joint.svg" alt="" class="heading-icon"> Rahmen unten – Standardtisch</h3>
-            <div class="hero-image">
-              <img src="./standardtisch/Standardtisch_Rahmen_unten.png" alt="Rahmen unten – 3D Ansicht">
-            </div>
             <div class="drawings-grid" id="drawingsGridRahmenUnten"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -511,14 +494,6 @@
           <!-- Baugruppe: Tischplatte & Rückwand -->
           <section id="baugruppen-tischplatte-rueckwand" class="baugruppe">
             <h3><img src="./symbols/board_set.svg" alt="" class="heading-icon"> Tischplatte & Rückwand – Standardtisch</h3>
-            <div class="hero-image">
-              <table>
-                <tr>
-                  <td><img src="./standardtisch/Tischplatte.png" alt="Tischplatte – 3D Ansicht"></td>
-                  <td><img src="./standardtisch/Rueckplatteplatte.png" alt="Rückwand – 3D Ansicht"></td>
-                </tr>
-              </table>
-            </div>
             <div class="drawings-grid" id="drawingsGridTischplatteRueckwand"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -572,9 +547,6 @@
           <!-- Baugruppe: Schubladen -->
           <section id="baugruppen-schubladen" class="baugruppe">
             <h3><img src="./symbols/drawer_component.svg" alt="" class="heading-icon"> Schubladen – Standardtisch</h3>
-            <div class="hero-image">
-              <img src="./standardtisch/Schublade.png" alt="Schublade – 3D Ansicht">
-            </div>
             <div class="drawings-grid" id="drawingsGridSchubladen"></div>
             <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
             <div class="info-box stueckliste-inline">
@@ -1544,12 +1516,78 @@
 
               // Datengetriebene Konfiguration für alle Zeichnungsgrids
               const drawingConfigs = [
-                { containerId: 'drawingsGrid', pages: [1, 2, 3, 4, 5], title: 'Standardtisch' },
-                { containerId: 'drawingsGridSeitenteile', pages: [3, 4, 10, 17, 18], title: 'Seitenteile' },
-                { containerId: 'drawingsGridRahmenOben', pages: [6, 13, 15], title: 'RahmenOben' },
-                { containerId: 'drawingsGridRahmenUnten', pages: [2, 14, 16, 11, 20], title: 'RahmenUnten' },
-                { containerId: 'drawingsGridTischplatteRueckwand', pages: [19, 12], title: 'TischplatteRueckwand' },
-                { containerId: 'drawingsGridSchubladen', pages: [30, 31, 32, 33, 34, 35], title: 'Schubladen' },
+                {
+                  containerId: 'drawingsGrid',
+                  pages: [
+                    {
+                      src: './standardtisch/Standardtisch.png',
+                      caption: 'Standardtisch'
+                    }, 1,
+                    {
+                      src: './standardtisch/Standardtisch_Rahmen_oben.png',
+                      caption: 'Standardtisch Rahmen oben'
+                    }, 6,
+                    {
+                      src: './standardtisch/Standardtisch_Rahmen_unten.png',
+                      caption: 'Standardtisch Rahmen unten'
+                    }, 2,
+                    {
+                      src: './standardtisch/Standardtisch_Beine_links.png',
+                      caption: 'Standardtisch Beine links'
+                    }, 3,
+                    {
+                      src: './standardtisch/Standardtisch_Beine_rechts.png',
+                      caption: 'Standardtisch Beine rechts'
+                    }, 4,
+                    {
+                      src: './standardtisch/Schublade.png',
+                      caption: 'Standardtisch Schublade'
+                    }, 30, 
+                    5
+                  ],
+                  title: 'Standardtisch'
+                },
+                { containerId: 'drawingsGridSeitenteile', pages: [
+                    {
+                      src: './standardtisch/Standardtisch_Beine_links.png',
+                      caption: 'Standardtisch Beine links'
+                    }, 3,
+                    {
+                      src: './standardtisch/Standardtisch_Beine_rechts.png',
+                      caption: 'Standardtisch Beine rechts'
+                    }, 4, 10, 17, 18, {
+                      src: './standardtisch/standardtisch_beine_links_ex.png',
+                      caption: 'Standardtisch Beine links (erweitert)'
+                    }], title: 'Seitenteile' },
+                { containerId: 'drawingsGridRahmenOben', pages: [
+                    {
+                      src: './standardtisch/Standardtisch_Rahmen_oben.png',
+                      caption: 'Standardtisch Rahmen oben'
+                    },
+                    6, 13, 15], title: 'RahmenOben' },
+                { containerId: 'drawingsGridRahmenUnten', pages: [
+                    {
+                      src: './standardtisch/Standardtisch_Rahmen_unten.png',
+                      caption: 'Standardtisch Rahmen unten'
+                    },
+                    2, 14, 16, 11, 20], title: 'RahmenUnten' },
+                { containerId: 'drawingsGridTischplatteRueckwand', pages: [
+                    {
+                      src: './standardtisch/Tischplatte.png',
+                      caption: 'Standardtisch Tischplatte'
+                    },
+                    19, 
+                    {
+                      src: './standardtisch/Rueckplatteplatte.png',
+                      caption: 'Standardtisch Rueckwand'
+                    },
+                    12], title: 'TischplatteRueckwand' },
+                { containerId: 'drawingsGridSchubladen', pages: [
+                    {
+                      src: './standardtisch/Schublade.png',
+                      caption: 'Standardtisch Schublade'
+                    },
+                    30, 31, 32, 33, 34, 35], title: 'Schubladen' },
                 { containerId: 'drawingsGridZuschnitt', pages: [60], title: 'Zuschnitt Rahmenholz' },
                 { containerId: 'drawingsGridEckenUnten', pages: [11], title: 'Zuschnitt Ecken unten' },
                 { containerId: 'drawingsGridZapfenverbindungen', pages: [13, 14, 15, 16], title: 'Zapfenverbindungen Rahmen' },
