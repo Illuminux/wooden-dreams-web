@@ -42,12 +42,17 @@
       <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
       <div class="project-hero">
         <p class="project-category">Gartenmöbel</p>
-        <p class="project-subtitle">Der Gartentisch besteht vollständig aus massiven Douglasienbohlen, deren warme Farbnuancen und markante Maserung sofort ins Auge fallen. Die charakteristischen Äste und die leicht rötliche Tönung verleihen dem Tisch einen natürlichen, lebendigen Look. Das stabile Untergestell mit schräg gestellten Beinen und Querstreben sorgt für hohe Standfestigkeit – ideal für den Einsatz im Garten, auf der Terrasse oder als robuster Outdoor‑Arbeitstisch.</p>
+        <p class="project-subtitle">
+          Ein massiver Gartentisch aus Douglasie mit schräg gestelltem Untergestell und
+          klassischer Leistenplatte. Die Konstruktion ist für den dauerhaften Einsatz
+          im Außenbereich ausgelegt und verbindet hohe Standfestigkeit mit einer
+          klaren, reduzierten Formensprache.
+        </p>
 
         <!-- Projekt-Meta-Informationen -->
         <div class="project-meta">
           <div class="project-meta-item"><strong>Holz</strong>Douglasie</div>
-          <div class="project-meta-item"><strong>Module</strong></div>
+          <div class="project-meta-item"><strong>Module</strong>2</div>
           <div class="project-meta-item"><strong>Kategorie</strong>Gartenmöbel</div>
           <div class="project-meta-item"><strong>Aufwand</strong>mittel</div>
           <div class="project-meta-item"><strong>Software</strong>Fusion 360</div>
@@ -80,56 +85,911 @@
       <div class="content-grid">
         <article class="project-article">
 
+          <!-- Abschnitt: Die Idee -->
           <section id="idee" class="baugruppe">
-            <h2><img src="./symbols/marking.svg" alt="" class="heading-icon"> Die Idee</h2>
-            {{IDEEN_TEXT}}
+            <h2>
+              <img src="./symbols/marking_gauge.svg" alt="" class="heading-icon">
+              Die Idee
+            </h2>
+
+            <p class="anschnitt">
+              Ein massiver Gartentisch aus Douglasie, entworfen als langlebiges, wetterfestes Möbelstück,
+              das sich harmonisch zur vorhandenen Baumbank fügt und zu gemeinsamen Stunden im Freien einlädt.
+            </p>
+
+            <p>
+              Der Gartentisch entstand als besonderes Geschenk für meine Mutter und ist in
+              Design und Material auf die bereits vorhandene Baumbank abgestimmt.
+            </p>
+
+            <p>
+              Ziel war es, einen massiven Tisch für den Außenbereich zu bauen, der sich
+              selbstverständlich in den Garten einfügt und gemeinsam mit der Baumbank
+              eine funktionale Einheit bildet.
+            </p>
+
+            <p>
+              Die Konstruktion ist bewusst einfach und robust gehalten. Schräg gestellte
+              Beine, klare Verbindungen und eine klassische Leistenplatte sorgen für hohe
+              Standfestigkeit und eine ruhige, zeitlose Erscheinung.
+            </p>
           </section>
 
-          <section id="holzart" class="baugruppe">
-            <h2><img src="./symbols/lumber.svg" alt="" class="heading-icon"> Warum {{HOLZART}} die perfekte Wahl ist</h2>
-            {{HOLZART_VORTEILE}}
-          </section>
+          <section id="material" class="baugruppe">
+            <h2>
+              <img src="./symbols/lumber_stack.svg" alt="" class="heading-icon">
+              Holz &amp; Material
+            </h2>
 
-          <section id="zitate" class="baugruppe">
-            <div class="pull-quote">
-              {{HOLZART_PULL_QUOTE}}
-            </div>
-          </section>
+            <p class="anschnitt">
+              Hauptmaterial ist Douglasie: langlebig, witterungsbeständig und optisch warm — die Kombination aus massiven Kanthölzern für das Gestell und 27 mm starken Leisten für die Platte sorgt für Stabilität und eine natürliche Ausstrahlung.
+            </p>
 
-          <section id="spass" class="baugruppe">
-            <h2><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Warum dieses Projekt so viel Spaß macht</h2>
-            {{SPASS_TEXT}}
-          </section>
+            <p>
+              Der Gartentisch ist vollständig aus Douglasie gefertigt. Das Holz eignet sich
+              aufgrund seiner natürlichen Dauerhaftigkeit gut für den Einsatz im Außenbereich
+              und wird häufig für Terrassen- und Gartenmöbel verwendet.
+            </p>
 
-          <section id="stueckliste" class="baugruppe">
-            <h2><img src="./symbols/cabinet_unit.svg" alt="" class="heading-icon"> Stückliste</h2>
+            <p>
+              Für das Untergestell kommen massive Kanthölzer mit einem Querschnitt von
+              70&nbsp;×&nbsp;70&nbsp;mm zum Einsatz. Die Tischplatte besteht aus einzelnen
+              Leisten mit einer Stärke von etwa 27&nbsp;mm, die zu einer geschlossenen Fläche
+              zusammengefügt werden.
+            </p>
+
+            <h3>
+              <img src="./symbols/disassembled_table.svg" alt="" class="heading-icon">
+              Untergestell
+            </h3>
+
+            <div class="drawings-grid" id="drawingsGridUntergestell"></div>
+
             <div class="info-box stueckliste-inline">
-              <h4>Stückliste</h4>
+              <details open class="parts-list">
+                <summary>Stückliste – Untergestell</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Menge</th>
+                      <th>Länge</th>
+                      <th>Hinweise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bein L</td>
+                      <td>2</td>
+                      <td>720&nbsp;mm</td>
+                      <td>10° Kappschnitt an beiden Enden</td>
+                    </tr>
+                    <tr>
+                      <td>Bein R</td>
+                      <td>2</td>
+                      <td>720&nbsp;mm</td>
+                      <td>Spiegelbildlich zu Bein L</td>
+                    </tr>
+                    <tr>
+                      <td>Strebebein kurz oben</td>
+                      <td>2</td>
+                      <td>780&nbsp;mm</td>
+                      <td>45° Gehrung (Zierschnitt)</td>
+                    </tr>
+                    <tr>
+                      <td>Strebebein kurz unten</td>
+                      <td>2</td>
+                      <td>550&nbsp;mm</td>
+                      <td>Überblattung, 10° Stirnschnitt</td>
+                    </tr>
+                    <tr>
+                      <td>Strebebein lang oben</td>
+                      <td>1</td>
+                      <td>888&nbsp;mm</td>
+                      <td>Gerader Zuschnitt</td>
+                    </tr>
+                    <tr>
+                      <td>Strebebein lang unten</td>
+                      <td>1</td>
+                      <td>888&nbsp;mm</td>
+                      <td>Sacklochbohrungen für Verschraubung</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
 
-              {{STUECKLISTE_INHALT}}
+            <h3>
+              <img src="./symbols/desk_top_and_legs.svg" alt="" class="heading-icon">
+              Tischplatte
+            </h3>
 
+            <div class="drawings-grid" id="drawingsGridTischplatte"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Stückliste – Tischplatte</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Menge</th>
+                      <th>Länge</th>
+                      <th>Breite</th>
+                      <th>Funktion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Querleiste (Brotbord)</td>
+                      <td>2</td>
+                      <td>900&nbsp;mm</td>
+                      <td>100&nbsp;mm</td>
+                      <td>Stirnseitiger Abschluss</td>
+                    </tr>
+                    <tr>
+                      <td>Längsleiste außen</td>
+                      <td>2</td>
+                      <td>1000&nbsp;mm</td>
+                      <td>98&nbsp;mm</td>
+                      <td>Seitlicher Abschluss</td>
+                    </tr>
+                    <tr>
+                      <td>Längsleiste M8</td>
+                      <td>2</td>
+                      <td>1000&nbsp;mm</td>
+                      <td>96&nbsp;mm</td>
+                      <td>Aufnahme Gestellverschraubung</td>
+                    </tr>
+                    <tr>
+                      <td>Längsleiste Standard</td>
+                      <td>3</td>
+                      <td>1000&nbsp;mm</td>
+                      <td>96&nbsp;mm</td>
+                      <td>Plattenfüllung</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
+
+
+
+          <!-- Baugruppe: Verbindungselemente -->
+
+          <h3>
+            <img src="./symbols/wood_glue.svg" alt="" class="heading-icon">
+            Verbindungselemente und Kleinteile
+          </h3>
+
+            <p>
+              Sämtliche Verbindungselemente sind aus Edelstahl ausgeführt. Dies verhindert
+              Korrosion im Außenbereich und vermeidet Verfärbungen des Holzes durch
+              eisenhaltige Metalle.
+            </p>
+
+          <div class="info-box stueckliste-inline">
+            <details class="parts-list">
+              <summary>Stückliste – Verbindungselemente</summary>
+              <table class="parts-table">
+                <thead>
+                  <tr>
+                    <th>Bauteil</th>
+                    <th>Anzahl</th>
+                    <th>Maße</th>
+                    <th>Material</th>
+                    <th>Beschreibung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Unterlegscheiben</td>
+                    <td>8</td>
+                    <td>für M8</td>
+                    <td>Edelstahl A2</td>
+                    <td>passend zu Schrauben; <a href="https://amzn.to/4tpiTgP" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Sechskantschraube</td>
+                    <td>6</td>
+                    <td>M8 × 75</td>
+                    <td>Edelstahl A2</td>
+                    <td>Längsverbindungen; <a href="https://amzn.to/41KHD7w" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Sechskantschraube</td>
+                    <td>2</td>
+                    <td>M8 × 40</td>
+                    <td>Edelstahl A2</td>
+                    <td>Gestell → Platte; <a href="https://amzn.to/41OeDf3" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Verbundmuffe</td>
+                    <td>8</td>
+                    <td>M8 × 15</td>
+                    <td>Verzinkter Stahl</td>
+                    <td>Mutternersatz / Verbindung; <a href="https://amzn.to/3NJ4CwA" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Holzdübel</td>
+                    <td>36</td>
+                    <td>Ø 8 mm</td>
+                    <td>Buche / Hartholz</td>
+                    <td>Verleimung der Plattenleisten; <a href="https://amzn.to/41gzDeh" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Holzleim (Ponal Pur)</td>
+                    <td>1</td>
+                    <td>D3 / D4 (wasserfest)</td>
+                    <td>Leim</td>
+                    <td>Verleimung Platte und Verbindungen; <a href="https://amzn.to/4tnCnm2" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                  <tr>
+                    <td>Douglasien‑Öl (Bondex)</td>
+                    <td>1</td>
+                    <td>Holzöl</td>
+                    <td>pigmentiert</td>
+                    <td>Pflege und Farbauffrischung; <a href="https://amzn.to/3NOWNFD" target="_blank" rel="noopener noreferrer">Produktlink</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </details>
+
+          </section>
+
+          <section id="baugruppen" class="baugruppe">
+            <h2>
+              <img src="./symbols/set_of_furniture_legs.svg" alt="" class="heading-icon">
+              Die Baugruppen
+            </h2>
+
+            <p>
+              Der Gartentisch ist in zwei Hauptbaugruppen gegliedert: das Untergestell und die
+              Tischplatte. Beide Einheiten sind konstruktiv klar voneinander getrennt und lassen
+              sich unabhängig voneinander fertigen und montieren.
+            </p>
+
+            <h3>
+              <img src="./symbols/disassembled_table.svg" alt="" class="heading-icon">
+              Untergestell
+            </h3>
+
+            <p>
+              Das Untergestell besteht aus zwei seitlichen A‑Rahmen, die über obere und untere
+              Längsstreben miteinander verbunden sind. Die schräg gestellten Beine sorgen für
+              hohe Standfestigkeit, während Überblattungen und Ausklinkungen eine präzise
+              Positionierung der Querstreben ermöglichen.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridBaugruppeUntergestell"></div>
+
+            <h3>
+              <img src="./symbols/desk_top_and_legs.svg" alt="" class="heading-icon">
+              Tischplatte
+            </h3>
+
+            <p>
+              Die Tischplatte ist als klassische Leistenkonstruktion ausgeführt. Längsleisten
+              bilden die Fläche, während stirnseitige Querleisten als Brotbord‑Abschluss dienen.
+              Die Konstruktion erlaubt dem Holz, quer zur Faser zu arbeiten, ohne Spannungen
+              aufzubauen.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridBaugruppeTischplatte"></div>
+          </section>
+
+          <section id="fertigung" class="baugruppe">
+            <h2>
+              <img src="./symbols/chisel.svg" alt="" class="heading-icon">
+              Fertigung
+            </h2>
+
+            <p class="anschnitt">
+              Übersicht über die wichtigsten Arbeitsschritte: Untergestell und Tischplatte werden getrennt gefertigt, mit Fokus auf passgenaue Zuschnitte, saubere Verbindungen und reproduzierbare Abläufe.
+            </p>
+
+            <p>
+              Die Fertigung erfolgt in zwei Baugruppen: dem Untergestell (A‑Rahmen) und der Tischplatte.
+              Beide Einheiten werden unabhängig hergestellt und erst in der Endmontage verbunden.
+            </p>
+
+            <!-- Untergestell -->
+            <h3>
+              <img src="./symbols/japanese_saw.svg" alt="" class="heading-icon">
+              Untergestell
+            </h3>
+
+            <p>
+              Zwei seitliche A‑Rahmen werden über obere und untere Längsstreben verbunden.
+              Beine und Streben erhalten Ausklinkungen und Überblattungen für formschlüssige Verbindungen.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridFertigungUntergestell"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details class="parts-list">
+                <summary>Fertigungsschritte – Untergestell</summary>
+                <ul class="steps-list">
+                  <li>Beine auf Länge bringen: je <strong>720 mm</strong>; Kopf‑ und Fußschnitt <strong>10°</strong>.</li>
+                  <li>Überblattungen vorbereiten: Verbindungstiefe <strong>35 mm</strong>, Tiefenanschlag <strong>34 mm</strong>.</li>
+                  <li>Ausklinkungen anreißen (Unterkante bei <strong>150 mm</strong> ab Boden) und mit Bandsäge/Oberfräse fertigstellen.</li>
+                  <li>Stege mit Stechbeitel ausräumen; Flächen planen und seitliche Flanken nacharbeiten.</li>
+                  <li>Bohrungen: Vorbohren 8 mm → Aufbohren 8,8 mm; 90°‑Senkungen für bündigen Sitz der Schraubenköpfe/Unterlegscheiben.</li>
+                  <li>Gestell ausrichten: Diagonalen prüfen, erst dann M8‑Verschraubungen endgültig anziehen.</li>
+                </ul>
+              </details>
+            </div>
+
+            <div class="note-box">
+              <p><strong>Werkzeughinweis:</strong> Vielzahn/Wechselzahn‑Sägeblatt; Bandsäge; Oberfräse; Stechbeitel.</p>
+            </div>
+
+            <!-- Tischplatte -->
+            <h3>
+              <img src="./symbols/desk_top_and_legs.svg" alt="" class="heading-icon">
+              Tischplatte
+            </h3>
+
+            <p>
+              Platte aus Douglasienleisten: abrichten, auf Dicke hobeln, auf Breite zuschneiden und mit Querleisten über Dübel verleimen.
+              M8‑Leisten erhalten Sacklöcher für die Gestellverschraubung.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridFertigungTischplatte"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Fertigungsschritte – Tischplatte</summary>
+                <ul class="steps-list">
+                  <li>Blockware vorschneiden, abrichten und auf Dicke hobeln.</li>
+                  <li>Leisten auf Breite zuschneiden (z. B. Querleisten 100 mm; Längsleisten 98/96 mm) und Sichtseiten festlegen.</li>
+                  <li>Bohrplan: Querleisten 18 × Ø 8 mm Dübellöcher (Randabstand 50 mm); M8‑Längsleisten: 16 mm Sacklöcher, 16 mm tief.</li>
+                  <li>Bohrfolge bei kombinierten Bohrungen: <strong>Sackloch → Durchgangsloch → 90°‑Senkung</strong>.</li>
+                  <li>Dübeln und verleimen (Leimtyp D3/D4); Platte verpressen und flach liegend <strong>12–24 Stunden</strong> trocknen lassen.</li>
+                  <li>Leimreste sofort entfernen (feuchtes Tuch) — Gerbsäure kann in Kombination mit Eisen dunkle Flecken verursachen.</li>
+                </ul>
+              </details>
+            </div>
+
+            <div class="note-box">
+              <p><strong>Bohr‑ und Fräswerkzeuge:</strong> 16 mm Forstnerbohrer; 8 mm Vorbohrer + 8,8 mm Aufbohrung; R3‑Abrundfräser; Schleiffolge Korn <strong>80 → 120 → 180</strong> (Platte optional bis 240).</p>
+            </div>
+
+            <div class="note-box">
+              <p><strong>Oberflächenhinweis:</strong> Douglasien‑Öl dünn auftragen, 15 Minuten einziehen lassen und Überstand abwischen; bei dauerhafter Außenaufstellung Bläueschutz erwägen.</p>
+            </div>
+
+            <div class="note-box">
+              <p><strong>Montage‑Checks:</strong> Vor dem endgültigen Festziehen Diagonalen prüfen; Platte und Gestell erst nach vollständiger Ausrichtung verschrauben; zum Heben/Positionieren zweite Person verwenden.</p>
+            </div>
+
+            <div class="note-box">
+              <p><strong>Hinweis:</strong> Gesamtbedarf 70×70 mm: ca. 6,5–7 m (inkl. Verschnitt).</p>
             </div>
           </section>
 
-          <section id="zeichnungen" class="baugruppe">
-            <h2><img src="./symbols/dimensioning.svg" alt="" class="heading-icon"> Technische Zeichnungen</h2>
-            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+          <section id="zusammenbau" class="baugruppe">
+            <h2>
+              <img src="./symbols/clamp.svg" alt="" class="heading-icon">
+              Zusammenbau
+            </h2>
 
-            <div class="drawings-grid" id="drawingsGrid"></div>
+            <p class="anschnitt">
+              Der Zusammenbau gliedert sich in drei Schritte: Vormontage der A‑Rahmen, Verbindung der Rahmen durch die Längsstreben und die finale Montage der Tischplatte. Reihenfolge, Ausrichtung und sauberes Arbeiten sind entscheidend für Passgenauigkeit und Optik.
+            </p>
+
+            <p>
+              Alle Baugruppen werden erst nach vollständiger Fertigung miteinander verbunden. Vor Beginn alle Teile auf Maß prüfen, Bohrungen kontrollieren und Kleinteile bereitlegen.
+            </p>
+
+            <!-- Schritt 1 -->
+            <h3>
+              <img src="./symbols/wooden_mallet.svg" alt="" class="heading-icon">
+              Schritt 1: Vormontage der A‑Rahmen
+            </h3>
+
+            <p>
+              Jeweils ein linkes und ein rechtes Bein flach auf der Werkbank ausrichten. Die unteren Ausklinkungen zeigen nach oben; die kurze untere Querstrebe wird trocken angepasst und anschließend mit wasserfestem Leim (D3/D4) verleimt.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridZusammenbauARahmen"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Hinweise zur Vormontage</summary>
+                <ul class="steps-list">
+                  <li>Beine als spiegelbildliches Paar markieren (L/R) und auf einer ebenen Fläche zusammenlegen.</li>
+                  <li>Ausklinkungen trocken anpassen; erst wenn alles spielfrei sitzt, Leim auftragen.</li>
+                  <li>Beim Verleimen Zwingen mit Schutzleisten verwenden, um Druckstellen zu vermeiden.</li>
+                  <li>10°‑Schnitte der Beine müssen bündig aufliegen; obere Querstrebe exakt mittig positionieren.</li>
+                </ul>
+              </details>
+            </div>
+
+            <!-- Schritt 2 -->
+            <h3>
+              <img src="./symbols/screwdriver.svg" alt="" class="heading-icon">
+              Schritt 2: Längsverbindung und Aussteifung
+            </h3>
+
+            <p>
+              Die beiden vormontierten A‑Rahmen aufstellen und im Abstand der langen Streben ausrichten. Zuerst die untere, dann die obere Längsstrebe einsetzen und provisorisch verschrauben.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridZusammenbauLaengsverbindung"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Hinweise zur Ausrichtung</summary>
+                <ul class="steps-list">
+                  <li>Gestell vor dem endgültigen Anziehen diagonal messen; beide Diagonalen müssen identisch sein.</li>
+                  <li>Schrauben zunächst nur handfest anziehen, erst nach Kontrolle endgültig festziehen.</li>
+                  <li>Unterlegscheiben verwenden, damit Schraubenköpfe nicht in das Holz einsinken.</li>
+                  <li>Sacklöcher der langen Streben nehmen die Schraubenköpfe auf; prüfen, ob die Köpfe bündig liegen.</li>
+                </ul>
+              </details>
+            </div>
+
+            <!-- Schritt 3 -->
+            <h3>
+              <img src="./symbols/corner_clamp.svg" alt="" class="heading-icon">
+              Schritt 3: Montage der Tischplatte
+            </h3>
+
+            <p>
+              Die verleimte Tischplatte flach mit der Unterseite nach oben positionieren. Das Gestell so auflegen, dass die Bohrungen der oberen Querstreben exakt über den Sacklöchern der M8‑Leisten liegen. Verschrauben mit M8×40 mm Edelstahlschrauben.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridZusammenbauTischplatte"></div>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Hinweise zur Endmontage</summary>
+                <ul class="steps-list">
+                  <li>Platte erst montieren, wenn der Leim vollständig durchgehärtet ist (empfohlen <strong>12–24 h</strong>).</li>
+                  <li>Sacklöcher der M8‑Leisten müssen nach unten zeigen; Schrauben mit Unterlegscheiben verwenden.</li>
+                  <li>Schrauben in mehreren Durchgängen anziehen: handfest → kontrolliert nachziehen; erst dann endgültig festziehen.</li>
+                  <li>Beim Aufsetzen des Gestells auf die Platte auf Verkanten achten; zum Heben/Positionieren immer zu zweit arbeiten.</li>
+                  <li>Herausquellenden Leim sofort entfernen; Leimreste in Kombination mit Eisen können dunkle Flecken verursachen.</li>
+                </ul>
+              </details>
+            </div>
+
+            <p>
+              Nach der Endmontage die Funktion prüfen (Standfestigkeit, keine Spiel‑ oder Druckstellen) und sichtbare Schraubenköpfe/Unterlegscheiben kontrollieren. Abschließend Oberflächenreinigung und erste Öl‑/Lasurbehandlung nach Herstellerangaben durchführen.
+            </p>
+
+            <div class="note-box">
+              <p><strong>Tipp:</strong> Schutzunterlagen beim Verpressen verwenden; Zwingen nicht direkt auf Sichtflächen setzen; bei Bedarf Klemmschutz aus weichem Holz oder Filz einlegen.</p>
+            </div>
+          </section>
+
+          <section id="werkzeuge" class="baugruppe">
+            <h2>
+              <img src="./symbols/tool_cart.svg" alt="" class="heading-icon">
+              Werkzeuge &amp; Pflege
+            </h2>
+
+            <p class="anschnitt">
+              Douglasie verlangt saubere Werkzeugwahl und kontrollierte Bearbeitung: scharfe Werkzeuge, konsequentes Vorbohren und abgestufte Schleifarbeit verhindern Ausrisse und sorgen für ein hochwertiges Ergebnis.
+            </p>
+
+            <p>
+              Vor Arbeitsbeginn alle Werkzeuge prüfen (Sägeblatt, Bohrer, Fräser scharf; Schleifmittel ausreichend) und eine saubere, stabile Arbeitsfläche bereitstellen.
+            </p>
+
+            <!-- Sägen -->
+            <h3>
+              <img src="./symbols/table_saw.svg" alt="" class="heading-icon">
+              Sägen
+            </h3>
+
+            <p>
+              Für Zuschnitt von 70×70 mm Kanthölzern und 27 mm Plattenleisten ein feinzahniges Vielzahn/Wechselzahn‑Sägeblatt verwenden. Sichtkanten vor dem Sägen mit Malerkrepp abkleben, um Ausrisse zu minimieren.
+            </p>
+
+            <!-- Bohren -->
+            <h3>
+              <img src="./symbols/drill_press.svg" alt="" class="heading-icon">
+              Bohren
+            </h3>
+
+            <p>
+              Immer vorbohren. Für Durchgangslöcher zuerst Ø 8 mm vorbohren, dann auf Ø 8,8 mm aufbohren. Für Sacklöcher 16 mm Forstnerbohrer verwenden; Reihenfolge bei kombinierten Bohrungen: <strong>Sackloch → Durchgangsloch → 90°‑Senkung</strong>.
+            </p>
+
+            <!-- Schleifen -->
+            <h3>
+              <img src="./symbols/orbital_sander.svg" alt="" class="heading-icon">
+              Schleifen
+            </h3>
+
+            <p>
+              Douglasie harzt; Schleifpapier setzt zu. Drehzahl des Exzenterschleifers reduzieren und in Stufen schleifen: Korn <strong>80 → 120 → 180</strong> (für die Platte optional bis <strong>240</strong>). Bei starkem Harzansatz Schleifmittel wechseln oder mit geringerer Körnung erneut arbeiten.
+            </p>
+
+            <!-- Kantenbearbeitung -->
+            <h3>
+              <img src="./symbols/router.svg" alt="" class="heading-icon">
+              Kantenbearbeitung
+            </h3>
+
+            <p>
+              Sichtkanten mit einem R3‑Abrundfräser brechen. Kanten, die verleimt oder überblattet werden, nicht fräsen, damit die Passung formschlüssig bleibt.
+            </p>
+
+            <!-- Pflege -->
+            <h3>
+              <img src="./symbols/furniture_oil.svg" alt="" class="heading-icon">
+              Pflege &amp; Oberfläche
+            </h3>
+
+            <p>
+              Unbehandelte Douglasie vergraut im Freien. Für Erhalt des warmen Farbtons empfiehlt sich ein pigmentiertes Douglasien‑Öl: dünn auftragen, ca. <strong>15 Minuten</strong> einziehen lassen und Überstand abwischen. Öl ist diffusionsoffen und nachpflegbar.
+            </p>
+
+            <p>
+              Alternativ bietet eine Dünnschichtlasur stärkeren UV‑Schutz, verändert aber die Haptik. Bei dauerhafter, ungeschützter Außenaufstellung vor dem Endanstrich eine Grundierung mit Bläueschutz in Erwägung ziehen.
+            </p>
+
+            <div class="note-box">
+              <p><strong>Praxis‑Hinweise:</strong> Leimreste sofort entfernen; Douglasie enthält Gerbsäure, die in Kombination mit Eisen dunkle Flecken verursachen kann. Werkzeuge nach Gebrauch reinigen (Forstnerbohrer, Fräser) und Schleifmittel trocken lagern. Ölauftrag bei Temperaturen und Luftfeuchte gemäß Herstellerangaben durchführen; bei Bedarf nach 24–48 Stunden leicht anschleifen und zweite Schicht auftragen.</p>
+            </div>
+          </section>
+
+          <section id="fazit" class="baugruppe">
+            <h2>
+              <img src="./symbols/paintbrush.svg" alt="" class="heading-icon">
+              Fazit
+            </h2>
+
+            <p>
+              Der Gartentisch verbindet eine klare, robuste Konstruktion mit einem Material,
+              das für den Außenbereich gut geeignet ist. Das Untergestell mit den schräg
+              gestellten Beinen bietet eine stabile Basis; die klassische Leistenplatte ergibt
+              eine ruhige, ausgewogene Fläche.
+            </p>
+
+            <p>
+              Die getrennte Fertigung von Gestell und Tischplatte hält den Aufbau übersichtlich
+              und erleichtert Wartung oder spätere Anpassungen. Die gewählten Verbindungslösungen
+              sorgen für dauerhafte Stabilität und eine saubere Optik.
+            </p>
+
+            <p>
+              In Kombination mit der vorhandenen Baumbank entsteht ein stimmiges Ensemble,
+              das den Garten funktional ergänzt und gestalterisch zurückhaltend wirkt.
+            </p>
           </section>
 
           <!-- Zeichnungen -->
           <script>
             // Sobald das HTML geladen ist, befüllen wir die Grids
             document.addEventListener('DOMContentLoaded', () => {
-              // Datengetriebene Konfiguration für alle Zeichnungsgrids
-              const drawingConfigs = [];
-              // Platzhalter: Zeichnungen später hier eintragen, z. B.
-              // {
-              //   containerId: 'drawingsGrid',
-              //   pages: [1, 2, 3],
-              //   title: 'Gartentisch'
-              // }
+
+              const drawingConfigs = [
+
+                // ---------------------------------------------------------
+                // MATERIAL → UNTERGESTELL
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridUntergestell',
+                  title: 'Untergestell',
+                  pages: [
+                    // Beine
+                    {
+                      src: './gartentisch/bein_l_zeichnung.png',
+                      alt: 'Bein links',
+                      pdf: './gartentisch/bein_l_zeichnung.pdf',
+                      caption: 'Bein L'
+                    },
+                    {
+                      src: './gartentisch/bein_r_zeichnung.png',
+                      alt: 'Bein rechts',
+                      pdf: './gartentisch/bein_r_zeichnung.pdf',
+                      caption: 'Bein R'
+                    },
+
+                    // Strebebeine
+                    {
+                      src: './gartentisch/strebebein_kurz_oben_zeichnung.png',
+                      alt: 'Strebebein kurz oben',
+                      pdf: './gartentisch/strebebein_kurz_oben_zeichnung.pdf',
+                      caption: 'Strebebein kurz oben'
+                    },
+                    {
+                      src: './gartentisch/strebebein_kurz_unten_zeichnung.png',
+                      alt: 'Strebebein kurz unten',
+                      pdf: './gartentisch/strebebein_kurz_unten_zeichnung.pdf',
+                      caption: 'Strebebein kurz unten'
+                    },
+                    {
+                      src: './gartentisch/strebebein_lang_oben_zeichnung.png',
+                      alt: 'Strebebein lang oben',
+                      pdf: './gartentisch/strebebein_lang_oben_zeichnung.pdf',
+                      caption: 'Strebebein lang oben'
+                    },
+                    {
+                      src: './gartentisch/strebebein_lang_unten_zeichnung.png',
+                      alt: 'Strebebein lang unten',
+                      pdf: './gartentisch/strebebein_lang_unten_zeichnung.pdf',
+                      caption: 'Strebebein lang unten'
+                    },
+
+                    // 3D-Modelle der Beine (neu ergänzt)
+                    {
+                      src: './gartentisch/gestell_beine_links.png',
+                      alt: 'A-Rahmen Beine links – 3D',
+                      pdf: null,
+                      caption: 'A-Rahmen Beine links'
+                    },
+                    {
+                      src: './gartentisch/gestell_beine_rechts.png',
+                      alt: 'A-Rahmen Beine rechts – 3D',
+                      pdf: null,
+                      caption: 'A-Rahmen Beine rechts'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // MATERIAL → TISCHPLATTE
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridTischplatte',
+                  title: 'Tischplatte',
+                  pages: [
+                    // 3D
+                    {
+                      src: './gartentisch/tischplatte.png',
+                      alt: 'Tischplatte – 3D',
+                      pdf: null,
+                      caption: 'Tischplatte – 3D'
+                    },
+
+                    // Zeichnungen
+                    {
+                      src: './gartentisch/tischplatte_querleiste_zeichnung.png',
+                      alt: 'Querleiste',
+                      pdf: './gartentisch/tischplatte_querleiste_zeichnung.pdf',
+                      caption: 'Querleiste'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_laengsleiste_aussen_zeichnung.png',
+                      alt: 'Längsleiste außen',
+                      pdf: './gartentisch/tischplatte_laengsleiste_aussen_zeichnung.pdf',
+                      caption: 'Längsleiste außen'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_laengsleiste_m8_zeichnung.png',
+                      alt: 'Längsleiste M8',
+                      pdf: './gartentisch/tischplatte_laengsleiste_m8_zeichnung.pdf',
+                      caption: 'Längsleiste M8'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_laengsleiste_zeichnung.png',
+                      alt: 'Längsleiste Standard',
+                      pdf: './gartentisch/tischplatte_laengsleiste_zeichnung.pdf',
+                      caption: 'Längsleiste Standard'
+                    },
+
+                    // neue Dateien
+                    {
+                      src: './gartentisch/tischplatte_laengsleiste_m8_unten.png',
+                      alt: 'Längsleiste M8 unten – 3D',
+                      pdf: null,
+                      caption: 'Längsleiste M8 unten'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_laengsleiste_oben.png',
+                      alt: 'Längsleiste oben – 3D',
+                      pdf: null,
+                      caption: 'Längsleiste oben'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // BAUGRUPPE → UNTERGESTELL
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridBaugruppeUntergestell',
+                  title: 'Baugruppe Untergestell',
+                  pages: [
+                    {
+                      src: './gartentisch/gestell.png',
+                      alt: 'Gestell – 3D',
+                      pdf: null,
+                      caption: 'Gestell – 3D'
+                    },
+                    {
+                      src: './gartentisch/gestell_explosion.png',
+                      alt: 'Gestell – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Gestell – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/gestell_beine_links_explosion.png',
+                      alt: 'A-Rahmen links – Explosionsansicht',
+                      pdf: null,
+                      caption: 'A-Rahmen links – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/gestell_beine_rechts_explosion.png',
+                      alt: 'A-Rahmen rechts – Explosionsansicht',
+                      pdf: null,
+                      caption: 'A-Rahmen rechts – Explosionsansicht'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // BAUGRUPPE → TISCHPLATTE
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridBaugruppeTischplatte',
+                  title: 'Baugruppe Tischplatte',
+                  pages: [
+                    {
+                      src: './gartentisch/tischplatte.png',
+                      alt: 'Tischplatte – 3D',
+                      pdf: null,
+                      caption: 'Tischplatte – 3D'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_explosion.png',
+                      alt: 'Tischplatte – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Tischplatte – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_zeichnung.png',
+                      alt: 'Tischplatte – Zeichnung',
+                      pdf: './gartentisch/tischplatte_zeichnung.pdf',
+                      caption: 'Tischplatte – Zeichnung'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // FERTIGUNG → UNTERGESTELL
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridFertigungUntergestell',
+                  title: 'Fertigung Untergestell',
+                  pages: [
+                    {
+                      src: './gartentisch/gestell_explosion.png',
+                      alt: 'Gestell – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Gestell – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/gestell.png',
+                      alt: 'Gestell – 3D',
+                      pdf: null,
+                      caption: 'Gestell – 3D'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // FERTIGUNG → TISCHPLATTE
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridFertigungTischplatte',
+                  title: 'Fertigung Tischplatte',
+                  pages: [
+                    {
+                      src: './gartentisch/tischplatte_explosion.png',
+                      alt: 'Tischplatte – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Tischplatte – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/tischplatte.png',
+                      alt: 'Tischplatte – 3D',
+                      pdf: null,
+                      caption: 'Tischplatte – 3D'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // ZUSAMMENBAU → A-Rahmen
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridZusammenbauARahmen',
+                  title: 'Zusammenbau – A‑Rahmen',
+                  pages: [
+                    {
+                      src: './gartentisch/gestell_beine_links_explosion.png',
+                      alt: 'A-Rahmen links – Explosionsansicht',
+                      pdf: null,
+                      caption: 'A-Rahmen links – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/gestell_beine_rechts_explosion.png',
+                      alt: 'A-Rahmen rechts – Explosionsansicht',
+                      pdf: null,
+                      caption: 'A-Rahmen rechts – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/gestell_explosion.png',
+                      alt: 'Gestell – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Gestell – Explosionsansicht'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // ZUSAMMENBAU → Längsverbindung
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridZusammenbauLaengsverbindung',
+                  title: 'Zusammenbau – Längsverbindung',
+                  pages: [
+                    {
+                      src: './gartentisch/gestell.png',
+                      alt: 'Gestell – 3D',
+                      pdf: null,
+                      caption: 'Gestell – 3D'
+                    },
+                    {
+                      src: './gartentisch/gestell_explosion.png',
+                      alt: 'Gestell – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Gestell – Explosionsansicht'
+                    }
+                  ]
+                },
+
+                // ---------------------------------------------------------
+                // ZUSAMMENBAU → Tischplatte
+                // ---------------------------------------------------------
+                {
+                  containerId: 'drawingsGridZusammenbauTischplatte',
+                  title: 'Zusammenbau – Tischplatte',
+                  pages: [
+                    {
+                      src: './gartentisch/tischplatte.png',
+                      alt: 'Tischplatte – 3D',
+                      pdf: null,
+                      caption: 'Tischplatte – 3D'
+                    },
+                    {
+                      src: './gartentisch/tischplatte_explosion.png',
+                      alt: 'Tischplatte – Explosionsansicht',
+                      pdf: null,
+                      caption: 'Tischplatte – Explosionsansicht'
+                    },
+                    {
+                      src: './gartentisch/tisch.png',
+                      alt: 'Tisch – 3D',
+                      pdf: null,
+                      caption: 'Tisch – 3D'
+                    },
+                    {
+                      src: './gartentisch/tisch_zeichnung.png',
+                      alt: 'Tisch – Zeichnung',
+                      pdf: './gartentisch/tisch_zeichnung.pdf',
+                      caption: 'Tisch – Zeichnung'
+                    },
+                    {
+                      src: './gartentisch/tisch_zeichnung_Übersicht.png',
+                      alt: 'Tisch – Übersicht',
+                      pdf: './gartentisch/tisch_zeichnung_Übersicht.pdf',
+                      caption: 'Tisch – Übersicht'
+                    }
+                  ]
+                }
+              ];
+
+              drawingConfigs.forEach((cfg) => {
+                renderDrawingGrid(cfg.containerId, 'gartentisch', cfg.pages, cfg.title);
+              });
 
               drawingConfigs.forEach((cfg) => {
                 renderDrawingGrid(cfg.containerId, 'gartentisch', cfg.pages, cfg.title);
@@ -137,18 +997,6 @@
 
             });
           </script>
-
-          <section id="montage" class="baugruppe">
-            <h2><img src="./symbols/bench_assembly.svg" alt="" class="heading-icon"> Montage — Schritt für Schritt</h2>
-            <ol class="steps">
-              {{MONTAGE_SCHRITTE}}
-            </ol>
-          </section>
-
-          <section id="einsatz" class="project-section">
-            <h2><img src="./symbols/surface_finish.svg" alt="" class="heading-icon"> {{EINSATZ_TITEL}}</h2>
-            {{EINSATZ_TEXT}}
-          </section>
 
         </article>
 
