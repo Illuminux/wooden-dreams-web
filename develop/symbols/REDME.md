@@ -113,6 +113,41 @@ Hier findest du eine Übersicht über alle Symbole, die in diesem Projekt verwen
 | ![](./list.svg) | Liste | list.svg |
 | ![](./chair.svg) | Stuhl | chair.svg |
 
+### 🪑 Möbel & Korpusse
+
+| Icon | Deutsch | Dateiname |
+|------|----------|-----------|
+| ![](./bar_stool_frame.svg) | Barhocker-Gestell | bar_stool_frame.svg |
+| ![](./base_cabinet_carcass_two_doors.svg) | Unterschrank-Korpus (2 Türen) | base_cabinet_carcass_two_doors.svg |
+| ![](./bed_frame_with_headboard.svg) | Bettgestell mit Kopfteil | bed_frame_with_headboard.svg |
+| ![](./bed_slats.svg) | Lattenrost | bed_slats.svg |
+| ![](./bookshelf_carcass.svg) | Bücherregal-Korpus | bookshelf_carcass.svg |
+| ![](./chair_carcass.svg) | Stuhl-Gestell | chair_carcass.svg |
+| ![](./corner_shelving_unit_carcass.svg) | Eckregal-Korpus | corner_shelving_unit_carcass.svg |
+| ![](./desk_top_and_legs.svg) | Schreibtischplatte mit Beinen | desk_top_and_legs.svg |
+| ![](./disassembled_table.svg) | Zerlegter Tisch | disassembled_table.svg |
+| ![](./drawer_cabinet_carcass.svg) | Schubladenschrank-Korpus | drawer_cabinet_carcass.svg |
+| ![](./drawer_chest_carcass.svg) | Schubladenkommode-Korpus | drawer_chest_carcass.svg |
+| ![](./headboard_panel.svg) | Kopfteil-Panel | headboard_panel.svg |
+| ![](./long_console_table_carcass.svg) | Langer Konsolentisch-Korpus | long_console_table_carcass.svg |
+| ![](./low_cabinet_on_legs.svg) | Niedriger Schrank auf Beinen | low_cabinet_on_legs.svg |
+| ![](./low_panel_with_legs.svg) | Niedrige Platte mit Beinen | low_panel_with_legs.svg |
+| ![](./open_chest_crate.svg) | Offene Kiste | open_chest_crate.svg |
+| ![](./pedestal_table_base.svg) | Tischsäulenfuß | pedestal_table_base.svg |
+| ![](./pegboard.svg) | Lochplatte | pegboard.svg |
+| ![](./rolling_cart_frame.svg) | Rollwagen-Gestell | rolling_cart_frame.svg |
+| ![](./routing.svg) | Fräsen | routing.svg |
+| ![](./set_of_furniture_legs.svg) | Möbelbein-Set | set_of_furniture_legs.svg |
+| ![](./shelving_unit.svg) | Regal | shelving_unit.svg |
+| ![](./single_drawer_desk.svg) | Schreibtisch mit einer Schublade | single_drawer_desk.svg |
+| ![](./tall_back_panel.svg) | Hohes Rückwandpanel | tall_back_panel.svg |
+| ![](./unfinished_armchair_frame.svg) | Rohgestell Sessel | unfinished_armchair_frame.svg |
+| ![](./unfinished_sofa_frame.svg) | Rohgestell Sofa | unfinished_sofa_frame.svg |
+| ![](./upholstered_seat_back_cushion.svg) | Gepolstertes Sitz-/Rückenkissen | upholstered_seat_back_cushion.svg |
+| ![](./wall_cabinet_carcass.svg) | Wandschrank-Korpus | wall_cabinet_carcass.svg |
+| ![](./wardrobe_cabinet_carcass.svg) | Kleiderschrank-Korpus | wardrobe_cabinet_carcass.svg |
+| ![](./x_frame_table_base.svg) | X-Gestell Tischbasis | x_frame_table_base.svg |
+
 ### 🛡️ Persönliche Schutzausrüstung
 
 | Icon | Deutsch | Dateiname |
@@ -123,4 +158,4 @@ Hier findest du eine Übersicht über alle Symbole, die in diesem Projekt verwen
 
 ---
 
-Insgesamt: **87 Symbole**
+Insgesamt: **117 Symbole**
