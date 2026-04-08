@@ -34,17 +34,14 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- Container für den gesamten Seiteninhalt -->
     <div class="container">
 
       <div class="section-label section-label-first"><h1>Die halbe Baumbank</h1></div>
 
-      <!-- Projekt-Header mit Titel, Kategorie, Untertitel und Meta-Informationen -->
       <div class="project-hero">
         <p class="project-category">Gartenmöbel</p>
-        <p class="project-subtitle">Ein perfektes DIY‑Projekt aus Douglasie</p>
+        <p class="project-subtitle">Ein perfektes DIY‑Projekt aus Douglasie – drei Module, eine Bank, unzählige Sommerabende.</p>
 
-        <!-- Projekt-Meta-Informationen -->
         <div class="project-meta">
           <div class="project-meta-item"><strong>Holz</strong>Douglasie</div>
           <div class="project-meta-item"><strong>Module</strong>3 (links, Mitte, rechts)</div>
@@ -53,7 +50,6 @@
           <div class="project-meta-item"><strong>Software</strong>Fusion 360</div>
         </div>
 
-        <!-- Inhaltsverzeichnis -->
         <nav class="project-toc" aria-label="Inhaltsverzeichnis" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2">
           <p class="project-toc__title">Schnellnavigation</p>
           <ul class="project-toc__list"></ul>
@@ -73,207 +69,748 @@
         <p class="viewer-hint">🖱 Drehen · Scrollen zum Zoomen · Rechtsklick zum Verschieben</p>
       </div>
 
-      <!-- Jump-Links für schnelle Navigation zu Hauptabschnitten -->
       <nav class="project-jump-links" aria-label="Direkt zu Hauptabschnitten springen" data-toc-root=".project-article" data-toc-sections="section[id]" data-toc-heading-level="2" data-jump-max="5"></nav>
 
-      <!-- Inhaltsgrid -->
       <div class="content-grid">
         <article class="project-article">
 
+          <!-- Idee -->
           <section id="idee" class="baugruppe">
-            <h2>Die Idee</h2>
-            <p>Eine Baumbank zu bauen ist eines dieser Projekte, die sofort Emotionen wecken: Sommerabende im Garten, ein schattiger Platz unter der Baumkrone, Holz, das mit der Zeit Patina bekommt. Diese halbe Baumbank entstand als Geschenk – und als perfektes Projekt für alle, die gerne präzise arbeiten und Freude am Basteln haben.</p>
-            <p>Die Konstruktion besteht aus drei Modulen (links, Mitte, rechts), die sich harmonisch zu einer halbkreisförmigen Gartenbank zusammenfügen. Jedes Modul ist eigenständig aufgebaut, folgt aber demselben konstruktiven Prinzip.</p>
+            <h2><img src="./symbols/list.svg" alt="" class="heading-icon"> Die Idee</h2>
+            
+            <div class="image-grid-box">
+              <img src="./baumbank/baumbank_bild.png" alt="Halbe Baumbank im Garten" class="project-image-full">
+            </div>
+            <p>
+              Eine Baumbank zu bauen ist eines dieser Projekte, die sofort Emotionen wecken: Sommerabende im Garten,
+              ein schattiger Platz unter der Baumkrone, Holz, das mit der Zeit Patina bekommt.
+              Diese halbe Baumbank entstand als Geschenk – und als perfektes Projekt für alle, die gerne präzise
+              arbeiten und Freude am Basteln haben.
+            </p>
+            <p>
+              Die Konstruktion besteht aus drei Modulen (links, Mitte, rechts), die sich harmonisch zu einer
+              halbkreisförmigen Gartenbank zusammenfügen. Jedes Modul ist eigenständig aufgebaut, folgt aber
+              demselben konstruktiven Prinzip: zwei Seitenteile, eine Sitzfläche aus vier abgestuften Brettern
+              und eine vierreihige Rückenlehne mit Deckleiste.
+            </p>
           </section>
 
+          <!-- Holzart -->
           <section id="holzart" class="baugruppe">
-            <h2>Warum Douglasie die perfekte Wahl ist</h2>
+            <h2><img src="./symbols/lumber.svg" alt="" class="heading-icon"> Warum Douglasie?</h2>
             <p>Für eine Gartenbank ist Douglasie nahezu ideal:</p>
             <ul>
-              <li>sehr witterungsbeständig</li>
-              <li>natürlich resistent gegen Pilze und Feuchtigkeit</li>
-              <li>deutlich härter als Fichte oder Kiefer</li>
-              <li>wunderschöne rötliche Maserung</li>
-              <li>patiniert im Außenbereich zu einem edlen Silbergrau</li>
+              <li>Sehr witterungsbeständig – auch ohne Oberflächenschutz dauerhaft einsetzbar.</li>
+              <li>Natürlich resistent gegen Pilze und Feuchtigkeit.</li>
+              <li>Deutlich härter als Fichte oder Kiefer.</li>
+              <li>Wunderschöne rötliche Maserung, die im Außenbereich zu einem edlen Silbergrau patiniert.</li>
             </ul>
-          </section>
-
-          <section id="zitate" class="baugruppe">
             <div class="pull-quote">
               Douglasie verleiht der Baumbank nicht nur Stabilität, sondern auch eine warme, hochwertige Optik.
             </div>
           </section>
 
-          <section id="spass" class="baugruppe">
-            <h2>Warum dieses Projekt so viel Spaß macht</h2>
-            <p>Alle tragenden Elemente bestehen aus 44×44‑mm‑Douglasiebalken. Die Sitz- und Lehnbretter sind 18 mm stark – stabil, formschön und perfekt für den Außenbereich. Die ergonomische Neigung der Lehne und die abgestufte Sitzfläche sorgen für hohen Komfort.</p>
-            <p>Die Bauteile sind so konstruiert, dass sie sowohl maschinell als auch mit Handwerkzeugen gut herzustellen sind. Die Winkel (80° und 100°) geben der Bank ihre charakteristische Form.</p>
+          <!-- Baugruppen Übersicht -->
+          <section id="baugruppen" class="baugruppe">
+            <h2><img src="./symbols/workbench.svg" alt="" class="heading-icon"> Die Baugruppen</h2>
+            <p>
+              Die Bank gliedert sich in drei Module: ein linkes, ein mittleres und ein rechtes.
+              Jedes Modul besteht aus zwei Seitenteilen, der Sitzfläche und der Rückenlehne.
+              Links und rechts haben zusätzlich eine Armlehne; das Mittelteil hat keine.
+            </p>
+            
+            <h3><img src="./symbols/drawing.svg" alt="" class="heading-icon"> Hauptbaugruppe</h3>
+            
+            <div class="drawings-grid" id="drawingsGridHauptbaugruppe"></div>
+
+            <h3><img src="./symbols/drawing.svg" alt="" class="heading-icon"> Die Linke Baugruppe</h3>
+            
+            <div class="drawings-grid" id="drawingsGridLinkeBaugruppe"></div>
+
+            <h3><img src="./symbols/drawing.svg" alt="" class="heading-icon"> Die Mittlere Baugruppe</h3>
+            
+            <div class="drawings-grid" id="drawingsGridMittlereBaugruppe"></div>
+
+            <h3><img src="./symbols/drawing.svg" alt="" class="heading-icon"> Die Rechte Baugruppe</h3>
+            
+            <div class="drawings-grid" id="drawingsGridRechteBaugruppe"></div>
+
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+
           </section>
-          
-          <section id="stueckliste" class="baugruppe">
-            <h2>Stückliste</h2>
+
+          <!-- Baugruppe links -->
+          <section id="baugruppe-Seitenteil" class="baugruppe">
+
+            <h2><img src="./symbols/chair_carcass.svg" alt="" class="heading-icon"> Seitenteile</h2>
+            
+            <h3><img src="./symbols/chair_carcass.svg" alt="" class="heading-icon"> Seitenteil links</h3>
+            
+            <p>
+              Das linke Seitenteil bildet den Abschluss der Bank auf der linken Seite.
+              Es trägt eine Armlehne und hat ein langes Vorderbein (670 mm), das die
+              Sitzneigung von 80° erzeugt.
+            </p>
+            
+            <div class="drawings-grid" id="drawingsGridLinks"></div>
+            
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+            
             <div class="info-box stueckliste-inline">
-              <h4>Stückliste</h4>
-
-              <!-- 44×44 mm Balken -->
-              <details open>
-                <summary><img src="./symbols/lumber.svg" alt="" class="heading-icon"> Balken 44×44 mm</summary>
-              <table class="parts-table">
-                <thead><tr><th>Bauteil</th><th>Anz.</th><th>L (mm)</th></tr></thead>
-                <tbody>
-                  <tr><td>Bein hinten</td><td>6</td><td>882</td></tr>
-                  <tr><td>Bein vorn lang</td><td>2</td><td>670</td></tr>
-                  <tr><td>Bein vorn</td><td>4</td><td>442</td></tr>
-                  <tr><td>Strebe oben</td><td>6</td><td>590</td></tr>
-                  <tr><td>Strebe Lehne</td><td>3</td><td>492</td></tr>
-                  <tr><td>Strebe hinten links</td><td>1</td><td>492</td></tr>
-                  <tr><td>Strebe hinten rechts</td><td>1</td><td>492</td></tr>
-                  <tr><td>Winkelstrebe links</td><td>1</td><td>152</td></tr>
-                  <tr><td>Winkelstrebe rechts</td><td>1</td><td>152</td></tr>
-                  <tr class="table-sum"><td colspan="2">25 Stück</td><td>ca. 7 Balken</td></tr>
-                </tbody>
-              </table>
-              </details>
-
-              <!-- 44×24 mm Latten (jetzt identisch dargestellt) -->
-              <details>
-                <summary><img src="./symbols/wooden_board.svg" alt="" class="heading-icon"> Latten 44×24 mm</summary>
-              <table class="parts-table">
-                <thead><tr><th>Bauteil</th><th>Anz.</th><th>L (mm)</th></tr></thead>
-                <tbody>
-                  <tr><td>Armlehne</td><td>2</td><td>546</td></tr>
-                  <tr><td>Strebe unten</td><td>4</td><td>590</td></tr>
-                  <tr class="table-sum"><td colspan="2">6 Stück</td><td>ca. 3 Latten</td></tr>
-                </tbody>
-              </table>
-              </details>
-
-              <!-- Lehnbretter -->
-              <details>
-                <summary><img src="./symbols/wood_plank.svg" alt="" class="heading-icon"> Lehnbretter 90×18 mm</summary>
-              <table class="parts-table">
-                <thead><tr><th>Position</th><th>Anz.</th><th>L (mm)</th></tr></thead>
-                <tbody>
-                  <tr><td>Lehne 1 (L/M/R)</td><td>3</td><td>581</td></tr>
-                  <tr><td>Lehne 2 (L/M/R)</td><td>3</td><td>600</td></tr>
-                  <tr><td>Lehne 3 (L/M/R)</td><td>3</td><td>618</td></tr>
-                  <tr><td>Lehne 4 (L/M/R)</td><td>3</td><td>637</td></tr>
-                  <tr class="table-sum"><td colspan="2">12 Stück</td><td></td></tr>
-                </tbody>
-              </table>
-              </details>
-
-              <!-- Sitzbretter -->
-              <details>
-                <summary><img src="./symbols/wood_plank.svg" alt="" class="heading-icon"> Sitzbretter 90–100×18 mm</summary>
-              <table class="parts-table">
-                <thead><tr><th>Position</th><th>Anz.</th><th>L (mm)</th></tr></thead>
-                <tbody>
-                  <tr><td>Sitz 1 L/R</td><td>2</td><td>765</td></tr>
-                  <tr><td>Sitz 2 L/R</td><td>2</td><td>890</td></tr>
-                  <tr><td>Sitz 3 L/R</td><td>2</td><td>1014</td></tr>
-                  <tr><td>Sitz 4 links</td><td>1</td><td>1139</td></tr>
-                  <tr><td>Sitz 4 rechts</td><td>1</td><td>1159</td></tr>
-                  <tr><td>Sitz 1–4 Mitte</td><td>4</td><td>739–1113</td></tr>
-                  <tr class="table-sum"><td colspan="2">12 Stück</td><td></td></tr>
-                </tbody>
-              </table>
-              </details>
-
-              <!-- Deckleisten -->
-              <details>
-                <summary><img src="./symbols/wooden_board.svg" alt="" class="heading-icon"> Deckleisten 80×18 mm</summary>
-              <table class="parts-table">
-                <thead><tr><th>Position</th><th>Anz.</th><th>L (mm)</th></tr></thead>
-                <tbody>
-                  <tr><td>Deckleiste links</td><td>1</td><td>592</td></tr>
-                  <tr><td>Deckleiste Mitte</td><td>1</td><td>566</td></tr>
-                  <tr><td>Deckleiste rechts</td><td>1</td><td>592</td></tr>
-                  <tr class="table-sum"><td colspan="2">3 Stück</td><td></td></tr>
-                </tbody>
-              </table>
-              </details>
-
-              <!-- Schrauben -->
-              <details>
-                <summary><img src="./symbols/screw.svg" alt="" class="heading-icon"> Schrauben (Edelstahl A2)</summary>
-              <table class="parts-table">
-                <thead><tr><th>Schraube</th><th>Anzahl</th></tr></thead>
-                <tbody>
-                  <tr><td>Spax 3,5 × 30</td><td>ca. 100</td></tr>
-                  <tr><td>Spax 3,5 × 40</td><td>4</td></tr>
-                  <tr><td>Spax 3,5 × 45</td><td>6</td></tr>
-                  <tr class="table-sum"><td>Gesamt</td><td>ca. 110 Stück</td></tr>
-                </tbody>
-              </table>
+              <details open class="parts-list">
+                                <summary>Stückliste – Seitenteil links</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Menge</th>
+                      <th>Querschnitt</th>
+                      <th>Länge</th>
+                      <th>Info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Bein hinten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>882 mm</td>
+                      <td>90° Kappschnitt</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Bein vorn (lang)</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>670 mm</td>
+                      <td>Träger für Armlehne</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe oben</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>590 mm</td>
+                      <td>Sitzauflage</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe unten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 24 mm</td>
+                      <td>590 mm</td>
+                      <td>Bodenverbindung</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe Lehne</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>500 mm*</td>
+                      <td>*Zuschnittmaß mit 10° Winkel</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Armlehne</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 24 mm</td>
+                      <td>546 mm</td>
+                      <td>Abschluss oben</td>
+                    </tr>
+                  </tbody>
+                </table>
               </details>
             </div>
           </section>
 
-          <section id="zeichnungen" class="baugruppe">
-            <h2>Technische Zeichnungen</h2>
-            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+          <!-- Baugruppe Mitte -->
+          <section id="baugruppe-mitte" class="baugruppe">
 
-            <div class="drawings-grid" id="drawingsGrid"></div>
+            <h3><img src="./symbols/chair_carcass.svg" alt="" class="heading-icon"> Seitenteil Mitte</h3>
+            
+            <p>
+              Das Mittelteil folgt demselben Aufbau wie die Außenmodule, hat aber keine Armlehnen.
+              Die Seitenteile des Mittelmoduls sind beidseitig identisch.
+            </p>
+            
+            <div class="drawings-grid" id="drawingsGridMitte"></div>
+            
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+            
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Stückliste – Seitenteil Mitte (2x benötigt)</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Menge</th>
+                      <th>Querschnitt</th>
+                      <th>Länge</th>
+                      <th>Info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Bein hinten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>882 mm</td>
+                      <td>90° Kappschnitt</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Bein vorn (kurz)</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>442 mm</td>
+                      <td>90° Kappschnitt</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe oben</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>590 mm</td>
+                      <td>Sitzauflage</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe unten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 24 mm</td>
+                      <td>590 mm</td>
+                      <td>Bodenverbindung</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe Lehne</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>500 mm*</td>
+                      <td>*Zuschnittmaß mit 10° Winkel</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
           </section>
 
-          <!-- Zeichnungen -->
-          <script>
-            // Sobald das HTML geladen ist, befüllen wir die Grids
-            document.addEventListener('DOMContentLoaded', () => {
+          <!-- Baugruppe rechts -->
+          <section id="baugruppe-rechts" class="baugruppe">
 
-              // Datengetriebene Konfiguration für alle Zeichnungsgrids
-              const drawingConfigs = [
-                { containerId: 'drawingsGrid', pages: Array.from({ length: 46 }, (_, idx) => idx + 1), title: 'Baumbank' }
+            <h3><img src="./symbols/chair_carcass.svg" alt="" class="heading-icon"> Seitenteil rechts</h3>
+            
+            <p>
+              Das rechte Seitenteil ist das gespiegelte Pendant zum linken. Aufbau und Maße sind
+              identisch – lediglich die Ausrichtung ist umgekehrt.
+            </p>
+            
+            <div class="drawings-grid" id="drawingsGridRechts"></div>
+            
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+            
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Stückliste – Seitenteil rechts</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Bauteil</th>
+                      <th>Menge</th>
+                      <th>Querschnitt</th>
+                      <th>Länge</th>
+                      <th>Info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Bein hinten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>882 mm</td>
+                      <td>90° Kappschnitt</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Bein vorn (lang)</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>670 mm</td>
+                      <td>Durchgehend bis zur Armlehne</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe oben</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>590 mm</td>
+                      <td>Sitzauflage</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe unten</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 24 mm</td>
+                      <td>590 mm</td>
+                      <td>Bodenverbindung</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Strebe Lehne</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 44 mm</td>
+                      <td>500 mm*</td>
+                      <td>*Zuschnittmaß mit 10° Winkel</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Armlehne</strong></td>
+                      <td>1 Stk.</td>
+                      <td>44 x 24 mm</td>
+                      <td>546 mm</td>
+                      <td>Abschluss oben</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
+            <h3><img src="./symbols/miter_saw.svg" alt="" class="heading-icon"> Zuschnitt</h3>
+            <p>
+              Der Zuschnitt der Holzteile ist der erste größere Arbeitsschritt. 
+              Da viele Bauteile der drei Module identische Maße haben, 
+              lässt sich der Ablauf gut in Serie ausführen. 
+              Das Holz wird vorab nach den beiden benötigten Querschnitten sortiert: 
+              44 × 44 mm für das tragende Gerüst und 44 × 24 mm für Armlehnen und Aussteifungen.
+            </p>
+
+            <h4>Massive Kanthölzer (44 × 44 mm)</h4>
+            <p>
+              Zuerst werden die Beine zugeschnitten. Alle erhalten an beiden Enden einen 90°‑Schnitt. 
+              Weitere Winkel sind hier noch nicht erforderlich.
+            </p>
+            <ul>
+              <li><strong>Bein vorn, lang (670 mm):</strong> 2 Stück</li>
+              <li><strong>Bein vorn, kurz (442 mm):</strong> 2 Stück</li>
+              <li><strong>Bein hinten (882 mm):</strong> 4 Stück</li>
+              <li><strong>Strebe oben (590 mm):</strong> 4 Stück</li>
+            </ul>
+
+            <p>
+              Die Lehnenstreben bilden eine Ausnahme. Insgesamt werden 4 Stück benötigt. 
+              Sie werden zunächst auf 500 mm zugeschnitten. 
+              Eine Stirnseite bleibt rechtwinklig, die andere erhält einen 10°‑Anschnitt für die spätere Lehnenneigung.
+            </p>
+
+            <h4>Flache Leisten (44 × 24 mm)</h4>
+            <p>
+              Für Querverbindungen und Armlehnen kommen die schmaleren Leisten zum Einsatz. 
+              Alle Schnitte erfolgen ebenfalls mit 90°.
+            </p>
+            <ul>
+              <li><strong>Strebe unten (590 mm):</strong> 4 Stück</li>
+              <li><strong>Armlehne (546 mm):</strong> 2 Stück</li>
+            </ul>
+
+            <div class="note-box">
+              <p>
+                <strong>Organisation am Arbeitsplatz:</strong>
+                Da viele Teile ähnliche Längen haben, empfiehlt sich eine direkte Kennzeichnung nach dem Zuschnitt, z.&nbsp;B. mit Kürzeln wie „BH“ (Bein hinten) oder „AL“ (Armlehne). Ein fester Anschlag an der Kappsäge sorgt dafür, dass Serienteile exakt gleich lang werden und die Module später sauber stehen.
+              </p>
+            </div>
+          </section>
+
+          <!-- Sitzfläche -->
+          <section id="sitzflaeche" class="baugruppe">
+            
+            <h2><img src="./symbols/wooden_board.svg" alt="" class="heading-icon"> Sitzfläche</h2>
+           
+            <p>
+              Die Sitzfläche besteht aus vier Brettern pro Modul, die von vorne nach hinten länger werden.
+              Dadurch entsteht die charakteristische V-Form, die der halbkreisförmigen Gesamtform der Bank folgt.
+              Die Bretter werden auf die oberen Streben der Seitenteile aufgeschraubt.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridSitz"></div>
+
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+            
+            <h3><img src="./symbols/miter_saw.svg" alt="" class="heading-icon"> Zuschnitt und Fertigung der Sitzfläche</h3>
+
+            <p>
+              Die Sitzfläche besteht aus vier Brettern pro Modul. Alle Teile werden aus 18&nbsp;mm starkem Douglasienholz gefertigt. Die Stirnseiten erhalten eine 60°‑Gehrung an beiden Enden. Die Außenkanten werden gemäß Zeichnung mit R8 gebrochen; die Stirnflächen bleiben ungefräst. Die Bohrungen sind einheitlich ausgeführt: Ø&nbsp;3.5&nbsp;mm Durchgang und Ø&nbsp;7&nbsp;mm 90°‑Senkung. Die äußeren Bretter der linken und rechten Module besitzen zusätzlich eine Ausklinkung.
+            </p>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Stückliste – Sitzflächen</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Brett</th>
+                      <th>Modul</th>
+                      <th>Maße (L × B × H)</th>
+                      <th>Bearbeitung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sitz 1</td>
+                      <td>links</td>
+                      <td>765 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 2</td>
+                      <td>links</td>
+                      <td>890 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 3</td>
+                      <td>links</td>
+                      <td>1014 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 4</td>
+                      <td>links</td>
+                      <td>1139 × 100 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, Ausklinkung, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+
+                    <tr>
+                      <td>Sitz 1</td>
+                      <td>mitte</td>
+                      <td>739 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 2</td>
+                      <td>mitte</td>
+                      <td>864 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 3</td>
+                      <td>mitte</td>
+                      <td>988 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 4</td>
+                      <td>mitte</td>
+                      <td>1113 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+
+                    <tr>
+                      <td>Sitz 1</td>
+                      <td>rechts</td>
+                      <td>765 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 2</td>
+                      <td>rechts</td>
+                      <td>890 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 3</td>
+                      <td>rechts</td>
+                      <td>1014 × 90 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                    <tr>
+                      <td>Sitz 4</td>
+                      <td>rechts</td>
+                      <td>1159 × 100 × 18&nbsp;mm</td>
+                      <td>60° Gehrung beidseitig, Ausklinkung, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+
+            <p>
+              Der Hauptzuschnitt der Sitzbretter erfolgt an der Kapp‑Zug‑Säge. Bohrungen und Senkungen werden an der Standbohrmaschine ausgeführt. Die Ausklinkungen an den äußeren Brettern entstehen an der Bandsäge. Die Radien R8 werden ausschließlich an den Außenkanten mit der Kantenfräse hergestellt; die Stirnflächen bleiben ungefräst.
+            </p>
+
+          </section>
+
+          <!-- Rückenlehne -->
+          <section id="rueckenlehne" class="baugruppe">
+
+            <h2><img src="./symbols/wooden_board.svg" alt="" class="heading-icon"> Rückenlehne</h2>
+            
+            <p>
+              Die Rückenlehne besteht aus vier Lehnbrettern pro Modul sowie einer abschließenden Deckleiste.
+              Die Bretter werden auf die Lehnenstreben der Seitenteile geschraubt. Die leichte Neigung
+              (100°) sorgt für einen angenehmen Sitzkomfort.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridLehne"></div>
+            
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+<h3><img src="./symbols/miter_saw.svg" alt="" class="heading-icon"> Zuschnitt und Fertigung der Rückenlehne</h3>
+
+<p>
+  Der Zuschnitt der Lehnenbretter erfolgt an der Kapp‑Zug‑Säge. Für den Querwinkel von 85° wird der Gehrungswinkel auf 5° eingestellt, der Längswinkel von 60° entsteht über einen Neigungswinkel von 30°. Alle Bretter werden mit derselben Einstellung zugeschnitten. Bohrungen und Senkungen entstehen an der Standbohrmaschine. Die Radien R8 werden ausschließlich an den Außenkanten mit der Kantenfräse angebracht; die Stirnflächen bleiben ungefräst.
+</p>
+
+<p>
+  Bei den Lehnenbrettern 3 links und 3 rechts wird an der äußeren Stirnfläche zusätzlich die Aussparung A gefertigt. Sie ist als Eckausnehmung ausgeführt: von der Oberkante werden 24 mm nach unten und von der Außenkante 24 mm nach innen abgetragen; die Schnittfläche verläuft parallel zur Stirnfläche. Die Bearbeitung erfolgt nach dem Hauptzuschnitt, Bohrungen und Senkungen bleiben unverändert.
+</p>
+
+<p>
+  Die Lehnenbretter 4 erhalten abweichend von den übrigen Lehnen keinen Radius an der oberen Längskante. Diese bleibt scharfkantig, während die übrigen Außenkanten wie gewohnt mit R8 versehen werden. Die Stirnflächen bleiben ungefräst.
+</p>
+
+<p>
+  Ergänzend werden drei Deckleisten gefertigt. Die mittlere Deckleiste besitzt eine Länge von 566 mm, die beiden äußeren Deckleisten links und rechts jeweils 592 mm. Alle Deckleisten bestehen aus 18 mm starkem Douglasienholz und werden an der Kapp‑Zug‑Säge mit einem Stirnseitenwinkel von 80,3° zugeschnitten. Die Außenkanten erhalten einen Radius R8; die Stirnflächen bleiben ungefräst. Die Bohrungen werden an der Standbohrmaschine ausgeführt und bestehen aus Ø 3,5 mm Durchgang mit Ø 7 mm 90°‑Senkung gemäß Detail A‑A.
+</p>
+
+<div class="info-box stueckliste-inline">
+  <details open class="parts-list">
+    <summary>Stückliste – Rückenlehne</summary>
+    <table class="parts-table">
+      <thead>
+        <tr>
+          <th>Bauteil</th>
+          <th>Modul</th>
+          <th>Maße (L × B × H)</th>
+          <th>Bearbeitung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lehne 1</td>
+          <td>links / mitte / rechts</td>
+          <td>581 × 90 × 18&nbsp;mm</td>
+          <td>85° Stirnseiten, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+        </tr>
+        <tr>
+          <td>Lehne 2</td>
+          <td>links / mitte / rechts</td>
+          <td>600 × 90 × 18&nbsp;mm</td>
+          <td>85° Stirnseiten, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7</td>
+        </tr>
+        <tr>
+          <td>Lehne 3</td>
+          <td>links / mitte / rechts</td>
+          <td>618 × 90 × 18&nbsp;mm</td>
+          <td>85° Stirnseiten, R8 an Außenkanten, Bohrungen Ø3.5 / Ø7, Aussparung A bei links/rechts</td>
+        </tr>
+        <tr>
+          <td>Lehne 4</td>
+          <td>links / mitte / rechts</td>
+          <td>637 × 90 × 18&nbsp;mm</td>
+          <td>85° Stirnseiten, R8 an Außenkanten (oben ohne Radius), Bohrungen Ø3.5 / Ø7</td>
+        </tr>
+        <tr>
+          <td>Deckleiste Mitte</td>
+          <td>links / mitte / rechts</td>
+          <td>566 × 80 × 18&nbsp;mm</td>
+          <td>80,3° Stirnseiten, R8 an Außenkanten, 2× Bohrung Ø3.5 / Ø7</td>
+        </tr>
+        <tr>
+          <td>Deckleiste links</td>
+          <td>links</td>
+          <td>592 × 80 × 18&nbsp;mm</td>
+          <td>80,3° Stirnseiten, R8 an Außenkanten, Bohrung Ø3.5 / Ø7</td>
+        </tr>
+        <tr>
+          <td>Deckleiste rechts</td>
+          <td>rechts</td>
+          <td>592 × 80 × 18&nbsp;mm</td>
+          <td>80,3° Stirnseiten, R8 an Außenkanten, Bohrung Ø3.5 / Ø7</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</div>
+
+
+          </section>
+
+          <!-- Montage -->
+          <section id="montage" class="baugruppe">
+            
+            <h2><img src="./symbols/vise.svg" alt="" class="heading-icon"> Montage</h2>
+            
+            <p>
+              Die Montage erfolgt Modul für Modul. Erst wenn alle drei Module fertig sind, werden sie
+              nebeneinander gestellt und miteinander verschraubt.
+            </p>
+
+            <div class="drawings-grid" id="drawingsGridMontage"></div>
+            
+            <p class="drawing-hint">Ein Klick auf eine Zeichnung öffnet die Vollansicht zum Blättern; ein Klick auf PDF öffnet die technische Zeichnung in Originalgröße.</p>
+
+            <div class="info-box stueckliste-inline">
+              <details open class="parts-list">
+                <summary>Montageschritte</summary>
+                <ol>
+                  <li><strong>Seitenteile bauen:</strong> Beine, Streben und Armlehne zu einem Seitenteil verschrauben. Winkel (80°/100°) mit Schablone prüfen.</li>
+                  <li><strong>Sitzfläche montieren:</strong> Die vier Sitzbretter von vorne nach hinten auf die oberen Streben schrauben. Gleichmäßige Abstände einhalten.</li>
+                  <li><strong>Lehne aufbauen:</strong> Vier Lehnbretter auf die Lehnenstreben schrauben, Deckleiste abschließend befestigen.</li>
+                  <li><strong>Module verbinden:</strong> Alle drei Module nebeneinander ausrichten und über die Streben miteinander verschrauben.</li>
+                </ol>
+              </details>
+            </div>
+          </section>
+
+          <!-- Schrauben -->
+          <section id="schrauben" class="baugruppe">
+
+            <h2><img src="./symbols/screw.svg" alt="" class="heading-icon"> Schrauben und Verbindungsmittel</h2>
+            
+            <div class="info-box stueckliste-inline">
+              
+              <details open>
+                
+                <summary>Schrauben (Edelstahl A2)</summary>
+                <table class="parts-table">
+                  <thead>
+                    <tr>
+                      <th>Schraube</th>
+                      <th>Verwendung</th>
+                      <th>Anzahl</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Spax 3,5 × 30</td>
+                      <td>Lehn- und Sitzbretter</td>
+                      <td>ca. 100</td>
+                    </tr>
+                    <tr>
+                      <td>Spax 3,5 × 40</td>
+                      <td>Deckleisten</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>Spax 3,5 × 45</td>
+                      <td>Seitenteile, Streben</td>
+                      <td>ca. 60</td>
+                    </tr>
+                    <tr class="table-sum">
+                      <td colspan="2">Gesamt</td>
+                      <td>ca. 164 Stück</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </details>
+            </div>
+            <div class="note-box">
+              <p><strong>Wichtig:</strong> Ausschließlich Edelstahlschrauben A2 verwenden – Stahlschrauben rosten im Außenbereich und hinterlassen unschöne Verfärbungen im Holz.</p>
+            </div>
+          </section>
+
+          <!-- Werkzeuge -->
+          <section id="werkzeuge" class="baugruppe">
+            <h2><img src="./symbols/tool_cart.svg" alt="" class="heading-icon"> Werkzeuge</h2>
+            <ul>
+              <li><strong>Kapp-Zugsäge</strong> – für Längen- und Winkelschnitte.</li>
+              <li><strong>Akkubohrschrauber</strong> – zum Vorbohren und Einschrauben.</li>
+              <li><strong>Forstnerbohrer</strong> – zum Versenken der Schraubenköpfe.</li>
+              <li><strong>Winkelschablone</strong> – zum Prüfen der 80°/100°-Winkel.</li>
+              <li><strong>Zwingen</strong> – zum Fixieren während der Montage.</li>
+              <li><strong>Bandschleifer / Exzenterschleifer</strong> – für die Oberflächenbearbeitung.</li>
+            </ul>
+          </section>
+
+          <!-- Fazit -->
+          <section id="fazit" class="baugruppe">
+            <h2><img src="./symbols/paintbrush.svg" alt="" class="heading-icon"> Fazit</h2>
+            <p>
+              Die halbe Baumbank ist ein Projekt, das handwerklich nicht übermäßig anspruchsvoll ist,
+              aber viel Sorgfalt bei den Winkeln und der Ausrichtung verlangt. Das Ergebnis ist ein
+              robustes, langlebiges Möbelstück, das jeden Garten bereichert.
+            </p>
+            <p>
+              Douglasie als Material ist die richtige Wahl: Sie ist witterungsbeständig, schön und
+              mit der Zeit wird die Bank immer charaktervoller. Mit einem pigmentierten Holzöl lässt
+              sich die rötliche Farbe erhalten – oder man lässt die Bank natürlich vergrauen.
+            </p>
+          </section>
+
+          <!-- Zeichnungen Script -->
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const allPages = Array.from({ length: 46 }, (_, i) => i + 1);
+
+              const configs = [
+                { containerId: 'drawingsGridAlle', pages: allPages, title: 'Baumbank' },
+                { containerId: 'drawingsGridHauptbaugruppe', pages: [
+                  { 
+                    src: './baumbank/baumbank_halb.png', 
+                    title: 'Hauptbaugruppe',
+                    alt: 'Halbe Baumbank Übersicht' 
+                  }, 1,5],        
+                  title: 'Hauptbaugruppe' 
+                },
+                { containerId: 'drawingsGridLinkeBaugruppe', pages: [
+                  {
+                    src: './baumbank/seitemteil_links.png', 
+                    title: 'Linke Baugruppe',
+                    alt: 'Seitenteil links'
+                  }, 2, 6],
+                  title: 'Linke Baugruppe' 
+                },
+                { containerId: 'drawingsGridMittlereBaugruppe', pages: [
+                  {
+                    src: './baumbank/seitenteil_mitte.png', 
+                    title: 'Mittlere Baugruppe',
+                    alt: 'Seitenteil mitte'
+                  }, 3, 14],
+                  title: 'Mittlere Baugruppe' 
+                },
+                { containerId: 'drawingsGridRechteBaugruppe', pages: [
+                  {
+                    src: './baumbank/seitemteil_rechts.png', 
+                    title: 'Rechte Baugruppe',
+                    alt: 'Seitenteil rechts'
+                  }, 4, 17],
+                  title: 'Rechte Baugruppe' 
+                },
+                { containerId: 'drawingsGridLinks', pages: [
+                  {
+                    src: './baumbank/seitemteil_links.png', 
+                    title: 'Seitenteil links',
+                    alt: 'Seitenteil links'
+                  },
+                  6, 7, 8, 9, 10, 11, 12, 13], title: 'Seitenteil links' },
+                { containerId: 'drawingsGridMitte', pages: [
+                  {
+                    src: './baumbank/seitenteil_mitte.png', 
+                    title: 'Seitenteil Mitte',
+                    alt: 'Seitenteil Mitte'
+                  },
+                  14, 15, 8, 10, 11, 16], title: 'Seitenteil Mitte' },
+                { containerId: 'drawingsGridRechts', pages: [
+                  {
+                    src: './baumbank/seitemteil_rechts.png', 
+                    title: 'Seitenteil rechts',
+                    alt: 'Seitenteil rechts'
+                  },
+                  17, 7, 8, 9, 10, 11, 18, 19], title: 'Seitenteil rechts' },
+                { containerId: 'drawingsGridSitz', pages: [
+                  2, 35, 36, 37, 38,
+                  3, 39, 40, 41, 42,
+                  4, 43, 44, 45, 46 
+                ],        title: 'Sitzfläche' },
+                { containerId: 'drawingsGridLehne', pages: [
+                  27, 28, 29, 30, 21,
+                  23, 24, 25, 26, 20,
+                  31, 32, 33, 34, 22
+                ],        title: 'Rückenlehne' },
+                { containerId: 'drawingsGridMontage', pages: [44,45,46], title: 'Montage' },
               ];
 
-              drawingConfigs.forEach((cfg) => {
-                renderDrawingGrid(cfg.containerId, 'baumbank', cfg.pages, cfg.title);
-              });
-
+              configs.forEach(cfg => renderDrawingGrid(cfg.containerId, 'baumbank', cfg.pages, cfg.title));
             });
           </script>
 
-          <section id="montage" class="baugruppe">
-            <h2>Montage — Schritt für Schritt</h2>
-            <ol class="steps">
-              <li>
-                <div>
-                  <strong>Seitenteile bauen</strong>
-                  Jedes Seitenteil besteht aus Vorderbein, Hinterbein, oberer Strebe, unterer Strebe, Lehnenstrebe und Armlehne. Die Winkel (80° und 100°) sind entscheidend für die ergonomische Form.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>Sitzfläche montieren</strong>
-                  Die vier Sitzbretter pro Modul werden von vorne nach hinten länger. Dadurch entsteht die charakteristische V‑Form.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>Lehne aufbauen</strong>
-                  Vier Lehnbretter pro Modul, abgestuft und leicht geneigt. Die Deckleiste schließt die Lehne sauber ab.
-                </div>
-              </li>
-              <li>
-                <div>
-                  <strong>Module verbinden</strong>
-                  Die drei Module werden nebeneinander gestellt und verschraubt – fertig ist die halbe Baumbank.
-                </div>
-              </li>
-            </ol>
-          </section>
-
-          <section id="einsatz" class="project-section">
-            <h2>Einsatz im Garten — langlebig und gemütlich</h2>
-            <p>Douglasie ist wie geschaffen für Outdoor‑Möbel. Mit einem pigmentierten Öl bleibt die rötliche Farbe erhalten – ohne Öl patiniert sie zu einem edlen Silbergrau. Die Bank eignet sich perfekt für Bäume, Terrassen, Feuerstellen oder als frei stehende Gartenbank.</p>
-          </section>
-
         </article>
-
       </div>
 
       <a href="./knuts-wooden-dreams.html" class="back-link">← Zurück zur Übersicht</a>
+
+      <!-- GraphComment -->
+      <div class="comment-band">
+        <div id="graphcomment"></div>
+      </div>
+      <script type="text/javascript" src="./js/graphcomment.js"></script>
+
     </div>
   </main>
 
@@ -293,4 +830,3 @@
   </div>
 </body>
 </html>
-
