@@ -554,11 +554,7 @@
     Nach der Kontrolle werden die Bauteile wieder getrennt.
   </p>
 
-<!--  
-            <div class="drawings-grid" id="drawingsGridMontageSeitenteile"></div>
--->
-
-<img src="./baumbank/seitenteil_links_animiert.png" alt="Montage der Seitenteile" class="project-image-full">
+  <div class="drawings-grid" id="drawingsGridMontageSeitenteile"></div>
   <h4>Aufbau des oberen Rahmens</h4>
   <p>
     Zunächst wird die <strong>Strebe Lehne</strong> in die <strong>Strebe oben</strong> eingesetzt.
@@ -932,7 +928,7 @@
                 },
                 { containerId: 'drawingsGridLinkeBaugruppe', pages: [
                   {
-                    src: './baumbank/seitemteil_links.png', 
+                    src: './baumbank/seitenteil_links.png', 
                     title: 'Linke Baugruppe',
                     alt: 'Seitenteil links'
                   }, 2, 6],
@@ -1003,7 +999,13 @@
                   31, 32, 33, 34, 22
                 ],        title: 'Rückenlehne' },
                 { containerId: 'drawingsGridMontage', pages: [44,45,46], title: 'Montage' },
-                { containerId: 'drawingsGridMontageSeitenteile', pages: Array.from({ length: 12 }, (_, i) => ({ src: `./baumbank/seitenteil_links_${String(i + 1).padStart(2, '0')}.png`, title: `Montage Seitenteile ${i + 1}`, alt: `Montage Seitenteile Schritt ${i + 1}` })), title: 'Montage – Seitenteile' },
+                { containerId: 'drawingsGridMontageSeitenteile', pages: [
+                  { 
+                    src: './baumbank/seitenteil_links_animiert.png', 
+                    title: 'Montage der Seitenteile', 
+                    alt: 'Montage der Seitenteile' }
+                  ], title: 'Montage – Seitenteile' 
+                  },
               ];
 
               configs.forEach(cfg => renderDrawingGrid(cfg.containerId, 'baumbank', cfg.pages, cfg.title));
