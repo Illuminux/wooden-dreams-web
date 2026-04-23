@@ -17,8 +17,8 @@ import math
 
 # Mögliche Pfade zum Wasserzeichen-Logo (PNG bevorzugt, SVG als Fallback)
 DEFAULT_WM_PATHS = [
-    r"C:\Users\knutw\OneDrive\Dokumente\WoodenDreams\Abbildungen\Wooden Dreams Logo.png",
-    r"C:\Users\knutw\OneDrive\Dokumente\WoodenDreams\Abbildungen\Wooden Dreams Logo.svg",
+    r"../Abbildungen/Wooden_Dreams_Logo.png",
+    r"../Abbildungen/Wooden_Dreams_Logo.svg",
 ]
 
 DEFAULT_OPACITY = 0.1   # Transparenz des Wasserzeichens (0=unsichtbar, 1=voll)
@@ -46,7 +46,7 @@ def choose_pdfs():
 
 def load_watermark():
     # Ersten vorhandenen Wasserzeichen-Pfad zurückgeben
-    for p in DEFAULT_WM_PATHS:
+    for p in [Path(__file__).parent / path for path in DEFAULT_WM_PATHS]:
         if Path(p).is_file():
             return p
     return None
