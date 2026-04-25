@@ -3,7 +3,7 @@
     {
       "id": "saegen",
       "label": "Sägen",
-      "icon": "tablesaws",
+      "icon": "table_saw",
       "tools": [
         {
           "name": "Kapp- und Gehrungssäge KGS 254 M",
@@ -54,7 +54,7 @@
     {
       "id": "fraesen",
       "label": "Fräsen",
-      "icon": "routers",
+      "icon": "router",
       "tools": [
         {
           "name": "Oberfräse POF 1400 ACE",
@@ -105,7 +105,7 @@
     {
       "id": "schleifen",
       "label": "Schleifen",
-      "icon": "sanders",
+      "icon": "orbital_sander",
       "tools": [
         {
           "name": "Akku Exzenterschleifer AdvancedOrbit 18",
@@ -134,7 +134,7 @@
     {
       "id": "bohren",
       "label": "Bohren",
-      "icon": "drillpress",
+      "icon": "drill_press",
       "tools": [
         {
           "name": "Akkuschrauber AdvancedDrill 18",
@@ -174,7 +174,7 @@
     {
       "id": "absaugen",
       "label": "Absaugen",
-      "icon": "vacuum",
+      "icon": "vacuum_cleaner",
       "tools": [
         {
           "name": "Nass- und Trockensauger AdvancedVac 20",
@@ -214,7 +214,7 @@
     {
       "id": "pressure",
       "label": "Druckluft",
-      "icon": "pressure",
+      "icon": "compressor",
       "tools": [
         {
           "name": "Kompressor HC10-Twin",
@@ -226,6 +226,31 @@
           "description": "Ölfreier Doppeltank-Kompressor mit 7,5 L Kesselvolumen, 8 bar max. Druck, 750 W. Kompakt, wartungsarm, mit Gummistandfüßen. Für Druckluftnageln, Reifen und Ausblasen.",
           "asin": "B0CJVNP8BJ",
           "amazon": true
+        }
+      ]
+    },
+    {
+      "id": "spannen",
+      "label": "Spann-Werkzeuge",
+      "icon": "clamp",
+      "tools": [
+        {
+          "maker": "WORKPRO",
+          "name": "Einhandzwinge Spannweite 150 mm",
+          "type": "Spannen",
+          "description": "Einhandzwinge zum Spannen und Dehnen, Spannweite 150 mm, Dehnbereich 285 mm, Spannkraft 68 kg. Ideal für einfaches und stabiles Fixieren von Holz und Möbeln.",
+          "rating": 5,
+          "ratingText": "Perfektes Preis-Leistungs-Verhältnis.",
+          "asin": "B0875TD935"
+        },
+        {
+          "maker": "WORKPRO",
+          "name": "Einhandzwinge 12\"",
+          "type": "Spannen",
+          "description": "Schnellspann-Zwinge 12\", einseitig bedienbar, auch als Spreizer verwendbar, Belastung bis 68 kg. Ideal für Holzarbeiten und DIY-Projekte.",
+          "rating": 5,
+          "ratingText": "Perfektes Preis-Leistungs-Verhältnis.",
+          "asin": "B0875RW1Y6"
         }
       ]
     }

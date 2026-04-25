@@ -102,6 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
    * @param {Tool} [tool={}] Werkzeugdaten.
    * @returns {string} HTML-Markup der Werkzeugkarte.
    */
+  function slugify(str = "") {
+    return "tool-" + str.toLowerCase()
+      .replace(/[äÄ]/g, "ae").replace(/[öÖ]/g, "oe").replace(/[üÜ]/g, "ue").replace(/ß/g, "ss")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
   function renderToolCard(tool = {}) {
     /** @type {string} */
     const maker = escapeHTML(tool.maker);
@@ -115,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ratingText = tool.ratingText || "";
 
     return `
-<article class="tool-card">
+<article class="tool-card" id="${slugify(tool.name)}">
   <div class="tool-thumb">
     ${
       tool.asin

@@ -459,7 +459,8 @@
     color: var(--bark);
   }
 
-  p a {
+  p a,
+  li a {
     color: var(--bark);
     text-decoration: underline;
     text-decoration-color: var(--honey);
