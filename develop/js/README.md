@@ -25,6 +25,20 @@ Unterordner:
 - Allgemeine oder seitenübergreifende Skripte kommen in `develop/js/`.
 - Skripte, die nur innerhalb einzelner Projektseiten laufen, kommen in `develop/js/project/`.
 
+## Kategorie-Filter auf der Projektübersicht
+
+Die Projektübersicht in `knuts-wooden-dreams.html` wird in `projects.js` über den Query-Parameter `category` gefiltert.
+
+- Kein Parameter oder `?category=all`: alle Kategorien sichtbar.
+- `?category=werkstattausstattung`: nur Werkstattausstattung.
+- `?category=gartenmoebel`: nur Gartenmöbel.
+- `?category=inneneinrichtung`: nur Inneneinrichtung.
+
+Wichtig:
+
+- Kategorie-Links in Header, Breadcrumbs und Projektnavigation verwenden `?category=...` (nicht `#...`).
+- Ungültige Werte fallen im Rendering auf die Ansicht `all` zurück.
+
 ## Kurz-Check vor neuen Änderungen
 
 1. Ist die Funktion global oder nur projektseitig?

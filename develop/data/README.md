@@ -25,6 +25,15 @@ Kategorieobjekt:
 - `id` (optional, string): Anker-ID für die erste Karte der Kategorie.
 - `projects` (array): Liste der Projekte.
 
+Verwendung von `id` in der Projektübersicht:
+
+- `id` dient als Kategorie-Schlüssel für URL-Filter mit `?category=...`.
+- Erwartete Werte im aktuellen Bestand:
+   - `werkstattausstattung`
+   - `gartenmoebel`
+   - `inneneinrichtung`
+- `all` ist ein UI-Filterwert und keine Kategorie-ID in `projects.json`.
+
 Projektobjekt:
 
 - `slug` (optional, string): Eindeutiger Projekt-Slug.
@@ -76,7 +85,7 @@ Werkzeugobjekt:
 ## Datenregeln
 
 1. JSON muss valides UTF-8 ohne Kommentare sein.
-2. IDs/Slugs sollten stabil bleiben, damit Hash-Links und Verweise nicht brechen.
+2. IDs/Slugs sollten stabil bleiben, damit `?category=`-Links und Verweise nicht brechen.
 3. Pro Datei nur die dort vorgesehenen Domänen pflegen:
    - Projekte nur in `projects.json`
    - Werkzeuge nur in `tools.json`
