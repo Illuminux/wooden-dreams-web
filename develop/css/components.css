@@ -27,7 +27,7 @@
   transform: translate(-50%, -180%);
   background: rgba(43, 30, 20, 0.92);
   color: rgba(244, 236, 224, 0.92);
-  border: 1px solid rgba(200, 145, 58, 0.4);
+  border: 1px solid var(--accent-40);
   border-radius: 999px;
   padding: 0.42rem 0.82rem;
   text-decoration: none;
@@ -45,10 +45,10 @@
   &:focus-visible {
     transform: translate(-50%, 0.1rem);
     opacity: 1;
-    background: rgba(200, 145, 58, 0.96);
+    background: var(--accent-96);
     color: var(--clr-bark);
     border-color: rgba(43, 30, 20, 0.28);
-    outline: 2px solid rgba(200, 145, 58, 0.55);
+    outline: 2px solid var(--accent-55);
     outline-offset: 1px;
   }
 }
@@ -195,15 +195,15 @@ details summary:focus {
 
 .featured-excerpt {
   font-size: 0.93rem;
-  color: rgba(232,216,192,0.62);
+  color: var(--linen-62);
   line-height: 1.7;
   margin-bottom: 1.8rem;
 }
 
 .featured-meta {
   font-family: 'Inconsolata', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: var(--font-size-ui-xs);
+  letter-spacing: var(--letterspacing-ui);
   color: rgba(200,145,58,0.55);
   margin-bottom: 1.5rem;
 }
@@ -246,7 +246,7 @@ details summary:focus {
   &.card-3d .card-thumb {
     height: 220px;
     padding: 0;
-    background: #1a1008;
+    background: var(--surface-media-deep);
     position: relative;
 
     iframe { width: 100%; height: 100%; border: none; display: block; }
@@ -302,7 +302,7 @@ details summary:focus {
 
 .card-excerpt {
   font-size: 0.83rem;
-  color: #4a3a2a;
+  color: var(--text-body-soft);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -315,7 +315,7 @@ details summary:focus {
   padding-top: 0.8rem;
   font-family: 'Inconsolata', monospace;
   font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letterspacing-ui);
   color: var(--muted);
   text-transform: uppercase;
 }
@@ -334,8 +334,8 @@ details summary:focus {
   left: 0.5rem;
   font-family: 'Inconsolata', monospace;
   font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  background: rgba(200,145,58,0.9);
+  letter-spacing: var(--letterspacing-ui);
+  background: var(--overlay-accent-90);
   color: var(--bark);
   padding: 0.2rem 0.6rem;
   pointer-events: none;
@@ -497,7 +497,7 @@ details summary:focus {
 
 .newsletter .newsletter__text {
   font-size: 0.9rem;
-  color: rgba(232,216,192,0.6);
+  color: var(--linen-60);
   margin-bottom: 1.8rem;
 }
 
@@ -514,14 +514,14 @@ details summary:focus {
   padding: 0.8rem 1.2rem;
   font-family: 'Inconsolata', monospace;
   font-size: 0.8rem;
-  border: 1px solid rgba(200,145,58,0.3);
-  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--accent-30);
+  background: var(--white-08);
   color: var(--linen);
   outline: none;
 }
 
 .newsletter .newsletter__input::placeholder {
-  color: rgba(232,216,192,0.3);
+  color: var(--linen-30);
 }
 
 .newsletter .newsletter__button {
@@ -554,7 +554,7 @@ details summary:focus {
   font-family: 'Inconsolata', monospace;
   font-size: 0.74rem;
   letter-spacing: 0.04em;
-  color: rgba(232,216,192,0.72);
+  color: var(--linen-72);
 }
 
 .newsletter .newsletter__feedback.is-success {
@@ -576,7 +576,7 @@ details summary:focus {
   box-sizing: border-box;
   padding: 1.9rem 1.6rem 1.5rem;
   margin: 0 auto;
-  border: 1px solid rgba(200,145,58,0.24);
+  border: 1px solid var(--accent-24);
   background: var(--walnut);
   display: grid;
   gap: 0.75rem;
@@ -626,7 +626,7 @@ details summary:focus {
   margin: 0;
   font-size: 0.84rem;
   line-height: 1.62;
-  color: rgba(232,216,192,0.86);
+  color: var(--linen-86);
   text-align: center;
 }
 
@@ -660,15 +660,15 @@ details summary:focus {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(200,145,58,0.84);
+  color: var(--accent-84);
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
-  border: 1px solid rgba(200,145,58,0.3);
-  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--accent-30);
+  background: var(--white-08);
   color: var(--linen);
   padding: 0.8rem 1.2rem;
   font-family: 'Inconsolata', monospace;
@@ -680,14 +680,14 @@ details summary:focus {
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-form select:focus {
-  border-color: rgba(200,145,58,0.75);
-  background: rgba(255,255,255,0.12);
-  box-shadow: 0 0 0 1px rgba(200,145,58,0.28);
+  border-color: var(--accent-75);
+  background: var(--white-12);
+  box-shadow: 0 0 0 1px var(--accent-28);
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(232,216,192,0.3);
+  color: var(--linen-30);
 }
 
 .contact-form select {
@@ -700,7 +700,7 @@ details summary:focus {
 }
 
 .contact-form select:invalid {
-  color: rgba(232,216,192,0.5);
+  color: var(--linen-50);
 }
 
 .contact-form select option {
@@ -727,7 +727,7 @@ details summary:focus {
   font-family: 'Inconsolata', monospace;
   font-size: 0.7rem;
   line-height: 1.55;
-  color: rgba(232,216,192,0.78);
+  color: var(--linen-78);
 }
 
 .contact-form .contact-form__counter {
@@ -735,7 +735,7 @@ details summary:focus {
   text-align: right;
   font-family: 'Inconsolata', monospace;
   font-size: 0.68rem;
-  color: rgba(232,216,192,0.74);
+  color: var(--linen-74);
 }
 
 .contact-form label.contact-form__check {
@@ -747,7 +747,7 @@ details summary:focus {
   font-size: 0.74rem;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: rgba(232,216,192,0.92);
+  color: var(--linen-92);
 }
 
 .contact-form .contact-form__check span {
@@ -768,7 +768,7 @@ details summary:focus {
   font-family: 'Inconsolata', monospace;
   font-size: 0.74rem;
   letter-spacing: 0.04em;
-  color: rgba(232,216,192,0.72);
+  color: var(--linen-72);
 }
 
 .contact-form__feedback.is-success {

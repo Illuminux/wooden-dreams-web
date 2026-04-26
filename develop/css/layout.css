@@ -4,16 +4,18 @@
  * @copyright Copyright (C) 2026 Knut's Wooden Dreams
  * @license GPL-3.0-only
  * @details
- * Diese Datei enthaelt die strukturellen CSS-Regeln fuer:
+ * Diese Datei enthaelt die strukturellen und seitenweiten Basisregeln fuer:
  * - zentrale Inhaltsbreiten (.container),
  * - Kopfbereich und Navigation,
  * - globale Sektionstitel,
+ * - gemeinsame Inhalts-Typografie fuer .project-article,
+ * - gemeinsame details/summary-Basis im Inhaltskontext,
  * - About-Band,
  * - Footer-Varianten,
  * - Breadcrumbs und Sidebar-Layout.
  *
- * Ziel ist eine stabile, wiederverwendbare Layout-Basis, auf der
- * komponenten- und seitenbezogene Styles aufbauen.
+ * Ziel ist eine stabile, wiederverwendbare Basis, auf der
+ * komponenten- und bereichsspezifische Styles aufbauen.
  */
 
 /*
@@ -242,24 +244,263 @@ header nav {
   content: none;
 }
 
-/* ELEMENT (abgeleitet): Typografie wie echte H2, aber ohne eigene Linie */
+/* ELEMENTE: Titel uebernehmen ihre globale Typografie, aber ohne innere Trennlinie */
+.section-label.section-label-first > h1,
 .section-label.section-label-first > h2 {
   margin: 0;
-
-  /* echte H2-Typografie */
-  font-family: 'Lora', serif;
-  font-size: 2.2rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--walnut);
-
-  /* deine globalen H2-Extras */
-  letter-spacing: 0.25em;
   white-space: nowrap;
-
-  /* WICHTIG: verhindert die zweite Linie */
   border-bottom: none !important;
   padding-bottom: 0 !important;
+}
+
+.section-label.section-label-first > h2 {
+  letter-spacing: 0.25em;
+}
+
+/*
+ * Globale Ueberschriften-Hierarchie fuer zentrale Inhaltsbereiche.
+ * Gilt seitenweit und bildet die gemeinsame Basis fuer Projekt- und Inhaltsseiten.
+ */
+.container h1,
+.project-article h1 {
+  font-family: 'Marcellus', serif;
+  font-size: var(--font-size-h1-page);
+  color: var(--bark);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin: var(--space-xl) 0 var(--space-l);
+  font-weight: 400;
+
+  &:first-child { margin-top: 0; }
+}
+
+.container h2,
+.project-article h2 {
+  font-family: 'Lora', serif;
+  font-size: var(--font-size-h2-page);
+  color: var(--walnut);
+  line-height: 1.35;
+  margin: var(--space-m) 0 var(--space-s);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+
+  &:first-child { margin-top: 0; }
+}
+
+.container h3,
+.project-article h3 {
+  font-family: 'Lora', serif;
+  font-size: var(--font-size-h3-page);
+  color: var(--walnut);
+  line-height: 1.4;
+  margin: calc(var(--space-s) + 0.35rem) 0 0.5rem;
+  font-weight: 500;
+}
+
+.container h4,
+.project-article h4 {
+  font-family: 'Lora', serif;
+  font-size: var(--font-size-h4-page);
+  color: var(--muted);
+  line-height: 1.35;
+  font-weight: 500;
+  margin: 0.75rem 0 0.3rem;
+}
+
+@media (max-width: 640px) {
+  .container h2,
+  .project-article h2 {
+    font-size: var(--font-size-h2-page-mobile);
+  }
+
+  .container h3,
+  .project-article h3 {
+    font-size: var(--font-size-h3-page-mobile);
+  }
+
+  .container h4,
+  .project-article h4 {
+    font-size: var(--font-size-h4-page);
+  }
+}
+
+/*
+ * Gemeinsamer Lesefluss fuer Inhaltsartikel.
+ * Gilt fuer Projektseiten ebenso wie fuer statische Inhaltsseiten, die project-article nutzen.
+ */
+.project-article {
+  margin-top: var(--space-xl);
+
+  & > h2,
+  & > h3,
+  & > p,
+  & > ul,
+  & > ol,
+  & > blockquote,
+  & > .pull-quote {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  & > h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 1.45rem;
+    margin: var(--space-l) 0 var(--space-m);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--rule);
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+
+    &:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  }
+
+  & > h3 {
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+
+    &:first-child { margin-top: 0; }
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: var(--space-s) 0;
+    color: var(--bark);
+  }
+
+  p a,
+  li a {
+    color: var(--bark);
+    text-decoration: underline;
+    text-decoration-color: var(--honey);
+    text-underline-offset: 2px;
+    transition: color 0.2s, text-decoration-color 0.2s;
+  }
+
+  p a:visited {
+    color: var(--walnut);
+  }
+
+  p a:hover,
+  p a:focus-visible {
+    color: var(--honey);
+    text-decoration-color: var(--honey);
+  }
+
+  ul {
+    list-style: none;
+    margin: var(--space-s) 0;
+
+    li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-body-strong);
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+
+      &:last-child { border-bottom: none; }
+
+      &::before {
+        content: '✦';
+        position: absolute;
+        left: 0;
+        color: var(--honey);
+        font-size: 0.6rem;
+        top: 0.55rem;
+      }
+    }
+  }
+
+  ol {
+    list-style-position: outside;
+    list-style-type: decimal;
+    margin: var(--space-s) 0 var(--space-s) 1.4rem;
+    padding: 0;
+
+    li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-body-strong);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--rule);
+
+      &:last-child { border-bottom: none; }
+    }
+  }
+
+  @media (max-width: 768px) {
+    & > h2,
+    & > h3,
+    & > p,
+    & > ul,
+    & > ol,
+    & > blockquote,
+    & > .pull-quote {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    & > h2 { margin-top: 2.5rem; }
+    & > h3 { margin-top: 2rem; }
+  }
+}
+
+/*
+ * Redaktioneller Akzent fuer hervorgehobene Aussagen im Lesefluss.
+ */
+.pull-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--honey);
+  padding: var(--space-s) var(--space-m);
+  margin: var(--space-l) 0;
+  color: var(--walnut);
+  background: var(--linen);
+}
+
+/*
+ * Gemeinsames details/summary-Verhalten im Inhaltskontext.
+ * Die :where()-Klammer haelt die Spezifitaet niedrig, damit bereichsspezifische
+ * Regeln (z. B. Stuecklisten) gezielt ueberschreiben koennen.
+ */
+:where(.project-article) details {
+  border-bottom: 1px solid var(--rule);
+
+  &:last-child { border-bottom: none; }
+
+  summary {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--bark);
+    padding: 0.65rem 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    user-select: none;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::after {
+      content: '›';
+      margin-left: auto;
+      color: var(--honey);
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    &:hover { color: var(--honey); }
+  }
+
+  &[open] summary::after { transform: rotate(90deg); }
 }
 
 
@@ -357,7 +598,7 @@ footer {
 
 .footer-sub {
   font-family: 'Inconsolata', monospace;
-  font-size: 0.65rem;
+  font-size: var(--font-size-ui-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent-50);
@@ -375,7 +616,7 @@ footer nav.footer-links {
 
 .footer-links a {
   font-family: 'Inconsolata', monospace;
-  font-size: 0.65rem;
+  font-size: var(--font-size-ui-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
@@ -388,7 +629,7 @@ footer nav.footer-links {
 .footer-copy {
   font-family: 'Inconsolata', monospace;
   font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letterspacing-ui);
   color: var(--linen-20);
 }
 
@@ -402,7 +643,7 @@ footer nav.footer-links {
   padding: 1.2rem 2rem;
   font-family: 'Inconsolata', monospace;
   font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letterspacing-ui);
   color: var(--muted);
 
   a {
@@ -455,7 +696,7 @@ footer nav.footer-links {
     text-decoration: none;
     font-family: 'Inconsolata', monospace;
     font-size: 0.8rem;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--letterspacing-ui);
     transition: color 0.3s ease;
 
     &:hover { color: var(--accent); }

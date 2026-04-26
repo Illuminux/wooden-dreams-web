@@ -10,11 +10,12 @@
  *
  * Token-Gruppen:
  * - Primitive Tokens: rohe Farbwerte ohne konkrete Funktion.
- * - Semantic Tokens: funktionsbezogene Namen fuer UI-Bausteine.
+ * - Semantic Tokens: funktionsbezogene Farben inkl. Alpha-Stufen fuer Overlays/Formulare.
  * - Legacy Aliases: Rueckwaertskompatibilitaet fuer bestehende Selektoren.
  * - Typography Tokens: Schriftfamilien, Groessen, Gewichte und Rhythmus.
  * - Spacing System: standardisierte Abstands-Skala.
  * - Radius: wiederverwendbare Eckenrundung.
+ * - Shadow Tokens: wiederverwendbare Schattenabstufungen fuer Karten/Hover.
  *
  * Hinweis: Bestehende Token-Namen sollten bevorzugt erweitert statt ersetzt werden,
  * um unbeabsichtigte Seiteneffekte in importierenden Styles zu vermeiden.
@@ -25,96 +26,137 @@
  * Alle Variablen sind global verfuegbar und bilden die Grundlage der Kaskade.
  */
 :root {
-  /* ─────────────────────────────────────────────
-     Primitive Tokens (Farben)
-     ───────────────────────────────────────────── */
-  --clr-bark:       #2b1e14;
-  --clr-walnut:     #4a3323;
-  --clr-oak:        #8b6340;
-  --clr-honey:      #c8913a;
-  --clr-sand:       #e8d8c0;
-  --clr-linen:      #f4ece0;
-  --clr-warm-white: #faf6f0;
-  --clr-muted:      #7a6250;
+   /* ─────────────────────────────────────────────
+      Primitive Tokens (Farben)
+      ───────────────────────────────────────────── */
+   --clr-bark:       #2b1e14;
+   --clr-walnut:     #4a3323;
+   --clr-oak:        #8b6340;
+   --clr-honey:      #c8913a;
+   --clr-sand:       #e8d8c0;
+   --clr-linen:      #f4ece0;
+   --clr-warm-white: #faf6f0;
+   --clr-muted:      #7a6250;
 
-  /* ─────────────────────────────────────────────
-     Semantic Tokens (Funktion)
-     ───────────────────────────────────────────── */
-  --page-bg:        var(--clr-warm-white);
-  --card-bg:        var(--clr-linen);
-  --text-main:      var(--clr-bark);
-  --text-muted:     var(--clr-muted);
-  --accent:         var(--clr-honey);
-  --accent-hover:   var(--clr-oak);
-  --accent-soft:    #d9a24a;
+   /* ─────────────────────────────────────────────
+      Semantic Tokens (Funktion)
+      ───────────────────────────────────────────── */
+   --page-bg:        var(--clr-warm-white);
+   --card-bg:        var(--clr-linen);
+   --text-main:      var(--clr-bark);
+   --text-muted:     var(--clr-muted);
+   --text-body-strong: #2a1e14;
+   --text-body-emphasis: #3a2a1e;
+   --text-body-soft: #4a3a2a;
+   --accent:         var(--clr-honey);
+   --accent-hover:   var(--clr-oak);
+   --accent-soft:    #d9a24a;
    --accent-08:      rgba(200, 145, 58, 0.08);
+   --accent-06:      rgba(200, 145, 58, 0.06);
+   --accent-24:      rgba(200, 145, 58, 0.24);
+   --accent-28:      rgba(200, 145, 58, 0.28);
    --accent-30:      rgba(200, 145, 58, 0.3);
+   --accent-40:      rgba(200, 145, 58, 0.4);
    --accent-50:      rgba(200, 145, 58, 0.5);
+   --accent-55:      rgba(200, 145, 58, 0.55);
+   --accent-75:      rgba(200, 145, 58, 0.75);
+   --accent-84:      rgba(200, 145, 58, 0.84);
+   --accent-96:      rgba(200, 145, 58, 0.96);
+   --overlay-accent-90: rgba(200, 145, 58, 0.9);
+   --white-08:       rgba(255, 255, 255, 0.08);
+   --white-12:       rgba(255, 255, 255, 0.12);
+   --linen-30:       rgba(232, 216, 192, 0.3);
    --linen-20:       rgba(232, 216, 192, 0.2);
+   --linen-25:       rgba(232, 216, 192, 0.25);
    --linen-40:       rgba(232, 216, 192, 0.4);
+   --linen-62:       rgba(232, 216, 192, 0.62);
    --linen-60:       rgba(232, 216, 192, 0.6);
+   --linen-72:       rgba(232, 216, 192, 0.72);
+   --linen-74:       rgba(232, 216, 192, 0.74);
+   --linen-78:       rgba(232, 216, 192, 0.78);
+   --linen-86:       rgba(232, 216, 192, 0.86);
+   --linen-92:       rgba(232, 216, 192, 0.92);
    --linen-45:       rgba(244, 236, 224, 0.45);
    --linen-50:       rgba(244, 236, 224, 0.5);
    --linen-70:       rgba(244, 236, 224, 0.7);
-  --feedback-success: #d8eec7;
-  --feedback-error:   #ffd3c5;
-  --border-color:   rgba(74, 51, 35, 0.15);
-  --shadow-color:   rgba(43, 30, 20, 0.18);
+   --linen-warm-78:  rgba(236, 223, 204, 0.78);
+   --linen-warm-82:  rgba(236, 223, 204, 0.82);
+   --linen-warm-84:  rgba(236, 223, 204, 0.84);
+   --linen-warm-92:  rgba(236, 223, 204, 0.92);
+   --feedback-success: #d8eec7;
+   --feedback-error:   #ffd3c5;
+   --surface-media-deep: #1a1008;
+   --border-color:   rgba(74, 51, 35, 0.15);
+   --shadow-color:   rgba(43, 30, 20, 0.18);
+   --shadow-soft:    0 2px 8px rgba(43, 30, 20, 0.06);
+   --shadow-card:    0 3px 12px rgba(43, 30, 20, 0.1);
+   --shadow-hover-soft: 0 6px 14px rgba(43, 30, 20, 0.12);
 
-  /* ─────────────────────────────────────────────
-     Legacy Aliases (Kompatibilität)
-     ───────────────────────────────────────────── */
-  --bark:       var(--clr-bark);
-  --walnut:     var(--clr-walnut);
-  --oak:        var(--clr-oak);
-  --honey:      var(--clr-honey);
-  --sand:       var(--clr-sand);
-  --linen:      var(--clr-linen);
-  --warm-white: var(--clr-warm-white);
-  --muted:      var(--clr-muted);
-  --rule:       var(--border-color);
-  --shadow:     var(--shadow-color);
+   /* ─────────────────────────────────────────────
+      Legacy Aliases (Kompatibilität)
+      ───────────────────────────────────────────── */
+   --bark:       var(--clr-bark);
+   --walnut:     var(--clr-walnut);
+   --oak:        var(--clr-oak);
+   --honey:      var(--clr-honey);
+   --sand:       var(--clr-sand);
+   --linen:      var(--clr-linen);
+   --warm-white: var(--clr-warm-white);
+   --muted:      var(--clr-muted);
+   --rule:       var(--border-color);
+   --shadow:     var(--shadow-color);
 
-  /* ─────────────────────────────────────────────
-     Typography Tokens (BEM-neutral)
-     ───────────────────────────────────────────── */
+   /* ─────────────────────────────────────────────
+      Typography Tokens (BEM-neutral)
+      ───────────────────────────────────────────── */
 
-  /* Schriftfamilien */
-  --font-heading-primary: 'Lora', serif;
-  --font-heading-accent:  'Marcellus', serif;
-  --font-ui:              'Inconsolata', monospace;
+   /* Schriftfamilien */
+   --font-heading-primary: 'Lora', serif;
+   --font-heading-accent:  'Marcellus', serif;
+   --font-ui:              'Inconsolata', monospace;
 
-  /* Überschriften-Größen */
-  --font-size-h2-hero:     2.2rem;
-  --font-size-h2-category: 1.6rem;
-  --font-size-h2-content:  1.45rem;
-  --font-size-h3:          1.2rem;
+   /* Überschriften-Größen */
+   --font-size-h1-page:        clamp(2.6rem, 5vw, 3.6rem);
+   --font-size-h2-page:        clamp(1.72rem, 2.2vw, 2.2rem);
+   --font-size-h2-page-mobile: 1.5rem;
+   --font-size-h3-page:        1.3rem;
+   --font-size-h3-page-mobile: 1.18rem;
+   --font-size-h4-page:        1.08rem;
+   --font-size-h2-hero:        2.2rem;
+   --font-size-h2-category:    var(--font-size-h2-page);
+   --font-size-h2-content:     1.45rem;
+   --font-size-h3:             var(--font-size-h3-page);
+   --font-size-ui-xs:          0.65rem;
 
-  /* Schriftgewichte */
-  --font-weight-heading-strong: 600;
-  --font-weight-heading-normal: 500;
+   /* Schriftgewichte */
+   --font-weight-heading-strong: 600;
+   --font-weight-heading-normal: 500;
 
-  /* Letterspacing */
-  --letterspacing-wide:   0.25em;
-  --letterspacing-medium: 0.08em;
-  --letterspacing-none:   0;
+   /* Letterspacing */
+   --letterspacing-wide:   0.25em;
+   --letterspacing-medium: 0.08em;
+   --letterspacing-ui:     0.1em;
+   --letterspacing-none:   0;
 
-  /* Line Heights */
-  --line-height-heading-tight: 1.35;
-  --line-height-heading-base:  1.5;
-  --line-height-heading-loose: 1.55;
+   /* Line Heights */
+   --line-height-heading-tight: 1.35;
+   --line-height-heading-base:  1.5;
+   --line-height-heading-loose: 1.55;
 
-  /* ─────────────────────────────────────────────
-     Spacing System
-     ───────────────────────────────────────────── */
-  --space-xs: 0.5rem;
-  --space-s:  1rem;
-  --space-m:  1.5rem;
-  --space-l:  2rem;
-  --space-xl: 3rem;
+   /* ─────────────────────────────────────────────
+      Spacing System
+      ───────────────────────────────────────────── */
+   --space-xs: 0.5rem;
+   --space-s:  1rem;
+   --space-m:  1.5rem;
+   --space-l:  2rem;
+   --space-xl: 3rem;
 
-  /* ─────────────────────────────────────────────
-     Radius
-     ───────────────────────────────────────────── */
-  --radius-md: 8px;
+   /* ─────────────────────────────────────────────
+      Radius
+      ───────────────────────────────────────────── */
+   --radius-sm: 3px;
+   --radius-base: 4px;
+   --radius-lg: 6px;
+   --radius-md: 8px;
 }
