@@ -81,6 +81,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
+   * @function replaceThumbWithPlaceholder
+   * @brief Ersetzt ein fehlerhaftes Bild durch den vorhandenen Placeholder.
+   * @param {HTMLImageElement} img Bild-Element im Thumbnail.
+   * @returns {void}
+   */
+  function replaceThumbWithPlaceholder(img) {
+    const thumb = img.closest(".tool-thumb");
+    if (!thumb) return;
+    thumb.innerHTML = '<div class="tool-thumb-placeholder"><span>Bild nicht verfügbar</span></div>';
+  }
+
+  /**
+   * @function attachThumbFallbacks
+   * @brief Ergaenzt robuste Fallbacks fuer Amazon-Bilder (Error + 1x1-Responses).
+   * @param {ParentNode} root Wurzelknoten mit Tool-Thumbnails.
+   * @returns {void}
+   */
+  function attachThumbFallbacks(root) {
+    const images = root.querySelectorAll(".tool-thumb img");
+
+    const validate = (img) => {
+      // Einige Amazon-Endpunkte liefern ein 1x1-Bild statt Fehlerstatus.
+      if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
+        replaceThumbWithPlaceholder(img);
+      }
+    };
+
+    images.forEach((img) => {
+      img.addEventListener("error", () => replaceThumbWithPlaceholder(img), { once: true });
+      img.addEventListener("load", () => validate(img), { once: true });
+
+      if (img.complete) {
+        validate(img);
+      }
+    });
+  }
+
+  /**
    * @function escapeHTML
    * @brief Escaped kritische HTML-Zeichen fuer sichere Textausgabe.
    * @param {string} str Eingabetext.
@@ -108,6 +146,90 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
+  /**
+   * @function getHashTargetId
+   * @brief Liest und normalisiert die aktuelle URL-Hash-ID.
+   * @returns {string} Ziel-ID ohne fuehrendes # oder leerer String.
+   */
+  function getHashTargetId() {
+    const rawHash = window.location.hash || "";
+    if (!rawHash.startsWith("#")) return "";
+    try {
+      return decodeURIComponent(rawHash.slice(1));
+    } catch {
+      return rawHash.slice(1);
+    }
+  }
+
+  /**
+   * @function scrollToCurrentHash
+   * @brief Scrollt nach dem Rendern zum Hash-Ziel. Mit Retries fuer dynamisch erzeugte Inhalte.
+   * @param {number} [maxRetries=12] Anzahl Wiederholungen, falls Ziel noch nicht existiert.
+   * @returns {boolean} true, wenn ein Ziel gefunden wurde, sonst false.
+   */
+  function scrollToCurrentHash(maxRetries = 12) {
+    const targetId = getHashTargetId();
+    if (!targetId) return false;
+
+    let attempts = 0;
+    let found = false;
+
+    const findTarget = () => {
+      const exact = document.getElementById(targetId);
+      if (exact) return exact;
+
+      const normalized = targetId.toLowerCase();
+      const allWithId = document.querySelectorAll("[id]");
+      for (const el of allWithId) {
+        if ((el.id || "").toLowerCase() === normalized) {
+          return el;
+        }
+      }
+      return null;
+    };
+
+    const tryScroll = () => {
+      const target = findTarget();
+      if (target) {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+        found = true;
+        return;
+      }
+
+      attempts += 1;
+      if (attempts <= maxRetries) {
+        window.setTimeout(tryScroll, 50);
+      }
+    };
+
+    tryScroll();
+    return found;
+  }
+
+  /**
+   * @function stabilizeHashScroll
+   * @brief Fuehrt den Hash-Sprung mehrfach aus, um spaete Layout-Verschiebungen abzufangen.
+   * @returns {void}
+   */
+  function stabilizeHashScroll() {
+    if (!getHashTargetId()) return;
+
+    // Direkt nach dem Rendern
+    scrollToCurrentHash(16);
+
+    // Im naechsten Frame nach Layout-Berechnung
+    window.requestAnimationFrame(() => {
+      scrollToCurrentHash(4);
+    });
+
+    // Nach kompletter Seitenauslieferung (inkl. Bilder)
+    window.addEventListener("load", () => {
+      scrollToCurrentHash(6);
+      window.setTimeout(() => scrollToCurrentHash(2), 250);
+      window.setTimeout(() => scrollToCurrentHash(1), 900);
+    }, { once: true });
+  }
+
   function renderToolCard(tool = {}) {
     /** @type {string} */
     const maker = escapeHTML(tool.maker);
@@ -127,8 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tool.asin
         ? `<img src="${amazonImg(tool.asin)}"
                alt="${name}"
-               loading="lazy"
-               onerror="this.parentElement.innerHTML='<div class=tool-thumb-placeholder><span>Bild nicht verfügbar</span></div>'">`
+               loading="lazy">`
         : `<div class="tool-thumb-placeholder"><span>Bild nicht verfügbar</span></div>`
     }
     ${type ? `<span class="tool-category-badge">${type}</span>` : ""}
@@ -236,6 +357,17 @@ document.addEventListener("DOMContentLoaded", () => {
           "beforeend",
           renderCategory(category)
         );
+      });
+
+      // Bild-Fallbacks nach dem Rendern registrieren.
+      attachThumbFallbacks(container);
+
+      // Initialen Hash robust anspringen (auch bei spaeteren Layout-Shifts).
+      stabilizeHashScroll();
+
+      // Auch spaetere Hash-Aenderungen auf derselben Seite behandeln.
+      window.addEventListener("hashchange", () => {
+        scrollToCurrentHash(2);
       });
     })
     .catch((err) => {

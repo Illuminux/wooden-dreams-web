@@ -565,7 +565,7 @@
             </div>
           </section>
 
-          <section id="werkzeuge" class="baugruppe">
+          <section id="werkzeuge" class="project-section" data-toc-label="Werkzeuge" data-jump-label="Werkzeuge">
             <h2>
               <img src="./symbols/tool_cart.svg" alt="" class="heading-icon">
               Werkzeuge &amp; Pflege
@@ -578,6 +578,20 @@
             <p>
               Vor Arbeitsbeginn alle Werkzeuge prüfen (Sägeblatt, Bohrer, Fräser scharf; Schleifmittel ausreichend) und eine saubere, stabile Arbeitsfläche bereitstellen.
             </p>
+
+            <ul>
+              <li><strong><a href="./werkzeuge.html#tool-kapp-und-gehrungssaege-kgs-254-m">Kapp-Zugsäge</a></strong> (für Längen- und Winkelschnitte an Kanthölzern und Leisten).</li>
+              <li><strong><a href="./werkzeuge.html#tool-bandsaege-basa-1">Bandsäge</a></strong> (für Ausklinkungen, Schrägschnitte und Nacharbeit).</li>
+              <li><strong><a href="./werkzeuge.html#tool-tischbohrmaschine-dp60">Standbohrmaschine</a></strong> (für präzise Bohrbilder, Durchgangs- und Senkbohrungen).</li>
+              <li><strong><a href="./werkzeuge.html#tool-akkubohrschrauber-universaldrill-18v">Akkubohrschrauber</a></strong> (für Vorbohren und Montageverschraubungen).</li>
+              <li><strong>Kegelsenker</strong> (zum sauberen Versenken der Schraubenköpfe).</li>
+              <li><strong>Abrichte- und Dickenhobel</strong> (zum Vorbereiten von Blockware auf gleichmäßige Materialstärke).</li>
+              <li><strong>Winkelschablone</strong> (für die Kontrolle von Gehrungen und wiederkehrenden Winkelbezügen).</li>
+              <li><strong><a href="./werkzeuge.html#tool-einhandzwinge-spannweite-150-mm">Zwingen</a></strong> (für Fixierung, Ausrichtung und Verpressung).</li>
+              <li><strong><a href="./werkzeuge.html#tool-akku-kantenfraese-advancedtrimrouter-18v-8">Kantenfräse</a></strong> (für Kantenbruch und saubere Radien).</li>
+              <li><strong><a href="./werkzeuge.html#tool-oberfraese-pof-1400-ace">Oberfräse</a></strong> (für kontrollierte Nuten und exakte Kantenbearbeitung).</li>
+              <li><strong><a href="./werkzeuge.html#tool-akku-exzenterschleifer-advancedorbit-18">Exzenterschleifer</a></strong> (für den abgestuften Oberflächenschliff).</li>
+            </ul>
 
             <!-- Sägen -->
             <h3>
@@ -638,7 +652,7 @@
             </div>
           </section>
 
-          <section id="fazit" class="baugruppe">
+          <section id="fazit" class="project-section">
             <h2>
               <img src="./symbols/paintbrush.svg" alt="" class="heading-icon">
               Fazit
@@ -986,10 +1000,6 @@
                   ]
                 }
               ];
-
-              drawingConfigs.forEach((cfg) => {
-                renderDrawingGrid(cfg.containerId, 'gartentisch', cfg.pages, cfg.title);
-              });
 
               drawingConfigs.forEach((cfg) => {
                 renderDrawingGrid(cfg.containerId, 'gartentisch', cfg.pages, cfg.title);
