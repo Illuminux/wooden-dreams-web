@@ -403,6 +403,9 @@ details summary:focus {
 
 .lb-prev,
 .lb-next {
+  appearance: none;
+  background: transparent;
+  border: 0;
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -420,6 +423,12 @@ details summary:focus {
   @media (max-width: 480px) {
     font-size: 2rem;
     padding: 0.5rem;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--linen);
+    outline-offset: 4px;
+    opacity: 1;
   }
 }
 

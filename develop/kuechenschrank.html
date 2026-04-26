@@ -165,8 +165,8 @@
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <button type="button" class="close-lightbox" data-close aria-label="Lightbox schließen" onclick="closeLightbox()">&times;</button>
-    <a class="lb-prev" onclick="moveDrawing(-1)">&#10094;</a>
-    <a class="lb-next" onclick="moveDrawing(1)">&#10095;</a>
+    <button type="button" class="lb-prev" aria-label="Vorherige Zeichnung" onclick="moveDrawing(-1)">&#10094;</button>
+    <button type="button" class="lb-next" aria-label="Nächste Zeichnung" onclick="moveDrawing(1)">&#10095;</button>
     <div class="lightbox-content">
       <img id="lbImg" src="" alt="Vollansicht">
     </div>

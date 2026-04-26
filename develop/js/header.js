@@ -72,9 +72,36 @@ function markActiveLink() {
 }
 
 /**
+ * @function normalizeSeoUrls
+ * @brief Setzt relative Canonical- und og:url-Werte auf absolute Seiten-URLs.
+ * @returns {void}
+ */
+function normalizeSeoUrls() {
+    if (window.location.protocol === 'file:') {
+        return;
+    }
+
+    /** @type {string} Kanonische URL ohne Query- und Hash-Anteil. */
+    const canonicalUrl = `${window.location.origin}${window.location.pathname}`;
+    /** @type {HTMLLinkElement|null} Canonical-Link im Dokumentkopf. */
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    /** @type {HTMLMetaElement|null} OpenGraph-URL im Dokumentkopf. */
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+
+    if (canonicalLink) {
+        canonicalLink.setAttribute('href', canonicalUrl);
+    }
+
+    if (ogUrl) {
+        ogUrl.setAttribute('content', canonicalUrl);
+    }
+}
+
+/**
  * @event DOMContentLoaded
  * @brief Initialisiert den Header, sobald das DOM bereit ist.
  */
 document.addEventListener('DOMContentLoaded', function () {
+    normalizeSeoUrls();
     injectHeader();
 });

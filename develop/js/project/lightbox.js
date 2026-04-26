@@ -8,7 +8,7 @@
 /**
  * @typedef {Object} LightboxState
  * @property {string[]} images Aktuelle Bildpfade in der Lightbox.
- * @property {Array<number|string>} pages Aktuelle Seitennummern.
+ * @property {Array<number|string|{caption?: string}>} pages Aktuelle Seitenbezeichnungen.
  * @property {number} index Aktueller Bildindex.
  * @property {string} title Titel der Zeichnungsserie.
  * @property {Element|null} lastFocusedElement Fokusziel vor dem Oeffnen.
@@ -33,7 +33,7 @@ window.lightboxState = lightboxState;
  * @function openLightbox
  * @brief Oeffnet die Lightbox mit einer Bildserie.
  * @param {string[]} imageArray Bildpfade der Serie.
- * @param {Array<number|string>} pageNumbers Zugehoerige Seitennummern.
+ * @param {Array<number|string|{caption?: string}>} pageNumbers Zugehoerige Seitenbezeichnungen.
  * @param {number} index Startindex.
  * @param {string} title Titel fuer Caption und Alt-Text.
  * @returns {void}
@@ -125,6 +125,26 @@ function handleSwipe() {
 }
 
 /**
+ * @function getLightboxPageLabel
+ * @brief Ermittelt die lesbare Seitenbezeichnung fuer Caption und Alt-Text.
+ * @returns {string}
+ */
+function getLightboxPageLabel() {
+  /** @type {number|string|{caption?: string}|undefined} */
+  const currentPage = lightboxState.pages[lightboxState.index];
+
+  if (currentPage && typeof currentPage === 'object') {
+    return currentPage.caption || String(lightboxState.index + 1);
+  }
+
+  if (typeof currentPage === 'number' || typeof currentPage === 'string') {
+    return String(currentPage);
+  }
+
+  return String(lightboxState.index + 1);
+}
+
+/**
  * @function updateLightbox
  * @brief Aktualisiert Bild, Alt-Text und Caption der Lightbox.
  * @returns {void}
@@ -137,12 +157,12 @@ function updateLightbox() {
 
   if (!img || !cap) return;
 
-  /** @type {number|string} */
-  const currentPage = lightboxState.pages[lightboxState.index] || lightboxState.index + 1;
+  /** @type {string} */
+  const currentPageLabel = getLightboxPageLabel();
 
   img.src = lightboxState.images[lightboxState.index];
-  img.alt = `${lightboxState.title} – Zeichnung Seite ${currentPage}`;
-  cap.textContent = `${lightboxState.title} – Zeichnung Seite ${currentPage}`;
+  img.alt = `${lightboxState.title} – Zeichnung Seite ${currentPageLabel}`;
+  cap.textContent = `${lightboxState.title} – Zeichnung Seite ${currentPageLabel}`;
 
   if (!cap.hasAttribute('aria-live')) {
     cap.setAttribute('aria-live', 'polite');
