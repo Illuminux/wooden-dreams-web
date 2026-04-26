@@ -30,11 +30,11 @@ function injectHeader() {
     <circle cx="190" cy="190" r="188"/>
 </svg>
 <div class="header-inner">
-    <a href="./knuts-wooden-dreams.html">
+    <a href="./knuts-wooden-dreams.html?category=all">
         <img src="./images/WoodenDreamsLogo.svg" alt="Wooden Dreams Logo" class="site-logo">
     </a>
     <nav aria-label="Hauptnavigation">
-        <a href="./knuts-wooden-dreams.html">Projekte</a>
+        <a href="./knuts-wooden-dreams.html?category=all">Projekte</a>
         <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Techniken</span>
         <a href="./werkzeuge.html">Werkzeuge</a>
         <span class="nav-coming-soon" aria-disabled="true" title="Kommt bald">Holzarten</span>

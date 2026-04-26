@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const FEATURED_SELECTOR = ".featured-3d";
   /** @constant {string} GRID_SELECTOR Container fuer die Projektkarten im Grid. */
   const GRID_SELECTOR = ".posts-grid";
+  /** @constant {string} HASH_ALL Hash-Wert fuer die Ansicht mit allen Kategorien. */
+  const HASH_ALL = "all";
 
   /**
   * @function escapeHTML
@@ -162,6 +164,60 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
+   * @function normalizeCategoryValue
+   * @brief Normalisiert einen Kategorie-Wert aus URL-Parametern oder Hash.
+   * @param {string} value Rohwert aus der URL.
+   * @returns {string} Normalisierter Kategoriename oder leerer String.
+   */
+  function normalizeCategoryValue(value) {
+    if (typeof value !== "string") return "";
+    const trimmed = value.trim();
+    if (!trimmed) return "";
+    try {
+      return decodeURIComponent(trimmed).toLowerCase();
+    } catch {
+      return trimmed.toLowerCase();
+    }
+  }
+
+  /**
+   * @function getCurrentCategoryFilter
+   * @brief Liest den aktiven Kategorie-Filter aus ?category= (bevorzugt) oder Hash.
+   * @returns {string} Aktiver Kategorie-Filter in Kleinbuchstaben.
+   */
+  function getCurrentCategoryFilter() {
+    const params = new URLSearchParams(window.location.search || "");
+    const queryCategory = normalizeCategoryValue(params.get("category") || "");
+    if (queryCategory) {
+      return queryCategory;
+    }
+
+    const rawHash = window.location.hash || "";
+    if (!rawHash.startsWith("#")) return "";
+    return normalizeCategoryValue(rawHash.slice(1));
+  }
+
+  /**
+   * @function getVisibleCategories
+   * @brief Bestimmt die sichtbaren Kategorien basierend auf URL-Filterwerten.
+   * @param {ProjectCategory[]} categories Alle verfuegbaren Kategorien.
+   * @returns {ProjectCategory[]} Gefilterte Kategorie-Liste.
+   */
+  function getVisibleCategories(categories) {
+    const activeCategory = getCurrentCategoryFilter();
+    if (!activeCategory || activeCategory === HASH_ALL) {
+      return categories;
+    }
+
+    const filtered = categories.filter((category) => {
+      const categoryId = typeof category.id === "string" ? category.id.toLowerCase() : "";
+      return categoryId === activeCategory;
+    });
+
+    return filtered.length > 0 ? filtered : categories;
+  }
+
+  /**
    * @brief Laedt Projektdaten und rendert Featured-Bereich sowie Grid.
    */
   fetch(DATA_URL)
@@ -198,28 +254,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!grid) return;
 
-      /** @type {string[]} */
-      const html = [];
+      const renderGrid = () => {
+        /** @type {string[]} */
+        const html = [];
+        const visibleCategories = getVisibleCategories(data.categories);
 
-      data.categories.forEach((category) => {
-        const projects = Array.isArray(category.projects) ? category.projects : [];
-        let renderedIndex = 0;
-        projects.forEach((project) => {
+        visibleCategories.forEach((category) => {
+          const projects = Array.isArray(category.projects) ? category.projects : [];
+          let renderedIndex = 0;
+          projects.forEach((project) => {
             if (!project || typeof project !== "object") {
               return;
             }
-          if (featuredProject && project.slug === featuredProject.slug) {
-            return;
-          }
-          const sectionId = renderedIndex === 0 ? category.id : "";
-          html.push(renderProjectCard(project, sectionId));
-          renderedIndex += 1;
+            if (featuredProject && project.slug === featuredProject.slug) {
+              return;
+            }
+            const sectionId = renderedIndex === 0 ? category.id : "";
+            html.push(renderProjectCard(project, sectionId));
+            renderedIndex += 1;
+          });
         });
-      });
 
-      if (html.length > 0) {
         grid.innerHTML = html.join("\n");
-      }
+      };
+
+      renderGrid();
+      window.addEventListener("hashchange", renderGrid);
+      window.addEventListener("popstate", renderGrid);
     })
     .catch((err) => {
       console.error("Fehler beim Laden der Projekte:", err);
