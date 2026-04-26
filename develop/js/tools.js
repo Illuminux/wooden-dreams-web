@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
    * @returns {string} Darstellung der Bewertung als Sternzeichen.
    */
   function stars(rating = 0) {
-    return "★★★★★☆☆☆☆☆".slice(5 - rating, 10 - rating);
+    const safeRating = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+    return "★★★★★☆☆☆☆☆".slice(5 - safeRating, 10 - safeRating);
   }
 
   /**
@@ -144,6 +145,33 @@ document.addEventListener("DOMContentLoaded", () => {
     return "tool-" + str.toLowerCase()
       .replace(/[äÄ]/g, "ae").replace(/[öÖ]/g, "oe").replace(/[üÜ]/g, "ue").replace(/ß/g, "ss")
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  /**
+   * @function sanitizeHtmlId
+   * @brief Normalisiert einen Wert zu einer gueltigen, stabilen HTML-ID.
+   * @param {string} [value=""] Eingabewert fuer die ID.
+   * @returns {string} Normalisierte ID oder leerer String.
+   */
+  function sanitizeHtmlId(value = "") {
+    if (typeof value !== "string") return "";
+    return value
+      .toLowerCase()
+      .replace(/[äÄ]/g, "ae").replace(/[öÖ]/g, "oe").replace(/[üÜ]/g, "ue").replace(/ß/g, "ss")
+      .replace(/[^a-z0-9_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  /**
+   * @function sanitizeSymbolName
+   * @brief Erlaubt nur sichere Dateinamen fuer Symbol-Icons.
+   * @param {string} [value=""] Symbolname aus den Daten.
+   * @returns {string} Sicherer Symbolname oder "tools" als Fallback.
+   */
+  function sanitizeSymbolName(value = "") {
+    if (typeof value !== "string") return "tools";
+    const normalized = value.trim().toLowerCase();
+    return /^[a-z0-9-]+$/.test(normalized) ? normalized : "tools";
   }
 
   /**
@@ -238,9 +266,9 @@ document.addEventListener("DOMContentLoaded", () => {
     /** @type {string} */
     const type = escapeHTML(tool.type);
     /** @type {string} */
-    const desc = tool.description || "";
+    const desc = escapeHTML(tool.description);
     /** @type {string} */
-    const ratingText = tool.ratingText || "";
+    const ratingText = escapeHTML(tool.ratingText);
 
     return `
 <article class="tool-card" id="${slugify(tool.name)}">
@@ -292,10 +320,12 @@ document.addEventListener("DOMContentLoaded", () => {
     /** @type {string} */
     const label = escapeHTML(category.label);
     /** @type {string} */
-    const icon = category.icon || "tools";
+    const icon = sanitizeSymbolName(category.icon);
+    /** @type {string} */
+    const categoryId = sanitizeHtmlId(category.id || category.label || "");
 
     return `
-<section class="category-section" id="${category.id || ""}">
+<section class="category-section" id="${categoryId}">
   <div class="category-header">
     <h2>
       <img src="./symbols/${icon}.svg"

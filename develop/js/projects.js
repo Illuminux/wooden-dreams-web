@@ -205,6 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const projects = Array.isArray(category.projects) ? category.projects : [];
         let renderedIndex = 0;
         projects.forEach((project) => {
+            if (!project || typeof project !== "object") {
+              return;
+            }
           if (featuredProject && project.slug === featuredProject.slug) {
             return;
           }

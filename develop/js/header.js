@@ -53,16 +53,20 @@ function injectHeader() {
  * @returns {void}
  */
 function markActiveLink() {
-    /** @type {string} Aktueller Dateiname aus der URL. */
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    /** @type {string} Aktuelle Zielseite mit projektspezifischem Startseiten-Fallback. */
+    const path = window.location.pathname || '';
+    const trimmedPath = path.endsWith('/') ? path.slice(0, -1) : path;
+    const currentPage = trimmedPath.split('/').pop() || 'knuts-wooden-dreams.html';
     /** @type {NodeListOf<HTMLAnchorElement>} Navigationslinks im Header. */
     const navLinks = document.querySelectorAll('#header-placeholder nav a');
-    
+
     navLinks.forEach((link) => {
         /** @type {string} Normalisierte Link-Zielseite ohne Query/Hash. */
         const href = (link.getAttribute('href') || '').replace(/^\.\//, '').split('?')[0].split('#')[0];
         if (href === currentPage) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
