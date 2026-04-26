@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const FEATURED_SELECTOR = ".featured-3d";
   /** @constant {string} GRID_SELECTOR Container fuer die Projektkarten im Grid. */
   const GRID_SELECTOR = ".posts-grid";
-  /** @constant {string} HASH_ALL Hash-Wert fuer die Ansicht mit allen Kategorien. */
+  /** @constant {string} HASH_ALL Schluessel fuer die Ansicht mit allen Kategorien. */
   const HASH_ALL = "all";
 
   /**
@@ -164,8 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * @function normalizeCategoryValue
-   * @brief Normalisiert einen Kategorie-Wert aus URL-Parametern oder Hash.
+    * @function normalizeCategoryValue
+    * @brief Normalisiert einen Kategorie-Wert aus URL-Parametern.
    * @param {string} value Rohwert aus der URL.
    * @returns {string} Normalisierter Kategoriename oder leerer String.
    */
@@ -182,19 +182,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /**
    * @function getCurrentCategoryFilter
-   * @brief Liest den aktiven Kategorie-Filter aus ?category= (bevorzugt) oder Hash.
+   * @brief Liest den aktiven Kategorie-Filter aus ?category=.
    * @returns {string} Aktiver Kategorie-Filter in Kleinbuchstaben.
    */
   function getCurrentCategoryFilter() {
     const params = new URLSearchParams(window.location.search || "");
-    const queryCategory = normalizeCategoryValue(params.get("category") || "");
-    if (queryCategory) {
-      return queryCategory;
+    return normalizeCategoryValue(params.get("category") || "");
+  }
+
+  /**
+   * @function getAvailableCategoryIds
+   * @brief Ermittelt alle gueltigen Kategorie-IDs in Kleinbuchstaben.
+   * @param {ProjectCategory[]} categories Alle verfuegbaren Kategorien.
+   * @returns {string[]} Liste gueltiger Kategorie-IDs.
+   */
+  function getAvailableCategoryIds(categories) {
+    return categories
+      .map((category) => (typeof category.id === "string" ? category.id.toLowerCase() : ""))
+      .filter(Boolean);
+  }
+
+  /**
+   * @function getEffectiveCategoryFilter
+   * @brief Bestimmt den wirksamen Filter und faellt bei ungueltigen Werten auf "all" zurueck.
+   * @param {ProjectCategory[]} categories Alle verfuegbaren Kategorien.
+   * @returns {string} Wirksamer Filterwert.
+   */
+  function getEffectiveCategoryFilter(categories) {
+    const activeCategory = getCurrentCategoryFilter();
+    if (!activeCategory || activeCategory === HASH_ALL) {
+      return HASH_ALL;
     }
 
-    const rawHash = window.location.hash || "";
-    if (!rawHash.startsWith("#")) return "";
-    return normalizeCategoryValue(rawHash.slice(1));
+    const categoryIds = getAvailableCategoryIds(categories);
+    return categoryIds.includes(activeCategory) ? activeCategory : HASH_ALL;
+  }
+
+  /**
+   * @function syncCategoryNavigation
+   * @brief Markiert den aktiven Kategorie-Link in der Kategorienavigation.
+   * @param {string} activeCategory Wirksamer Kategorie-Filter.
+   * @returns {void}
+   */
+  function syncCategoryNavigation(activeCategory) {
+    const links = document.querySelectorAll('.project-jump-links a[href*="category="]');
+
+    links.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      const valuePart = href.split("category=")[1] || "";
+      const rawValue = valuePart.split("&")[0] || "";
+      const linkCategory = normalizeCategoryValue(rawValue);
+
+      if (linkCategory === activeCategory || (!linkCategory && activeCategory === HASH_ALL)) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
   }
 
   /**
@@ -204,17 +248,15 @@ document.addEventListener("DOMContentLoaded", () => {
    * @returns {ProjectCategory[]} Gefilterte Kategorie-Liste.
    */
   function getVisibleCategories(categories) {
-    const activeCategory = getCurrentCategoryFilter();
-    if (!activeCategory || activeCategory === HASH_ALL) {
+    const activeCategory = getEffectiveCategoryFilter(categories);
+    if (activeCategory === HASH_ALL) {
       return categories;
     }
 
-    const filtered = categories.filter((category) => {
+    return categories.filter((category) => {
       const categoryId = typeof category.id === "string" ? category.id.toLowerCase() : "";
       return categoryId === activeCategory;
     });
-
-    return filtered.length > 0 ? filtered : categories;
   }
 
   /**
@@ -257,7 +299,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const renderGrid = () => {
         /** @type {string[]} */
         const html = [];
+        const activeCategory = getEffectiveCategoryFilter(data.categories);
         const visibleCategories = getVisibleCategories(data.categories);
+
+        syncCategoryNavigation(activeCategory);
 
         visibleCategories.forEach((category) => {
           const projects = Array.isArray(category.projects) ? category.projects : [];
@@ -279,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       renderGrid();
-      window.addEventListener("hashchange", renderGrid);
       window.addEventListener("popstate", renderGrid);
     })
     .catch((err) => {

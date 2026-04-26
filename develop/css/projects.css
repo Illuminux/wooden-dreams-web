@@ -284,6 +284,12 @@
   outline: none;
 }
 
+.project-jump-links a[aria-current="page"] {
+  color: var(--oak);
+  border-bottom-color: var(--oak);
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   .project-jump-links {
     gap: 0.35rem 0.6rem;
