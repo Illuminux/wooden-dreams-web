@@ -1,4 +1,25 @@
-# Index
+# Baumbank Dateiverzeichnis
+
+## Verzeichnisanalyse
+
+Stand: 2026-04-26
+
+- Gesamtdateien im Ordner: 165
+- Markdown-Dateien: 1 (`README.md`)
+- PDF-Dateien: 46 (`01_baumbank.pdf` bis `46_baumbank.pdf`)
+- PNG-Dateien: 118
+
+Erkannte Struktur:
+
+- Das Kernset liegt als nummerierte Zeichnungspaare vor (`01` bis `46`) jeweils als PNG und PDF.
+- Zusaetzlich gibt es Render-/Montagegrafiken fuer Baugruppen, z. B. `baumbank_halb_*`, `seitenteil_*` und modulbezogene Ansichten.
+- Mehrere Dateien sind als Explosionsansicht oder Schrittfolge benannt, was auf Montage- und Varianten-Dokumentation hinweist.
+
+Hinweise zur Pflege:
+
+- Neue Zeichnungsnummern immer als konsistentes PNG/PDF-Paar anlegen.
+- Bei Varianten den bestehenden Namensstil mit klaren Suffixen (`_links`, `_mitte`, `_rechts`, `_explosion`) beibehalten.
+- Den Bezug zwischen Uebersichtsbildern und PDF-Zeichnungen in den Tabellen unten mitpflegen.
 
 ## PDF-Dateien der Zeichnungen
 
