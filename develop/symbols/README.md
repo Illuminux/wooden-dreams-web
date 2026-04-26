@@ -1,4 +1,4 @@
- # Symbol Übersicht
+# Symboluebersicht
 
 Hier findest du eine Übersicht über alle Symbole, die in diesem Projekt verwendet werden, sowie deren Bedeutung.
 
@@ -158,4 +158,18 @@ Hier findest du eine Übersicht über alle Symbole, die in diesem Projekt verwen
 
 ---
 
-Insgesamt: **117 Symbole**
+## Verwendung in den Daten
+
+- In `develop/data/tools.json` wird das Feld `icon` verwendet, um Symbole fuer Kategorien zu laden.
+- Die Aufloesung erfolgt ueber `develop/js/tools.js` als Datei `./symbols/<icon>.svg`.
+- Ungueltige oder nicht vorhandene Namen fallen im Frontend auf das Standard-Symbol `tools.svg` zurueck.
+
+## Pflegehinweise
+
+1. Fuer neue Symbole nur Kleinbuchstaben, Zahlen und Bindestriche im Dateinamen verwenden.
+2. Bei Umbenennungen immer auch Referenzen in `develop/data/tools.json` aktualisieren.
+3. Diese Uebersicht nach Aenderungen im Ordner mitpflegen.
+
+---
+
+Insgesamt: **112 Symbole**
